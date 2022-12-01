@@ -214,7 +214,7 @@ f_{i,j,k}=\max\{f_{i-1,j,k},f_{i-1,j-1,k}+p_i,f_{i-1,j,k-1}+u_i,f_{i-1,j-1,k-1}+
 <p>理解之后就是 wqs 二分板板题了。</p>
 <h2 id="P3522-POI2011-TEM-Temperature"><a href="#P3522-POI2011-TEM-Temperature" class="headerlink" title="P3522 [POI2011]TEM-Temperature"></a>P3522 [POI2011]TEM-Temperature</h2><p>给你每个数的取值范围，让你求可能的最长非递减<strong>子段</strong>长度。</p>
 <p>子序列变成了子段，简单了不少。</p>
-<p>不难发现一个区间合法，当且仅当对于任意位置 $i$，都有 $L<em>i\le\min\limits</em>{j\ge i}R_j$。</p>
+<p>不难发现一个区间合法，当且仅当对于任意位置 $i$，都有 $L_i\le\min R_j(j\ge i)$。</p>
 <p>然后我们想求出对于每个 $r$ 的最左边能到达的 $l$，发现这个东西是由单调性的。</p>
 <p>于是套上决策单调性模板即可，再写一个 ST 表。</p>
 <p>但是这题可以用单调栈做到线性，想法也非常简单。</p>
@@ -313,19 +313,19 @@ f_{i,j,k}=\max\{f_{i-1,j,k},f_{i-1,j-1,k}+p_i,f_{i-1,j,k-1}+u_i,f_{i-1,j-1,k-1}+
   <div class="tags-header"><i class="iconfont icon-biaoqian" style="padding-right: 2px;"></i>热门标签</div>
   <div class="tags-list">
     
-    <a href="\tags\图论" title="图论"><div class="tags-list-item">图论</div></a>
-    
-    <a href="\tags\字符串" title="字符串"><div class="tags-list-item">字符串</div></a>
-    
-    <a href="\tags\树上问题" title="树上问题"><div class="tags-list-item">树上问题</div></a>
+    <a href="\tags\数学" title="数学"><div class="tags-list-item">数学</div></a>
     
     <a href="\tags\动态规划" title="动态规划"><div class="tags-list-item">动态规划</div></a>
     
-    <a href="\tags\数学" title="数学"><div class="tags-list-item">数学</div></a>
+    <a href="\tags\树上问题" title="树上问题"><div class="tags-list-item">树上问题</div></a>
+    
+    <a href="\tags\字符串" title="字符串"><div class="tags-list-item">字符串</div></a>
     
     <a href="\tags\其他" title="其他"><div class="tags-list-item">其他</div></a>
     
     <a href="\tags\数据结构" title="数据结构"><div class="tags-list-item">数据结构</div></a>
+    
+    <a href="\tags\图论" title="图论"><div class="tags-list-item">图论</div></a>
     
   </div>
 </div>
