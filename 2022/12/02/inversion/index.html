@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<meta  lang="zh-CN" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#fff" id="theme-color">
+  <link rel="icon" href="/image/logo.png">
+  <title>Enucai's Blog</title>
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+    var setDarkmode = function(mode) {
+      var setting = mode || localStorage.getItem('user-color-scheme');
+      if(setting === getCssMediaQuery()) {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[setting];
+      } else if(reverseDarkList[setting]) {
+        document.documentElement.setAttribute('data-user-color-scheme', setting);
+        document.getElementById('theme-color').content = themeColor[setting];
+      } else {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+      }
+    };
+    setDarkmode();
+  </script>
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  </script>
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_vpj3dq9ceqa.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  
+  <link rel="preload" href="//cdn.jsdelivr.net/npm/fslightbox@3.1.0/index.min.js" as="script">
+  
+  
+  <link rel="preload" href="/js/lib/lozad.min.js" as="script">
+  
+  
+  
+  
+  
+  <link rel="prefetch" href="//cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" as="script">
+  
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_vpj3dq9ceqa.css">
+
+  
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body style="background-image: url(/image/back.jpg) !important;
+ background-repeat: no-repeat !important; background-position: center !important;
+ background-size: cover !important; background-attachment: fixed !important;">
+
+<body>
+  <div class="wrapper">
+    
+    <nav class="navbar">
+  <div class="navbar-logo">
+    <span class="navbar-logo-main">
+      
+      <img class="navbar-logo-img" src="/image/logo.png">
+      
+      <span class="navbar-logo-dsc">Enucai's Blog</span>
+    </span>
+  </div>
+  <div class="navbar-menu">
+    
+    <a href="/" class="navbar-menu-item">首页 </a>
+    
+    <a href="/archives" class="navbar-menu-item">归档 </a>
+    
+    <a href="/tags" class="navbar-menu-item">标签 </a>
+    
+    <a href="/about" class="navbar-menu-item">关于 </a>
+    
+    <a class="navbar-menu-item darknavbar" id="dark"><i class="iconfont icon-weather"></i></a>
+  </div>
+</nav>
+    
+    <div class="section-wrap">
+      <div class="container">
+        <div class="columns">
+          <main class="main-column">
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      反演
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2022-12-02T00:48:49.006Z" style="display: flex; align-items: center;">
+      <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
+      <span>2022-12-02</span>
+    </time>
+    
+    
+    <span class="dot"></span>
+    <span>974 字</span>
+    
+  </div>
+  
+  <div class="post-meta post-show-meta" style="margin-top: -10px;">
+    <div style="display: flex; align-items: center;">
+      <i class="iconfont icon-biaoqian" style="margin-right: 2px; font-size: 1.15rem;"></i>
+      
+      
+        <a href="/tags/数学/" class="post-meta-link">数学</a>
+      
+    </div>
+  </div>
+  
+  </header>
+  <div id="section" class="post-content">
+    <h2 id="杜教筛"><a href="#杜教筛" class="headerlink" title="杜教筛"></a>杜教筛</h2><p>杜教筛用于求解积性函数的前缀和。</p>
+<p>定义函数：$\epsilon(i)=[i=1],I(i)=1,id(i)=i$。</p>
+<h3 id="狄利克雷卷积"><a href="#狄利克雷卷积" class="headerlink" title="狄利克雷卷积"></a>狄利克雷卷积</h3><p>$(f<em>g)(n)=f(n)</em>g(n)=\sum\limits_{ij=n} f(i)g(j)$</p>
+<ol>
+<li><p>交换律：$f<em>g=g</em>f$，显然。</p>
+</li>
+<li><p>结合律：$(f<em>g)</em>h=f<em>(g</em>h)$。</p>
+<p>结合律证明：</p>
+<p>$((f<em>g)</em>h)(n)=\sum\limits<em>{ij=n}(f*g)(i)h(j)=\sum\limits</em>{ij=n}(\sum\limits<em>{pq=i}f(p)g(q))h(j)=\sum\limits</em>{ijk=n}f(i)g(j)h(k)$</p>
+<p>$(f<em>(g</em>h))(n)=\sum\limits<em>{ij=n}f(i)(g*h)(j)=\sum\limits</em>{ij=n}f(i)(\sum\limits<em>{pq=j}g(p)h(q))=\sum\limits</em>{ijk=n}f(i)g(j)h(k)$</p>
+</li>
+<li><p>单位元：$\epsilon$ ，$\epsilon*f=f$。</p>
+<p>$(\epsilon*f)(n)=\sum\limits_{ij=n}\epsilon(i)f(j)=f(n)$</p>
+<p>故 $\epsilon*f=f$。</p>
+</li>
+</ol>
+<h3 id="莫比乌斯函数"><a href="#莫比乌斯函数" class="headerlink" title="莫比乌斯函数"></a>莫比乌斯函数</h3><p>称 $I$ 在狄利克雷卷积意义下的逆元为莫比乌斯函数 $\mu$。</p>
+<p>由狄利克雷卷积的定义式得：$I*\mu=\epsilon\Rightarrow\sum\limits_{d|n}\mu(d)=\epsilon(n)$。</p>
+<p>因此，得到：$\mu(n)=\begin{cases}<br>             1, &amp; n=1\<br>             (-1)^k, &amp; n\text{能写成}k\text{个不同质数之积}\<br>             0, &amp; n\text{有完全平方数因子}<br>\end{cases}$</p>
+<p>证明：</p>
+<ol>
+<li><p>当 $n=1$ 时，$\mu(1)=\epsilon(1)=1$。</p>
+</li>
+<li><p>当 $n\neq 1$ 时，由唯一分解定理得：$n=p_1^{a_1}p_2^{a_2}p_3^{a_3}\dots p_k^{a_k}$。</p>
+<p>$\sum\limits_{d|n}\mu(d)=\mu(1)+\mu(p_1)+\mu(p_2)+\mu(p_3)+\dots+\mu(p_k)+\mu(p_1p_2)+\dots+\mu(p_1p_2p_3\dots p_k)$</p>
+<p>$\Rightarrow \sum\limits<em>{d|n}\mu(d)=\sum\limits</em>{i=0}^k C_k^i(-1)^i=0$。</p>
+</li>
+</ol>
+<h3 id="部分函数的狄利克雷卷积性质"><a href="#部分函数的狄利克雷卷积性质" class="headerlink" title="部分函数的狄利克雷卷积性质"></a>部分函数的狄利克雷卷积性质</h3><ol>
+<li><p>$I*\mu=\epsilon$。</p>
+<p>证明见<strong>莫比乌斯函数</strong>部分。</p>
+</li>
+<li><p>$\varphi*I=id$。</p>
+<p>证明：要证 $\varphi*I=id$，只需证 $\sum\limits_{d|n}\varphi(d)=n$。</p>
+<p>设 $f(n)=\sum\limits<em>{d|n}\varphi(d)$。则若 $n,m$ 互质，则 $f(nm)=\sum\limits</em>{d|nm}\varphi(d)=(\sum\limits<em>{d|n}\varphi(d))(\sum\limits</em>{d|m}\varphi(m))=f(n)f(m)$。</p>
+<p>因此 $f$ 是积性函数。</p>
+<p>$f(p^a)=\sum\limits_{d|p^a}\varphi(d)=\varphi(1)+\varphi(p)+\varphi(p^2)+\dots+\varphi(p^a)=p^a$。</p>
+<p>令 $n=p<em>1^{a_1}p_2^{a_2}p_3^{a_3}\dots p_k^{a_k}$，则 $f(n)=\prod\limits</em>{i=1}^k f(p<em>i^{a_i})=\prod\limits</em>{i=1}^kp<em>i^{a_i}=n$。故$\sum\limits</em>{d|n}\varphi(d)=n$。</p>
+</li>
+<li><p>$\mu*id=\varphi$。</p>
+<p>由性质 1 与 2，得 $I<em>\mu</em>id=\epsilon<em>\varphi</em>I$，故 $\mu<em>id=\epsilon</em>\varphi=\varphi$。</p>
+</li>
+</ol>
+<h3 id="莫比乌斯反演"><a href="#莫比乌斯反演" class="headerlink" title="莫比乌斯反演"></a>莫比乌斯反演</h3><p>若 $f(n)=\sum\limits<em>{d|n}g(d)=\sum\limits</em>{d|n}g(\frac{n}{d})$，则有 $g(n)=\sum\limits<em>{d|n}\mu(d)f(\frac{n}{d})=\sum\limits</em>{d|n}\mu(\frac{n}{d})f(d)$。</p>
+<p>证明：原命题等价于 $f=g<em>I \Leftrightarrow g=f</em>\mu$。</p>
+<p>$f=g<em>I\Rightarrow f</em>\mu=(g<em>I)</em>\mu\Rightarrow f<em>\mu=g</em>(I<em>\mu)\Rightarrow f</em>u=g<em>\epsilon\Rightarrow f</em>\mu=g$</p>
+<p>反之亦然。 </p>
+<h3 id="杜教筛-1"><a href="#杜教筛-1" class="headerlink" title="杜教筛"></a>杜教筛</h3><p>令 $S(n)=\sum\limits_{i=1}^nf(i)$，注意 $f$ 为积性函数。</p>
+<p>寻找另一个合适的积性函数 $g$，得到 $\sum\limits<em>{i=1}^n(f*g)(i)=\sum\limits</em>{i=1}^n\sum\limits<em>{pq=i}f(p)g(q)=\sum\limits</em>{i=1}^n\sum\limits<em>{d|i}f(d)g(\frac{n}{d})=\sum\limits</em>{d=1}^ng(d)\sum\limits<em>{i=1}^{\left\lfloor\frac{n}{d}\right\rfloor}f(i)=\sum\limits</em>{d=1}^ng(d)S(\left\lfloor\frac{n}{d}\rfloor\right)$。</p>
+<p>则 $S(n)g(1)=\sum\limits<em>{i=1}^n(f*g)(i)-\sum\limits</em>{i=2}^ng(i)S(\left\lfloor\frac{n}{i}\rfloor\right)$。</p>
+<p>若能快速求解 $f*g$ 的前缀和与 $g$ 的前缀和，则用数论分块的方法即可在 $O(n^{\frac{3}{4}})$ 复杂度内求解 $f$ 的前缀和。</p>
+<p>复杂度证明：令 $T(n)$ 为求解 $S(n)$ 的复杂度。</p>
+<p>$T(n)=\sum\limits_{i=1}^{\sqrt n}(T(\frac{n}{i})+T(i))$。前半部分为递归求解复杂度，后半部分为数论分块复杂度。</p>
+<p>可以认为 $T(n)=\sum\limits<em>{i=1}^{\sqrt n}(\sqrt i+\sqrt{\frac{n}{i}})$，显然 $i\le \frac{n}{i}$，故忽略 $\sqrt i$ 的项，得到 $T(n)=\sum\limits</em>{i=1}^{\sqrt n} \sqrt{\frac{n}{i}}\le\int_1^{\sqrt n} \frac{\sqrt{n}}{\sqrt{x}}=2\sqrt n\sqrt{\sqrt n}=O(n^{\frac{3}{4}})$。</p>
+<p>为降低杜教筛复杂度，我们先用线性筛预处理前 $n^t$ 个函数前缀和值，积分式变为：$\int_1^{n^{1-t}}\frac{\sqrt{n}}{\sqrt{x}}=O(n^{1-0.5t})$。</p>
+<p>当 $n^t=n^{1-0.5t}$ 时复杂度最优，则 $t=\frac{2}{3}$，杜教筛复杂度为 $O(n^{\frac{2}{3}})$。</p>
+
+  </div>
+  <div>
+  
+  <div class="post-note note-warning copyright" style="margin-top: 42px">
+    <p><span style="font-weight: bold;">作者：</span><a target="_blank" rel="nofollow noopener noreferrer" href="http://enucai.github.io/about">Enucai</a></p>
+    <p><span style="font-weight: bold;">文章链接：</span><a target="_blank" rel="nofollow noopener noreferrer" href="http://enucai.github.io/2022/12/02/inversion/">http://enucai.github.io/2022/12/02/inversion/</a></p>
+    <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
+  </div>
+  
+  </div>
+</article>
+<div class="nav">
+  
+  <div class="nav-item-prev">
+    <a href="/2022/12/02/block-P/" class="nav-link">
+      <i class="iconfont icon-left nav-prev-icon"></i>
+      <div>
+        <div class="nav-label">上一篇</div>
+        
+        <div class="nav-title">分块-题目 </div>
+        
+      </div>
+    </a>
+  </div>
+  
+  
+  <div class="nav-item-next">
+    <a href="/2022/12/02/acam/" class="nav-link">
+      <div>
+        <div class="nav-label">下一篇</div>
+        
+        <div class="nav-title">AC自动机 </div>
+        
+      </div>
+      <i class="iconfont icon-right nav-next-icon"></i>
+    </a>
+  </div>
+  
+</div>
+
+<div class="card card-content toc-card" id="mobiletoc">
+  <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%9C%E6%95%99%E7%AD%9B"><span class="toc-text">杜教筛</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%8D%B7%E7%A7%AF"><span class="toc-text">狄利克雷卷积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%87%BD%E6%95%B0"><span class="toc-text">莫比乌斯函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E5%88%86%E5%87%BD%E6%95%B0%E7%9A%84%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%8D%B7%E7%A7%AF%E6%80%A7%E8%B4%A8"><span class="toc-text">部分函数的狄利克雷卷积性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94"><span class="toc-text">莫比乌斯反演</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%9C%E6%95%99%E7%AD%9B-1"><span class="toc-text">杜教筛</span></a></li></ol></li></ol>
+</div></main>
+          <aside class="left-column">
+            
+            <div class="card card-author">
+              
+<img src="/image/head.png" class="author-img">
+
+<p class="author-name">Enucai</p>
+<p class="author-description">I'm always waiting for you.</p>
+<div class="author-message">
+  <a class="author-posts-count" href="/archives">
+    <span>37</span>
+    <span>文章</span>
+  </a>
+  <a class="author-categories-count" href="/categories">
+    <span>0</span>
+    <span>分类</span>
+  </a>
+  <a class="author-tags-count" href="/tags">
+    <span>7</span>
+    <span>标签</span>
+  </a>
+</div>
+
+            </div>
+            
+            <div class="sticky-tablet">
+  
+  
+  <article class="display-when-two-columns spacer">
+    <div class="card card-content toc-card">
+      <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%9C%E6%95%99%E7%AD%9B"><span class="toc-text">杜教筛</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%8D%B7%E7%A7%AF"><span class="toc-text">狄利克雷卷积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%87%BD%E6%95%B0"><span class="toc-text">莫比乌斯函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E5%88%86%E5%87%BD%E6%95%B0%E7%9A%84%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%8D%B7%E7%A7%AF%E6%80%A7%E8%B4%A8"><span class="toc-text">部分函数的狄利克雷卷积性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94"><span class="toc-text">莫比乌斯反演</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%9C%E6%95%99%E7%AD%9B-1"><span class="toc-text">杜教筛</span></a></li></ol></li></ol>
+    </div>
+  </article>
+  
+  
+  <article class="card card-content">
+    <div class="categories-card">
+  <div class="categories-header"><i class="iconfont icon-fenlei" style="padding-right: 2px;"></i>分类</div>
+  <div class="categories-list">
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content">
+    <div class="tags-card">
+  <div class="tags-header"><i class="iconfont icon-biaoqian" style="padding-right: 2px;"></i>热门标签</div>
+  <div class="tags-list">
+    
+    <a href="\tags\图论" title="图论"><div class="tags-list-item">图论</div></a>
+    
+    <a href="\tags\字符串" title="字符串"><div class="tags-list-item">字符串</div></a>
+    
+    <a href="\tags\树上问题" title="树上问题"><div class="tags-list-item">树上问题</div></a>
+    
+    <a href="\tags\动态规划" title="动态规划"><div class="tags-list-item">动态规划</div></a>
+    
+    <a href="\tags\数学" title="数学"><div class="tags-list-item">数学</div></a>
+    
+    <a href="\tags\其他" title="其他"><div class="tags-list-item">其他</div></a>
+    
+    <a href="\tags\数据结构" title="数据结构"><div class="tags-list-item">数据结构</div></a>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+          </aside>
+          <aside class="right-column">
+            <div class="sticky-widescreen">
+  
+  
+  <article class="card card-content toc-card">
+    <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%9C%E6%95%99%E7%AD%9B"><span class="toc-text">杜教筛</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%8D%B7%E7%A7%AF"><span class="toc-text">狄利克雷卷积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%87%BD%E6%95%B0"><span class="toc-text">莫比乌斯函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E5%88%86%E5%87%BD%E6%95%B0%E7%9A%84%E7%8B%84%E5%88%A9%E5%85%8B%E9%9B%B7%E5%8D%B7%E7%A7%AF%E6%80%A7%E8%B4%A8"><span class="toc-text">部分函数的狄利克雷卷积性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94"><span class="toc-text">莫比乌斯反演</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%9C%E6%95%99%E7%AD%9B-1"><span class="toc-text">杜教筛</span></a></li></ol></li></ol>
+  </article>
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header"><i class="iconfont icon-wenzhang_huaban" style="padding-right: 2px;"></i>最近文章</div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2022-12-02</div>
+        <a href="/2022/12/02/block-P/"><div class="recent-posts-item-content">分块-题目</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2022-12-02</div>
+        <a href="/2022/12/02/inversion/"><div class="recent-posts-item-content">反演</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2022-12-02</div>
+        <a href="/2022/12/02/acam/"><div class="recent-posts-item-content">AC自动机</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2022-12-02</div>
+        <a href="/2022/12/02/hash-and-miscellaneous/"><div class="recent-posts-item-content">字符串哈希与杂题</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>Copyright ©
+          
+          2020 -
+          
+          2022
+        </span>
+        <a href="/" class="footer-link">Enucai's Blog </a>
+      </div>
+    </div>
+
+    
+    <div class="footer-dsc">
+      
+      
+      Powered by
+      <a href="https://hexo.io/" class="footer-link" target="_blank" rel="nofollow noopener noreferrer">&nbsp;Hexo </a>
+      
+      
+      <span>&nbsp;|&nbsp;</span>
+      
+      
+      
+      Theme -
+      <a href="https://github.com/theme-kaze" class="footer-link" target="_blank"
+        rel="nofollow noopener noreferrer">&nbsp;Kaze</a>
+      
+    </div>
+    
+    
+    
+    
+</footer>
+  <a role="button" id="scrollbutton" class="basebutton" >
+  <i class="iconfont icon-arrowleft button-icon"></i>
+</a>
+<a role="button" id="menubutton" class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a role="button" id="popbutton" class="basebutton">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a role="button" id="darkbutton" class="basebutton darkwidget">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+
+  
+  
+  
+
+  
+  
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+
+  
+
+  
+  
+  <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img');
+    var i;
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a');
+      wrapper.setAttribute('data-fslightbox', 'gallery');
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'));
+      wrapper.setAttribute('style', 'width: 100%; display: flex; justify-content: center;');
+      img[i].parentElement.insertBefore(wrapper, img[i]);
+      wrapper.appendChild(img[i]);
+    }
+    refreshFsLightbox();
+  }
+</script>
+<script>loadScript("//cdn.jsdelivr.net/npm/fslightbox@3.1.0/index.min.js", addImgLayout)</script>
+  
+  
+  
+<script src="/js/main.js"></script>
+
+  
+  
+  <script>
+    var addLazyload = function () {
+      var observer = lozad('.lozad', {
+        load: function (el) {
+          el.srcset = el.getAttribute('data-src');
+        },
+        loaded: function (el) {
+          el.classList.add('loaded');
+        }
+      });
+      observer.observe();
+    }
+  </script>
+  <script>loadScript("/js/lib/lozad.min.js", addLazyload)</script>
+  
+  
+</body>
+
+</html>
