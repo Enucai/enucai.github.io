@@ -38,19 +38,19 @@
     };
     // apply current darkmode setting
     var setDarkmode = function(mode) {
-      var setting = mode || localStorage.getItem('user-color-scheme');
-      if(setting === getCssMediaQuery()) {
-        document.documentElement.removeAttribute('data-user-color-scheme');
-        localStorage.removeItem('user-color-scheme');
-        document.getElementById('theme-color').content = themeColor[setting];
-      } else if(reverseDarkList[setting]) {
-        document.documentElement.setAttribute('data-user-color-scheme', setting);
-        document.getElementById('theme-color').content = themeColor[setting];
-      } else {
-        document.documentElement.removeAttribute('data-user-color-scheme');
-        localStorage.removeItem('user-color-scheme');
-        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
-      }
+      // var setting = mode || localStorage.getItem('user-color-scheme');
+      // if(setting === getCssMediaQuery()) {
+      //   document.documentElement.removeAttribute('data-user-color-scheme');
+      //   localStorage.removeItem('user-color-scheme');
+      //   document.getElementById('theme-color').content = themeColor[setting];
+      // } else if(reverseDarkList[setting]) {
+      //   document.documentElement.setAttribute('data-user-color-scheme', setting);
+      //   document.getElementById('theme-color').content = themeColor[setting];
+      // } else {
+      //   document.documentElement.removeAttribute('data-user-color-scheme');
+      //   localStorage.removeItem('user-color-scheme');
+      //   document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+      // }
     };
     setDarkmode();
   </script>
@@ -80,6 +80,9 @@
   
   
   
+  <link rel="prefetch" href="//unpkg.com/valine/dist/Valine.min.js" as="script">
+  
+  
   
   
 <link rel="stylesheet" href="/css/main.css">
@@ -95,6 +98,11 @@
   
   
   
+  <style>
+    .card{
+      background-color: rgba(250,250,250,0.8);
+    }
+  </style>
 <meta name="generator" content="Hexo 5.4.2"></head>
 
 

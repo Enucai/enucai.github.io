@@ -38,19 +38,19 @@
     };
     // apply current darkmode setting
     var setDarkmode = function(mode) {
-      var setting = mode || localStorage.getItem('user-color-scheme');
-      if(setting === getCssMediaQuery()) {
-        document.documentElement.removeAttribute('data-user-color-scheme');
-        localStorage.removeItem('user-color-scheme');
-        document.getElementById('theme-color').content = themeColor[setting];
-      } else if(reverseDarkList[setting]) {
-        document.documentElement.setAttribute('data-user-color-scheme', setting);
-        document.getElementById('theme-color').content = themeColor[setting];
-      } else {
-        document.documentElement.removeAttribute('data-user-color-scheme');
-        localStorage.removeItem('user-color-scheme');
-        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
-      }
+      // var setting = mode || localStorage.getItem('user-color-scheme');
+      // if(setting === getCssMediaQuery()) {
+      //   document.documentElement.removeAttribute('data-user-color-scheme');
+      //   localStorage.removeItem('user-color-scheme');
+      //   document.getElementById('theme-color').content = themeColor[setting];
+      // } else if(reverseDarkList[setting]) {
+      //   document.documentElement.setAttribute('data-user-color-scheme', setting);
+      //   document.getElementById('theme-color').content = themeColor[setting];
+      // } else {
+      //   document.documentElement.removeAttribute('data-user-color-scheme');
+      //   localStorage.removeItem('user-color-scheme');
+      //   document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+      // }
     };
     setDarkmode();
   </script>
@@ -80,6 +80,9 @@
   
   
   
+  <link rel="prefetch" href="//unpkg.com/valine/dist/Valine.min.js" as="script">
+  
+  
   
   
 <link rel="stylesheet" href="/css/main.css">
@@ -95,6 +98,11 @@
   
   
   
+  <style>
+    .card{
+      background-color: rgba(250,250,250,0.8);
+    }
+  </style>
 <meta name="generator" content="Hexo 5.4.2"></head>
 
 
@@ -205,6 +213,42 @@
     </a>
   </div>
   
+</div>
+
+<div class="card card-content comment-card" style="margin-top: 16px;">
+  <div class="comment-card-title">评论</div>
+  
+  <div id="vcomments"></div>
+  
+  <script>
+    loadScript("//unpkg.com/valine/dist/Valine.min.js");
+    var oldLoadVa = window.onload;
+    window.onload = function () {
+      oldLoadVa && oldLoadVa();
+      new Valine({
+        el: '#vcomments',
+        appId: 'P8sDao2EqFI5YSHHRgZRUlcf-MdYXbMMI',
+        appKey: 'HfV1waxmQBjSpsTMI5Ca3mVt',
+        placeholder: 'Just go go',
+        path: window.location.pathname,
+        avatar: 'mp',
+        meta: ["nick","mail"],
+        pageSize: '10',
+        lang: '',
+        visitor: 'false',
+        highlight: true,
+        recordIP: false,
+        
+        serverURLs: 'https://p8sdao2e.api.lncldglobal.com',
+        
+        
+        
+        enableQQ: 'true',
+        requiredFields: [],
+      });
+    };
+  </script>
+
 </div>
 
 <div class="card card-content toc-card" id="mobiletoc">

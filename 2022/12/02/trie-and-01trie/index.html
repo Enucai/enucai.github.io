@@ -38,19 +38,19 @@
     };
     // apply current darkmode setting
     var setDarkmode = function(mode) {
-      var setting = mode || localStorage.getItem('user-color-scheme');
-      if(setting === getCssMediaQuery()) {
-        document.documentElement.removeAttribute('data-user-color-scheme');
-        localStorage.removeItem('user-color-scheme');
-        document.getElementById('theme-color').content = themeColor[setting];
-      } else if(reverseDarkList[setting]) {
-        document.documentElement.setAttribute('data-user-color-scheme', setting);
-        document.getElementById('theme-color').content = themeColor[setting];
-      } else {
-        document.documentElement.removeAttribute('data-user-color-scheme');
-        localStorage.removeItem('user-color-scheme');
-        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
-      }
+      // var setting = mode || localStorage.getItem('user-color-scheme');
+      // if(setting === getCssMediaQuery()) {
+      //   document.documentElement.removeAttribute('data-user-color-scheme');
+      //   localStorage.removeItem('user-color-scheme');
+      //   document.getElementById('theme-color').content = themeColor[setting];
+      // } else if(reverseDarkList[setting]) {
+      //   document.documentElement.setAttribute('data-user-color-scheme', setting);
+      //   document.getElementById('theme-color').content = themeColor[setting];
+      // } else {
+      //   document.documentElement.removeAttribute('data-user-color-scheme');
+      //   localStorage.removeItem('user-color-scheme');
+      //   document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+      // }
     };
     setDarkmode();
   </script>
@@ -80,6 +80,9 @@
   
   
   
+  <link rel="prefetch" href="//unpkg.com/valine/dist/Valine.min.js" as="script">
+  
+  
   
   
 <link rel="stylesheet" href="/css/main.css">
@@ -95,6 +98,11 @@
   
   
   
+  <style>
+    .card{
+      background-color: rgba(250,250,250,0.8);
+    }
+  </style>
 <meta name="generator" content="Hexo 5.4.2"></head>
 
 
@@ -146,7 +154,7 @@
     
     
     <span class="dot"></span>
-    <span>110 字</span>
+    <span>116 字</span>
     
   </div>
   
@@ -162,8 +170,10 @@
   
   </header>
   <div id="section" class="post-content">
-    <h2 id="Trie-字典树"><a href="#Trie-字典树" class="headerlink" title="Trie 字典树"></a>Trie 字典树</h2><p>trie 上的每个节点表示一个字符，而 trie 的根到 trie 上某个节点的路径即代表了一个字符串。实现较为简单，每个节点记录字符集大小个儿子的 $\text{idx}$ 即可。</p>
-<h2 id="01Trie"><a href="#01Trie" class="headerlink" title="01Trie"></a>01Trie</h2><p>显然，就是字符集为 ${0,1}$ 的 trie 树，通常用于解决各种二进制位运算求 最大/最小值的问题。较为简单，不再赘述。</p>
+    <h2 id="trie-字典树"><a class="markdownIt-Anchor" href="#trie-字典树"></a> Trie 字典树</h2>
+<p>trie 上的每个节点表示一个字符，而 trie 的根到 trie 上某个节点的路径即代表了一个字符串。实现较为简单，每个节点记录字符集大小个儿子的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext>idx</mtext></mrow><annotation encoding="application/x-tex">\text{idx}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord text"><span class="mord">idx</span></span></span></span></span> 即可。</p>
+<h2 id="01trie"><a class="markdownIt-Anchor" href="#01trie"></a> 01Trie</h2>
+<p>显然，就是字符集为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">{</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">\{0,1\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">{</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mclose">}</span></span></span></span> 的 trie 树，通常用于解决各种二进制位运算求 最大/最小值的问题。较为简单，不再赘述。</p>
 
   </div>
   <div>
@@ -205,9 +215,45 @@
   
 </div>
 
+<div class="card card-content comment-card" style="margin-top: 16px;">
+  <div class="comment-card-title">评论</div>
+  
+  <div id="vcomments"></div>
+  
+  <script>
+    loadScript("//unpkg.com/valine/dist/Valine.min.js");
+    var oldLoadVa = window.onload;
+    window.onload = function () {
+      oldLoadVa && oldLoadVa();
+      new Valine({
+        el: '#vcomments',
+        appId: 'P8sDao2EqFI5YSHHRgZRUlcf-MdYXbMMI',
+        appKey: 'HfV1waxmQBjSpsTMI5Ca3mVt',
+        placeholder: 'Just go go',
+        path: window.location.pathname,
+        avatar: 'mp',
+        meta: ["nick","mail"],
+        pageSize: '10',
+        lang: '',
+        visitor: 'false',
+        highlight: true,
+        recordIP: false,
+        
+        serverURLs: 'https://p8sdao2e.api.lncldglobal.com',
+        
+        
+        
+        enableQQ: 'true',
+        requiredFields: [],
+      });
+    };
+  </script>
+
+</div>
+
 <div class="card card-content toc-card" id="mobiletoc">
   <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Trie-%E5%AD%97%E5%85%B8%E6%A0%91"><span class="toc-text">Trie 字典树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#01Trie"><span class="toc-text">01Trie</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#trie-%E5%AD%97%E5%85%B8%E6%A0%91"><span class="toc-text"> Trie 字典树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#01trie"><span class="toc-text"> 01Trie</span></a></li></ol>
 </div></main>
           <aside class="left-column">
             
@@ -240,7 +286,7 @@
   <article class="display-when-two-columns spacer">
     <div class="card card-content toc-card">
       <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Trie-%E5%AD%97%E5%85%B8%E6%A0%91"><span class="toc-text">Trie 字典树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#01Trie"><span class="toc-text">01Trie</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#trie-%E5%AD%97%E5%85%B8%E6%A0%91"><span class="toc-text"> Trie 字典树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#01trie"><span class="toc-text"> 01Trie</span></a></li></ol>
     </div>
   </article>
   
@@ -286,7 +332,7 @@
   
   <article class="card card-content toc-card">
     <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
-<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Trie-%E5%AD%97%E5%85%B8%E6%A0%91"><span class="toc-text">Trie 字典树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#01Trie"><span class="toc-text">01Trie</span></a></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#trie-%E5%AD%97%E5%85%B8%E6%A0%91"><span class="toc-text"> Trie 字典树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#01trie"><span class="toc-text"> 01Trie</span></a></li></ol>
   </article>
   
   

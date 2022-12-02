@@ -38,19 +38,19 @@
     };
     // apply current darkmode setting
     var setDarkmode = function(mode) {
-      var setting = mode || localStorage.getItem('user-color-scheme');
-      if(setting === getCssMediaQuery()) {
-        document.documentElement.removeAttribute('data-user-color-scheme');
-        localStorage.removeItem('user-color-scheme');
-        document.getElementById('theme-color').content = themeColor[setting];
-      } else if(reverseDarkList[setting]) {
-        document.documentElement.setAttribute('data-user-color-scheme', setting);
-        document.getElementById('theme-color').content = themeColor[setting];
-      } else {
-        document.documentElement.removeAttribute('data-user-color-scheme');
-        localStorage.removeItem('user-color-scheme');
-        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
-      }
+      // var setting = mode || localStorage.getItem('user-color-scheme');
+      // if(setting === getCssMediaQuery()) {
+      //   document.documentElement.removeAttribute('data-user-color-scheme');
+      //   localStorage.removeItem('user-color-scheme');
+      //   document.getElementById('theme-color').content = themeColor[setting];
+      // } else if(reverseDarkList[setting]) {
+      //   document.documentElement.setAttribute('data-user-color-scheme', setting);
+      //   document.getElementById('theme-color').content = themeColor[setting];
+      // } else {
+      //   document.documentElement.removeAttribute('data-user-color-scheme');
+      //   localStorage.removeItem('user-color-scheme');
+      //   document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+      // }
     };
     setDarkmode();
   </script>
@@ -80,6 +80,9 @@
   
   
   
+  <link rel="prefetch" href="//unpkg.com/valine/dist/Valine.min.js" as="script">
+  
+  
   
   
 <link rel="stylesheet" href="/css/main.css">
@@ -95,6 +98,11 @@
   
   
   
+  <style>
+    .card{
+      background-color: rgba(250,250,250,0.8);
+    }
+  </style>
 <meta name="generator" content="Hexo 5.4.2"></head>
 
 
@@ -142,7 +150,8 @@
     </a>
     <div class="card-excerpt">
       
-      「DTOI-2」星之界不会做，思路来自 Ko...
+       「DTOI-2」星之界
+不会做，思路来自 Konata28。以下小块指分块中...
       
     </div>
     <div class="card-post-footer">
@@ -154,7 +163,7 @@
         
         
         <span class="dot"></span>
-        <span>1.3k 字</span>
+        <span>1.4k 字</span>
         
       </div>
       <a href="/2022/12/02/block-P/">继续阅读 </a>
@@ -172,8 +181,9 @@
     </a>
     <div class="card-excerpt">
       
-      杜教筛杜教筛用于求解积性函数的前缀和。
-定义函数：$\epsilon(i)=[...
+       杜教筛
+杜教筛用于求解积性函数的前缀和。
+定义函数：
       
     </div>
     <div class="card-post-footer">
@@ -185,7 +195,7 @@
         
         
         <span class="dot"></span>
-        <span>974 字</span>
+        <span>1.8k 字</span>
         
       </div>
       <a href="/2022/12/02/inversion/">继续阅读 </a>
@@ -203,8 +213,9 @@
     </a>
     <div class="card-excerpt">
       
-      AC 自动机
-AC 自动机是以 Trie 的结构为...
+       AC 自动机
+
+AC 自动机是以 Trie 的结构为基础，结合 ...
       
     </div>
     <div class="card-post-footer">
@@ -216,7 +227,7 @@ AC 自动机是以 Trie 的结构为...
         
         
         <span class="dot"></span>
-        <span>879 字</span>
+        <span>901 字</span>
         
       </div>
       <a href="/2022/12/02/acam/">继续阅读 </a>
@@ -234,7 +245,8 @@ AC 自动机是以 Trie 的结构为...
     </a>
     <div class="card-excerpt">
       
-      Manacher 回文串子串
+       Manacher 回文串子串
+因为 Manacher 的...
       
     </div>
     <div class="card-post-footer">
@@ -246,7 +258,7 @@ AC 自动机是以 Trie 的结构为...
         
         
         <span class="dot"></span>
-        <span>526 字</span>
+        <span>603 字</span>
         
       </div>
       <a href="/2022/12/02/hash-and-miscellaneous/">继续阅读 </a>
@@ -326,7 +338,8 @@ AC 自动机是以 Trie 的结构为...
     </a>
     <div class="card-excerpt">
       
-      Trie 字典树trie 上的每个节点表示一个字符，而 tri...
+       Trie 字典树
+trie 上的每个节点表示一个字符，而 trie 的根到 tr...
       
     </div>
     <div class="card-post-footer">
@@ -338,7 +351,7 @@ AC 自动机是以 Trie 的结构为...
         
         
         <span class="dot"></span>
-        <span>110 字</span>
+        <span>116 字</span>
         
       </div>
       <a href="/2022/12/02/trie-and-01trie/">继续阅读 </a>
