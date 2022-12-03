@@ -152,6 +152,11 @@
       <span>2022-12-02</span>
     </time>
     
+    <span class="dot"></span>
+    
+    <a href="/categories/算法笔记/" class="post-meta-link">算法笔记</a>
+    
+    
     
     <span class="dot"></span>
     <span>901 字</span>
@@ -176,7 +181,7 @@
 </blockquote>
 <p>AC 自动机能够用于解决多个模式串匹配的问题。首先是将所有的模式串建成 Trie 树，这个过程是平凡的。接下来是 fail 指针，是 AC 自动机的精华所在，AC 自动机便是借助它来实现多模式串匹配的。</p>
 <p>先给出定义：Trie 树上的一个节点的 fail 指针是指向所有模式串的前缀中匹配当前状态的最长后缀。通俗地讲，就是指向 Trie 树上深度最深的，且 表示的字符串前缀 是 当前节点表示的字符串前缀 的后缀的 一个 非当前节点的节点，若没有，则指向根。</p>
-<p><img src="https://img2022.cnblogs.com/blog/2286803/202210/2286803-20221006212818594-2019233222.png" alt="" / srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://img2022.cnblogs.com/blog/2286803/202210/2286803-20221006212818594-2019233222.png" class="lozad post-image lozad post-image lozad post-image lozad post-image lozad post-image lozad post-image" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://img2022.cnblogs.com/blog/2286803/202210/2286803-20221006212818594-2019233222.png" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://img2022.cnblogs.com/blog/2286803/202210/2286803-20221006212818594-2019233222.png" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://img2022.cnblogs.com/blog/2286803/202210/2286803-20221006212818594-2019233222.png" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://img2022.cnblogs.com/blog/2286803/202210/2286803-20221006212818594-2019233222.png" srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://img2022.cnblogs.com/blog/2286803/202210/2286803-20221006212818594-2019233222.png"></p>
+<p><img src="https://img2022.cnblogs.com/blog/2286803/202210/2286803-20221006212818594-2019233222.png" alt="" / srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="https://img2022.cnblogs.com/blog/2286803/202210/2286803-20221006212818594-2019233222.png" class="lozad post-image"></p>
 <p>如上图，5 号节点代表的字符串前缀是 <code>hi</code>，10 号节点代表的字符串前缀是 <code>i</code>，<code>i</code> 是 <code>hi</code> 的最长的出现过的后缀，因此 5 号节点的 fail 指向 10 号节点。再如 9 号节点代表的字符串前缀是 <code>she</code>，2 号节点代表 <code>he</code>，<code>he</code> 是 <code>she</code> 的最长的出现过的后缀，故 9 号节点的 fail 指向 2 号节点。理解起来还是比较容易的。</p>
 <p>接下来考虑求出 fail 指针。假设我们要求 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi></mrow><annotation encoding="application/x-tex">u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">u</span></span></span></span> 号节点的 fail 指针，它的父亲节点是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">fa</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mord mathnormal">a</span></span></span></span>，是父亲的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi></mrow><annotation encoding="application/x-tex">c</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">c</span></span></span></span> 儿子，分以下情况考虑：</p>
 <ul>
@@ -280,17 +285,17 @@
             
             <div class="card card-author">
               
-<img src="/image/head.png" class="author-img">
+<img src="/image/head.jpg" class="author-img">
 
 <p class="author-name">Enucai</p>
 <p class="author-description">I'm always waiting for you.</p>
 <div class="author-message">
   <a class="author-posts-count" href="/archives">
-    <span>37</span>
+    <span>38</span>
     <span>文章</span>
   </a>
   <a class="author-categories-count" href="/categories">
-    <span>0</span>
+    <span>3</span>
     <span>分类</span>
   </a>
   <a class="author-tags-count" href="/tags">
@@ -316,6 +321,27 @@
     <div class="categories-card">
   <div class="categories-header"><i class="iconfont icon-fenlei" style="padding-right: 2px;"></i>分类</div>
   <div class="categories-list">
+    
+      <a href="/categories/题目选讲">
+        <div class="categories-list-item">
+          题目选讲
+          <span class="categories-list-item-badge">32</span>
+        </div>
+      </a>
+    
+      <a href="/categories/比赛小记">
+        <div class="categories-list-item">
+          比赛小记
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/算法笔记">
+        <div class="categories-list-item">
+          算法笔记
+          <span class="categories-list-item-badge">5</span>
+        </div>
+      </a>
     
   </div>
 </div>
@@ -363,6 +389,11 @@
   <div class="recent-posts-list">
     
       <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2022-12-03</div>
+        <a href="/2022/12/03/abc280/"><div class="recent-posts-item-content">ABC280比赛小记</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
         <div class="recent-posts-item-title">2022-12-02</div>
         <a href="/2022/12/02/block-P/"><div class="recent-posts-item-content">分块-题目</div></a>
       </div>
@@ -375,11 +406,6 @@
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2022-12-02</div>
         <a href="/2022/12/02/acam/"><div class="recent-posts-item-content">AC自动机</div></a>
-      </div>
-    
-      <div class="recent-posts-item">
-        <div class="recent-posts-item-title">2022-12-02</div>
-        <a href="/2022/12/02/hash-and-miscellaneous/"><div class="recent-posts-item-content">字符串哈希与杂题</div></a>
       </div>
     
   </div>

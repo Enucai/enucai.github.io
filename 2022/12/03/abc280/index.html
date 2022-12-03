@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<meta  lang="zh-CN" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#fff" id="theme-color">
+  <link rel="icon" href="/image/logo.png">
+  <title>Enucai's Blog</title>
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+    var setDarkmode = function(mode) {
+      // var setting = mode || localStorage.getItem('user-color-scheme');
+      // if(setting === getCssMediaQuery()) {
+      //   document.documentElement.removeAttribute('data-user-color-scheme');
+      //   localStorage.removeItem('user-color-scheme');
+      //   document.getElementById('theme-color').content = themeColor[setting];
+      // } else if(reverseDarkList[setting]) {
+      //   document.documentElement.setAttribute('data-user-color-scheme', setting);
+      //   document.getElementById('theme-color').content = themeColor[setting];
+      // } else {
+      //   document.documentElement.removeAttribute('data-user-color-scheme');
+      //   localStorage.removeItem('user-color-scheme');
+      //   document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+      // }
+    };
+    setDarkmode();
+  </script>
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  </script>
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_vpj3dq9ceqa.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  
+  <link rel="preload" href="//cdn.jsdelivr.net/npm/fslightbox@3.1.0/index.min.js" as="script">
+  
+  
+  <link rel="preload" href="/js/lib/lozad.min.js" as="script">
+  
+  
+  
+  
+  
+  <link rel="prefetch" href="//cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" as="script">
+  
+  
+  
+  <link rel="prefetch" href="//unpkg.com/valine/dist/Valine.min.js" as="script">
+  
+  
+  
+  
+<link rel="stylesheet" href="/css/main.css">
+
+  
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_vpj3dq9ceqa.css">
+
+  
+  
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+
+  
+  
+  
+  <style>
+    .card{
+      background-color: rgba(250,250,250,0.8);
+    }
+  </style>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body style="background-image: url(/image/back.jpg) !important;
+ background-repeat: no-repeat !important; background-position: center !important;
+ background-size: cover !important; background-attachment: fixed !important;">
+
+<body>
+  <div class="wrapper">
+    
+    <nav class="navbar">
+  <div class="navbar-logo">
+    <span class="navbar-logo-main">
+      
+      <img class="navbar-logo-img" src="/image/logo.png">
+      
+      <span class="navbar-logo-dsc">Enucai's Blog</span>
+    </span>
+  </div>
+  <div class="navbar-menu">
+    
+    <a href="/" class="navbar-menu-item">首页 </a>
+    
+    <a href="/archives" class="navbar-menu-item">归档 </a>
+    
+    <a href="/tags" class="navbar-menu-item">标签 </a>
+    
+    <a href="/about" class="navbar-menu-item">关于 </a>
+    
+    <a class="navbar-menu-item darknavbar" id="dark"><i class="iconfont icon-weather"></i></a>
+  </div>
+</nav>
+    
+    <div class="section-wrap">
+      <div class="container">
+        <div class="columns">
+          <main class="main-column">
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      ABC280比赛小记
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2022-12-03T13:32:22.678Z" style="display: flex; align-items: center;">
+      <i class="iconfont icon-calendar" style="margin-right: 2px;"></i>
+      <span>2022-12-03</span>
+    </time>
+    
+    <span class="dot"></span>
+    
+    <a href="/categories/比赛小记/" class="post-meta-link">比赛小记</a>
+    
+    
+    
+    <span class="dot"></span>
+    <span>438 字</span>
+    
+  </div>
+  
+  <div class="post-meta post-show-meta" style="margin-top: -10px;">
+    <div style="display: flex; align-items: center;">
+      <i class="iconfont icon-biaoqian" style="margin-right: 2px; font-size: 1.15rem;"></i>
+      
+      
+        <a href="/tags/字符串/" class="post-meta-link">字符串</a>
+      
+    </div>
+  </div>
+  
+  </header>
+  <div id="section" class="post-content">
+    <p>Solved 6 problems (ABCDEF)，Rank 395，Account <a target="_blank" rel="noopener" href="https://atcoder.jp/users/Enucai">Enucai</a>。</p>
+<p>前 $5$ 题很简单，但是 D 脑抽挂了 $2$ 发。F 也想了好久。</p>
+<h2 id="F-Pay-or-Receive"><a href="#F-Pay-or-Receive" class="headerlink" title="F - Pay or Receive"></a>F - Pay or Receive</h2><p>给你一张 $n$ 个点 $m$ 条边的有向图，便有边权，对于一条有向边 $(u,v,w)$，均存在一条与之对应的边 $(v,u,-w)$。$q$ 次询问，每次询问给定 $u$ 和 $v$，求 $u$ 到 $v$ 的最长路。$n,m,q\le 10^5$。</p>
+<p>直接跑 SPFA，每一个连通块内选一个点，跑他到所有点的最长路，设为 $dis_u$，那么答案就是 $dis_v-dis_u$。</p>
+<p>因为 $u$ 到 $v$ 的最长路一定有一条经过环内任意点（走错了可以走回来，代价是 $0$）。</p>
+<p>提交记录：<a target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc280/submissions/36989583">link</a>。</p>
+<h2 id="G-Do-Use-Hexagon-Grid-2"><a href="#G-Do-Use-Hexagon-Grid-2" class="headerlink" title="G - Do Use Hexagon Grid 2"></a>G - Do Use Hexagon Grid 2</h2><p>在一个六边形网格上，有 $n$ 个点，同时给定一个 $d$，求有多少个点集，使得集合内的每对点的距离都不超过 $d$。$n\le 300$。</p>
+<p>首先考虑从 $(0,0)$ 到点 $(x,y)$ 的距离怎么算。由于 $(x,y)$ 可以向四方向走，可以向 $(1,1)$ 和 $(-1,-1)$ 方向走，所以距离是 $\max(|x|,|y|,|x-y|)$。考虑将一个点 $(x,y)$ 直接映射成一个三元组 $(x,y,x-y)$。那么问题就转化为：在一个三维空间内，有多少个点集是在同一个 $(d+1)\times (d+1)\times (d+1)$ 的立方体内。</p>
+<p>考虑钦定前两维的最小值位置，然后双指针去扫第三维在范围内的数。即钦定所有点的前两维为 $[x,x+d],[y,y+d]$。</p>
+<p>但是这样会算重，所以考虑做一个小容斥，即 $(x,y)-(x+1,y)-(x,y+1)+(x+1,y+1)$。</p>
+<p>最终复杂度 $O(n^3\log n)$，$\log n$ 由于要排序。</p>
+<p>提交记录：<a target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc280/submissions/37001427">link</a>。</p>
+
+  </div>
+  <div>
+  
+  <div class="post-note note-warning copyright" style="margin-top: 42px">
+    <p><span style="font-weight: bold;">作者：</span><a target="_blank" rel="nofollow noopener noreferrer" href="http://enucai.github.io/about">Enucai</a></p>
+    <p><span style="font-weight: bold;">文章链接：</span><a target="_blank" rel="nofollow noopener noreferrer" href="http://enucai.github.io/2022/12/03/abc280/">http://enucai.github.io/2022/12/03/abc280/</a></p>
+    <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
+  </div>
+  
+  </div>
+</article>
+<div class="nav">
+  
+  
+  <div class="nav-item-next">
+    <a href="/2022/12/02/block-P/" class="nav-link">
+      <div>
+        <div class="nav-label">下一篇</div>
+        
+        <div class="nav-title">分块-题目 </div>
+        
+      </div>
+      <i class="iconfont icon-right nav-next-icon"></i>
+    </a>
+  </div>
+  
+</div>
+
+<div class="card card-content comment-card" style="margin-top: 16px;">
+  <div class="comment-card-title">评论</div>
+  
+  <div id="vcomments"></div>
+  
+  <script>
+    loadScript("//unpkg.com/valine/dist/Valine.min.js");
+    var oldLoadVa = window.onload;
+    window.onload = function () {
+      oldLoadVa && oldLoadVa();
+      new Valine({
+        el: '#vcomments',
+        appId: 'P8sDao2EqFI5YSHHRgZRUlcf-MdYXbMMI',
+        appKey: 'HfV1waxmQBjSpsTMI5Ca3mVt',
+        placeholder: 'Just go go',
+        path: window.location.pathname,
+        avatar: 'mp',
+        meta: ["nick","mail"],
+        pageSize: '10',
+        lang: '',
+        visitor: 'false',
+        highlight: true,
+        recordIP: false,
+        
+        serverURLs: 'https://p8sdao2e.api.lncldglobal.com',
+        
+        
+        
+        enableQQ: 'true',
+        requiredFields: [],
+      });
+    };
+  </script>
+
+</div>
+
+<div class="card card-content toc-card" id="mobiletoc">
+  <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#F-Pay-or-Receive"><span class="toc-text">F - Pay or Receive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-Do-Use-Hexagon-Grid-2"><span class="toc-text">G - Do Use Hexagon Grid 2</span></a></li></ol>
+</div></main>
+          <aside class="left-column">
+            
+            <div class="card card-author">
+              
+<img src="/image/head.jpg" class="author-img">
+
+<p class="author-name">Enucai</p>
+<p class="author-description">I'm always waiting for you.</p>
+<div class="author-message">
+  <a class="author-posts-count" href="/archives">
+    <span>38</span>
+    <span>文章</span>
+  </a>
+  <a class="author-categories-count" href="/categories">
+    <span>3</span>
+    <span>分类</span>
+  </a>
+  <a class="author-tags-count" href="/tags">
+    <span>7</span>
+    <span>标签</span>
+  </a>
+</div>
+
+            </div>
+            
+            <div class="sticky-tablet">
+  
+  
+  <article class="display-when-two-columns spacer">
+    <div class="card card-content toc-card">
+      <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#F-Pay-or-Receive"><span class="toc-text">F - Pay or Receive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-Do-Use-Hexagon-Grid-2"><span class="toc-text">G - Do Use Hexagon Grid 2</span></a></li></ol>
+    </div>
+  </article>
+  
+  
+  <article class="card card-content">
+    <div class="categories-card">
+  <div class="categories-header"><i class="iconfont icon-fenlei" style="padding-right: 2px;"></i>分类</div>
+  <div class="categories-list">
+    
+      <a href="/categories/题目选讲">
+        <div class="categories-list-item">
+          题目选讲
+          <span class="categories-list-item-badge">32</span>
+        </div>
+      </a>
+    
+      <a href="/categories/比赛小记">
+        <div class="categories-list-item">
+          比赛小记
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+      <a href="/categories/算法笔记">
+        <div class="categories-list-item">
+          算法笔记
+          <span class="categories-list-item-badge">5</span>
+        </div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content">
+    <div class="tags-card">
+  <div class="tags-header"><i class="iconfont icon-biaoqian" style="padding-right: 2px;"></i>热门标签</div>
+  <div class="tags-list">
+    
+    <a href="\tags\字符串" title="字符串"><div class="tags-list-item">字符串</div></a>
+    
+    <a href="\tags\数学" title="数学"><div class="tags-list-item">数学</div></a>
+    
+    <a href="\tags\其他" title="其他"><div class="tags-list-item">其他</div></a>
+    
+    <a href="\tags\动态规划" title="动态规划"><div class="tags-list-item">动态规划</div></a>
+    
+    <a href="\tags\树上问题" title="树上问题"><div class="tags-list-item">树上问题</div></a>
+    
+    <a href="\tags\数据结构" title="数据结构"><div class="tags-list-item">数据结构</div></a>
+    
+    <a href="\tags\图论" title="图论"><div class="tags-list-item">图论</div></a>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+          </aside>
+          <aside class="right-column">
+            <div class="sticky-widescreen">
+  
+  
+  <article class="card card-content toc-card">
+    <div class="toc-header"><i class="iconfont icon-menu" style="padding-right: 2px;"></i>目录</div>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#F-Pay-or-Receive"><span class="toc-text">F - Pay or Receive</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G-Do-Use-Hexagon-Grid-2"><span class="toc-text">G - Do Use Hexagon Grid 2</span></a></li></ol>
+  </article>
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header"><i class="iconfont icon-wenzhang_huaban" style="padding-right: 2px;"></i>最近文章</div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2022-12-03</div>
+        <a href="/2022/12/03/abc280/"><div class="recent-posts-item-content">ABC280比赛小记</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2022-12-02</div>
+        <a href="/2022/12/02/block-P/"><div class="recent-posts-item-content">分块-题目</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2022-12-02</div>
+        <a href="/2022/12/02/inversion/"><div class="recent-posts-item-content">反演</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2022-12-02</div>
+        <a href="/2022/12/02/acam/"><div class="recent-posts-item-content">AC自动机</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>Copyright ©
+          
+          2020 -
+          
+          2022
+        </span>
+        <a href="/" class="footer-link">Enucai's Blog </a>
+      </div>
+    </div>
+
+    
+    <div class="footer-dsc">
+      
+      
+      Powered by
+      <a href="https://hexo.io/" class="footer-link" target="_blank" rel="nofollow noopener noreferrer">&nbsp;Hexo </a>
+      
+      
+      <span>&nbsp;|&nbsp;</span>
+      
+      
+      
+      Theme -
+      <a href="https://github.com/theme-kaze" class="footer-link" target="_blank"
+        rel="nofollow noopener noreferrer">&nbsp;Kaze</a>
+      
+    </div>
+    
+    
+    
+    
+</footer>
+  <a role="button" id="scrollbutton" class="basebutton" >
+  <i class="iconfont icon-arrowleft button-icon"></i>
+</a>
+<a role="button" id="menubutton" class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a role="button" id="popbutton" class="basebutton">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a role="button" id="darkbutton" class="basebutton darkwidget">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+
+  
+  
+  
+
+  
+  
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+
+  
+
+  
+  
+  <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img');
+    var i;
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a');
+      wrapper.setAttribute('data-fslightbox', 'gallery');
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'));
+      wrapper.setAttribute('style', 'width: 100%; display: flex; justify-content: center;');
+      img[i].parentElement.insertBefore(wrapper, img[i]);
+      wrapper.appendChild(img[i]);
+    }
+    refreshFsLightbox();
+  }
+</script>
+<script>loadScript("//cdn.jsdelivr.net/npm/fslightbox@3.1.0/index.min.js", addImgLayout)</script>
+  
+  
+  
+<script src="/js/main.js"></script>
+
+  
+  
+  <script>
+    var addLazyload = function () {
+      var observer = lozad('.lozad', {
+        load: function (el) {
+          el.srcset = el.getAttribute('data-src');
+        },
+        loaded: function (el) {
+          el.classList.add('loaded');
+        }
+      });
+      observer.observe();
+    }
+  </script>
+  <script>loadScript("/js/lib/lozad.min.js", addLazyload)</script>
+  
+  
+</body>
+
+</html>
