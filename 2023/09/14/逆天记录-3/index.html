@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Fira Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"enucai.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="逆天题目，感觉还是很有意思的，第三篇~">
+<meta property="og:type" content="article">
+<meta property="og:title" content="逆天记录-3">
+<meta property="og:url" content="http://enucai.github.io/2023/09/14/%E9%80%86%E5%A4%A9%E8%AE%B0%E5%BD%95-3/index.html">
+<meta property="og:site_name" content="Enucaiの小屋">
+<meta property="og:description" content="逆天题目，感觉还是很有意思的，第三篇~">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-09-14T15:33:38.000Z">
+<meta property="article:modified_time" content="2023-09-14T15:38:38.560Z">
+<meta property="article:author" content="Enucai">
+<meta property="article:tag" content="好题">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://enucai.github.io/2023/09/14/%E9%80%86%E5%A4%A9%E8%AE%B0%E5%BD%95-3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>逆天记录-3 | Enucaiの小屋</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Enucaiの小屋</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">进屋坐坐咩，进来的就别走诺</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+  <a href="https://github.com/enucai" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://enucai.github.io/2023/09/14/%E9%80%86%E5%A4%A9%E8%AE%B0%E5%BD%95-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Enucai">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Enucaiの小屋">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          逆天记录-3
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-09-14 23:33:38 / 修改时间：23:38:38" itemprop="dateCreated datePublished" datetime="2023-09-14T23:33:38+08:00">2023-09-14</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+            <div class="post-description">逆天题目，感觉还是很有意思的，第三篇~</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="p9531-joisc-2022-day4-复兴计划">P9531 [JOISC 2022 Day4]
+复兴计划</h2>
+<p>首先有结论：对于每条边，在最终方案中会被选择的 <span
+class="math inline">\(X\)</span> 是一个区间。</p>
+<p>将所有的边按照边权排序，那么他被选择的代价关于 <span
+class="math inline">\(X\)</span>
+是一个绝对值函数。对于每条边，找出前一条能与他形成环的边，那么分界的
+<span class="math inline">\(X\)</span> 就是两条边边权的平均值。</p>
+<p>找出每条边的 pre 可以在 <span
+class="math inline">\(O(nm\alpha(n))\)</span>
+的复杂度内完成，并将询问离线，按照 <span
+class="math inline">\(X\)</span> 排序后维护一堆一次函数的和即可。</p>
+<h2 id="cf1801e-gasoline-prices">CF1801E Gasoline prices</h2>
+<p>对于每一个形如 <span
+class="math inline">\(\{(u_1,v_1),(u_2,v_2)\}\)</span>
+的限制，等价于将两条路径上对应点并查集合并，最后在同一个并查集中的元素的值必须相等，因此在求出最后并查集的合并情况后，只需要求出每个并查集连通块内部
+<span class="math inline">\(L\)</span> 的 <span
+class="math inline">\(\max\)</span> 与 <span
+class="math inline">\(R\)</span> 的 <span
+class="math inline">\(\min\)</span> 即可，这一部分是容易计算的。</p>
+<p>接下来考虑如何在合理的复杂度内计算出并查集的合并情况。</p>
+<p>首先发现，将所有点全部合并联通只需要进行 <span
+class="math inline">\(n-1\)</span> 次合并操作，因此有效的合并操作是
+<span class="math inline">\(O(n)\)</span>
+的，只需要依次找到有效的合并操作即可。</p>
+<p>考虑将每个点赋值上他所在并查集的祖先的点权，每次产生一个新的限制时，可以二分两条链上权值组成的序列的
+LCP，第一个不同的位置即为需要合并的两个点。</p>
+<p>因此只需要支持对于一个树上的单点修改，链上 hash
+查询操作，可以直接把树拍成 dfn 序之后用树状数组维护。</p>
+<p>时间复杂度 <span class="math inline">\(O(m\log^2n+n\alpha(n)+n\log
+V)\)</span>。</p>
+<h2 id="p8162-joi-2022-final-让我们赢得选举">P8162 [JOI 2022 Final]
+让我们赢得选举</h2>
+<p>以下称收获一张票为 A，收获一个支持者为 B。</p>
+<p>首先考虑在确定了最终哪几个选择 A，哪几个选择 B 时，一定是先按照 <span
+class="math inline">\(b_i\)</span> 从小到大依次完成
+B，随后以任意顺序完成 A，所需要的时间为 <span
+class="math inline">\(\sum\frac{b_i}{i}+\frac{\sum
+a_i}{|B|+1}\)</span>。没有很好的贪心选择策略，考虑 dp。</p>
+<p>由于 <span class="math inline">\(\frac{\sum a_i}{|B|+1}\)</span>
+的存在，因此在不确定 <span class="math inline">\(|B|\)</span>
+的前提下，很难对 A 进行 dp，因此首先枚举最终 B 选择了几个。</p>
+<p>先按照 <span class="math inline">\(b_i\)</span> 排序，暴力 dp 为
+<span class="math inline">\(f_{i,j,k}\)</span> 表示对于前 <span
+class="math inline">\(i\)</span> 个人，当前 B 选了 <span
+class="math inline">\(j\)</span> 个，A 选了 <span
+class="math inline">\(k\)</span>
+个，最小的时间是多少，但是这样时间复杂度为 <span
+class="math inline">\(O(n^4)\)</span>，可能可以通过 wqs 二分优化到 <span
+class="math inline">\(O(n^3\log n)\)</span>（我没证过），无法通过。</p>
+<p>观察一下性质，在对 <span class="math inline">\(b_i\)</span>
+排完序后，如果 <span class="math inline">\(i\)</span> 选择了 B，那么
+<span class="math inline">\(&lt;i\)</span>
+的位置不可能不选，因为如果位置 <span class="math inline">\(j\)</span>
+不选，那么可以选择 <span class="math inline">\(j\)</span> 成为 B 而不选
+<span class="math inline">\(i\)</span>，这样不会使结果更劣。</p>
+<p>因此可以枚举最后一个选 B 的位置是 <span
+class="math inline">\(i\)</span>，那么此时前面已经收获了 <span
+class="math inline">\(i\)</span>
+张票，后面需要的票数是确定的，直接贪心选择前 <span
+class="math inline">\(k-i\)</span> 小的 <span
+class="math inline">\(a_j\)</span> 即可。</p>
+<p>时间复杂度被优化至 <span
+class="math inline">\(O(n^3)\)</span>，可以通过。</p>
+<h2 id="abc219ex-candles">ABC219Ex Candles</h2>
+<p>首先有很显然的性质，由于吹灭蜡烛不需要时间，因此走到一个蜡烛的位置时一定会吹灭这根蜡烛，因此在对
+<span class="math inline">\(a\)</span>
+排序后，吹灭的蜡烛一定是一段区间。而没走一步，所有还没有被吹灭的蜡烛的长度都会
+<span class="math inline">\(-1\)</span>。</p>
+<p>但是如果每走一步都将不在区间内的蜡烛长度 <span
+class="math inline">\(-1\)</span>
+的话，会出现一些蜡烛的长度被减至负数的情况，导致计算得到的结果更小。</p>
+<p>因此考虑对于 dp 状态加一维，表示仍未熄灭的且最终长度 <span
+class="math inline">\(\ge 0\)</span>
+的蜡烛个数，显然这样不会得到比答案更优的结果。</p>
+<p>因此令 <span class="math inline">\(f_{l,r,0/1,i}\)</span>
+表示在吹灭的 <span class="math inline">\([l,r]\)</span>
+区间内的蜡烛后，当前在 <span class="math inline">\(0/1\)</span>（左/右
+端点），还未被吹灭的会记入最终答案的蜡烛个数为 <span
+class="math inline">\(i\)</span>
+的最大答案。转移时，枚举这个蜡烛是否被计入最终答案即可。</p>
+<p>时间复杂度 <span class="math inline">\(O(n^3)\)</span>。</p>
+<h2 id="p3488-poi2009-lyz-ice-skates">P3488 [POI2009] LYZ-Ice
+Skates</h2>
+<p>不考虑修改，对于一次询问，建立二分图，左边的每个点表示一个人，右边的每个点表示一双鞋，如果存在一个对于左部点的完美匹配，那么答案为
+YES。</p>
+<p>根据 Hall
+定理，对于左部点的任意一个集合，其对应的右部点的集合大小都应该要大于左部点集合大小。</p>
+<p>考虑这张二分图的性质，左部的每个点都对应右部的连续 <span
+class="math inline">\(k(d+1)\)</span>
+个点，因此对于左部点，区间的条件不弱于集合的条件，因此只要对于左部点的每个区间合法即可。</p>
+<p>考虑左部点 <span class="math inline">\([l,r]\)</span>
+的区间，需要满足 <span class="math inline">\(\sum_{i=l}^r a_i\le k\times
+(r-l+1+d)\)</span>，将每个 <span
+class="math inline">\(b_i=a_i-k\)</span>，只需要满足 <span
+class="math inline">\(\sum_{i=l}^rb_i\le k\times d\)</span>
+即可，因此只需要拿线段树维护 <span class="math inline">\(b\)</span>
+的最大子段和即可。</p>
+<h2 id="cf1693c-keshi-in-search-of-amshz">CF1693C Keshi in Search of
+AmShZ</h2>
+<p>不难，但是很有借鉴价值的好题。</p>
+<p>考虑题目要求求出最坏情况下的最少时间，因此每次走出边时，考虑走到仍未被删除的最坏的出边。</p>
+<p>令 <span class="math inline">\(d_u\)</span> 表示从 <span
+class="math inline">\(u\)</span> 到终点所需要的最少天数。对于一点 <span
+class="math inline">\(u\)</span>，如果没有割掉出边集合 <span
+class="math inline">\(S\)</span>，那么 <span
+class="math inline">\(d_u=\max_{(u,v)\in
+S}d_v+deg_u-|S|\)</span>。因此最终保留的边的集合一定是按照 <span
+class="math inline">\(d_v\)</span> 从小到大排序之后的一段前缀。</p>
+<p>但是这张图并不是一张 DAG，所以并不能直接求解。考虑在进行 dijkstra
+时有性质：当前枚举到的 <span class="math inline">\(dis\)</span>
+一定比之前枚举到的 <span class="math inline">\(dis\)</span>
+大，因此在进行一次 <span class="math inline">\(v\to u\)</span>
+的更新操作时，选择 <span class="math inline">\(d_v\)</span>
+作为排序后最后一个选择的没有割边的点，其最短路是 <span
+class="math inline">\(dis_v+deg_u-cnt_u\)</span>，其中 <span
+class="math inline">\(cnt_u\)</span> 表示已经更新过的 <span
+class="math inline">\(u\)</span> 的出边数量。</p>
+<p>直接跑 dijkstra 即可，时间复杂度 <span class="math inline">\(O(m\log
+n)\)</span>，本题巧妙之处在于利用了 dijkstra
+过程中的性质来拟合了题目要求的条件。</p>
+<h2 id="p6623-省选联考-2020-a-卷-树">P6623 [省选联考 2020 A 卷] 树</h2>
+<p>考虑每一位分别计算。每个点 <span class="math inline">\(u\)</span>
+对他的 <span class="math inline">\(k\)</span> 级祖先会产生 <span
+class="math inline">\(a_u+k\)</span> 的贡献，考虑将贡献差分，在每一位的
+<span class="math inline">\(0/1\)</span> 分界处将差分数组 <span
+class="math inline">\(\oplus1\)</span>，但是这样总的差分数组更改量还是
+<span class="math inline">\(O(n)\)</span> 的。</p>
+<p>考虑除了第一段，接下来二进制第 <span class="math inline">\(i\)</span>
+位的每一个 <span class="math inline">\(0/1\)</span> 连续段的长度都是
+<span class="math inline">\(2^i\)</span>，因此所有要更改差分的点的深度
+<span class="math inline">\(\bmod 2^i\)</span>
+都是相等的，因此直接对于每一个二进制位开一个差分数组，<span
+class="math inline">\(c_{i,s}\)</span> 表示二进制后 <span
+class="math inline">\(i\)</span> 位为 <span
+class="math inline">\(s\)</span> 的点的差分应该要异或多少。</p>
+<p>直接在 dfs 的时候维护差分数组即可，复杂度 <span
+class="math inline">\(O(n\log V)\)</span>，只需要枚举每个二进制位。</p>
+<p>另一种解法是直接维护 01trie，需要支持插入元素，合并 01trie，每个数
+<span class="math inline">\(+1\)</span> 与全局求异或和，可以将 01trie
+从低位往高位建，这样全局 <span class="math inline">\(+1\)</span>
+操作可以通过交换子树来完成，复杂度还是 <span
+class="math inline">\(O(n\log V)\)</span>。</p>
+<h2 id="cf1152f2-neko-rules-the-catniverse-large-version">CF1152F2 Neko
+Rules the Catniverse (Large Version)</h2>
+<p>由于限制了每个数只能出现一次，如果按照序列的位置
+dp，需要记录每个数是否出现，直接爆炸，因此考虑改变 dp 顺序。</p>
+<p>考虑从小到大考虑每一个数 <span
+class="math inline">\(i\)</span>，讨论他是否加入序列。</p>
+<p>此时如果再记录每个位置是否填了数，那么状态数会飙升至 <span
+class="math inline">\(2^k\)</span> 往上，再乘上 <span
+class="math inline">\(n\)</span> 又炸飞了。但是考虑到每个数的具体位置在
+dp
+过程中并不重要，我们只需要关心每个已经插入的数的相对位置即可，因此可以据此设计
+dp 状态。</p>
+<p>设 <span class="math inline">\(f_{i,j,k}\)</span> 表示已经考虑插入了
+<span class="math inline">\(1\sim i\)</span>
+这些数，其中加入序列中的数有 <span class="math inline">\(j\)</span>
+个，最后的四种数是否在序列中出现的状态集合为 <span
+class="math inline">\(k\)</span> 的方案数。</p>
+<p>由于题目要求对于相邻两个数，后面的数不能大于前面的数 <span
+class="math inline">\(+m\)</span>，因此对于一个数 <span
+class="math inline">\(i\)</span>，要么放在序列的开头，要么插在前 <span
+class="math inline">\(m\)</span> 个数之后，要么不放，因此转移如下：</p>
+<p><span class="math display">\[
+\begin{cases}
+f_{i,j,k}\to f_{i+1,j,k\times 2}\\
+f_{i,j,k}\times (\operatorname{popcount}(k)+1)\to f_{i+1,j+1,k\times
+2+1}
+\end{cases}
+\]</span></p>
+<p>对于 <span class="math inline">\(\{j,k\}\)</span> 一共只有 <span
+class="math inline">\(k\times 2^m\)</span>
+种，因此可以直接矩阵快速幂优化，时间复杂度 <span
+class="math inline">\(O(k^38^m\log n)\)</span>。</p>
+<h2 id="p8688-蓝桥杯-2019-省-a-组合数问题">P8688 [蓝桥杯 2019 省 A]
+组合数问题</h2>
+<p>组合数转化成了数位 dp，卢卡斯和进制之间的转化，很新奇。</p>
+<p>根据卢卡斯定理，有 <span class="math inline">\(\binom{n}{m}\equiv
+\binom{n/k}{m/k}\times \binom{n\bmod k}{m\bmod k}\pmod
+k\)</span>，发现这个东西就是将 <span class="math inline">\(n,m\)</span>
+写成 <span class="math inline">\(k\)</span>
+进制后对应位组合数的乘积。</p>
+<p>题目要求 <span class="math inline">\(\binom{x}{y}\equiv 0\pmod
+k\)</span>，由于 <span class="math inline">\(k\)</span> 为质数，因此只要
+<span class="math inline">\(x,y\)</span> 在 <span
+class="math inline">\(k\)</span> 进制下任意一位的组合数 <span
+class="math inline">\(\bmod k=0\)</span> 即可。又由于 <span
+class="math inline">\(x,y\)</span> 在 <span
+class="math inline">\(k\)</span> 进制下的每一位都 <span
+class="math inline">\(&lt;k\)</span>，因此其组合数 <span
+class="math inline">\(=0\)</span> 只有可能是这一位上的 <span
+class="math inline">\((a,b)\)</span> 满足 <span
+class="math inline">\(a&lt;b\)</span>。</p>
+<p>因此可以对 <span class="math inline">\(n,m\)</span> 为上界，在 <span
+class="math inline">\(k\)</span> 进制下数位 dp。令 <span
+class="math inline">\(f_{i,0/1,0/1,0/1}\)</span> 表示考虑了 <span
+class="math inline">\(k\)</span> 进制的前 <span
+class="math inline">\(i\)</span> 位，<span
+class="math inline">\(n\)</span> 是否顶到上界，<span
+class="math inline">\(m\)</span> 是否顶到上界，是否存在某一位 <span
+class="math inline">\((a,b)\)</span> 满足 <span
+class="math inline">\(a&lt;b\)</span> 的方案数。</p>
+<p>转移可以直接分类讨论并计算方案数，时间复杂度 <span
+class="math inline">\(O(T\log_k n)\)</span>。</p>
+<h2 id="cf1418f-equal-product">CF1418F Equal Product</h2>
+<p>考虑对于满足条件的 <span
+class="math inline">\((x_1,y_1,x_2,y_2)\)</span>，必有 <span
+class="math inline">\(x_1\cdot y_1=x_2\cdot y_2\)</span>，因此 <span
+class="math inline">\(\frac{x_1}{x_2}=\frac{y_2}{y_1}=\frac{a}{b}\)</span>，因此
+<span class="math inline">\(x_2=\frac{x_1}{a}\cdot
+b,y_2=\frac{y_1}{b}\cdot a\)</span>，并且可以证明 <span
+class="math inline">\(a\mid x_1\)</span> 且 <span
+class="math inline">\(b\mid y_1\)</span>。</p>
+<p>通过这个转化，可以发现满足 <span class="math inline">\(a\mid
+x_1\)</span> 的 <span class="math inline">\((x_1,a)\)</span> 只有 <span
+class="math inline">\(O(n\log n)\)</span> 对，可以直接枚举。</p>
+<p>对于一个 <span class="math inline">\(x_1\)</span>，我们需要找出一对
+<span class="math inline">\((y_1,b)\)</span> 满足如下条件：</p>
+<p><span class="math display">\[
+\begin{cases}
+\lceil\frac{L}{x_1}\rceil\le y_1\le\lfloor\frac{R}{x_1}\rfloor\\
+\frac{x_1}{a}\cdot b\le n\\
+y_1\le m\\
+a&lt;b
+\end{cases}
+\]</span></p>
+<p>发现在 <span class="math inline">\(x_1\)</span> 递增时，<span
+class="math inline">\(\lceil\frac{L}{x_1}\rceil\)</span> 与 <span
+class="math inline">\(\lfloor\frac{R}{x_1}\rfloor\)</span>
+都是单调不增的，因此可以时刻用一个 set 维护满足第一个条件的 <span
+class="math inline">\((y_1,b)\)</span> 数对，每次查询时找到最小的满足
+<span class="math inline">\(b&gt;a\)</span> 的数对 <span
+class="math inline">\((y_1,b)\)</span>，判断其是否满足第二个条件即可。时间复杂度
+<span class="math inline">\(O(n\log^2n)\)</span>。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%A5%BD%E9%A2%98/" rel="tag"># 好题</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/08/10/%E9%80%86%E5%A4%A9%E8%AE%B0%E5%BD%95-2/" rel="prev" title="逆天记录-2">
+      <i class="fa fa-chevron-left"></i> 逆天记录-2
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#p9531-joisc-2022-day4-%E5%A4%8D%E5%85%B4%E8%AE%A1%E5%88%92"><span class="nav-number">1.</span> <span class="nav-text">P9531 [JOISC 2022 Day4]
+复兴计划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf1801e-gasoline-prices"><span class="nav-number">2.</span> <span class="nav-text">CF1801E Gasoline prices</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#p8162-joi-2022-final-%E8%AE%A9%E6%88%91%E4%BB%AC%E8%B5%A2%E5%BE%97%E9%80%89%E4%B8%BE"><span class="nav-number">3.</span> <span class="nav-text">P8162 [JOI 2022 Final]
+让我们赢得选举</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#abc219ex-candles"><span class="nav-number">4.</span> <span class="nav-text">ABC219Ex Candles</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#p3488-poi2009-lyz-ice-skates"><span class="nav-number">5.</span> <span class="nav-text">P3488 [POI2009] LYZ-Ice
+Skates</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf1693c-keshi-in-search-of-amshz"><span class="nav-number">6.</span> <span class="nav-text">CF1693C Keshi in Search of
+AmShZ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#p6623-%E7%9C%81%E9%80%89%E8%81%94%E8%80%83-2020-a-%E5%8D%B7-%E6%A0%91"><span class="nav-number">7.</span> <span class="nav-text">P6623 [省选联考 2020 A 卷] 树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf1152f2-neko-rules-the-catniverse-large-version"><span class="nav-number">8.</span> <span class="nav-text">CF1152F2 Neko
+Rules the Catniverse (Large Version)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#p8688-%E8%93%9D%E6%A1%A5%E6%9D%AF-2019-%E7%9C%81-a-%E7%BB%84%E5%90%88%E6%95%B0%E9%97%AE%E9%A2%98"><span class="nav-number">9.</span> <span class="nav-text">P8688 [蓝桥杯 2019 省 A]
+组合数问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf1418f-equal-product"><span class="nav-number">10.</span> <span class="nav-text">CF1418F Equal Product</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Enucai"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Enucai</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/enucai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;enucai" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:3425993912@qq.com" title="E-Mail → mailto:3425993912@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://plus.google.com/wsyear13" title="Google → https:&#x2F;&#x2F;plus.google.com&#x2F;wsyear13" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/enucai" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;enucai" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://youtube.com/wsyear13" title="YouTube → https:&#x2F;&#x2F;youtube.com&#x2F;wsyear13" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/enucai" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;enucai" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://cnblogs.com/shaojia" title="http:&#x2F;&#x2F;cnblogs.com&#x2F;shaojia" rel="noopener" target="_blank">ShaoJia</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://cmk666.github.io/" title="http:&#x2F;&#x2F;cmk666.github.io" rel="noopener" target="_blank">cmk666</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://ftt2333.gitlab.io/" title="http:&#x2F;&#x2F;ftt2333.gitlab.io" rel="noopener" target="_blank">ftt2333</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Enucai</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+</body>
+</html>

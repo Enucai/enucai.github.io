@@ -1,0 +1,1321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>逆天记录-1</title>
+    <url>/2023/07/11/%E9%80%86%E5%A4%A9%E8%AE%B0%E5%BD%95-1/</url>
+    <content><![CDATA[<h2 id="cf407e-k-d-sequence">CF407E k-d-sequence</h2>
+<p>首先特判 <span class="math inline">\(d=0\)</span>
+的情况。否则显然一个合法的区间所有数 <span class="math inline">\(\bmod
+d\)</span> 都相等。</p>
+<p>将这样的区间拉出来，一个个考察，显然可以将所有的数都 <span
+class="math inline">\(\div d\)</span>，这样就变成了公差 <span
+class="math inline">\(=1\)</span> 的等差数列。一个区间 <span
+class="math inline">\([l,r]\)</span> 合法，当且仅当：</p>
+<ul>
+<li><p><span class="math inline">\([l,r]\)</span>
+中的数两两不同。</p></li>
+<li><p><span class="math inline">\(r - l + 1 + k\ge \max{a_i} -
+\min{a_i} (l\le i\le r)\)</span>。</p></li>
+</ul>
+<p>第一个容易处理，直接开一个 map 记录一下每个数最后出现的位置即可。</p>
+<p>对于第二个限制，化简变为 <span class="math inline">\(r + k\ge
+\max{a_i} - \min{a_i} + l -
+1\)</span>，开一个线段树维护右边这依托即可，修改 <span
+class="math inline">\(\min\)</span> 与 <span
+class="math inline">\(\max\)</span> 可以开两个单调栈，这是套路的。</p>
+<p>所以每次要查询区间内第一个值 <span class="math inline">\(\le
+val\)</span> 的位置，采用线段树二分即可。复杂度 <span
+class="math inline">\(O(n\log n)\)</span>。</p>
+<h2 id="cf587f-duff-is-mad">CF587F Duff is Mad</h2>
+<p>暴力做法是建出 ACAM，每次询问时对于 <span
+class="math inline">\(s_{[l,r]}\)</span>，每个字符串在 ACAM 上的 endpos
+的 fail 树的子树内点权全部 <span
+class="math inline">\(+1\)</span>，然后查询 <span
+class="math inline">\(s_k\)</span> 在 ACAM 上的所有节点点权之和。</p>
+<p>考虑对于 <span class="math inline">\(|s_k|\)</span> 根号分治。</p>
+<ul>
+<li><p>若 <span class="math inline">\(|s_k|\le
+\sqrt.\)</span>，那么显然可以将询问离线，差分贡献，每次查询时暴力在 ACAM
+上跳。</p></li>
+<li><p>若 <span class="math inline">\(|s_k|&gt; \sqrt
+.\)</span>，那么显然这样的串不超过 <span class="math inline">\(\sqrt
+.\)</span> 个，对于每个这样的串统一处理，算出 ACAM 上每个节点的点权
+<span class="math inline">\(+1\)</span>
+会对答案产生多少的贡献。然后枚举每个串，用 Fenwick Tree
+统计贡献，或者用值域分块平衡。</p></li>
+</ul>
+<p>平衡后的复杂度 <span class="math inline">\(O(m\sqrt{q\log
+m})\)</span>，如果用值域分块则是 <span class="math inline">\(O(m\sqrt
+q)\)</span>。</p>
+<h2 id="cf1842h-tenzing-and-random-real-numbers">CF1842H Tenzing and
+Random Real Numbers</h2>
+<p>我们将所有数 <span class="math inline">\(a_x\)</span> 按照 <span
+class="math inline">\(|a_x-0.5|\)</span> 的大小从小到大逐个确定。由于在
+<span class="math inline">\([0,1]\)</span>
+之间随机，所以随到相同的数的概率是 <span
+class="math inline">\(0\)</span>。</p>
+<p>考虑状压 dp，设 <span class="math inline">\(f_S\)</span> 表示 <span
+class="math inline">\(S\)</span> 集合中的数都已经确定的合法概率。</p>
+<p>对于接下来确定的 <span class="math inline">\(x\)</span>，如果 <span
+class="math inline">\(S\)</span> 中存在一个 <span
+class="math inline">\(y\)</span>，满足：</p>
+<ul>
+<li><p><span class="math inline">\(a_x+a_y\le 1\)</span>，那么显然 <span
+class="math inline">\(a_x\)</span> 只能 <span
+class="math inline">\(&lt;0.5\)</span>。</p></li>
+<li><p><span class="math inline">\(a_x+a_y\ge 1\)</span>，那么显然 <span
+class="math inline">\(a_x\)</span> 只能 <span
+class="math inline">\(&gt;0.5\)</span>。</p></li>
+</ul>
+<p>所以按照 <span class="math inline">\(S\)</span> 中的数与当前 <span
+class="math inline">\(x\)</span> 的关系来确定转移系数是 <span
+class="math inline">\(0/0.5/1\)</span>。</p>
+<p>最后答案即为 <span
+class="math inline">\(f(2^n-1)/(n!)\)</span>。复杂度 <span
+class="math inline">\(O(2^nn)\)</span>。</p>
+<h2 id="abc242ex-random-painting">ABC242Ex Random Painting</h2>
+<p>题目要求所有点都被覆盖的期望时间，设随机变量 <span
+class="math inline">\(t_i\)</span> 表示位置 <span
+class="math inline">\(i\)</span> 被覆盖的时间，则要求的是 <span
+class="math inline">\(\mathbb{E}[\max\{t_i\}]\)</span>。</p>
+<p>一眼 min-max 容斥，摁推一下柿子：</p>
+<p><span class="math display">\[
+\mathbb{E}[\max_{i\in S}\{t_i\}]=\sum_{T\subseteq
+S}(-1)^{|T|+1}\mathbb{E}[\min_{i\in T}\{t_i\}]
+\]</span></p>
+<p>考虑 <span class="math inline">\(\mathbb{E}[\min\{t_i\}]\)</span>
+的意义，假设与 <span class="math inline">\(T\)</span>
+这个几何中的点有交的线段数量为 <span
+class="math inline">\(x\)</span>，那么 <span
+class="math inline">\(\mathbb{E}[\min\{t_i\}]=\frac{m}{x}\)</span>。</p>
+<p>考虑 dp，假设 <span class="math inline">\(f_{i,j}\)</span> 表示考察了
+<span class="math inline">\([1,i]\)</span> 中的点，选了一些点作为子集
+（<span class="math inline">\(i\)</span> 点必选），有 <span
+class="math inline">\(j\)</span> 条线段与这个子集无交的 <span
+class="math inline">\((-1)^{|T|+1}\)</span> 之和。</p>
+<p>转移时，枚举 <span
+class="math inline">\(i,j,k\)</span>，分别表示当前装它与上一个选择的点，那么
+<span class="math inline">\((k,i)\)</span>
+中的线段与选择的集合无交，设为 <span
+class="math inline">\(cnt(k,i)\)</span>，转移时只要：</p>
+<p><span class="math display">\[
+f_{k,j}\times (-1)\to f_{i,j+cnt(k,i)}
+\]</span></p>
+<p>至于如何求 <span
+class="math inline">\(cnt\)</span>，直接做一遍二位前缀和即可。做完 dp
+后带回 min-max 容斥的柿子中计算即可。</p>
+<p>时间复杂度 <span class="math inline">\(O(n^2m)\)</span>。</p>
+<h2 id="abc241ex-card-deck-score">ABC241Ex Card Deck Score</h2>
+<p><span class="math inline">\(n\)</span> 很小，<span
+class="math inline">\(b_i\)</span>
+的限制显然可以容斥计算。所以可以忽略每个卡的个数限制。考虑用生成函数计算：</p>
+<p><span class="math display">\[
+\prod_{i=1}^n\sum_{k\ge 0}a_i^k\cdot x^k=\prod_{i=1}^n\frac{1}{1-a_ix}
+\]</span></p>
+<p>采用待定系数尝试算出每个 <span class="math inline">\(a_i\)</span>
+的系数 <span class="math inline">\(c_i\)</span>：</p>
+<p><span class="math display">\[
+\prod_{i=1}^n\frac{1}{1-a_ix}=\sum_{i=1}^n\frac{c_i}{1-a_ix}
+\]</span></p>
+<p>两遍同时乘上 <span
+class="math inline">\(\prod(1-a_ix)\)</span>，得到：</p>
+<p><span class="math display">\[
+\sum_{i=1}^n c_i\prod_{j\not=i}(1-a_jx)=1
+\]</span></p>
+<p>对于每个 <span class="math inline">\(i\)</span>，将 <span
+class="math inline">\(a_i^{-1}\)</span> 带入柿子，得到：</p>
+<p><span class="math display">\[
+c_i\prod_{j\not=i}(1-a_j\cdot a_i^{-1})=1
+\]</span></p>
+<p>这样即可在 <span class="math inline">\(O(n^2)\)</span>
+的复杂度内计算出每个 <span class="math inline">\(a_i\)</span> 的系数
+<span class="math inline">\(c_i\)</span>。</p>
+<p>然后枚举不合法的卡片集合 <span
+class="math inline">\(S\)</span>，钦定这个集合中的卡片都超过限制。计算出
+<span class="math inline">\(cnt=m-\sum_{i\in
+S}(b_i+1)\)</span>。即可算出贡献：</p>
+<p><span class="math display">\[
+(-1)^{|S|}\cdot\prod_{i\in S}a_i^{b_i+1}\cdot\left(\sum_{i=1}^n c_i\cdot
+a_i^{cnt}\right)
+\]</span></p>
+<p>时间复杂度 <span class="math inline">\(O(n^2+n2^n\log
+P)\)</span>。</p>
+<h2 id="abc237ex-hakata">ABC237Ex Hakata</h2>
+<p>首先可以证明，对于一个字符串 <span
+class="math inline">\(S\)</span>，其本质不同的回文子串个数 <span
+class="math inline">\(\le n\)</span>。</p>
+<p>考虑每次在 <span class="math inline">\(S\)</span>
+后面加入一个字符后，字符串长度为 <span
+class="math inline">\(n\)</span>，如果出现了 <span
+class="math inline">\(S_{[x,n]}\)</span> 与 <span
+class="math inline">\(S_{[y,n]}\)</span> 两个回文串，那么可以推断出
+<span
+class="math inline">\(S_{n-e}=S_{x+e}=S_{y+e}=S_{n+x-y-e}\)</span>，所以
+<span class="math inline">\(S_{[x,x+n-y]}\)</span> 也是回文串，与 <span
+class="math inline">\(S_{[y,n]}\)</span> 相同，故 <span
+class="math inline">\(S_{[y,n]}\)</span> 已经在之前出现过。矛盾。</p>
+<p>故每次添加一个字符，最多只会产生一个本质不同的回文串，原命题得证。</p>
+<p>考虑计算出所有的本质不同的回文子串，若 <span
+class="math inline">\(S_1\)</span> 是 <span
+class="math inline">\(S_2\)</span> 的子串，那么我们连一条从 <span
+class="math inline">\(S_2\)</span> 向 <span
+class="math inline">\(S_1\)</span> 的有向边，不难发现会构成一张
+DAG。</p>
+<p>题目要求的即使这张 DAG 的最长反链，由 Dilworth 定理，最长反链 <span
+class="math inline">\(=\)</span> 最小链覆盖。</p>
+<p>由于最小链覆盖的过程可以看成把一些链合并的过程，每个点可以选一个出边合并，选一个入边合并，我们希望链合并的次数尽可能多。</p>
+<p>考虑构建一张二分图，每个 DAG 上的点拆成左右两个点，将一条 <span
+class="math inline">\(u\to v\)</span> 的有向边转化为 <span
+class="math inline">\(u\)</span> 的左部点与 <span
+class="math inline">\(v\)</span>
+的右部点之间的边，然后求二分图最大匹配。最小连覆盖 <span
+class="math inline">\(=\)</span> 点数 <span
+class="math inline">\(-\)</span> 最大匹配数。</p>
+<p>时间复杂度看代码实现，大致为 <span
+class="math inline">\(O(n^4)\)</span> 或 <span
+class="math inline">\(O(n^3)\)</span>，瓶颈在于判断两个回文子串是否为包含关系，除这一点外可以做到
+<span class="math inline">\(O(n^2)\)</span>。</p>
+<h2 id="agc006f-blackout">AGC006F Blackout</h2>
+<p>很妙的题啊！首先观察到这个题中的点和平面没有什么关系，直接把点转化成边，构成一幅有向图。原来的变换等价于若有边
+<span class="math inline">\(u\to v\)</span> 与 <span
+class="math inline">\(v\to w\)</span>，则连上边 <span
+class="math inline">\(w\to u\)</span>。</p>
+<p>由于连上的是三元环，所以考虑将这张有向图进行三染色（为什么是三染色想了半天，感觉自己是纸张）。假设图能够成功进行三染色，且有颜色
+<span class="math inline">\(1\to 2\)</span> 的边，<span
+class="math inline">\(2\to 3\)</span> 的边与 <span
+class="math inline">\(3\to 1\)</span>
+的边，那么同一个连通块内所有这样的颜色对的点对都能连上边。证明显然。</p>
+<p>如果无法进行进行三染色，那么必然存在一条这三类边之外的边。假设存在同色间的边
+<span class="math inline">\(x\to x\)</span>，假设 <span
+class="math inline">\(y=x-1\)</span>，那么原本存在 <span
+class="math inline">\(y\to x\)</span> 的边，操作后存在 <span
+class="math inline">\(x\to y\)</span> 的边。</p>
+<p>现在有 <span class="math inline">\(x\to y\)</span> 的边与 <span
+class="math inline">\(y\to x\)</span> 的边（设 <span
+class="math inline">\(y=x+1\)</span>，<span
+class="math inline">\(z=y+1\)</span>，<span
+class="math inline">\(x=z+1\)</span>，均在 <span
+class="math inline">\(\bmod 3\)</span>
+意义下）。那么可以通过以下操作：</p>
+<ul>
+<li><span class="math inline">\(x\to y,y\to x\)</span> 推出 <span
+class="math inline">\(x\to x\)</span>。</li>
+<li><span class="math inline">\(y\to x,x\to y\)</span> 推出 <span
+class="math inline">\(y\to y\)</span>。</li>
+<li><span class="math inline">\(z\to x,x\to x\)</span> 推出 <span
+class="math inline">\(x\to z\)</span>。</li>
+<li><span class="math inline">\(z\to x,x\to z\)</span> 推出 <span
+class="math inline">\(z\to z\)</span>。</li>
+<li><span class="math inline">\(y\to y,y\to z\)</span> 推出 <span
+class="math inline">\(z\to y\)</span>。</li>
+</ul>
+<p>所以若三染色不成功，则任意两点之间都能到达。</p>
+<p>需要注意的是，如果三染色成功，且只有两种颜色，则是单向边的二分图，并无法使左部点与右部点全部连边。</p>
+<h2 id="cf1437g-death-dbms">CF1437G Death DBMS</h2>
+<p>先把所有串建出 ACAM，然后给每个串的 endpos 在 fail
+树上的子树内的点权与这个串的权值 checkmax。</p>
+<p>每次询问时，沿着询问串向下走，将答案
+checkmax。不难发现每个点的权值其实是它在 fail 树上所有祖先的字符串权值
+max，那么这个值就是答案。</p>
+<p>考虑维护方法，将 fail 树拍成 dfn
+序，建出线段树，线段树每个节点维护一个
+<code>multiset</code>，就可以支持区间加，区间删除，单点查询最大值。时间复杂度
+<span class="math inline">\(O(n\log^2 n)\)</span>。</p>
+<p>还有一种根号做法，串长的总和限制了，由于 <span
+class="math inline">\(\sum_{i=1}^xi=O(x^2)\)</span>，所以串长只会有根号种。使用字符串哈希，每次询问时枚举串长计算即可。时间复杂度
+<span class="math inline">\(O(n\sqrt{\sum len})\)</span>。</p>
+<h2 id="qoj-6504-flowers-land-2">qoj 6504 Flower's Land 2</h2>
+<p>找一找能删玩的序列的性质，发现没有成果。</p>
+<p>考虑用一种运算方式来表示抵消操作。显然这种运算需要有逆来使抵消后变成单位元，需要有结合律来表示抵消操作后的消失，需要不能有交换律来防止不合法的抵消。</p>
+<p>一看，这不是矩阵乘法吗！考虑对三种数各自刻画一个 <span
+class="math inline">\(3\times 3\)</span>
+的矩阵。奇数位置为对应矩阵，偶数位置为对应矩阵的逆。直接用线段树维护区间操作
+<span class="math inline">\(0,1,2\)</span> 次操作后的矩阵乘积即可。</p>
+<p>每次判断只需要判断当前区间矩阵的乘积是否为单位矩阵即可。</p>
+<p>时间复杂度 <span class="math inline">\(O(k^3n\log n)\)</span>，其中
+<span class="math inline">\(k=3\)</span>。如果维护 <span
+class="math inline">\(2\times 2\)</span> 的矩阵，好像根据什么 Ping-Pong
+Lemma 会出问题，具体的我也不会证呜呜呜。</p>
+<h2 id="cf618f-double-knapsack">CF618F Double Knapsack</h2>
+<p>不做 CF 的人，高考都有难了！</p>
+<p>结论：不需要选子集，只需要选子区间就能保证一定有解。</p>
+<p>证明：转化为选子区间后，把序列求一遍前缀和，原问题等价于给你两个单调递增的序列
+<span class="math inline">\(a,b\)</span>，你需要找出 <span
+class="math inline">\(0\le l_1&lt;r_1\le n\)</span> 与 <span
+class="math inline">\(0\le l_2&lt;r_2\le n\)</span>，满足 <span
+class="math inline">\(a_{r_1}-a_{l_1}=b_{r_2}-b_{l_2}\)</span>。</p>
+<p>不妨设 <span class="math inline">\(a_n\le b_n\)</span>，那么对于每个
+<span class="math inline">\(0\le i\le n\)</span>，都存在至少一个 <span
+class="math inline">\(0\le j\le n\)</span> ，使得 <span
+class="math inline">\(b_j\ge a_i\)</span>。我们对于每个 <span
+class="math inline">\(a_i\)</span> 找出这样的最小的 <span
+class="math inline">\(j\)</span>。由于值域为 <span
+class="math inline">\([1,n]\)</span>，因此最小的 <span
+class="math inline">\(j\)</span> 一定满足 <span
+class="math inline">\(0\le b_j-a_i&lt;n\)</span>。</p>
+<p>这样的差只有 <span class="math inline">\(n\)</span> 种，而这样的
+<span class="math inline">\((i,j)\)</span> 有 <span
+class="math inline">\(n+1\)</span> 个，根据鸽笼原理，一定存在一对 <span
+class="math inline">\(((i_1,j_1),(i_2,j_2))\)</span>
+满足两个的差相等，那么原问题中要找的 <span
+class="math inline">\(l_1,r_1\)</span> 与 <span
+class="math inline">\(l_2,r_2\)</span> 就随之找到了。</p>
+<p>对于 <span class="math inline">\(a_n&gt;b_n\)</span>
+的同理。这样，仅用子区间就能找到一组答案。</p>
+<p>对于每个位置二分找比它大的复杂度 <span class="math inline">\(O(n\log
+n)\)</span>，当然你可以用双指针做到 <span
+class="math inline">\(O(n)\)</span>。</p>
+<h2 id="cf1656h-equal-lcm-subsets">CF1656H Equal LCM Subsets</h2>
+<p>由于值域很大，无法直接算 <span
+class="math inline">\(\operatorname{lcm}\)</span>，因此考虑对每一个质因数考虑。</p>
+<p>设 <span
+class="math inline">\(a_{i}=\prod_kp_k^{\alpha(a_i,k)}\)</span>，那么对于每一个
+<span class="math inline">\(k\)</span>，<span
+class="math inline">\(\max_{i\in S_A}\alpha(i,k)=\max_{i\in
+S_B}\alpha(i,k)\)</span>。把 <span class="math inline">\(\max\)</span>
+的等于转化为互相小于等于，然后推一推式子：</p>
+<p><span class="math display">\[
+\forall k,\forall x\in S_A,\exist y\in S_B,\alpha(x,k)\le\alpha(y,k)\\
+\]</span></p>
+<p>再把小于等于转化为等于：</p>
+<p><span class="math display">\[
+\forall k,\forall x\in S_A,\exist y\in
+S_B,\alpha(x,k)-\min\{\alpha(x,k),\alpha(y,k)\}=0
+\]</span></p>
+<p>发现因数个数的 <span class="math inline">\(\min\)</span> 其实就是
+<span class="math inline">\(\gcd\)</span> 运算，式子转化为：</p>
+<p><span class="math display">\[
+\forall k,\forall x\in S_A,\exist y\in
+S_B,\alpha(\frac{x}{\gcd(x,y)},k)=0
+\]</span></p>
+<p>发现存在一个 <span class="math inline">\(y\)</span> 满足上式 <span
+class="math inline">\(=0\)</span>，实际上就是对于所有 <span
+class="math inline">\(y\)</span> 他们的 <span
+class="math inline">\(\gcd\)</span> 的值 <span
+class="math inline">\(=0\)</span>：</p>
+<p><span class="math display">\[
+\forall k,\forall x\in S_A,\alpha(\gcd_{y\in
+S_B}(\frac{x}{\gcd(x,y)}),k)=0
+\]</span></p>
+<p>然后把所有的质因数放在一起考虑，每个都没有出现，就是 <span
+class="math inline">\(\gcd=1\)</span>：</p>
+<p><span class="math display">\[
+\forall x\in S_A,\gcd_{y\in S_B}(\frac{x}{\gcd(x,y)})=1
+\]</span></p>
+<p>对于每一个 <span class="math inline">\(S_B\)</span>
+中的元素同理，由：</p>
+<p><span class="math display">\[
+\forall x\in S_B,\gcd_{y\in S_A}(\frac{x}{\gcd(x,y)})=1
+\]</span></p>
+<p>直接暴力删除不合法元素，需要删除 <span
+class="math inline">\(n+m\)</span> 次，每次遍历所有元素 <span
+class="math inline">\(n+m\)</span> 次，计算上述值的复杂度是 <span
+class="math inline">\(O(n\log V)\)</span> 或 <span
+class="math inline">\(O(m\log V)\)</span> 的，复杂度是 <span
+class="math inline">\(O(n^3\log V)\)</span> 的，无法通过。</p>
+<p>考虑优化，用 <span class="math inline">\(n+m\)</span>
+棵线段树维护每个 <span class="math inline">\(S_A,S_B\)</span>
+中元素的上述值即可，删除后对于每个另一个集合中的数，将他的位置设为 <span
+class="math inline">\(0\)</span>。不难发现，这样单次计算上述值得复杂度是
+<span class="math inline">\(O(1)\)</span>
+的，而每个元素至多删除一次，单次删除复杂度 <span
+class="math inline">\(O(n\log n\log V)\)</span> 或 <span
+class="math inline">\(O(m\log m\log V)\)</span>。</p>
+<p>设 <span class="math inline">\(n,m\)</span> 同阶，则最终复杂度 <span
+class="math inline">\(O(n^2\log n\log V)\)</span>。</p>
+<h2 id="cf878d-magic-breeding">CF878D Magic Breeding</h2>
+<p>虽然每个生物的特征很多，但不难发现，对于每一次询问，答案一定是对应特征中
+<span class="math inline">\(k\)</span> 个值中的一个。</p>
+<p>考虑每次询问时枚举这个答案，判断是否可行。我们将所有 <span
+class="math inline">\(\ge x\)</span> 的值标记为 <span
+class="math inline">\(1\)</span>，不难发现本质不同的大小关系只有 <span
+class="math inline">\(2^k\)</span> 种，用一个 <code>bitset</code>
+维护一下这 <span class="math inline">\(2^k\)</span>
+种初始大小关系在变换结束后的结果是多少。</p>
+<p>由于值域是 <span class="math inline">\(\{0,1\}\)</span>，所以取 <span
+class="math inline">\(\max\)</span> 就是两个 <code>bitset</code>
+取或，<span class="math inline">\(\min\)</span> 就是两个
+<code>bitset</code> 取与。</p>
+<p>最终复杂度 <span class="math inline">\(O(nk\log
+k+qk+\frac{q2^k}{\omega})\)</span>。</p>
+<h2 id="cf1474f-1-2-3-4-...">CF1474F 1 2 3 4 ...</h2>
+<p>由于相邻两项的差都是 <span class="math inline">\(1\)</span>，因此 LIS
+是公差为 <span class="math inline">\(1\)</span> 的等差数列。LIS
+的长度很好求，直接枚举起点段和终点段即可，复杂度不高也不重要。难点在于计算
+LIS 的个数。</p>
+<p>LIS 的数的区间并不唯一，但是不难发现不同数的区间的 LIS
+都不交。因此考虑将原序列的折线段分段，每段以下降段开始，以上升段结束，且能够取到最长
+LIS 的长度，且 LIS 的值域唯一，且是能取到该值域 LIS 的最长区间。</p>
+<p>对于每个区间内，可以考虑 dp 计算方案数。令 <span
+class="math inline">\(f_{i,j}\)</span> 表示填到值为 <span
+class="math inline">\(i\)</span> 的数，目前位于第 <span
+class="math inline">\(j\)</span>
+条折线的方案数。转移时，考虑上一个数所在的区间，但是直接转移复杂度爆炸。</p>
+<p>发现值域被所有折线段的左右端点分成了 <span
+class="math inline">\(O(n)\)</span>
+各区间，每个区间中的转移方式是相同的，因此可以考虑使用矩阵快速幂来优化，这样就能快速转移了。</p>
+<p>最终时间复杂度 <span class="math inline">\(O(n^4\log
+V)\)</span>。注意一些细节，比如所有数都是负数，特判也要取模等。</p>
+<h2 id="p9462-终点">P9462 终点</h2>
+<p>钦定以 <span class="math inline">\(1\)</span>
+号点为根。首先询问出所有点到 <span class="math inline">\(1\)</span>
+号的中点，假设 <span class="math inline">\(1\)</span> 号点的深度为 <span
+class="math inline">\(0\)</span>，那么所有的连边都是从深度为 <span
+class="math inline">\(x\)</span> 的点连向深度为 <span
+class="math inline">\(2x\)</span> 的点。</p>
+<p>定义一个点的长度为一直向上走询问得到的“返祖边”走的距离。</p>
+<p>找出所有点中长度最大的点，这个点的最终祖先一定是深度为 <span
+class="math inline">\(1\)</span>
+的节点。证明考虑如果这个点的祖先不是深度为 <span
+class="math inline">\(1\)</span> 的，那么他的深度一定可以被表示为 <span
+class="math inline">\(c\times 2^k\)</span>，而 <span
+class="math inline">\(c\)</span> 是奇数且 <span
+class="math inline">\(\not=1\)</span>。那么我们找一个深度 <span
+class="math inline">\(=c-1\)</span> 的节点，那个节点的深度就能被表示为
+<span class="math inline">\(\frac{c-1}{2}\times
+2^{k+1}\)</span>，长度比那个点大，矛盾。</p>
+<p>这样我们找到了深度为 <span class="math inline">\(1\)</span>
+的节点。然后询问所有深度为奇数的节点（就是前一次询问未得到答案的节点）与这个深度为
+<span class="math inline">\(1\)</span>
+的节点的中点。通过这些询问我们可以类似 bfs 的得到所有点的深度。</p>
+<p>接下来，考虑按照节点的深度从小到大依次确定父亲节点，从而确定这颗树的形态。</p>
+<p>考察一个节点 <span class="math inline">\(u\)</span> 时，考虑定义函数
+<span class="math inline">\(\operatorname{solve}(rt,u)\)</span> 表示在
+<span class="math inline">\(rt\)</span> 为根的子树内寻找 <span
+class="math inline">\(u\)</span> 的父亲（保证 <span
+class="math inline">\(u\)</span> 在 <span
+class="math inline">\(rt\)</span> 子树内）。分以下三种情况考虑：</p>
+<ul>
+<li>若 <span class="math inline">\(dep_{rt}+1=dep_u\)</span>，那么 <span
+class="math inline">\(rt\)</span> 即为 <span
+class="math inline">\(u\)</span> 的父亲节点。</li>
+<li>若 <span class="math inline">\(dep_u-dep_{rt}\equiv0\pmod
+2\)</span>，那么询问 <span class="math inline">\(u\)</span> 与 <span
+class="math inline">\(rt\)</span> 的中点 <span
+class="math inline">\(v\)</span>，递归查找 <span
+class="math inline">\(\operatorname{solve}(v,u)\)</span>。</li>
+<li>若 <span class="math inline">\(dep_u-dep_{rt}\equiv 1\pmod
+2\)</span>，那么随便找一个 <span class="math inline">\(u\)</span> 的儿子
+<span class="math inline">\(s\)</span>，询问 <span
+class="math inline">\(s\)</span> 与 <span
+class="math inline">\(u\)</span> 的中点 <span
+class="math inline">\(v\)</span>，递归查找 <span
+class="math inline">\(\operatorname{solve}(v,u)\)</span>。</li>
+</ul>
+<p>发现这样递归的深度上限是 <span class="math inline">\(\lceil\log
+n\rceil\)</span> 的，但是长度很小，因为 <span
+class="math inline">\(n\)</span> 其实是 <span
+class="math inline">\(u\)</span> 的 <span
+class="math inline">\(dep\)</span>。</p>
+<p>确定完每个节点的父亲节点后，树的形态就确定了。询问次数为 <span
+class="math inline">\(O(n\log n)\)</span>，严格来说是 <span
+class="math inline">\(O(2n+\sum_u\log_{dep_u})\)</span>。</p>
+<h2 id="qoj-4193-joined-sessions">qoj 4193 Joined Sessions</h2>
+<p>考虑什么时候无解。如果当前最小支配集大小 <span
+class="math inline">\(=1\)</span>
+或所有线段不相交，那么无解，否则有解。</p>
+<p>容易证明如果有解，那么至多三次合并就一定能使最小支配集的大小 <span
+class="math inline">\(-1\)</span>。证明随便画画就好了。</p>
+<p>对于每个区间 <span class="math inline">\(i\)</span>，我们令 <span
+class="math inline">\(\operatorname{last}(i)\)</span> 表示右端点在 <span
+class="math inline">\(l_i\)</span> 之前的右端点最大的线段，<span
+class="math inline">\(\operatorname{cont}(i)\)</span> 表示与 <span
+class="math inline">\(i\)</span> 相交的区间中左端点最小的区间。</p>
+<p>容易发现，对于每次合并，一定是选择一个 <span
+class="math inline">\(x\)</span> 与 <span
+class="math inline">\(\operatorname{cont}(x)\)</span> 合并。</p>
+<p>由于至多三次合并就能使最小支配集大小 <span
+class="math inline">\(-1\)</span>，因此考虑 dp。</p>
+<p>令 <span class="math inline">\(dp(j,s)\)</span> 表示对于前 <span
+class="math inline">\(j\)</span> 条线段，用了 <span
+class="math inline">\(s\)</span>
+次合并操作，最小支配集的大小最小是多少。转移方程：</p>
+<p><span class="math display">\[
+dp(j,s)=\min\{dp(\operatorname{last}(j),s)+1,\min\{dp(\operatorname{cont}^k(j),s-t)|1\le
+t\le s\}\}
+\]</span></p>
+<p>最后找出 <span class="math inline">\(dp(n,k)\)</span>
+中第一个小于初始最小支配集大小的 <span
+class="math inline">\(k\)</span>，即为答案。</p>
+<p>时间复杂度 <span class="math inline">\(O(n\log
+n)\)</span>，瓶颈在排序。</p>
+]]></content>
+      <tags>
+        <tag>好题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>逆天记录-3</title>
+    <url>/2023/09/14/%E9%80%86%E5%A4%A9%E8%AE%B0%E5%BD%95-3/</url>
+    <content><![CDATA[<h2 id="p9531-joisc-2022-day4-复兴计划">P9531 [JOISC 2022 Day4]
+复兴计划</h2>
+<p>首先有结论：对于每条边，在最终方案中会被选择的 <span
+class="math inline">\(X\)</span> 是一个区间。</p>
+<p>将所有的边按照边权排序，那么他被选择的代价关于 <span
+class="math inline">\(X\)</span>
+是一个绝对值函数。对于每条边，找出前一条能与他形成环的边，那么分界的
+<span class="math inline">\(X\)</span> 就是两条边边权的平均值。</p>
+<p>找出每条边的 pre 可以在 <span
+class="math inline">\(O(nm\alpha(n))\)</span>
+的复杂度内完成，并将询问离线，按照 <span
+class="math inline">\(X\)</span> 排序后维护一堆一次函数的和即可。</p>
+<h2 id="cf1801e-gasoline-prices">CF1801E Gasoline prices</h2>
+<p>对于每一个形如 <span
+class="math inline">\(\{(u_1,v_1),(u_2,v_2)\}\)</span>
+的限制，等价于将两条路径上对应点并查集合并，最后在同一个并查集中的元素的值必须相等，因此在求出最后并查集的合并情况后，只需要求出每个并查集连通块内部
+<span class="math inline">\(L\)</span> 的 <span
+class="math inline">\(\max\)</span> 与 <span
+class="math inline">\(R\)</span> 的 <span
+class="math inline">\(\min\)</span> 即可，这一部分是容易计算的。</p>
+<p>接下来考虑如何在合理的复杂度内计算出并查集的合并情况。</p>
+<p>首先发现，将所有点全部合并联通只需要进行 <span
+class="math inline">\(n-1\)</span> 次合并操作，因此有效的合并操作是
+<span class="math inline">\(O(n)\)</span>
+的，只需要依次找到有效的合并操作即可。</p>
+<p>考虑将每个点赋值上他所在并查集的祖先的点权，每次产生一个新的限制时，可以二分两条链上权值组成的序列的
+LCP，第一个不同的位置即为需要合并的两个点。</p>
+<p>因此只需要支持对于一个树上的单点修改，链上 hash
+查询操作，可以直接把树拍成 dfn 序之后用树状数组维护。</p>
+<p>时间复杂度 <span class="math inline">\(O(m\log^2n+n\alpha(n)+n\log
+V)\)</span>。</p>
+<h2 id="p8162-joi-2022-final-让我们赢得选举">P8162 [JOI 2022 Final]
+让我们赢得选举</h2>
+<p>以下称收获一张票为 A，收获一个支持者为 B。</p>
+<p>首先考虑在确定了最终哪几个选择 A，哪几个选择 B 时，一定是先按照 <span
+class="math inline">\(b_i\)</span> 从小到大依次完成
+B，随后以任意顺序完成 A，所需要的时间为 <span
+class="math inline">\(\sum\frac{b_i}{i}+\frac{\sum
+a_i}{|B|+1}\)</span>。没有很好的贪心选择策略，考虑 dp。</p>
+<p>由于 <span class="math inline">\(\frac{\sum a_i}{|B|+1}\)</span>
+的存在，因此在不确定 <span class="math inline">\(|B|\)</span>
+的前提下，很难对 A 进行 dp，因此首先枚举最终 B 选择了几个。</p>
+<p>先按照 <span class="math inline">\(b_i\)</span> 排序，暴力 dp 为
+<span class="math inline">\(f_{i,j,k}\)</span> 表示对于前 <span
+class="math inline">\(i\)</span> 个人，当前 B 选了 <span
+class="math inline">\(j\)</span> 个，A 选了 <span
+class="math inline">\(k\)</span>
+个，最小的时间是多少，但是这样时间复杂度为 <span
+class="math inline">\(O(n^4)\)</span>，可能可以通过 wqs 二分优化到 <span
+class="math inline">\(O(n^3\log n)\)</span>（我没证过），无法通过。</p>
+<p>观察一下性质，在对 <span class="math inline">\(b_i\)</span>
+排完序后，如果 <span class="math inline">\(i\)</span> 选择了 B，那么
+<span class="math inline">\(&lt;i\)</span>
+的位置不可能不选，因为如果位置 <span class="math inline">\(j\)</span>
+不选，那么可以选择 <span class="math inline">\(j\)</span> 成为 B 而不选
+<span class="math inline">\(i\)</span>，这样不会使结果更劣。</p>
+<p>因此可以枚举最后一个选 B 的位置是 <span
+class="math inline">\(i\)</span>，那么此时前面已经收获了 <span
+class="math inline">\(i\)</span>
+张票，后面需要的票数是确定的，直接贪心选择前 <span
+class="math inline">\(k-i\)</span> 小的 <span
+class="math inline">\(a_j\)</span> 即可。</p>
+<p>时间复杂度被优化至 <span
+class="math inline">\(O(n^3)\)</span>，可以通过。</p>
+<h2 id="abc219ex-candles">ABC219Ex Candles</h2>
+<p>首先有很显然的性质，由于吹灭蜡烛不需要时间，因此走到一个蜡烛的位置时一定会吹灭这根蜡烛，因此在对
+<span class="math inline">\(a\)</span>
+排序后，吹灭的蜡烛一定是一段区间。而没走一步，所有还没有被吹灭的蜡烛的长度都会
+<span class="math inline">\(-1\)</span>。</p>
+<p>但是如果每走一步都将不在区间内的蜡烛长度 <span
+class="math inline">\(-1\)</span>
+的话，会出现一些蜡烛的长度被减至负数的情况，导致计算得到的结果更小。</p>
+<p>因此考虑对于 dp 状态加一维，表示仍未熄灭的且最终长度 <span
+class="math inline">\(\ge 0\)</span>
+的蜡烛个数，显然这样不会得到比答案更优的结果。</p>
+<p>因此令 <span class="math inline">\(f_{l,r,0/1,i}\)</span>
+表示在吹灭的 <span class="math inline">\([l,r]\)</span>
+区间内的蜡烛后，当前在 <span class="math inline">\(0/1\)</span>（左/右
+端点），还未被吹灭的会记入最终答案的蜡烛个数为 <span
+class="math inline">\(i\)</span>
+的最大答案。转移时，枚举这个蜡烛是否被计入最终答案即可。</p>
+<p>时间复杂度 <span class="math inline">\(O(n^3)\)</span>。</p>
+<h2 id="p3488-poi2009-lyz-ice-skates">P3488 [POI2009] LYZ-Ice
+Skates</h2>
+<p>不考虑修改，对于一次询问，建立二分图，左边的每个点表示一个人，右边的每个点表示一双鞋，如果存在一个对于左部点的完美匹配，那么答案为
+YES。</p>
+<p>根据 Hall
+定理，对于左部点的任意一个集合，其对应的右部点的集合大小都应该要大于左部点集合大小。</p>
+<p>考虑这张二分图的性质，左部的每个点都对应右部的连续 <span
+class="math inline">\(k(d+1)\)</span>
+个点，因此对于左部点，区间的条件不弱于集合的条件，因此只要对于左部点的每个区间合法即可。</p>
+<p>考虑左部点 <span class="math inline">\([l,r]\)</span>
+的区间，需要满足 <span class="math inline">\(\sum_{i=l}^r a_i\le k\times
+(r-l+1+d)\)</span>，将每个 <span
+class="math inline">\(b_i=a_i-k\)</span>，只需要满足 <span
+class="math inline">\(\sum_{i=l}^rb_i\le k\times d\)</span>
+即可，因此只需要拿线段树维护 <span class="math inline">\(b\)</span>
+的最大子段和即可。</p>
+<h2 id="cf1693c-keshi-in-search-of-amshz">CF1693C Keshi in Search of
+AmShZ</h2>
+<p>不难，但是很有借鉴价值的好题。</p>
+<p>考虑题目要求求出最坏情况下的最少时间，因此每次走出边时，考虑走到仍未被删除的最坏的出边。</p>
+<p>令 <span class="math inline">\(d_u\)</span> 表示从 <span
+class="math inline">\(u\)</span> 到终点所需要的最少天数。对于一点 <span
+class="math inline">\(u\)</span>，如果没有割掉出边集合 <span
+class="math inline">\(S\)</span>，那么 <span
+class="math inline">\(d_u=\max_{(u,v)\in
+S}d_v+deg_u-|S|\)</span>。因此最终保留的边的集合一定是按照 <span
+class="math inline">\(d_v\)</span> 从小到大排序之后的一段前缀。</p>
+<p>但是这张图并不是一张 DAG，所以并不能直接求解。考虑在进行 dijkstra
+时有性质：当前枚举到的 <span class="math inline">\(dis\)</span>
+一定比之前枚举到的 <span class="math inline">\(dis\)</span>
+大，因此在进行一次 <span class="math inline">\(v\to u\)</span>
+的更新操作时，选择 <span class="math inline">\(d_v\)</span>
+作为排序后最后一个选择的没有割边的点，其最短路是 <span
+class="math inline">\(dis_v+deg_u-cnt_u\)</span>，其中 <span
+class="math inline">\(cnt_u\)</span> 表示已经更新过的 <span
+class="math inline">\(u\)</span> 的出边数量。</p>
+<p>直接跑 dijkstra 即可，时间复杂度 <span class="math inline">\(O(m\log
+n)\)</span>，本题巧妙之处在于利用了 dijkstra
+过程中的性质来拟合了题目要求的条件。</p>
+<h2 id="p6623-省选联考-2020-a-卷-树">P6623 [省选联考 2020 A 卷] 树</h2>
+<p>考虑每一位分别计算。每个点 <span class="math inline">\(u\)</span>
+对他的 <span class="math inline">\(k\)</span> 级祖先会产生 <span
+class="math inline">\(a_u+k\)</span> 的贡献，考虑将贡献差分，在每一位的
+<span class="math inline">\(0/1\)</span> 分界处将差分数组 <span
+class="math inline">\(\oplus1\)</span>，但是这样总的差分数组更改量还是
+<span class="math inline">\(O(n)\)</span> 的。</p>
+<p>考虑除了第一段，接下来二进制第 <span class="math inline">\(i\)</span>
+位的每一个 <span class="math inline">\(0/1\)</span> 连续段的长度都是
+<span class="math inline">\(2^i\)</span>，因此所有要更改差分的点的深度
+<span class="math inline">\(\bmod 2^i\)</span>
+都是相等的，因此直接对于每一个二进制位开一个差分数组，<span
+class="math inline">\(c_{i,s}\)</span> 表示二进制后 <span
+class="math inline">\(i\)</span> 位为 <span
+class="math inline">\(s\)</span> 的点的差分应该要异或多少。</p>
+<p>直接在 dfs 的时候维护差分数组即可，复杂度 <span
+class="math inline">\(O(n\log V)\)</span>，只需要枚举每个二进制位。</p>
+<p>另一种解法是直接维护 01trie，需要支持插入元素，合并 01trie，每个数
+<span class="math inline">\(+1\)</span> 与全局求异或和，可以将 01trie
+从低位往高位建，这样全局 <span class="math inline">\(+1\)</span>
+操作可以通过交换子树来完成，复杂度还是 <span
+class="math inline">\(O(n\log V)\)</span>。</p>
+<h2 id="cf1152f2-neko-rules-the-catniverse-large-version">CF1152F2 Neko
+Rules the Catniverse (Large Version)</h2>
+<p>由于限制了每个数只能出现一次，如果按照序列的位置
+dp，需要记录每个数是否出现，直接爆炸，因此考虑改变 dp 顺序。</p>
+<p>考虑从小到大考虑每一个数 <span
+class="math inline">\(i\)</span>，讨论他是否加入序列。</p>
+<p>此时如果再记录每个位置是否填了数，那么状态数会飙升至 <span
+class="math inline">\(2^k\)</span> 往上，再乘上 <span
+class="math inline">\(n\)</span> 又炸飞了。但是考虑到每个数的具体位置在
+dp
+过程中并不重要，我们只需要关心每个已经插入的数的相对位置即可，因此可以据此设计
+dp 状态。</p>
+<p>设 <span class="math inline">\(f_{i,j,k}\)</span> 表示已经考虑插入了
+<span class="math inline">\(1\sim i\)</span>
+这些数，其中加入序列中的数有 <span class="math inline">\(j\)</span>
+个，最后的四种数是否在序列中出现的状态集合为 <span
+class="math inline">\(k\)</span> 的方案数。</p>
+<p>由于题目要求对于相邻两个数，后面的数不能大于前面的数 <span
+class="math inline">\(+m\)</span>，因此对于一个数 <span
+class="math inline">\(i\)</span>，要么放在序列的开头，要么插在前 <span
+class="math inline">\(m\)</span> 个数之后，要么不放，因此转移如下：</p>
+<p><span class="math display">\[
+\begin{cases}
+f_{i,j,k}\to f_{i+1,j,k\times 2}\\
+f_{i,j,k}\times (\operatorname{popcount}(k)+1)\to f_{i+1,j+1,k\times
+2+1}
+\end{cases}
+\]</span></p>
+<p>对于 <span class="math inline">\(\{j,k\}\)</span> 一共只有 <span
+class="math inline">\(k\times 2^m\)</span>
+种，因此可以直接矩阵快速幂优化，时间复杂度 <span
+class="math inline">\(O(k^38^m\log n)\)</span>。</p>
+<h2 id="p8688-蓝桥杯-2019-省-a-组合数问题">P8688 [蓝桥杯 2019 省 A]
+组合数问题</h2>
+<p>组合数转化成了数位 dp，卢卡斯和进制之间的转化，很新奇。</p>
+<p>根据卢卡斯定理，有 <span class="math inline">\(\binom{n}{m}\equiv
+\binom{n/k}{m/k}\times \binom{n\bmod k}{m\bmod k}\pmod
+k\)</span>，发现这个东西就是将 <span class="math inline">\(n,m\)</span>
+写成 <span class="math inline">\(k\)</span>
+进制后对应位组合数的乘积。</p>
+<p>题目要求 <span class="math inline">\(\binom{x}{y}\equiv 0\pmod
+k\)</span>，由于 <span class="math inline">\(k\)</span> 为质数，因此只要
+<span class="math inline">\(x,y\)</span> 在 <span
+class="math inline">\(k\)</span> 进制下任意一位的组合数 <span
+class="math inline">\(\bmod k=0\)</span> 即可。又由于 <span
+class="math inline">\(x,y\)</span> 在 <span
+class="math inline">\(k\)</span> 进制下的每一位都 <span
+class="math inline">\(&lt;k\)</span>，因此其组合数 <span
+class="math inline">\(=0\)</span> 只有可能是这一位上的 <span
+class="math inline">\((a,b)\)</span> 满足 <span
+class="math inline">\(a&lt;b\)</span>。</p>
+<p>因此可以对 <span class="math inline">\(n,m\)</span> 为上界，在 <span
+class="math inline">\(k\)</span> 进制下数位 dp。令 <span
+class="math inline">\(f_{i,0/1,0/1,0/1}\)</span> 表示考虑了 <span
+class="math inline">\(k\)</span> 进制的前 <span
+class="math inline">\(i\)</span> 位，<span
+class="math inline">\(n\)</span> 是否顶到上界，<span
+class="math inline">\(m\)</span> 是否顶到上界，是否存在某一位 <span
+class="math inline">\((a,b)\)</span> 满足 <span
+class="math inline">\(a&lt;b\)</span> 的方案数。</p>
+<p>转移可以直接分类讨论并计算方案数，时间复杂度 <span
+class="math inline">\(O(T\log_k n)\)</span>。</p>
+<h2 id="cf1418f-equal-product">CF1418F Equal Product</h2>
+<p>考虑对于满足条件的 <span
+class="math inline">\((x_1,y_1,x_2,y_2)\)</span>，必有 <span
+class="math inline">\(x_1\cdot y_1=x_2\cdot y_2\)</span>，因此 <span
+class="math inline">\(\frac{x_1}{x_2}=\frac{y_2}{y_1}=\frac{a}{b}\)</span>，因此
+<span class="math inline">\(x_2=\frac{x_1}{a}\cdot
+b,y_2=\frac{y_1}{b}\cdot a\)</span>，并且可以证明 <span
+class="math inline">\(a\mid x_1\)</span> 且 <span
+class="math inline">\(b\mid y_1\)</span>。</p>
+<p>通过这个转化，可以发现满足 <span class="math inline">\(a\mid
+x_1\)</span> 的 <span class="math inline">\((x_1,a)\)</span> 只有 <span
+class="math inline">\(O(n\log n)\)</span> 对，可以直接枚举。</p>
+<p>对于一个 <span class="math inline">\(x_1\)</span>，我们需要找出一对
+<span class="math inline">\((y_1,b)\)</span> 满足如下条件：</p>
+<p><span class="math display">\[
+\begin{cases}
+\lceil\frac{L}{x_1}\rceil\le y_1\le\lfloor\frac{R}{x_1}\rfloor\\
+\frac{x_1}{a}\cdot b\le n\\
+y_1\le m\\
+a&lt;b
+\end{cases}
+\]</span></p>
+<p>发现在 <span class="math inline">\(x_1\)</span> 递增时，<span
+class="math inline">\(\lceil\frac{L}{x_1}\rceil\)</span> 与 <span
+class="math inline">\(\lfloor\frac{R}{x_1}\rfloor\)</span>
+都是单调不增的，因此可以时刻用一个 set 维护满足第一个条件的 <span
+class="math inline">\((y_1,b)\)</span> 数对，每次查询时找到最小的满足
+<span class="math inline">\(b&gt;a\)</span> 的数对 <span
+class="math inline">\((y_1,b)\)</span>，判断其是否满足第二个条件即可。时间复杂度
+<span class="math inline">\(O(n\log^2n)\)</span>。</p>
+]]></content>
+      <tags>
+        <tag>好题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>逆天记录-2</title>
+    <url>/2023/08/10/%E9%80%86%E5%A4%A9%E8%AE%B0%E5%BD%95-2/</url>
+    <content><![CDATA[<h2 id="p5366-snoi2017-遗失的答案">P5366 [SNOI2017] 遗失的答案</h2>
+<p>好题！首先判掉 <span class="math inline">\(G\nmid L\)</span>
+的情况，接下来将 <span class="math inline">\(n\)</span> 与 <span
+class="math inline">\(L\)</span> 都除上 <span
+class="math inline">\(G\)</span>。</p>
+<p>假设 <span class="math inline">\(L\)</span> 分解质因数后的集合为
+<span
+class="math inline">\(\{(p_i,\alpha_i)\}\)</span>，原问题等价于选出一个
+<span class="math inline">\(\{1,2,\dots n\}\and\{x|L\equiv
+0\pmod{x}\}\)</span> 的子集 <span
+class="math inline">\(S\)</span>，满足对于任意的 <span
+class="math inline">\((p_i,\alpha_i)\)</span>，<span
+class="math inline">\(\min_{x\in S} cnt_{p_i}(x)=0\)</span>，<span
+class="math inline">\(\max_{x\in S}cnt_{p_i}(x)=\alpha_i\)</span>。</p>
+<p>由于 <span
+class="math inline">\(\omega(L)=|\{(p_i,\alpha_i)\}|\)</span>
+很小，最大只有 <span
+class="math inline">\(8\)</span>，因此考虑状压。</p>
+<p>定义一个长度为 <span class="math inline">\(16\)</span> 的二进制数
+<span class="math inline">\(s\)</span>，前八位表示对于每个 <span
+class="math inline">\((p_i,\alpha_i)\)</span>，是否满足 <span
+class="math inline">\(\min_{x\in S}
+cnt_{p_i}(x)=0\)</span>，后八位则表示对于每个 <span
+class="math inline">\((p_i,\alpha_i)\)</span>，是否满足 <span
+class="math inline">\(\max_{x\in S}cnt_{p_i}(x)=\alpha_i\)</span>。</p>
+<p>从而每个 <span class="math inline">\(1\sim n\)</span> 中的 <span
+class="math inline">\(L\)</span> 的因数都可以被表示为值域为 <span
+class="math inline">\([0,2^{16})\)</span>
+的整数，原问题等价于选择一些数，使得他们的或和等于 <span
+class="math inline">\(2^{16}-1\)</span>。</p>
+<p>首先把二进制表示 <span class="math inline">\(s\)</span>
+相同不同的数归为一类，假设第 <span class="math inline">\(i\)</span>
+类的二进制表示为 <span class="math inline">\(s_i\)</span>，个数为 <span
+class="math inline">\(c_i\)</span>。</p>
+<p>考虑 dp，令 <span class="math inline">\(f_{i,j}\)</span> 表示考虑了前
+<span class="math inline">\(i\)</span> 种二进制数，其状态的或和 <span
+class="math inline">\(=j\)</span> 的方案数，则有：</p>
+<p><span class="math display">\[
+f_{i,j}\to f_{i+1,j}\\
+f_{i,j}\to f_{i+1,j|s_{i+1}}\times (2^{c_{i+1}}-1)
+\]</span></p>
+<p>但是询问中需要钦定某个数不能选，因此考虑做出前缀与后缀的
+dp，假设分别为 <span class="math inline">\(f,g\)</span>。</p>
+<p>则对于每个 <span class="math inline">\(i\)</span>，我们需要将 <span
+class="math inline">\(f_{i-1}\)</span> 与 <span
+class="math inline">\(g_{i+1}\)</span>
+合并，而这是一个或卷积的过程，可以直接 FWT
+完成。合并后，枚举前后缀合并后的状态，找出 <span
+class="math inline">\(s_i|mask=2^{16}-1\)</span> 的 <span
+class="math inline">\(mask\)</span>，将其 dp 值相加后乘上 <span
+class="math inline">\(2^{cnt_i-1}\)</span>
+即可（由于钦定了选择一个数，另外 <span
+class="math inline">\(cnt_i-1\)</span> 个数是否选择随意）。</p>
+<p>时间复杂度 <span class="math inline">\(O(d(L)\times
+\omega(L)\times2^{2\omega(L)}+q\times \omega(L))\)</span>。</p>
+<h2 id="cf1805f2-survival-of-the-weakest-hard-version">CF1805F2 Survival
+of the Weakest (hard version)</h2>
+<p>神奇的 *3100，代码量不大，结论不难猜，但是证明有些困难。</p>
+<p>如果不考虑时间问题直接模拟，发现 <span
+class="math inline">\(a\)</span>
+的值域会过大，导致无法使用平凡的变量存储。</p>
+<p>考虑缩小值域：将 <span class="math inline">\(a\)</span>
+从小到大排序后，维护 <span
+class="math inline">\(b_i:=a_i-a_1\)</span>，在比较 <span
+class="math inline">\(a_i+a_j\)</span> 与 <span
+class="math inline">\(a_{i&#39;}+a_{j&#39;}\)</span> 时只需要比较 <span
+class="math inline">\(b_i+b_j\)</span> 与 <span
+class="math inline">\(b_{i&#39;}+b_{j&#39;}\)</span> 即可。</p>
+<p>考虑 <span class="math inline">\(b\)</span>
+的值域，操作后新的序列（设为 <span class="math inline">\(c\)</span>）
+中，<span class="math inline">\(c_1=b_1+b_2\)</span>，<span
+class="math inline">\(c_{n-1}\le b_1+b_n\)</span>（考虑选取 <span
+class="math inline">\(b_1+b_2,b_1+b_3,\dots,b_1+b_n\)</span>
+可以使最后一个值取到 <span
+class="math inline">\(b_1+b_n\)</span>，因此最后一个值一定小于等于 <span
+class="math inline">\(b_1+b_n\)</span>）。新的 <span
+class="math inline">\(b&#39;\)</span> 中，<span
+class="math inline">\(b&#39;_{n-1}=c_{n-1}-c_1=b_n-b_2\)</span>，因此值域不会增大。</p>
+<p>于是找到了一种合理的存贮 <span class="math inline">\(a\)</span>
+序列且能进行大小比较的方式。</p>
+<p>能够比较后，考虑暴力做法：如何在一个长度为 <span
+class="math inline">\(n\)</span> 的序列中取出两两之和前 <span
+class="math inline">\(n-1\)</span> 小的。</p>
+<p>考虑维护一个堆，存贮接下来可能出现的较小的和与他们对应相加的编号。</p>
+<p>初始时，堆中放入 <span
+class="math inline">\(a_2+a_1,a_3+a_1,\dots,a_n+a_1\)</span>。每次去除最小的一对
+<span class="math inline">\((x,y)\)</span> 后，将 <span
+class="math inline">\(a_x+a_{y+1}\)</span>
+加入堆中。不难发现每次可能的最小值一定会在堆中，这样模拟一次的复杂度为
+<span class="math inline">\(O(n\log n)\)</span>。</p>
+<p>至此，我们在 <span class="math inline">\(O(n^2\log n)\)</span>
+复杂度内解决问题，可以通过 Easy Version。</p>
+<p>考虑如何优化。感性理解下，较大的 <span
+class="math inline">\(b_i\)</span>
+是不会出现在下一轮中的。考虑证明：</p>
+<p>如果 <span class="math inline">\(b_n\)</span>
+在这一轮操作中没有被忽视（即在下一轮中他作为一个数之中的一个元素），那么一定满足
+<span class="math inline">\(b_n\le b_2+b_3\)</span>（因为若 <span
+class="math inline">\(b_n&gt;b_2+b_3\)</span>，那么 <span
+class="math inline">\(b_1+b_2,b_1+b_3,\dots,b_1+b_{n-1},b_2+b_3\)</span>
+这 <span class="math inline">\(n-1\)</span> 个数会被放入下一轮，<span
+class="math inline">\(b_n\)</span> 就被忽视了），因此 <span
+class="math inline">\(b_n\le b_2+b_3\le 2b_3\)</span>。</p>
+<p>而操作后的序列中的最后一个数变成了 <span
+class="math inline">\(b_n+b_1-(b_1+b_2)=b_n-b_2\)</span>，如果再操作一次，那么最后一个元素将
+<span class="math inline">\(\le (b_n-b_2)-(b_3-b_2)=b_n-b_3\le
+b_3\)</span>。因此，<span class="math inline">\(b_n\)</span>
+在两次操作后至少减半。</p>
+<p>考虑将 <span class="math inline">\(b_n\)</span> 推广到所有的 <span
+class="math inline">\(b_i\)</span> 仍然成立，因此只需要保留前 <span
+class="math inline">\(L=2\log V+\epsilon\)</span> 个元素，证明：</p>
+<p>对于一次对序列 <span class="math inline">\(b\)</span> 的操作：</p>
+<ul>
+<li>若 <span class="math inline">\(b_L\ge b_2+b_3\)</span>，那么 <span
+class="math inline">\(b_1,b_2,\dots b_L\)</span>
+就可以确定新的序列。</li>
+<li>若 <span
+class="math inline">\(b_L&lt;b_2+b_3\)</span>，那么可以确定新的 <span
+class="math inline">\(b&#39;_1,b&#39;_2,\dots,b&#39;_{L-1}\)</span>，再操作一次后可以确定新的
+<span
+class="math inline">\(b&#39;&#39;_1,b&#39;&#39;_2,\dots,b&#39;&#39;_{L-2}\)</span>，而已经证明了
+<span class="math inline">\(b_L\ge
+2b&#39;&#39;_{L-2}\)</span>，因此这样的 <span
+class="math inline">\(b_L\)</span> 不会超过 <span
+class="math inline">\(2\log V\)</span> 次。</li>
+</ul>
+<p>综上，<span class="math inline">\(L=2\log V+\epsilon\)</span>
+得证。取前 <span class="math inline">\(L\)</span> 小的 <span
+class="math inline">\(a\)</span> 进行模拟即可。</p>
+<p>时间复杂度优化为 <span class="math inline">\(O(n\log V\log\log
+V)\)</span>，可以通过 Hard Version。</p>
+<h2 id="cf1552h-guess-the-perimeter">CF1552H Guess the Perimeter</h2>
+<p>第一次询问将所有 <span class="math inline">\(200\times 200\)</span>
+个点涂上色，询问得到的结果即为矩形的面积。</p>
+<p>接下来 <span class="math inline">\(3\)</span>
+次询问考虑求出矩形的长，假设矩形长为 <span
+class="math inline">\(h\)</span>，宽为 <span
+class="math inline">\(w\)</span>。询问方法很神奇。</p>
+<p>首先有一个结论：当询问将所有横坐标为 <span
+class="math inline">\(d\)</span> 倍数的点染色色后，当且仅当 <span
+class="math inline">\(d\mid h\)</span> 时，返回的面积交为 <span
+class="math inline">\(\frac{wh}{d}\)</span>。证明显然。</p>
+<p>把这个询问运用于二进制上。尝试超出最大的 <span
+class="math inline">\(k\)</span> 使得 <span
+class="math inline">\(2^k|d\)</span>，那么在询问横坐标为 <span
+class="math inline">\(2^k\)</span> 倍数的点时，返回的结果位 <span
+class="math inline">\(\frac{wh}{2^k}\)</span>；当询问横坐标为 <span
+class="math inline">\(2^{k+1}\)</span> 倍数的点时5，返回的结果为 <span
+class="math inline">\(\frac{w(h\pm 2^k)}{2^{k+1}}\)</span>。将两次结果乘
+<span class="math inline">\(2\)</span> 做差处理后，即可求出 <span
+class="math inline">\(w\)</span>，随后可以求出 <span
+class="math inline">\(h\)</span>，即可求出答案。</p>
+<p>由于 <span class="math inline">\(k\in [1,7]\)</span>，因此求最大的
+<span class="math inline">\(k\)</span> 可以使用二分，恰好需要 <span
+class="math inline">\(\lceil\log_2 7\rceil=3\)</span>
+次询问。加上记忆化后可以不用询问直接得到 <span
+class="math inline">\(2^{k+1}\)</span> 的结果（若 <span
+class="math inline">\(k=7\)</span>，则 <span
+class="math inline">\(2^{k+1}\)</span> 答案必定为 <span
+class="math inline">\(0\)</span>）。</p>
+<p>这样，原问题在不超过 <span class="math inline">\(4\)</span>
+次询问内得到解答。</p>
+<h2 id="cf573d-bear-and-cavalry">CF573D Bear and Cavalry</h2>
+<p>将所有人与马按照能力值排序后，有结论：第 <span
+class="math inline">\(i\)</span> 个人对应的马在 <span
+class="math inline">\([i-2,i+2]\)</span> 之间。</p>
+<p>证明考虑如果有一对 <span class="math inline">\((i,i+3)\)</span>
+的匹配，必定可以做出调整使其依然合法，并根据排序不等式，证明不劣于当前匹配方式。</p>
+<p>进一步的，所有的匹配只可能有如下三种类型：</p>
+<ul>
+<li>第 <span class="math inline">\(i\)</span> 个人与第 <span
+class="math inline">\(i\)</span> 匹马匹配。</li>
+<li>第 <span class="math inline">\(i,i+1\)</span> 个人与第 <span
+class="math inline">\(i,i+1\)</span> 匹马匹配。</li>
+<li>第 <span class="math inline">\(i,i+1,i+2\)</span> 个人与第 <span
+class="math inline">\(i,i+1,i+2\)</span> 匹马匹配。</li>
+</ul>
+<p>证明可以分类讨论并进行调整。</p>
+<p>得出结论后，设 <span class="math inline">\(f_{i}\)</span>
+表示按能力值排序后前 <span class="math inline">\(i\)</span> 个人与前
+<span class="math inline">\(i\)</span> 匹马对应后的能力值最大值。</p>
+<p>容易发现，<span class="math inline">\(f_{i}\)</span> 只会从 <span
+class="math inline">\(f_{i-1},f_{i-2},f_{i-3}\)</span>
+得来，因此可以直接放到线段树上用矩阵乘法维护。</p>
+<p>修改就是序列 ddp 的过程。时间复杂度 <span
+class="math inline">\(O(k^3n\log n)\)</span>，其中 <span
+class="math inline">\(k\)</span> 为矩阵大小，<span
+class="math inline">\(k=3\)</span>。</p>
+<h2 id="p9479-noi2023-桂花树">P9479 [NOI2023] 桂花树</h2>
+<p>将原题面的两个条件转化一下：</p>
+<ul>
+<li>对于 <span class="math inline">\([1,n]\)</span>
+中点构成的虚树，就是给出的树。</li>
+<li>对于任意的前缀 <span class="math inline">\([1,x]\)</span>
+构成的虚树，其所包含的点的编号都要 <span class="math inline">\(\le
+x+k\)</span>。</li>
+</ul>
+<p>因此原问题就是一个树虚树个数的问题。</p>
+<p>考虑 <span class="math inline">\(k=0\)</span>
+时，每个点要么插在原来的一条边上，要么挂在一个点下面，方案数 <span
+class="math inline">\(2sz-1\)</span>。</p>
+<p>考虑 <span class="math inline">\(k&gt;0\)</span> 时，我们要给每一个点
+<span class="math inline">\(&gt;x\)</span> 的点预留好位置。设 <span
+class="math inline">\(f_{i,S}\)</span> 表示考虑了前 <span
+class="math inline">\(i\)</span> 个点构成的虚树，已经预定了接下来 <span
+class="math inline">\(k\)</span> 个点中 <span
+class="math inline">\(S\)</span> 集合点位置的方案数。</p>
+<p>转移时分三种情况：</p>
+<ul>
+<li>不用 <span class="math inline">\(&gt;x\)</span> 的点，同 <span
+class="math inline">\(k=0\)</span>，系数 <span
+class="math inline">\(2sz-1\)</span>。</li>
+<li>用 <span class="math inline">\(&gt;x\)</span>
+的点，把他放在一条边中间，然后挂在这个点下面，系数 <span
+class="math inline">\(sz-1\)</span>。</li>
+<li>填补之前一个预定的位置，系数 <span
+class="math inline">\(1\)</span>。</li>
+</ul>
+<p>按照对应的系数转移即可，时间复杂度 <span
+class="math inline">\(O(mk2^k)\)</span>。</p>
+<h2 id="cf1370f2-the-hidden-pair-hard-version">CF1370F2 The Hidden Pair
+(Hard Version)</h2>
+<p>约定称两个隐藏点为 <span class="math inline">\(s,t\)</span>。</p>
+<p>第一次询问问所有点，这样可以得到 <span
+class="math inline">\(s\)</span> 与 <span
+class="math inline">\(t\)</span> 的距离 <span
+class="math inline">\(len\)</span> 与 <span
+class="math inline">\(s\)</span> 到 <span
+class="math inline">\(t\)</span> 路径上的一个点。</p>
+<p>以这个点为根，进行 dfs，求出每个点的深度。接下来要求出 <span
+class="math inline">\(s,t\)</span> 中深度较深点的深度。</p>
+<p>考虑二分这个深度。询问时问出这个深度的所有点，如果答案 <span
+class="math inline">\(=len\)</span>，那么较大深度一定大于二分值。二分后的同时还能求出深度较大点的编号（不妨设其为
+<span class="math inline">\(s\)</span>）。</p>
+<p>考虑如何求出 <span class="math inline">\(t\)</span>。以 <span
+class="math inline">\(s\)</span> 为根进行 dfs，询问所有深度 <span
+class="math inline">\(=len\)</span> 的点，返回的点即为 <span
+class="math inline">\(t\)</span>。</p>
+<p>这样的询问次数为 <span class="math inline">\(1+\log
+n+1=12&gt;11\)</span>，还差一次。</p>
+<p>由于较大的深度一定 <span
+class="math inline">\(\ge\lceil\frac{len}{2}\rceil\)</span> 且 <span
+class="math inline">\(\le len\)</span>，因此可以省去一次二分，恰好 <span
+class="math inline">\(11\)</span> 次。</p>
+<h2 id="p9060-ynoi2002-goedel-machine">P9060 [Ynoi2002] Goedel
+Machine</h2>
+<p>考虑对于整个序列的答案怎么算。令 <span
+class="math inline">\(c_p\)</span> 表示所有数中 <span
+class="math inline">\(p\)</span> 的倍数的数的个数。</p>
+<p>对于每个质数 <span
+class="math inline">\(p\)</span>，当选出子集中所有数都是 <span
+class="math inline">\(p\)</span> 的倍数时，会有 <span
+class="math inline">\(p\)</span> 的贡献，因此贡献是 <span
+class="math inline">\(p^{2^{c_p}-1}\)</span>。</p>
+<p>对于每个质数算出贡献后相乘就是答案吗？答案是否定的。</p>
+<p>加入所有数都是 <span class="math inline">\(p^2\)</span>
+的贡献，那么这个子集的贡献是 <span
+class="math inline">\(p^2\)</span>，但按照原来方法只计算了 <span
+class="math inline">\(p\)</span>，增量为 <span
+class="math inline">\(p\)</span>，因此还要乘 <span
+class="math inline">\(p^{2^{c_{p^2}}-1}\)</span>，再增量同理。</p>
+<p>因此对于每个质数的每次次幂，都可能对答案产生贡献。把所有质数和质数的次幂拿出来，就有
+<span class="math inline">\(O(\frac{n}{\log n}\times \log
+n)=O(n)\)</span> 个。</p>
+<p>一种朴素的计算方法是通过莫队。但是增加或删除元素需要枚举所有质因子与质因子倍数，但次是
+<span class="math inline">\(O(\log^2n)\)</span> 的，因此总复杂度 <span
+class="math inline">\(O(n\sqrt n\log^2n)\)</span>，无法通过。</p>
+<p>考虑对质数进行根号分治。</p>
+<p>对于 <span class="math inline">\(&gt;\sqrt n\)</span>
+的质数，每个数中最多只有一个，且只能是一次幂，这部分做莫队是可以做到
+<span class="math inline">\(O(n\sqrt n)\)</span> 的。</p>
+<p>对于 <span class="math inline">\(\le \sqrt n\)</span>
+的质数即其次幂，一共只有 <span class="math inline">\(O(\sqrt n)\)</span>
+种，对他们做前缀和，每次询问之枚举每个质数与其次幂，并提前预处理每种出现次数的贡献即可，时间复杂度
+<span class="math inline">\(O(n\sqrt n)\)</span>。</p>
+<p>因此设 <span class="math inline">\(n,m,V\)</span>
+同阶，最终时间复杂度 <span class="math inline">\(O(n\sqrt
+n)\)</span>。</p>
+<h2 id="cf283e-cow-tennis-tournament">CF283E Cow Tennis Tournament</h2>
+<p>正难则反，考虑计算不是三元环的三元组个数。那么就是两个点都指向一个点。</p>
+<p>考虑从前往后做扫描线，用线段树维护每个点的反转次数，然后计算出每个点的入度即可。</p>
+<p>时间复杂度 <span class="math inline">\(O(n\log n)\)</span>。</p>
+<h2 id="cf542b-duck-hunt">CF542B Duck Hunt</h2>
+<p>考虑将猎物往左走看成猎人往右走，那么猎人在 <span
+class="math inline">\(t\)</span> 时刻开枪能射杀 <span
+class="math inline">\(l_i\le t\le r_i\)</span> 的猎物 <span
+class="math inline">\(i\)</span>。</p>
+<p>令 <span class="math inline">\(f_{i,j}\)</span> 表示考虑了 <span
+class="math inline">\(r\le i\)</span> 的猎物，上一次开枪在时刻 <span
+class="math inline">\(j\)</span>，能射杀的最多猎物数量。</p>
+<p>考虑转移，<span class="math inline">\(f_{i,\sim}\)</span> 到 <span
+class="math inline">\(f_{i+1,\sim}\)</span>
+转移时，先不考虑杀新的鸭子，那么等价于 <span
+class="math inline">\(\sim\le i\)</span> 的保留原来的值，<span
+class="math inline">\(\sim=i+1\)</span> 的要取前缀 <span
+class="math inline">\(\max\)</span>。</p>
+<p>再考虑开枪，那么就能让 <span
+class="math inline">\(f_{i+1,[l,i+1]}\)</span> 的值 <span
+class="math inline">\(+1\)</span>，而且这个操作只有 <span
+class="math inline">\(O(n)\)</span> 次。</p>
+<p>直接做复杂度 <span class="math inline">\(O(V\log
+V)\)</span>，但是考虑 dp 的值域是 <span
+class="math inline">\(O(n)\)</span> 的，因此接的前缀 <span
+class="math inline">\(\max\)</span> 种类数也是 <span
+class="math inline">\(O(n)\)</span> 的，直接维护会变化的位置即可。</p>
+<p>时间复杂度被优化为 <span class="math inline">\(O(n\log
+V)\)</span>。</p>
+<h2 id="abc313f-flip-machines">ABC313F Flip Machines</h2>
+<p>对于 <span class="math inline">\(x\not=y\)</span> 的机器 <span
+class="math inline">\((x,y)\)</span>，如果他被操作到了至少一次，那么他的期望价值是
+<span class="math inline">\(\frac{a_i+b_i}{2}\)</span>。</p>
+<p>因此，对于 <span class="math inline">\(x=y\)</span> 的机器 <span
+class="math inline">\((x,y)\)</span>，如果 <span
+class="math inline">\(a_x&lt;b_x\)</span>，那么就选择他来操作一次，否则是没用的。</p>
+<p>接下来考虑将所有卡片分成两个集合，对于 <span
+class="math inline">\(a_i&gt;\frac{a_i+b_i}{2}\)</span> 的卡片分到 <span
+class="math inline">\(S\)</span>，其余分到 <span
+class="math inline">\(T\)</span>。那么操作 <span
+class="math inline">\(S\)</span> 中卡片期望会减少，操作 <span
+class="math inline">\(T\)</span> 中卡片期望会增加。</p>
+<p>对于所有的机器，如果 <span class="math inline">\(x,y\)</span>
+同属一个集合，那么 <span class="math inline">\(S\)</span>
+中不选最优，<span class="math inline">\(T\)</span> 中选择最优。</p>
+<p>剩下的问题是对于 <span class="math inline">\(x\in S,y\in T\)</span>
+的卡片是否选择，要求出这个值的最大期望。假设 <span
+class="math inline">\(n=|S|,m=|T|\)</span>。</p>
+<p>考虑以下两种做法：</p>
+<ul>
+<li>枚举 <span class="math inline">\(S\)</span>
+集合中的每个元素是否被选到，那么可以选所有与 <span
+class="math inline">\(S\)</span> 中选到的元素有边的 <span
+class="math inline">\(T\)</span> 中的元素，直接求和。时间复杂度 <span
+class="math inline">\(O(2^nm)\)</span>。</li>
+<li>考虑 dp，令 <span class="math inline">\(f_{i,k}\)</span> 表示考虑了
+<span class="math inline">\(S\)</span> 中的前 <span
+class="math inline">\(i\)</span> 张卡片，与 <span
+class="math inline">\(T\)</span> 中的 <span
+class="math inline">\(k\)</span> 集合点右边的 <span
+class="math inline">\(S\)</span> 集合最小负贡献。最后枚举每个 <span
+class="math inline">\(T\)</span> 中的卡片是否被边覆盖。时间复杂度 <span
+class="math inline">\(O(2^mn)\)</span>。</li>
+</ul>
+<p>由于 <span class="math inline">\(n+m\le N=40\)</span>，所以直接对于
+<span class="math inline">\(n,m\)</span> 大小分治即可，时间复杂度 <span
+class="math inline">\(O(2^{n/2}n)\)</span>。</p>
+<h2 id="p9535-ysoi2023-连通图计数">P9535 [YsOI2023] 连通图计数</h2>
+<p>删掉每个点后的连通块个数等价于这个点在圆方树上的度数。称圆方树上的一个度数
+<span class="math inline">\(&gt;2\)</span> 的点为非平凡方点。</p>
+<p>首先考虑 <span class="math inline">\(m=n-1\)</span>
+的情况，原图是一棵树，由 prufer 序列易得树的形态为 <span
+class="math inline">\(\dfrac{(n-2)!}{\prod(a_i-1)!}\)</span>。</p>
+<p>考虑圆方树上只有圆点与方点之间有边，因此圆方树的边数即为 <span
+class="math inline">\(\sum a_i\)</span>，点数即为 <span
+class="math inline">\(\sum a_i+1\)</span>。</p>
+<p>当 <span class="math inline">\(m=n\)</span> 时，图上圆点个数为 <span
+class="math inline">\(n\)</span>，非平凡方点个数为 <span
+class="math inline">\(1\)</span>，因此平凡方点的个数为 <span
+class="math inline">\(\sum a_i-n\)</span>。</p>
+<p>考虑所有点度数和为 <span class="math inline">\(2\sum
+a_i\)</span>，因此非平凡方点的度数为 <span class="math inline">\(2\sum
+a_i-\sum a_i-2(\sum a_i-n)=2n-\sum a_i\)</span>。</p>
+<p>随后可以根据 prufer 序列得出圆方树的形态为 <span
+class="math inline">\(\dfrac{(n-1)!}{(2n-\sum a_i-1)!\prod
+(a_i-1)!}\)</span>，然后还要乘上方点对应环的形态 <span
+class="math inline">\(\dfrac{(2n-\sum a_i-1)!}{2}\)</span>。</p>
+<p>当 <span class="math inline">\(m=n+1\)</span>
+时，图上可能有一个或两个方点。两个方点时可以枚举度数，计算方式同上。</p>
+<h2 id="cf1861f-four-suits">CF1861F Four Suits</h2>
+<p>对于每个人，枚举最终选择的是哪个物品，那么最优情况一定是把剩下的所有这种卡牌尽可能分给他。</p>
+<p>二分答案，判定剩下的所有人的所有物品是否能够都 <span
+class="math inline">\(\le L\)</span>。限制形如：每个人需要选择 <span
+class="math inline">\(ret_i\)</span> 的物品，第 <span
+class="math inline">\(i\)</span> 个人还能选择 <span
+class="math inline">\(b_{i,j}\)</span> 的 <span
+class="math inline">\(j\)</span> 种物品，每种物品还剩下 <span
+class="math inline">\(c_j\)</span> 个，判定能否让所有人都选满物品。</p>
+<p>考虑暴力判定，由源点向每个左部点连一条流量为 <span
+class="math inline">\(ret_i\)</span>
+的边，每个左部点向每个右部点连一条流量为 <span
+class="math inline">\(b_{i,j}\)</span>
+的边，每个右部点向汇点连一条流量为 <span
+class="math inline">\(c_j\)</span> 的边，跑最大流判定是否 <span
+class="math inline">\(=\sum ret_i\)</span>。</p>
+<p>由于最大流 <span class="math inline">\(=\)</span>
+最小割，因此只需要求出最小割即可。右部点只有 <span
+class="math inline">\(4\)</span> 个，因此可以 <span
+class="math inline">\(2^4\)</span> 枚举每个右部点被割到 <span
+class="math inline">\(S\)</span> 集合还是 <span
+class="math inline">\(T\)</span> 集合。</p>
+<p>枚举完后，对于每个左部点，他被分到 <span
+class="math inline">\(S\)</span> 集合还是 <span
+class="math inline">\(T\)</span>
+集合，每个左部点的割的贡献是独立的，取较小的相加即可。</p>
+<p>发现每个左部点较小的割的和形如 <span class="math inline">\(val+\sum
+\min\{v_i,L-w_i\}\)</span>，那个 <span
+class="math inline">\(\min\)</span> 可以算出切换左右的 <span
+class="math inline">\(L\)</span>
+的时刻，按照这个切换时刻从小到大排序，二分即可。</p>
+<p>时间复杂度 <span class="math inline">\(O(nm^22^m\log n\log
+V)\)</span>，其中 <span class="math inline">\(m=4\)</span>。</p>
+<h2 id="p5812-ioi2019-天桥">P5812 [IOI2019] 天桥</h2>
+<p>好题，但是搬到 NOIP 模拟赛属实逆天，场上只会 <span
+class="math inline">\(57\)</span>。</p>
+<p>考虑如果不存在横跨 <span class="math inline">\(s\)</span> 和 <span
+class="math inline">\(t\)</span>
+的天桥，那么显然不会向左走，且每次上下行一定在某一个天桥的左右端点处。</p>
+<p>出现横跨 <span class="math inline">\(s\)</span>
+的天桥时，如果要上这座天桥，一定是向左走或向右走到一个最近能上去的房子，然后上去走这座天桥。</p>
+<p>因此对于这些天桥，直接将其以 <span class="math inline">\(s\)</span>
+或 <span class="math inline">\(t\)</span> 为分界拆成若干段天桥即可。</p>
+<p>考虑上行或下行后一定是走到一个距离他最近的天桥继续走，因此连边时只要将某一个天桥的某个端点向那幢楼的前驱和后继连边即可，找前驱后继可以直接扫描线
++ 线段树维护。</p>
+<p>这样点数和边数都是 <span class="math inline">\(O(m)\)</span>
+的，直接跑单源最短路即可，时间复杂度 <span class="math inline">\(O(m\log
+m)\)</span>。</p>
+<h2 id="cf1267g-game-relics">CF1267G Game Relics</h2>
+<p>最优策略一定是先抽卡，后买卡。</p>
+<p>考虑如果当前已经获得了 <span class="math inline">\(i\)</span>
+张卡，那么通过抽卡获得下一张卡的概率是 <span
+class="math inline">\(\frac{n-i}{n}\)</span>，因此期望抽 <span
+class="math inline">\(\frac{n}{n-i}\)</span> 次，其中最后一次花费是
+<span class="math inline">\(x\)</span>，其余均为 <span
+class="math inline">\(\frac{x}{2}\)</span>，因此期望花费是 <span
+class="math inline">\((\frac{n-i}{n}-1)\times\frac{x}{2}+x\)</span>。</p>
+<p>但是这与买卡不好直接比较，又由于买所有卡都是等价的（后面全都是买卡），因此可以看作随即买一张卡，则期望花费是
+<span class="math inline">\(\frac{sum-s}{n-i}\)</span>，其中 <span
+class="math inline">\(s\)</span> 表示已经获得的卡的价格之和。</p>
+<p>这样就可以直接贪心比较，选择较小的作为下一步决策。</p>
+<p>随后通过 dp 算出所有形如抽了 <span class="math inline">\(i\)</span>
+张卡，抽中卡的价格之和为 <span class="math inline">\(s\)</span>
+的局面的出现概率 <span
+class="math inline">\(f_{i,s}\)</span>，乘上期望花费相加即可。</p>
+<h2 id="p5331-snoi2019-通信">P5331 [SNOI2019] 通信</h2>
+<p>朴素的费用流可以先进行拆点，将每个点拆成入点和出点，每个点可以从前面的任意一个点连一条费用为代价的边，连一条从虚点连来的费用为
+<span class="math inline">\(W\)</span> 的边。</p>
+<p>但这样建图的点数是 <span class="math inline">\(O(n)\)</span>
+的，边数是 <span class="math inline">\(O(n^2)\)</span>
+的，无法通过。</p>
+<p>考虑优化，对于整个序列进行分治。由于边是从左向右连结的，因此在分治
+<span class="math inline">\([l,r]\)</span> 时，只需要处理 <span
+class="math inline">\([l,mid]\)</span> 中的点向 <span
+class="math inline">\((mid,r]\)</span> 中的点连的边。</p>
+<p>将两边的点按照点权排序，假设处理左边点权 <span
+class="math inline">\(\le\)</span>
+右边点权的边，那么给右边排序后的每个点建一个虚电，从左边的点先向右边第一个
+<span class="math inline">\(\ge\)</span>
+他的权值的点连边，再在右边相邻的点之间连一条链即可。</p>
+<p>这样点数与边数都变为 <span class="math inline">\(O(n\log
+n)\)</span>，直接跑费用流即可。</p>
+]]></content>
+      <tags>
+        <tag>好题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2022百度之星决赛游记</title>
+    <url>/2022/11/26/2022%E7%99%BE%E5%BA%A6%E4%B9%8B%E6%98%9F%E5%86%B3%E8%B5%9B%E6%B8%B8%E8%AE%B0/</url>
+    <content><![CDATA[<h2 id="day-0">Day 0</h2>
+<p>上午学长们在 NOIp，初中生没得去，在家颓废。</p>
+<p>下午去现场看了一下，感觉还不错，被采访了，一时半会儿没答上话来。</p>
+<p>希望明天不要太寄，睡觉！</p>
+<h2 id="day-1">Day 1</h2>
+<p>上午最早到，有点尴尬，不过还好过一会儿孙老师就来了，8
+点比赛就开始了。</p>
+<p>今年题目比去年人性很多，大概是给你各种类型的信息，让你 encode 和
+decode，encode 后的数列长度越小分越高，你还可以写一个词典。</p>
+<p>第一题非常困难，要输入各种语言的字符，不太会，于是先鸽了。</p>
+<p>然后发现图片信息的题目很好做，随手写了一个就交了，但是一直格式错误，人快崩溃。还好最后瞎改改过了，打开
+80pts。</p>
+<p>然后去做其他题，主要是要找出 出现次数*长度 最大的几个子串，感觉很
+hard。</p>
+<p>然后本地随便开了个 map，把所有长度 <span class="math inline">\(\le
+5\)</span> 的子串塞进去，但是还是很大，最后直接果断到 <span
+class="math inline">\(1e6\)</span> 个就
+<code>break</code>，但是分数不太理想。</p>
+<p>（赛后才发现可以直接 SAM，感觉自己是个智障。）</p>
+<p>中午随便吃了点，然后下午直接开 6，一度拿到 100pts 的 rank1
+成绩，但是不久之后就只剩下 80pts 左右了，很寄吧。</p>
+<p>下午还有 3h 时间，研究了好久怎么输入输出 <code>utf-8</code>
+编码的字符，看了各种关于 <code>wstring</code> 和 <code>wchar_t</code>
+的文章，但还是无果。</p>
+<p>最后直接用 <code>char</code> 类型的来
+<code>getchar</code>，在最后一小时过了
+/jy。但是已经封榜了，不知道能拿几分。</p>
+<p>7 是把所有的组合起来，但是不想写了，于是直接交了 1
+的代码就跑路了。</p>
+<p>最后把图片处理优化了一下，然后去改
+1，但是没改完就结束了。于是跑路。</p>
+<p>下午有好久的活动时间，碰到学车的人，直接联机打块，很爽啊！还见到了一些学车的人。</p>
+<p>下午出榜了，<span
+class="math inline">\(4.25+25.46+28.43+80.96+29.29+47.29+4.96\)</span>，加完权之后
+<span class="math inline">\(23.55\)</span>，只有 rank53。</p>
+<p>不知道自己 1 实现地这么垃圾，只有 4 分，7 有 <span
+class="math inline">\(40\%\)</span> 的权重，但是只有 5
+分不到，亏麻了，早知道就去磕 1 和 7 了，还好图片处理的分数不低。</p>
+<p>晚上颁奖，又听了 114514 年的废话，然后只拿了个纪念奖，小星星
+rank12，寄吧了，拿了个词典笔，一分钱都没有。</p>
+<p>章绍嘉这个 AK IOI 的人喜提 5k，xay 喜提 1w。</p>
+<p>晚上抽奖，孙老师两张票，第一张抽中了，他直接上去了，然后下一个第二张又中了，于是我直接抢了上去，白嫖一个音响
+/qiang。</p>
+<p>拿到好多钱 OvO，明年最后一次小星星机会，多给点钱吧 /kel。</p>
+]]></content>
+      <tags>
+        <tag>游记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PKUSC2023游记</title>
+    <url>/2023/05/07/PKUSC2023%E6%B8%B8%E8%AE%B0/</url>
+    <content><![CDATA[<h2 id="day-0">Day 0</h2>
+<p>早起赶到火车站，做了 4.5h 的复兴号从杭州东到北京南，然后做了 1h
+地铁才到酒店，去对面吃了肉夹馍，某些人 9 元买了 7 元优惠券 /cf。</p>
+<p>下午和晚上在酒店魔域，好像他们夜骑去面基了。。</p>
+<p>10 点半还打了个 div2，花了 20min 写了个 E，抢了一血，很爽。口胡了个 F
+就睡了（但好像假了？。</p>
+<h2 id="day-1">Day 1</h2>
+<p>早上 5 点半就醒了，去对面吃了馄饨和豆腐脑（第一次吃豆腐脑
+/tuu）。骑车去北大报道，然后开幕式，很高效，一下就好了。</p>
+<p>然后去试机，电脑感觉还行，虽然是
+win，但是挺好用的。写了个试机题就润了（如果早知道试机代码不会被删。</p>
+<p>下午正式比赛，先开 T1，感觉不难，稍微想了一下就会了，写了 <span
+class="math inline">\(O(n\log n)\)</span> 的倍增哈希被卡成了
+91，改成二分就过了，大概 1h。</p>
+<p>开 T2，不太会，写了状压 23pts。然后开 T3，也不会，写了暴力 dp
+32pts。</p>
+<p>开始疯狂思考，浪费了 1h+，直到最后 40min 才发现 T3 有 ddp
+的部分分，赶紧开冲。</p>
+<p>主题调完了，但是最后 2min
+过样例却只有随机数据的部分分，很奇怪，然后结束了。</p>
+<p>赛后才发现 ddp
+修改节点信息的时候没有更新到根的链，只更新了自己和当前链链顶，属实是太久没写
+ddp 了。</p>
+<p>考完去圆明园玩，发现未成年人免费，很好！逛了
+1h，差点迷路。最后骑车回家，然后开始魔域。晚上 div4 狗都不打。</p>
+<p>11
+点半就睡了，有点早，不过可能逛圆明园走的路太多了，很快就睡着了。</p>
+<p><span
+class="math inline">\(100+23+32=155\)</span>，感觉是个大众分（大中分
+bushi。</p>
+<h2 id="day-2">Day 2</h2>
+<p>不知道为什么早上 5 点就自然醒，睡眠 5h，高质量。于是起来看了 热火 -
+尼克斯 G3，薄纱。</p>
+<p>上午听讲座，结果发现是广告，于是开始看 勇士 - 湖人
+G3，哨子有点离谱，看了一会儿就关了，，。</p>
+<p>下午上机，开局先开 T1，很容易的 65pts，写了 1h
+就写完了。感觉正解直接平衡树就好，但感觉有点浪费时间，就先鸽了。</p>
+<p>然后看 T2，神迷题，写个随机调整过了前两个 subtask，然后发现 <span
+class="math inline">\(a+b=100\)</span>
+好像稍微推一下柿子就好，一下就过了，50 pts。</p>
+<p>然后开 T3，神迷题，但是 <span class="math inline">\(nq\sqrt
+x\)</span>
+很容易，很好写，但是卡常数被卡飞了，卡了好久的常都过不了。</p>
+<p>最后 10min 莫名其妙就过了，15 pts 拿下，但是 T1
+的平衡树来不及写了呜呜呜。</p>
+<p>晚上去赶火车，写游记。</p>
+<p><span
+class="math inline">\(65+50+15=130\)</span>，不知道大众分多少，感觉没到大众分呜呜呜。</p>
+<h2 id="day-3">Day 3</h2>
+<p><span
+class="math inline">\(155+130=285\)</span>，初三有约吗有约吗有约吗有约吗有约吗有约吗有约吗有约吗有约吗有约吗有约吗有约吗有约吗有约吗有约吗？？？？</p>
+<p>Upd：有了，赢！</p>
+]]></content>
+      <tags>
+        <tag>游记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>联合省选2023游记</title>
+    <url>/2023/04/01/%E8%81%94%E5%90%88%E7%9C%81%E9%80%892023%E6%B8%B8%E8%AE%B0/</url>
+    <content><![CDATA[<h2 id="day--1">Day -1</h2>
+<p>学校请假，上午去机房 goose goose duck，好爽。</p>
+<p>下午去试机，车费好贵 /fn/fn/fn。</p>
+<p>键盘手感好评，居然和我用的完全一样。</p>
+<p>晚上不知道在干啥。</p>
+<h2 id="day-1">Day 1</h2>
+<p>早起，有点没睡醒。</p>
+<p>车上背了一下 pb_ds 的单词，相信是用不上的。</p>
+<p>开考 20 min 先把 T1 写了，然后开始坐牢。</p>
+<p>T2 是数数，感觉不太会，于是先开 T3，发现 <span
+class="math inline">\(O(nq\log^2 n)\)</span> 有点傻逼，写了一下。</p>
+<p>然后继续看 T2，花了 30+ min，才发现读错题了，好久才搞懂题意。</p>
+<p>一脸懵，写了 <span class="math inline">\(O(2^n\text{poly} n)\)</span>
+就跑路了，不太想想 <span class="math inline">\(k=0\)</span> 的。</p>
+<p>然后测了一下 T3 的效率，大样例跑了 3s 左右，时限只有
+5s，感觉很卡常啊！</p>
+<p>于是把 multiset 改成了四个堆，写了巨大久，改完跑了 2.5s
+左右，就扔掉了。</p>
+<p>大概已经 11:00 左右了，接下来开始徘徊 T2 的树部分分 和 T3
+的链特殊性质，最后都没拿分，呜呜呜。</p>
+<p>出场后发现大家 T2 都 <span class="math inline">\(50\)</span>
+了，有点寄，感觉 <span class="math inline">\(k=0\)</span> 的 dp
+不难想啊，我为什么要强吃树的部分？？？</p>
+<p>出场估分 <span
+class="math inline">\(100+25+48=173\)</span>，比大众分低了一大截，呜呜呜。</p>
+<p>感觉队线 <span class="math inline">\(100+100+48=248\)</span> 啊！</p>
+<p>晚上不知道在干啥，摸了一会儿鱼。</p>
+<h2 id="day-2">Day 2</h2>
+<p>本来想翻盘的，结果被翻盘了。呜呜呜。</p>
+<p>一开 T1
+发现有点神秘，不好估计难度，感觉不是很难，但是感觉又不简单，于是先丢了。</p>
+<p>然后看 T2，好久都没有想出一个合理的做法，甚至是否有解都只会 <span
+class="math inline">\(O(n\sqrt n)\)</span> 的 dinic 算，感觉寄飞了。</p>
+<p>不会正解，开始看特殊性质，A 和 B 都很好写，于是写完去看了看 T3。</p>
+<p>还是不会啊，但是只剩 2.5h 了，赶紧回去码 T1。</p>
+<p>写了大概 8k 左右，样例都没过，很多次都是 RE，还好没开无限栈。</p>
+<p>调了好久发现做法假了，眼看只有 1.5h 了，赶紧开始拼暴力，写了 20
+的部分分就跑路了。</p>
+<p>然后开始想 T3，突然发现自己之前看错题了。。</p>
+<p>赶紧开始写 T3 的 10 部分分的暴力 dp，很好写啊！但是一下就挂了啊！</p>
+<p>调了好久还是每过，于是重构，一遍过了样例。</p>
+<p>还剩大概半小时吧，看了看 T1 的部分分要大分讨，不好写，于是去写 T2 的
+C 性质。</p>
+<p>写完之后发现不对，怎么回事呢，调了好久的 dinic，才发现不是 dinic
+写炸了，是建图炸了。</p>
+<p>没修完就马上结束了，赶紧理了理文件夹，润了。</p>
+<p>出场估分 <span
+class="math inline">\(20+40+10=70\)</span>，没到大众分的一般，呜呜呜。</p>
+<p>感觉队线 <span class="math inline">\(100+100+10=210\)</span> 啊！</p>
+<p>下午一直在打鹅，好谔谔。</p>
+<p>总分估计 <span
+class="math inline">\(100+25+48+20+40+10=243\)</span>。</p>
+<p>队线估计 <span
+class="math inline">\(100+100+48+100+100+10=458\)</span>，寄！</p>
+]]></content>
+      <tags>
+        <tag>游记</tag>
+      </tags>
+  </entry>
+</search>

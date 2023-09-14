@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Fira Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"enucai.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="记录一下最近做到的逆天题目，主要是没想出来的和启发意义较大的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="逆天记录-1">
+<meta property="og:url" content="http://enucai.github.io/2023/07/11/%E9%80%86%E5%A4%A9%E8%AE%B0%E5%BD%95-1/index.html">
+<meta property="og:site_name" content="Enucaiの小屋">
+<meta property="og:description" content="记录一下最近做到的逆天题目，主要是没想出来的和启发意义较大的。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-07-11T15:12:34.000Z">
+<meta property="article:modified_time" content="2023-09-14T15:37:41.737Z">
+<meta property="article:author" content="Enucai">
+<meta property="article:tag" content="好题">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://enucai.github.io/2023/07/11/%E9%80%86%E5%A4%A9%E8%AE%B0%E5%BD%95-1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>逆天记录-1 | Enucaiの小屋</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Enucaiの小屋</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">进屋坐坐咩，进来的就别走诺</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+  <a href="https://github.com/enucai" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://enucai.github.io/2023/07/11/%E9%80%86%E5%A4%A9%E8%AE%B0%E5%BD%95-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Enucai">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Enucaiの小屋">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          逆天记录-1
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-07-11 23:12:34" itemprop="dateCreated datePublished" datetime="2023-07-11T23:12:34+08:00">2023-07-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-09-14 23:37:41" itemprop="dateModified" datetime="2023-09-14T23:37:41+08:00">2023-09-14</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+            <div class="post-description">记录一下最近做到的逆天题目，主要是没想出来的和启发意义较大的。</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="cf407e-k-d-sequence">CF407E k-d-sequence</h2>
+<p>首先特判 <span class="math inline">\(d=0\)</span>
+的情况。否则显然一个合法的区间所有数 <span class="math inline">\(\bmod
+d\)</span> 都相等。</p>
+<p>将这样的区间拉出来，一个个考察，显然可以将所有的数都 <span
+class="math inline">\(\div d\)</span>，这样就变成了公差 <span
+class="math inline">\(=1\)</span> 的等差数列。一个区间 <span
+class="math inline">\([l,r]\)</span> 合法，当且仅当：</p>
+<ul>
+<li><p><span class="math inline">\([l,r]\)</span>
+中的数两两不同。</p></li>
+<li><p><span class="math inline">\(r - l + 1 + k\ge \max{a_i} -
+\min{a_i} (l\le i\le r)\)</span>。</p></li>
+</ul>
+<p>第一个容易处理，直接开一个 map 记录一下每个数最后出现的位置即可。</p>
+<p>对于第二个限制，化简变为 <span class="math inline">\(r + k\ge
+\max{a_i} - \min{a_i} + l -
+1\)</span>，开一个线段树维护右边这依托即可，修改 <span
+class="math inline">\(\min\)</span> 与 <span
+class="math inline">\(\max\)</span> 可以开两个单调栈，这是套路的。</p>
+<p>所以每次要查询区间内第一个值 <span class="math inline">\(\le
+val\)</span> 的位置，采用线段树二分即可。复杂度 <span
+class="math inline">\(O(n\log n)\)</span>。</p>
+<h2 id="cf587f-duff-is-mad">CF587F Duff is Mad</h2>
+<p>暴力做法是建出 ACAM，每次询问时对于 <span
+class="math inline">\(s_{[l,r]}\)</span>，每个字符串在 ACAM 上的 endpos
+的 fail 树的子树内点权全部 <span
+class="math inline">\(+1\)</span>，然后查询 <span
+class="math inline">\(s_k\)</span> 在 ACAM 上的所有节点点权之和。</p>
+<p>考虑对于 <span class="math inline">\(|s_k|\)</span> 根号分治。</p>
+<ul>
+<li><p>若 <span class="math inline">\(|s_k|\le
+\sqrt.\)</span>，那么显然可以将询问离线，差分贡献，每次查询时暴力在 ACAM
+上跳。</p></li>
+<li><p>若 <span class="math inline">\(|s_k|&gt; \sqrt
+.\)</span>，那么显然这样的串不超过 <span class="math inline">\(\sqrt
+.\)</span> 个，对于每个这样的串统一处理，算出 ACAM 上每个节点的点权
+<span class="math inline">\(+1\)</span>
+会对答案产生多少的贡献。然后枚举每个串，用 Fenwick Tree
+统计贡献，或者用值域分块平衡。</p></li>
+</ul>
+<p>平衡后的复杂度 <span class="math inline">\(O(m\sqrt{q\log
+m})\)</span>，如果用值域分块则是 <span class="math inline">\(O(m\sqrt
+q)\)</span>。</p>
+<h2 id="cf1842h-tenzing-and-random-real-numbers">CF1842H Tenzing and
+Random Real Numbers</h2>
+<p>我们将所有数 <span class="math inline">\(a_x\)</span> 按照 <span
+class="math inline">\(|a_x-0.5|\)</span> 的大小从小到大逐个确定。由于在
+<span class="math inline">\([0,1]\)</span>
+之间随机，所以随到相同的数的概率是 <span
+class="math inline">\(0\)</span>。</p>
+<p>考虑状压 dp，设 <span class="math inline">\(f_S\)</span> 表示 <span
+class="math inline">\(S\)</span> 集合中的数都已经确定的合法概率。</p>
+<p>对于接下来确定的 <span class="math inline">\(x\)</span>，如果 <span
+class="math inline">\(S\)</span> 中存在一个 <span
+class="math inline">\(y\)</span>，满足：</p>
+<ul>
+<li><p><span class="math inline">\(a_x+a_y\le 1\)</span>，那么显然 <span
+class="math inline">\(a_x\)</span> 只能 <span
+class="math inline">\(&lt;0.5\)</span>。</p></li>
+<li><p><span class="math inline">\(a_x+a_y\ge 1\)</span>，那么显然 <span
+class="math inline">\(a_x\)</span> 只能 <span
+class="math inline">\(&gt;0.5\)</span>。</p></li>
+</ul>
+<p>所以按照 <span class="math inline">\(S\)</span> 中的数与当前 <span
+class="math inline">\(x\)</span> 的关系来确定转移系数是 <span
+class="math inline">\(0/0.5/1\)</span>。</p>
+<p>最后答案即为 <span
+class="math inline">\(f(2^n-1)/(n!)\)</span>。复杂度 <span
+class="math inline">\(O(2^nn)\)</span>。</p>
+<h2 id="abc242ex-random-painting">ABC242Ex Random Painting</h2>
+<p>题目要求所有点都被覆盖的期望时间，设随机变量 <span
+class="math inline">\(t_i\)</span> 表示位置 <span
+class="math inline">\(i\)</span> 被覆盖的时间，则要求的是 <span
+class="math inline">\(\mathbb{E}[\max\{t_i\}]\)</span>。</p>
+<p>一眼 min-max 容斥，摁推一下柿子：</p>
+<p><span class="math display">\[
+\mathbb{E}[\max_{i\in S}\{t_i\}]=\sum_{T\subseteq
+S}(-1)^{|T|+1}\mathbb{E}[\min_{i\in T}\{t_i\}]
+\]</span></p>
+<p>考虑 <span class="math inline">\(\mathbb{E}[\min\{t_i\}]\)</span>
+的意义，假设与 <span class="math inline">\(T\)</span>
+这个几何中的点有交的线段数量为 <span
+class="math inline">\(x\)</span>，那么 <span
+class="math inline">\(\mathbb{E}[\min\{t_i\}]=\frac{m}{x}\)</span>。</p>
+<p>考虑 dp，假设 <span class="math inline">\(f_{i,j}\)</span> 表示考察了
+<span class="math inline">\([1,i]\)</span> 中的点，选了一些点作为子集
+（<span class="math inline">\(i\)</span> 点必选），有 <span
+class="math inline">\(j\)</span> 条线段与这个子集无交的 <span
+class="math inline">\((-1)^{|T|+1}\)</span> 之和。</p>
+<p>转移时，枚举 <span
+class="math inline">\(i,j,k\)</span>，分别表示当前装它与上一个选择的点，那么
+<span class="math inline">\((k,i)\)</span>
+中的线段与选择的集合无交，设为 <span
+class="math inline">\(cnt(k,i)\)</span>，转移时只要：</p>
+<p><span class="math display">\[
+f_{k,j}\times (-1)\to f_{i,j+cnt(k,i)}
+\]</span></p>
+<p>至于如何求 <span
+class="math inline">\(cnt\)</span>，直接做一遍二位前缀和即可。做完 dp
+后带回 min-max 容斥的柿子中计算即可。</p>
+<p>时间复杂度 <span class="math inline">\(O(n^2m)\)</span>。</p>
+<h2 id="abc241ex-card-deck-score">ABC241Ex Card Deck Score</h2>
+<p><span class="math inline">\(n\)</span> 很小，<span
+class="math inline">\(b_i\)</span>
+的限制显然可以容斥计算。所以可以忽略每个卡的个数限制。考虑用生成函数计算：</p>
+<p><span class="math display">\[
+\prod_{i=1}^n\sum_{k\ge 0}a_i^k\cdot x^k=\prod_{i=1}^n\frac{1}{1-a_ix}
+\]</span></p>
+<p>采用待定系数尝试算出每个 <span class="math inline">\(a_i\)</span>
+的系数 <span class="math inline">\(c_i\)</span>：</p>
+<p><span class="math display">\[
+\prod_{i=1}^n\frac{1}{1-a_ix}=\sum_{i=1}^n\frac{c_i}{1-a_ix}
+\]</span></p>
+<p>两遍同时乘上 <span
+class="math inline">\(\prod(1-a_ix)\)</span>，得到：</p>
+<p><span class="math display">\[
+\sum_{i=1}^n c_i\prod_{j\not=i}(1-a_jx)=1
+\]</span></p>
+<p>对于每个 <span class="math inline">\(i\)</span>，将 <span
+class="math inline">\(a_i^{-1}\)</span> 带入柿子，得到：</p>
+<p><span class="math display">\[
+c_i\prod_{j\not=i}(1-a_j\cdot a_i^{-1})=1
+\]</span></p>
+<p>这样即可在 <span class="math inline">\(O(n^2)\)</span>
+的复杂度内计算出每个 <span class="math inline">\(a_i\)</span> 的系数
+<span class="math inline">\(c_i\)</span>。</p>
+<p>然后枚举不合法的卡片集合 <span
+class="math inline">\(S\)</span>，钦定这个集合中的卡片都超过限制。计算出
+<span class="math inline">\(cnt=m-\sum_{i\in
+S}(b_i+1)\)</span>。即可算出贡献：</p>
+<p><span class="math display">\[
+(-1)^{|S|}\cdot\prod_{i\in S}a_i^{b_i+1}\cdot\left(\sum_{i=1}^n c_i\cdot
+a_i^{cnt}\right)
+\]</span></p>
+<p>时间复杂度 <span class="math inline">\(O(n^2+n2^n\log
+P)\)</span>。</p>
+<h2 id="abc237ex-hakata">ABC237Ex Hakata</h2>
+<p>首先可以证明，对于一个字符串 <span
+class="math inline">\(S\)</span>，其本质不同的回文子串个数 <span
+class="math inline">\(\le n\)</span>。</p>
+<p>考虑每次在 <span class="math inline">\(S\)</span>
+后面加入一个字符后，字符串长度为 <span
+class="math inline">\(n\)</span>，如果出现了 <span
+class="math inline">\(S_{[x,n]}\)</span> 与 <span
+class="math inline">\(S_{[y,n]}\)</span> 两个回文串，那么可以推断出
+<span
+class="math inline">\(S_{n-e}=S_{x+e}=S_{y+e}=S_{n+x-y-e}\)</span>，所以
+<span class="math inline">\(S_{[x,x+n-y]}\)</span> 也是回文串，与 <span
+class="math inline">\(S_{[y,n]}\)</span> 相同，故 <span
+class="math inline">\(S_{[y,n]}\)</span> 已经在之前出现过。矛盾。</p>
+<p>故每次添加一个字符，最多只会产生一个本质不同的回文串，原命题得证。</p>
+<p>考虑计算出所有的本质不同的回文子串，若 <span
+class="math inline">\(S_1\)</span> 是 <span
+class="math inline">\(S_2\)</span> 的子串，那么我们连一条从 <span
+class="math inline">\(S_2\)</span> 向 <span
+class="math inline">\(S_1\)</span> 的有向边，不难发现会构成一张
+DAG。</p>
+<p>题目要求的即使这张 DAG 的最长反链，由 Dilworth 定理，最长反链 <span
+class="math inline">\(=\)</span> 最小链覆盖。</p>
+<p>由于最小链覆盖的过程可以看成把一些链合并的过程，每个点可以选一个出边合并，选一个入边合并，我们希望链合并的次数尽可能多。</p>
+<p>考虑构建一张二分图，每个 DAG 上的点拆成左右两个点，将一条 <span
+class="math inline">\(u\to v\)</span> 的有向边转化为 <span
+class="math inline">\(u\)</span> 的左部点与 <span
+class="math inline">\(v\)</span>
+的右部点之间的边，然后求二分图最大匹配。最小连覆盖 <span
+class="math inline">\(=\)</span> 点数 <span
+class="math inline">\(-\)</span> 最大匹配数。</p>
+<p>时间复杂度看代码实现，大致为 <span
+class="math inline">\(O(n^4)\)</span> 或 <span
+class="math inline">\(O(n^3)\)</span>，瓶颈在于判断两个回文子串是否为包含关系，除这一点外可以做到
+<span class="math inline">\(O(n^2)\)</span>。</p>
+<h2 id="agc006f-blackout">AGC006F Blackout</h2>
+<p>很妙的题啊！首先观察到这个题中的点和平面没有什么关系，直接把点转化成边，构成一幅有向图。原来的变换等价于若有边
+<span class="math inline">\(u\to v\)</span> 与 <span
+class="math inline">\(v\to w\)</span>，则连上边 <span
+class="math inline">\(w\to u\)</span>。</p>
+<p>由于连上的是三元环，所以考虑将这张有向图进行三染色（为什么是三染色想了半天，感觉自己是纸张）。假设图能够成功进行三染色，且有颜色
+<span class="math inline">\(1\to 2\)</span> 的边，<span
+class="math inline">\(2\to 3\)</span> 的边与 <span
+class="math inline">\(3\to 1\)</span>
+的边，那么同一个连通块内所有这样的颜色对的点对都能连上边。证明显然。</p>
+<p>如果无法进行进行三染色，那么必然存在一条这三类边之外的边。假设存在同色间的边
+<span class="math inline">\(x\to x\)</span>，假设 <span
+class="math inline">\(y=x-1\)</span>，那么原本存在 <span
+class="math inline">\(y\to x\)</span> 的边，操作后存在 <span
+class="math inline">\(x\to y\)</span> 的边。</p>
+<p>现在有 <span class="math inline">\(x\to y\)</span> 的边与 <span
+class="math inline">\(y\to x\)</span> 的边（设 <span
+class="math inline">\(y=x+1\)</span>，<span
+class="math inline">\(z=y+1\)</span>，<span
+class="math inline">\(x=z+1\)</span>，均在 <span
+class="math inline">\(\bmod 3\)</span>
+意义下）。那么可以通过以下操作：</p>
+<ul>
+<li><span class="math inline">\(x\to y,y\to x\)</span> 推出 <span
+class="math inline">\(x\to x\)</span>。</li>
+<li><span class="math inline">\(y\to x,x\to y\)</span> 推出 <span
+class="math inline">\(y\to y\)</span>。</li>
+<li><span class="math inline">\(z\to x,x\to x\)</span> 推出 <span
+class="math inline">\(x\to z\)</span>。</li>
+<li><span class="math inline">\(z\to x,x\to z\)</span> 推出 <span
+class="math inline">\(z\to z\)</span>。</li>
+<li><span class="math inline">\(y\to y,y\to z\)</span> 推出 <span
+class="math inline">\(z\to y\)</span>。</li>
+</ul>
+<p>所以若三染色不成功，则任意两点之间都能到达。</p>
+<p>需要注意的是，如果三染色成功，且只有两种颜色，则是单向边的二分图，并无法使左部点与右部点全部连边。</p>
+<h2 id="cf1437g-death-dbms">CF1437G Death DBMS</h2>
+<p>先把所有串建出 ACAM，然后给每个串的 endpos 在 fail
+树上的子树内的点权与这个串的权值 checkmax。</p>
+<p>每次询问时，沿着询问串向下走，将答案
+checkmax。不难发现每个点的权值其实是它在 fail 树上所有祖先的字符串权值
+max，那么这个值就是答案。</p>
+<p>考虑维护方法，将 fail 树拍成 dfn
+序，建出线段树，线段树每个节点维护一个
+<code>multiset</code>，就可以支持区间加，区间删除，单点查询最大值。时间复杂度
+<span class="math inline">\(O(n\log^2 n)\)</span>。</p>
+<p>还有一种根号做法，串长的总和限制了，由于 <span
+class="math inline">\(\sum_{i=1}^xi=O(x^2)\)</span>，所以串长只会有根号种。使用字符串哈希，每次询问时枚举串长计算即可。时间复杂度
+<span class="math inline">\(O(n\sqrt{\sum len})\)</span>。</p>
+<h2 id="qoj-6504-flowers-land-2">qoj 6504 Flower's Land 2</h2>
+<p>找一找能删玩的序列的性质，发现没有成果。</p>
+<p>考虑用一种运算方式来表示抵消操作。显然这种运算需要有逆来使抵消后变成单位元，需要有结合律来表示抵消操作后的消失，需要不能有交换律来防止不合法的抵消。</p>
+<p>一看，这不是矩阵乘法吗！考虑对三种数各自刻画一个 <span
+class="math inline">\(3\times 3\)</span>
+的矩阵。奇数位置为对应矩阵，偶数位置为对应矩阵的逆。直接用线段树维护区间操作
+<span class="math inline">\(0,1,2\)</span> 次操作后的矩阵乘积即可。</p>
+<p>每次判断只需要判断当前区间矩阵的乘积是否为单位矩阵即可。</p>
+<p>时间复杂度 <span class="math inline">\(O(k^3n\log n)\)</span>，其中
+<span class="math inline">\(k=3\)</span>。如果维护 <span
+class="math inline">\(2\times 2\)</span> 的矩阵，好像根据什么 Ping-Pong
+Lemma 会出问题，具体的我也不会证呜呜呜。</p>
+<h2 id="cf618f-double-knapsack">CF618F Double Knapsack</h2>
+<p>不做 CF 的人，高考都有难了！</p>
+<p>结论：不需要选子集，只需要选子区间就能保证一定有解。</p>
+<p>证明：转化为选子区间后，把序列求一遍前缀和，原问题等价于给你两个单调递增的序列
+<span class="math inline">\(a,b\)</span>，你需要找出 <span
+class="math inline">\(0\le l_1&lt;r_1\le n\)</span> 与 <span
+class="math inline">\(0\le l_2&lt;r_2\le n\)</span>，满足 <span
+class="math inline">\(a_{r_1}-a_{l_1}=b_{r_2}-b_{l_2}\)</span>。</p>
+<p>不妨设 <span class="math inline">\(a_n\le b_n\)</span>，那么对于每个
+<span class="math inline">\(0\le i\le n\)</span>，都存在至少一个 <span
+class="math inline">\(0\le j\le n\)</span> ，使得 <span
+class="math inline">\(b_j\ge a_i\)</span>。我们对于每个 <span
+class="math inline">\(a_i\)</span> 找出这样的最小的 <span
+class="math inline">\(j\)</span>。由于值域为 <span
+class="math inline">\([1,n]\)</span>，因此最小的 <span
+class="math inline">\(j\)</span> 一定满足 <span
+class="math inline">\(0\le b_j-a_i&lt;n\)</span>。</p>
+<p>这样的差只有 <span class="math inline">\(n\)</span> 种，而这样的
+<span class="math inline">\((i,j)\)</span> 有 <span
+class="math inline">\(n+1\)</span> 个，根据鸽笼原理，一定存在一对 <span
+class="math inline">\(((i_1,j_1),(i_2,j_2))\)</span>
+满足两个的差相等，那么原问题中要找的 <span
+class="math inline">\(l_1,r_1\)</span> 与 <span
+class="math inline">\(l_2,r_2\)</span> 就随之找到了。</p>
+<p>对于 <span class="math inline">\(a_n&gt;b_n\)</span>
+的同理。这样，仅用子区间就能找到一组答案。</p>
+<p>对于每个位置二分找比它大的复杂度 <span class="math inline">\(O(n\log
+n)\)</span>，当然你可以用双指针做到 <span
+class="math inline">\(O(n)\)</span>。</p>
+<h2 id="cf1656h-equal-lcm-subsets">CF1656H Equal LCM Subsets</h2>
+<p>由于值域很大，无法直接算 <span
+class="math inline">\(\operatorname{lcm}\)</span>，因此考虑对每一个质因数考虑。</p>
+<p>设 <span
+class="math inline">\(a_{i}=\prod_kp_k^{\alpha(a_i,k)}\)</span>，那么对于每一个
+<span class="math inline">\(k\)</span>，<span
+class="math inline">\(\max_{i\in S_A}\alpha(i,k)=\max_{i\in
+S_B}\alpha(i,k)\)</span>。把 <span class="math inline">\(\max\)</span>
+的等于转化为互相小于等于，然后推一推式子：</p>
+<p><span class="math display">\[
+\forall k,\forall x\in S_A,\exist y\in S_B,\alpha(x,k)\le\alpha(y,k)\\
+\]</span></p>
+<p>再把小于等于转化为等于：</p>
+<p><span class="math display">\[
+\forall k,\forall x\in S_A,\exist y\in
+S_B,\alpha(x,k)-\min\{\alpha(x,k),\alpha(y,k)\}=0
+\]</span></p>
+<p>发现因数个数的 <span class="math inline">\(\min\)</span> 其实就是
+<span class="math inline">\(\gcd\)</span> 运算，式子转化为：</p>
+<p><span class="math display">\[
+\forall k,\forall x\in S_A,\exist y\in
+S_B,\alpha(\frac{x}{\gcd(x,y)},k)=0
+\]</span></p>
+<p>发现存在一个 <span class="math inline">\(y\)</span> 满足上式 <span
+class="math inline">\(=0\)</span>，实际上就是对于所有 <span
+class="math inline">\(y\)</span> 他们的 <span
+class="math inline">\(\gcd\)</span> 的值 <span
+class="math inline">\(=0\)</span>：</p>
+<p><span class="math display">\[
+\forall k,\forall x\in S_A,\alpha(\gcd_{y\in
+S_B}(\frac{x}{\gcd(x,y)}),k)=0
+\]</span></p>
+<p>然后把所有的质因数放在一起考虑，每个都没有出现，就是 <span
+class="math inline">\(\gcd=1\)</span>：</p>
+<p><span class="math display">\[
+\forall x\in S_A,\gcd_{y\in S_B}(\frac{x}{\gcd(x,y)})=1
+\]</span></p>
+<p>对于每一个 <span class="math inline">\(S_B\)</span>
+中的元素同理，由：</p>
+<p><span class="math display">\[
+\forall x\in S_B,\gcd_{y\in S_A}(\frac{x}{\gcd(x,y)})=1
+\]</span></p>
+<p>直接暴力删除不合法元素，需要删除 <span
+class="math inline">\(n+m\)</span> 次，每次遍历所有元素 <span
+class="math inline">\(n+m\)</span> 次，计算上述值的复杂度是 <span
+class="math inline">\(O(n\log V)\)</span> 或 <span
+class="math inline">\(O(m\log V)\)</span> 的，复杂度是 <span
+class="math inline">\(O(n^3\log V)\)</span> 的，无法通过。</p>
+<p>考虑优化，用 <span class="math inline">\(n+m\)</span>
+棵线段树维护每个 <span class="math inline">\(S_A,S_B\)</span>
+中元素的上述值即可，删除后对于每个另一个集合中的数，将他的位置设为 <span
+class="math inline">\(0\)</span>。不难发现，这样单次计算上述值得复杂度是
+<span class="math inline">\(O(1)\)</span>
+的，而每个元素至多删除一次，单次删除复杂度 <span
+class="math inline">\(O(n\log n\log V)\)</span> 或 <span
+class="math inline">\(O(m\log m\log V)\)</span>。</p>
+<p>设 <span class="math inline">\(n,m\)</span> 同阶，则最终复杂度 <span
+class="math inline">\(O(n^2\log n\log V)\)</span>。</p>
+<h2 id="cf878d-magic-breeding">CF878D Magic Breeding</h2>
+<p>虽然每个生物的特征很多，但不难发现，对于每一次询问，答案一定是对应特征中
+<span class="math inline">\(k\)</span> 个值中的一个。</p>
+<p>考虑每次询问时枚举这个答案，判断是否可行。我们将所有 <span
+class="math inline">\(\ge x\)</span> 的值标记为 <span
+class="math inline">\(1\)</span>，不难发现本质不同的大小关系只有 <span
+class="math inline">\(2^k\)</span> 种，用一个 <code>bitset</code>
+维护一下这 <span class="math inline">\(2^k\)</span>
+种初始大小关系在变换结束后的结果是多少。</p>
+<p>由于值域是 <span class="math inline">\(\{0,1\}\)</span>，所以取 <span
+class="math inline">\(\max\)</span> 就是两个 <code>bitset</code>
+取或，<span class="math inline">\(\min\)</span> 就是两个
+<code>bitset</code> 取与。</p>
+<p>最终复杂度 <span class="math inline">\(O(nk\log
+k+qk+\frac{q2^k}{\omega})\)</span>。</p>
+<h2 id="cf1474f-1-2-3-4-...">CF1474F 1 2 3 4 ...</h2>
+<p>由于相邻两项的差都是 <span class="math inline">\(1\)</span>，因此 LIS
+是公差为 <span class="math inline">\(1\)</span> 的等差数列。LIS
+的长度很好求，直接枚举起点段和终点段即可，复杂度不高也不重要。难点在于计算
+LIS 的个数。</p>
+<p>LIS 的数的区间并不唯一，但是不难发现不同数的区间的 LIS
+都不交。因此考虑将原序列的折线段分段，每段以下降段开始，以上升段结束，且能够取到最长
+LIS 的长度，且 LIS 的值域唯一，且是能取到该值域 LIS 的最长区间。</p>
+<p>对于每个区间内，可以考虑 dp 计算方案数。令 <span
+class="math inline">\(f_{i,j}\)</span> 表示填到值为 <span
+class="math inline">\(i\)</span> 的数，目前位于第 <span
+class="math inline">\(j\)</span>
+条折线的方案数。转移时，考虑上一个数所在的区间，但是直接转移复杂度爆炸。</p>
+<p>发现值域被所有折线段的左右端点分成了 <span
+class="math inline">\(O(n)\)</span>
+各区间，每个区间中的转移方式是相同的，因此可以考虑使用矩阵快速幂来优化，这样就能快速转移了。</p>
+<p>最终时间复杂度 <span class="math inline">\(O(n^4\log
+V)\)</span>。注意一些细节，比如所有数都是负数，特判也要取模等。</p>
+<h2 id="p9462-终点">P9462 终点</h2>
+<p>钦定以 <span class="math inline">\(1\)</span>
+号点为根。首先询问出所有点到 <span class="math inline">\(1\)</span>
+号的中点，假设 <span class="math inline">\(1\)</span> 号点的深度为 <span
+class="math inline">\(0\)</span>，那么所有的连边都是从深度为 <span
+class="math inline">\(x\)</span> 的点连向深度为 <span
+class="math inline">\(2x\)</span> 的点。</p>
+<p>定义一个点的长度为一直向上走询问得到的“返祖边”走的距离。</p>
+<p>找出所有点中长度最大的点，这个点的最终祖先一定是深度为 <span
+class="math inline">\(1\)</span>
+的节点。证明考虑如果这个点的祖先不是深度为 <span
+class="math inline">\(1\)</span> 的，那么他的深度一定可以被表示为 <span
+class="math inline">\(c\times 2^k\)</span>，而 <span
+class="math inline">\(c\)</span> 是奇数且 <span
+class="math inline">\(\not=1\)</span>。那么我们找一个深度 <span
+class="math inline">\(=c-1\)</span> 的节点，那个节点的深度就能被表示为
+<span class="math inline">\(\frac{c-1}{2}\times
+2^{k+1}\)</span>，长度比那个点大，矛盾。</p>
+<p>这样我们找到了深度为 <span class="math inline">\(1\)</span>
+的节点。然后询问所有深度为奇数的节点（就是前一次询问未得到答案的节点）与这个深度为
+<span class="math inline">\(1\)</span>
+的节点的中点。通过这些询问我们可以类似 bfs 的得到所有点的深度。</p>
+<p>接下来，考虑按照节点的深度从小到大依次确定父亲节点，从而确定这颗树的形态。</p>
+<p>考察一个节点 <span class="math inline">\(u\)</span> 时，考虑定义函数
+<span class="math inline">\(\operatorname{solve}(rt,u)\)</span> 表示在
+<span class="math inline">\(rt\)</span> 为根的子树内寻找 <span
+class="math inline">\(u\)</span> 的父亲（保证 <span
+class="math inline">\(u\)</span> 在 <span
+class="math inline">\(rt\)</span> 子树内）。分以下三种情况考虑：</p>
+<ul>
+<li>若 <span class="math inline">\(dep_{rt}+1=dep_u\)</span>，那么 <span
+class="math inline">\(rt\)</span> 即为 <span
+class="math inline">\(u\)</span> 的父亲节点。</li>
+<li>若 <span class="math inline">\(dep_u-dep_{rt}\equiv0\pmod
+2\)</span>，那么询问 <span class="math inline">\(u\)</span> 与 <span
+class="math inline">\(rt\)</span> 的中点 <span
+class="math inline">\(v\)</span>，递归查找 <span
+class="math inline">\(\operatorname{solve}(v,u)\)</span>。</li>
+<li>若 <span class="math inline">\(dep_u-dep_{rt}\equiv 1\pmod
+2\)</span>，那么随便找一个 <span class="math inline">\(u\)</span> 的儿子
+<span class="math inline">\(s\)</span>，询问 <span
+class="math inline">\(s\)</span> 与 <span
+class="math inline">\(u\)</span> 的中点 <span
+class="math inline">\(v\)</span>，递归查找 <span
+class="math inline">\(\operatorname{solve}(v,u)\)</span>。</li>
+</ul>
+<p>发现这样递归的深度上限是 <span class="math inline">\(\lceil\log
+n\rceil\)</span> 的，但是长度很小，因为 <span
+class="math inline">\(n\)</span> 其实是 <span
+class="math inline">\(u\)</span> 的 <span
+class="math inline">\(dep\)</span>。</p>
+<p>确定完每个节点的父亲节点后，树的形态就确定了。询问次数为 <span
+class="math inline">\(O(n\log n)\)</span>，严格来说是 <span
+class="math inline">\(O(2n+\sum_u\log_{dep_u})\)</span>。</p>
+<h2 id="qoj-4193-joined-sessions">qoj 4193 Joined Sessions</h2>
+<p>考虑什么时候无解。如果当前最小支配集大小 <span
+class="math inline">\(=1\)</span>
+或所有线段不相交，那么无解，否则有解。</p>
+<p>容易证明如果有解，那么至多三次合并就一定能使最小支配集的大小 <span
+class="math inline">\(-1\)</span>。证明随便画画就好了。</p>
+<p>对于每个区间 <span class="math inline">\(i\)</span>，我们令 <span
+class="math inline">\(\operatorname{last}(i)\)</span> 表示右端点在 <span
+class="math inline">\(l_i\)</span> 之前的右端点最大的线段，<span
+class="math inline">\(\operatorname{cont}(i)\)</span> 表示与 <span
+class="math inline">\(i\)</span> 相交的区间中左端点最小的区间。</p>
+<p>容易发现，对于每次合并，一定是选择一个 <span
+class="math inline">\(x\)</span> 与 <span
+class="math inline">\(\operatorname{cont}(x)\)</span> 合并。</p>
+<p>由于至多三次合并就能使最小支配集大小 <span
+class="math inline">\(-1\)</span>，因此考虑 dp。</p>
+<p>令 <span class="math inline">\(dp(j,s)\)</span> 表示对于前 <span
+class="math inline">\(j\)</span> 条线段，用了 <span
+class="math inline">\(s\)</span>
+次合并操作，最小支配集的大小最小是多少。转移方程：</p>
+<p><span class="math display">\[
+dp(j,s)=\min\{dp(\operatorname{last}(j),s)+1,\min\{dp(\operatorname{cont}^k(j),s-t)|1\le
+t\le s\}\}
+\]</span></p>
+<p>最后找出 <span class="math inline">\(dp(n,k)\)</span>
+中第一个小于初始最小支配集大小的 <span
+class="math inline">\(k\)</span>，即为答案。</p>
+<p>时间复杂度 <span class="math inline">\(O(n\log
+n)\)</span>，瓶颈在排序。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%A5%BD%E9%A2%98/" rel="tag"># 好题</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/05/07/PKUSC2023%E6%B8%B8%E8%AE%B0/" rel="prev" title="PKUSC2023游记">
+      <i class="fa fa-chevron-left"></i> PKUSC2023游记
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/08/10/%E9%80%86%E5%A4%A9%E8%AE%B0%E5%BD%95-2/" rel="next" title="逆天记录-2">
+      逆天记录-2 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#cf407e-k-d-sequence"><span class="nav-number">1.</span> <span class="nav-text">CF407E k-d-sequence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf587f-duff-is-mad"><span class="nav-number">2.</span> <span class="nav-text">CF587F Duff is Mad</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf1842h-tenzing-and-random-real-numbers"><span class="nav-number">3.</span> <span class="nav-text">CF1842H Tenzing and
+Random Real Numbers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#abc242ex-random-painting"><span class="nav-number">4.</span> <span class="nav-text">ABC242Ex Random Painting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#abc241ex-card-deck-score"><span class="nav-number">5.</span> <span class="nav-text">ABC241Ex Card Deck Score</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#abc237ex-hakata"><span class="nav-number">6.</span> <span class="nav-text">ABC237Ex Hakata</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#agc006f-blackout"><span class="nav-number">7.</span> <span class="nav-text">AGC006F Blackout</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf1437g-death-dbms"><span class="nav-number">8.</span> <span class="nav-text">CF1437G Death DBMS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qoj-6504-flowers-land-2"><span class="nav-number">9.</span> <span class="nav-text">qoj 6504 Flower&#39;s Land 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf618f-double-knapsack"><span class="nav-number">10.</span> <span class="nav-text">CF618F Double Knapsack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf1656h-equal-lcm-subsets"><span class="nav-number">11.</span> <span class="nav-text">CF1656H Equal LCM Subsets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf878d-magic-breeding"><span class="nav-number">12.</span> <span class="nav-text">CF878D Magic Breeding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf1474f-1-2-3-4-..."><span class="nav-number">13.</span> <span class="nav-text">CF1474F 1 2 3 4 ...</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#p9462-%E7%BB%88%E7%82%B9"><span class="nav-number">14.</span> <span class="nav-text">P9462 终点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#qoj-4193-joined-sessions"><span class="nav-number">15.</span> <span class="nav-text">qoj 4193 Joined Sessions</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Enucai"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Enucai</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/enucai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;enucai" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:3425993912@qq.com" title="E-Mail → mailto:3425993912@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://plus.google.com/wsyear13" title="Google → https:&#x2F;&#x2F;plus.google.com&#x2F;wsyear13" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/enucai" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;enucai" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://youtube.com/wsyear13" title="YouTube → https:&#x2F;&#x2F;youtube.com&#x2F;wsyear13" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/enucai" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;enucai" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://cnblogs.com/shaojia" title="http:&#x2F;&#x2F;cnblogs.com&#x2F;shaojia" rel="noopener" target="_blank">ShaoJia</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://cmk666.github.io/" title="http:&#x2F;&#x2F;cmk666.github.io" rel="noopener" target="_blank">cmk666</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://ftt2333.gitlab.io/" title="http:&#x2F;&#x2F;ftt2333.gitlab.io" rel="noopener" target="_blank">ftt2333</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Enucai</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+</body>
+</html>
