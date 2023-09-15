@@ -28,7 +28,7 @@
 <meta property="og:description" content="鉴于四毛子狗都不写，学习了一些有用且好写的 $O(n)-O(1)$ rmq 方法。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-14T23:48:58.000Z">
-<meta property="article:modified_time" content="2023-09-14T23:51:07.776Z">
+<meta property="article:modified_time" content="2023-09-15T04:53:23.495Z">
 <meta property="article:author" content="Enucai">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
@@ -215,7 +215,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-09-15 07:48:58 / 修改时间：07:51:07" itemprop="dateCreated datePublished" datetime="2023-09-15T07:48:58+08:00">2023-09-15</time>
+              <time title="创建时间：2023-09-15 07:48:58 / 修改时间：12:53:23" itemprop="dateCreated datePublished" datetime="2023-09-15T07:48:58+08:00">2023-09-15</time>
             </span>
 
           
@@ -237,7 +237,76 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <p>说到 <span class="math inline">\(O(n)-O(1)\)</span> rmq
+问题，最广为认知的就是四毛子，但是四毛子不好写，因此来记录几个较为好写的
+<span class="math inline">\(O(n)-O(1)\)</span> rmq 算法。</p>
+<h2 id="分块">分块</h2>
+<ul>
+<li>优点：较为好写，且能够做到严格的 <span
+class="math inline">\(O(n)-O(1)\)</span>。</li>
+<li>缺点：不能算非常好写。</li>
+</ul>
+<p>将序列按照每 <span class="math inline">\(\log n\)</span>
+个元素分为一块，序列将被分为 <span class="math inline">\(\frac{n}{\log
+n}\)</span> 块，求出每个块内的最大值，并在块间建立 ST
+表。并且对于每个块内，处理出前缀和后缀最大值。</p>
+<p>对于一个询问 <span
+class="math inline">\([l,r]\)</span>，找出被完全包含的区间，求出这几个块之间的最大值，对于两边的散块，调用前后缀最大值即可。</p>
+<p>至此，预处理时间复杂度 <span class="math inline">\(O(\frac{n}{\log
+n}\cdot \log n+n)=O(n)\)</span>，查询时间复杂度 <span
+class="math inline">\(O(1)\)</span>。</p>
+<p>看似结束了，但是如果询问的区间被包含在了一个块内该怎么办呢？</p>
+<p>在预处理时，可以对于每个块内分别跑一遍单调栈，维护块内每个位置的前缀的后缀最大值。同时，单调栈内的元素个数是
+<span class="math inline">\(O(\log n)\)</span>
+的，每个元素可以用他在块内的位置表示，值域也是 <span
+class="math inline">\(O(\log n)\)</span> 的。</p>
+<p>我们可以将者 <span class="math inline">\(O(\log n)\)</span> 个值域为
+<span class="math inline">\(O(n\log n)\)</span> 的数压缩成一个值域为
+<span class="math inline">\(O(\log^2 n)\)</span> 的 long long
+记录下来，不难发现这个 long long 可以在入栈和弹栈的时候同时维护。</p>
+<p>询问时，直接调用 <span class="math inline">\(r\)</span>
+所在位置的单调栈信息即可，不难发现复杂度也是 <span
+class="math inline">\(O(n)-O(1)\)</span> 的。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> T = <span class="type">int</span>;</span><br><span class="line"><span class="type">const</span> <span class="keyword">auto</span> cmp = [](T x, T y) &#123; <span class="keyword">return</span> x &gt; y; &#125;;</span><br><span class="line"><span class="type">unsigned</span> f[N];</span><br><span class="line">T val[N], st[<span class="number">20</span>][( N &gt;&gt; <span class="number">5</span> ) + <span class="number">9</span>], pre[N], suf[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> T <span class="title">mx</span><span class="params">(T x, T y)</span> </span>&#123; <span class="keyword">return</span> <span class="built_in">cmp</span>(x, y) ? x : y; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">init</span><span class="params">(T *x, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">  <span class="built_in">copy</span>(x + <span class="number">1</span>, x + n + <span class="number">1</span>, val);</span><br><span class="line">  <span class="built_in">rep</span> (i, <span class="number">0</span>, n - <span class="number">1</span>) st[<span class="number">0</span>][i &gt;&gt; <span class="number">5</span>] = i &amp; <span class="number">31</span> ? <span class="built_in">mx</span>(st[<span class="number">0</span>][i &gt;&gt; <span class="number">5</span>], val[i]) : val[i];</span><br><span class="line">  <span class="built_in">rep</span> (i, <span class="number">1</span>, __lg(( ( n - <span class="number">1</span> ) &gt;&gt; <span class="number">5</span> ) + <span class="number">1</span>)) <span class="built_in">rep</span> (j, <span class="number">0</span>, ( ( n - <span class="number">1</span> ) &gt;&gt; <span class="number">5</span> ) + <span class="number">1</span> - ( <span class="number">1</span> &lt;&lt; i ))</span><br><span class="line">    st[i][j] = <span class="built_in">mx</span>(st[i - <span class="number">1</span>][j], st[i - <span class="number">1</span>][j + ( <span class="number">1</span> &lt;&lt; ( i - <span class="number">1</span> ) )]);</span><br><span class="line">  <span class="built_in">rep</span> (i, <span class="number">0</span>, n - <span class="number">1</span>) pre[i] = i &amp; <span class="number">31</span> ? <span class="built_in">mx</span>(pre[i - <span class="number">1</span>], val[i]) : val[i];</span><br><span class="line">  <span class="built_in">per</span> (i, n - <span class="number">1</span>, <span class="number">0</span>) suf[i] = i != n - <span class="number">1</span> &amp;&amp; ( ~i &amp; <span class="number">31</span> ) ? <span class="built_in">mx</span>(suf[i + <span class="number">1</span>], val[i]) : val[i];</span><br><span class="line">  <span class="type">int</span> top = <span class="number">0</span>, stk[<span class="number">39</span>];</span><br><span class="line">  <span class="built_in">rep</span> (i, <span class="number">0</span>, n - <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> ( i &amp; <span class="number">31</span> ) f[i] = f[i - <span class="number">1</span>]; <span class="keyword">else</span> f[i] = top = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> ( top &amp;&amp; !<span class="built_in">cmp</span>(val[stk[top]], val[i]) ) f[i] &amp;= ~( <span class="number">1u</span> &lt;&lt; ( stk[top--] &amp; <span class="number">31</span> ) );</span><br><span class="line">    f[i] |= <span class="number">1u</span> &lt;&lt; ( ( stk[++top] = i ) &amp; <span class="number">31</span> );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> T <span class="title">qry</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> ( ( --l &gt;&gt; <span class="number">5</span> ) != ( --r &gt;&gt; <span class="number">5</span> ) ) &#123;</span><br><span class="line">    T ret = <span class="built_in">mx</span>(suf[l], pre[r]);</span><br><span class="line">    <span class="keyword">if</span> ( ( r &gt;&gt; <span class="number">5</span> ) - ( l &gt;&gt; <span class="number">5</span> ) &gt; <span class="number">1</span> ) &#123;</span><br><span class="line">      <span class="type">int</span> t = __lg(( r &gt;&gt; <span class="number">5</span> ) - ( l &gt;&gt; <span class="number">5</span> ) - <span class="number">1</span>);</span><br><span class="line">      ret = <span class="built_in">mx</span>(ret, <span class="built_in">mx</span>(st[t][( l &gt;&gt; <span class="number">5</span> ) + <span class="number">1</span>], st[t][( r &gt;&gt; <span class="number">5</span> ) - ( <span class="number">1</span> &lt;&lt; t )]));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> val[l + __builtin_ctz(f[r] &gt;&gt; ( l &amp; <span class="number">31</span> ))];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="谁波-rmq">谁波 rmq</h2>
+<ul>
+<li>优点：非常好写，且跑得很快</li>
+<li>缺点：依赖于随机数据，查询复杂度并非 <span
+class="math inline">\(O(1)\)</span>。</li>
+</ul>
+<p>准确来说并不能放在 <span class="math inline">\(O(n)-O(1)\)</span> rmq
+的博客中，但是因为他实在是太好写了，跑得太快了。</p>
+<p>首先调用 <code>nth_element</code> 求出序列中前 <span
+class="math inline">\(\frac{n}{\log n}\)</span> 大元素，然后对这 <span
+class="math inline">\(\frac{n}{\log n}\)</span> 个数从大到小排序。</p>
+<p>预处理复杂度为 <code>nth_element</code> 的 <span
+class="math inline">\(O(n)\)</span> 与排序的 <span
+class="math inline">\(O(\frac{n}{\log n}\cdot \log
+n)=O(n)\)</span>。</p>
+<p>每次查询时，从大到小枚举前 <span class="math inline">\(\frac{n}{\log
+n}\)</span> 个数，判断每个数是否在询问的区间中，找到即退出。</p>
+<p>如果找不到，这样的询问数量是 <span
+class="math inline">\(O(1)\)</span>
+的，可以直接暴力枚举，或者使用线段树查询。</p>
+<p>在保证数据随机时，查询复杂度为期望 <span class="math inline">\(O(\log
+n)\)</span>，且拥有一个即小的常数，甚至可以视为 <span
+class="math inline">\(O(1)\)</span>。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> n, m, a[N], t, w[<span class="number">1</span> &lt;&lt; <span class="number">26</span>];</span><br><span class="line">pii b[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">qry</span><span class="params">(<span class="type">int</span> c, <span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> x, <span class="type">int</span> y)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (l == x &amp;&amp; r == y) <span class="keyword">return</span> w[c];</span><br><span class="line">  <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">if</span> (y &lt;= mid) <span class="keyword">return</span> <span class="built_in">qry</span>(c &lt;&lt; <span class="number">1</span>, l, mid, x, y);</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (x &gt; mid) <span class="keyword">return</span> <span class="built_in">qry</span>(c &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, mid + <span class="number">1</span>, r, x, y);</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">return</span> <span class="built_in">max</span>(<span class="built_in">qry</span>(c &lt;&lt; <span class="number">1</span>, l, mid, x, mid), <span class="built_in">qry</span>(c &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, mid + <span class="number">1</span>, r, mid + <span class="number">1</span>, y));</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">rep</span> (i, <span class="number">1</span>, n) a[i] = <span class="built_in">read</span>(), b[i] = <span class="built_in">pii</span>(-a[i], i);</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) w[i + t - <span class="number">1</span>] = a[i];</span><br><span class="line"><span class="built_in">per</span> (i, t, <span class="number">1</span>) w[i] = <span class="built_in">max</span>(w[i &lt;&lt; <span class="number">1</span>], w[i &lt;&lt; <span class="number">1</span> | <span class="number">1</span>]);</span><br><span class="line"><span class="built_in">nth_element</span>(b + <span class="number">1</span>, b + B, b + n + <span class="number">1</span>), <span class="built_in">sort</span>(b + <span class="number">1</span>, b + B + <span class="number">1</span>);</span><br><span class="line"><span class="comment">// query</span></span><br><span class="line"><span class="built_in">rep</span> (i, <span class="number">1</span>, B) <span class="keyword">if</span> (b[i].se &gt;= l &amp;&amp; b[i].se &lt;= r) &#123; ans = -b[i].fi, f = <span class="number">1</span>; <span class="keyword">break</span>; &#125;</span><br><span class="line"><span class="keyword">if</span> (!f) ans = <span class="built_in">qry</span>(<span class="number">1</span>, <span class="number">1</span>, t, l, r);</span><br></pre></td></tr></table></figure>
+<h2 id="期望-o1-线段树">期望 <span class="math inline">\(O(1)\)</span>
+线段树</h2>
+<ul>
+<li>优点：支持修改，效率较高。</li>
+<li>缺点：询问严格 <span class="math inline">\(O(\log n)\)</span>。</li>
+</ul>
+<p>其实这也不是严格的 <span class="math inline">\(O(n)-O(1)\)</span> rmq
+方法，甚至询问是严格的 <span class="math inline">\(O(\log
+n)\)</span>，但他能支持修改。</p>
+<p>直接使用线段树维护，在进行 checkmax 修改操作时，如果当前区间的 <span
+class="math inline">\(\min\)</span> 已经 <span
+class="math inline">\(&gt;\)</span> checkmax 的值时，可以直接退出。</p>
+<p>在询问时，直接采用非递归版本即可。看似是期望 <span
+class="math inline">\(O(1)\)</span> 修改的线段树，至少他能跑 <span
+class="math inline">\(10^8\)</span> 次修改了。</p>
 
     </div>
 
@@ -318,6 +387,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%9D%97"><span class="nav-number">1.</span> <span class="nav-text">分块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%81%E6%B3%A2-rmq"><span class="nav-number">2.</span> <span class="nav-text">谁波 rmq</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%9F%E6%9C%9B-o1-%E7%BA%BF%E6%AE%B5%E6%A0%91"><span class="nav-number">3.</span> <span class="nav-text">期望 \(O(1)\)
+线段树</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -374,13 +445,19 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="http://cnblogs.com/shaojia" title="http:&#x2F;&#x2F;cnblogs.com&#x2F;shaojia" rel="noopener" target="_blank">ShaoJia</a>
+          <a href="https://cnblogs.com/shaojia" title="https:&#x2F;&#x2F;cnblogs.com&#x2F;shaojia" rel="noopener" target="_blank">ShaoJia</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://cmk666.github.io/" title="http:&#x2F;&#x2F;cmk666.github.io" rel="noopener" target="_blank">cmk666</a>
+          <a href="https://cmk666.github.io/" title="https:&#x2F;&#x2F;cmk666.github.io" rel="noopener" target="_blank">cmk666</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="http://ftt2333.gitlab.io/" title="http:&#x2F;&#x2F;ftt2333.gitlab.io" rel="noopener" target="_blank">ftt2333</a>
+          <a href="https://ftt2333.gitlab.io/" title="https:&#x2F;&#x2F;ftt2333.gitlab.io" rel="noopener" target="_blank">ftt2333</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://cyb1010.github.io/" title="https:&#x2F;&#x2F;cyb1010.github.io" rel="noopener" target="_blank">cyb1010</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://red-black-tree.github.io/" title="https:&#x2F;&#x2F;red-black-tree.github.io" rel="noopener" target="_blank">rb_tree</a>
         </li>
     </ul>
   </div>
