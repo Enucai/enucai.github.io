@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Fira Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"enucai.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="2023 年 9 月的做题记录，一句话题解。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="水题乱做 - 1">
+<meta property="og:url" content="http://enucai.github.io/2023/09/01/water-23-9/index.html">
+<meta property="og:site_name" content="Enucaiの小屋">
+<meta property="og:description" content="2023 年 9 月的做题记录，一句话题解。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-09-01T05:05:51.000Z">
+<meta property="article:modified_time" content="2023-09-18T01:46:18.545Z">
+<meta property="article:author" content="Enucai">
+<meta property="article:tag" content="水题">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://enucai.github.io/2023/09/01/water-23-9/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>水题乱做 - 1 | Enucaiの小屋</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Enucaiの小屋</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">进屋坐坐咩，进来的就别走诺</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+
+  <a href="https://github.com/enucai" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://enucai.github.io/2023/09/01/water-23-9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Enucai">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Enucaiの小屋">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          水题乱做 - 1
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-09-01 13:05:51" itemprop="dateCreated datePublished" datetime="2023-09-01T13:05:51+08:00">2023-09-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-09-18 09:46:18" itemprop="dateModified" datetime="2023-09-18T09:46:18+08:00">2023-09-18</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+            <div class="post-description">2023 年 9 月的做题记录，一句话题解。</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h3 id="codeforces-1864g">CodeForces-1864G</h3>
+<p>观察一下性质，然后直接数数，最后是一些阶乘的乘积。</p>
+<h3 id="luogu-p5631">Luogu-P5631</h3>
+<p>按照边权线段树分治，用并查集维护连通性。</p>
+<h3 id="codeforces-1615f">CodeForces-1615F</h3>
+<p>将操作做差分转化为交换元素，求每个间隔对答案的贡献。</p>
+<h3 id="codeforces-1354g">CodeForces-1354G</h3>
+<p>先通过随机寻找一个石头，再通过倍增和二分来寻找第一个礼物的位置。</p>
+<h3 id="codeforces-838c">CodeForces-838C</h3>
+<p>观察先手必胜的字符串特征，随后随便状压 dp 即可。</p>
+<h3 id="luogu-p7565">Luogu-P7565</h3>
+<p>要找一个最长的且使两边子树大小相等的最长链，直接点分治。</p>
+<h3 id="luogu-p5105">Luogu-P5105</h3>
+<p>可重集去重后价值不变，且连续区间可以快速算出，使用线段树维护。</p>
+<h3 id="luogu-p6891">Luogu-P6891</h3>
+<p>直接 dp 时合法的 dp 位置是一段区间，记录区间把 <span
+class="math inline">\(O(n^2)\)</span> 优化为 <span
+class="math inline">\(O(n)\)</span>。</p>
+<h3 id="luogu-p7212">Luogu-P7212</h3>
+<p>按照题意模拟，合并时采用启发式合并即可，注意模拟时的细节。</p>
+<h3 id="luogu-p9597">Luogu-P9597</h3>
+<p>容易写出暴力 dp，带修改直接使用动态 dp 即可。</p>
+<h3 id="luogu-p9599">Luogu-P9599</h3>
+<p>通过询问相邻两个与三个的结果，确定出先对大小关系，直接模拟构造。</p>
+<h3 id="codeforces-1863e">CodeForces-1863E</h3>
+<p>完成每个任务的结束时间确定，直接拓扑，合并时贪心往后放。</p>
+<h3 id="codeforces-1863f">CodeForces-1863F</h3>
+<p>从外到内区间 dp，能转移到的可以被表示为区间前后缀和某一位为 <span
+class="math inline">\(0/1\)</span>，在左右端点打标记。</p>
+<h3 id="codeforces-1863g">CodeForces-1863G</h3>
+<p>建出基环树，每个点可以被每个入点表示，环上会被多算，删除重复贡献后相乘。</p>
+<h3 id="codeforces-1861f">CodeForces-1861F</h3>
+<p>二分答案后转化为最小割，枚举右边每个点被割至哪里，可以 <span
+class="math inline">\(2^4\cdot \log\)</span> 进行 check。</p>
+<h3 id="codeforces-1866l">CodeForces-1866L</h3>
+<p>枚举每一个 <span class="math inline">\(k\)</span>，随后可以 <span
+class="math inline">\(O(k)\)</span> 数出能得到多少个球。</p>
+<h3 id="codeforces-1866g">CodeForces-1866G</h3>
+<p>二分答案，每个数可以处于一个区间，用堆来模拟贪心即可。</p>
+<h3 id="luogu-p5812">Luogu-P5812</h3>
+<p>通过观察性质来减少有效点数，随后建图跑 dijkstra 即可。</p>
+<h3 id="codeforces-1267g">CodeForces-1267G</h3>
+<p>计算出每次操作两种方式各自的期望收益，贪心选择较大的。计算到达每个状态的概率可以背包。</p>
+<h3 id="codeforces-1120d">CodeForces-1120D</h3>
+<p>每个叶子都至少对应一个祖先，树形 dp
+并记录转移方案，构造可以通过转移推算。</p>
+<h3 id="codeforces-1303g">CodeForces-1303G</h3>
+<p>点分治后转化为选一个一次函数和一个点，将一次函数插入李超树中，再枚举点查询。</p>
+<h3 id="atcoder-arc094f">AtCoder-ARC094F</h3>
+<p>特判特殊情况后，只需要相邻不同且和 <span class="math inline">\(\bmod
+3\)</span> 同余，可以直接 dp 计数。</p>
+<h3 id="luogu-p5331">Luogu-P5331</h3>
+<p>cdq 分治过程中优化费用流建边。</p>
+<h3 id="luogu-p9596">Luogu-P9596</h3>
+<p>答案为一个数之前大于他的个数最大值，观察性质并弱化条件，直接使用线段树维护。</p>
+<h3 id="luogu-p9531">Luogu-P9531</h3>
+<p>按照边权排序，每条边控制的 <span class="math inline">\(X\)</span>
+是一个区间，求出每条边所控制的区间，询问双指针。</p>
+<h3 id="luogu-p5776">Luogu-P5776</h3>
+<p>一个边双联通子图可以进行耳分解，反向耳分解来构造边双联通子图，可以状压
+dp 计算。</p>
+<h3 id="atcoder-abc318ex">AtCoder-ABC318Ex</h3>
+<p>推一波式子之后发现方案数是一个多项式 exp 的形式。</p>
+<h3 id="atcoder-agc003d">AtCoder-AGC003D</h3>
+<p>将每个数的完全立方因子除去，每个数恰好对应一个数，二选一，贪心选多的。</p>
+<h3 id="codeforces-536e">CodeForces-536E</h3>
+<p>离线询问，扫描限制，每个边权为 <span
+class="math inline">\(0/1\)</span>，直接树剖维护即可。</p>
+<h3 id="codeforces-845g">CodeForces-845G</h3>
+<p>可以去环上绕一个圈后回来，异或上的恰好是环上边权异或，把所有环上边权异或和插到线性基里。</p>
+<h3 id="codeforces-724g">CodeForces-724G</h3>
+<p>与上一题类似，算每一位对于答案的贡献，要么是全部，要么是恰好一半，直接计算。</p>
+<h3 id="codeforces-1801d">CodeForces-1801D</h3>
+<p>按照演出次数与剩余的钱当作两位关键字，直接跑最短路。</p>
+<h3 id="codeforces-cf1801e">CodeForces-CF1801E</h3>
+<p>有效合并次数为 <span
+class="math inline">\(O(n)\)</span>，可以通过哈希找到每一次的下一个有效合并点对。</p>
+<h3 id="luogu-p8162">Luogu-P8162</h3>
+<p>枚举最终选择的支持者数量，观察性质后可以直接做最优化 dp。</p>
+<h3 id="luogu-p5100">Luogu-P5100</h3>
+<p>建出分层图，横向、竖向移动可以分别开一层，随后跑最短路。</p>
+<h3 id="atcoder-abc219h">AtCoder-ABC219H</h3>
+<p>吹灭的蜡烛一定是一个区间，可以将原长和烧掉的长度分开计算，做区间
+dp。</p>
+<h3 id="codeforces-1327f">CodeForces-1327F</h3>
+<p>每一位是独立的，分别找出限制，随后前缀和优化 dp。</p>
+<h3 id="codeforces-1801f">CodeForces-1801F</h3>
+<p>暴力 dp 时发现第二维的有效值只有 <span class="math inline">\(O(\sqrt
+V)\)</span> 个，直接优化 dp。</p>
+<h3 id="luogu-p9631">Luogu-P9631</h3>
+<p>合法的数可以表示为某一个二进制位为 <span
+class="math inline">\(1\)</span>。直接用吉司机线段树维护每个二进制位
+<span class="math inline">\(1\)</span> 个数。</p>
+<h3 id="luogu-p3488">Luogu-P3488</h3>
+<p>判定形如二分图是否存在左部点完全匹配，Hall
+定理转化后维护最大子段和状物。</p>
+<h3 id="luogu-p9607">Luogu-P9607</h3>
+<p>极值分治，枚举短的那一边，找出 <span
+class="math inline">\(\gcd\)</span> 不同的 <span
+class="math inline">\(\log\)</span> 个位置计算。</p>
+<h3 id="codeforces-1693d">CodeForces-1693D</h3>
+<p>暴力做法是枚举左端点后向右 dp，遇到相同的 dp 值直接 break，一个 dp
+值最多被更新 <span class="math inline">\(O(1)\)</span> 次。</p>
+<h3 id="codeforces-1693c">CodeForces-1693C</h3>
+<p>直接倒序跑 dijkstra，被更新到的 dis
+一定是递增的，因此选择保留的一定是一段签注。</p>
+<h3 id="luogu-p9613">Luogu-P9613</h3>
+<p>建出 ACAM。ACAM 节点数是 <span class="math inline">\(O(\sum
+len)\)</span> 的，可以直接矩阵快速幂优化转移。</p>
+<h3 id="luogu-p9606">Luogu-P9606</h3>
+<p>求出最长的回文后缀，可以直接 manacher。</p>
+<h3 id="codeforces-1379e">CodeForces-1379E</h3>
+<p>先构造一条长度为 <span class="math inline">\(k-1\)</span>
+的类链形状，然后在下面接一个满二叉树。</p>
+<h3 id="luogu-p6623">Luogu-P6623</h3>
+<p>每个点每个二进制位的贡献是有循环的，直接对于每个循环节长度开差分数组即可。</p>
+<h3 id="luogu-p6672">Luogu-P6672</h3>
+<p>由引理：对于一个和为 <span class="math inline">\(0\)</span>
+的整数序列，则其所有循环位移中恰好有一个满足所有的前缀和都是正数。直接转化后套用。</p>
+<h3 id="luogu-p8456">Luogu-P8456</h3>
+<p>建出圆方树，点双之间的点对容易计算，同一个点双内如果连结两种颜色的只有两个，则减一。</p>
+<h3 id="codeforces-1152f2">CodeForces-1152F2</h3>
+<p>从小往大加数，状压记录一下前 <span class="math inline">\(m\)</span>
+个数的填写情况。</p>
+<h3 id="luogu-p4870">Luogu-P4870</h3>
+<p>做法同 AtCoder-ABC219H，增加一个滚动数组即可。</p>
+<h3 id="luogu-p3793">Luogu-P3793</h3>
+<p>详见 <a href="/2023/09/15/on-o1-rmq/">浅谈 <span
+class="math inline">\(O(1)-O(n)\)</span> rmq</a>。</p>
+<h3 id="luogu-p4007">Luogu-P4007</h3>
+<p>本质不同的状态大约只有 <span class="math inline">\(200\)</span>
+种，直接矩阵快速幂优化转移。</p>
+<h3 id="luogu-p8688">Luogu-P8688</h3>
+<p>根据卢卡斯定理，原问题转化为数位 dp，直接按照数位 dp 的方式转移。</p>
+<h3 id="uva-1464">UVA-1464</h3>
+<p>建出圆方树，必经点是圆方树路径上的圆点个数。</p>
+<h3 id="luogu-p8946">Luogu-P8946</h3>
+<p>根据转移分类，特殊转移数量较少，用数据结构（数组）优化转移即可。</p>
+<h3 id="codeforces-1418f">CodeForces-1418F</h3>
+<p>枚举 <span class="math inline">\(x_1\)</span> 与其因数，用 set
+维护可行的 <span
+class="math inline">\(y\)</span>，列出限制即可快速查询。</p>
+<h3 id="codeforces-1017h">CodeForces-1017H</h3>
+<p>对于每一种不同的 <span class="math inline">\(k\)</span>
+分别跑莫队，注意每次根据询问数量取块长。</p>
+<h3 id="codeforces-1418e">CodeForces-1418E</h3>
+<p>对于每一块盾牌分别算贡献，<span class="math inline">\(\ge b\)</span>
+与 <span class="math inline">\(&lt; b\)</span>
+的盾牌产生贡献的概率是相同的。</p>
+<h3 id="codeforces-875e">CodeForces-875E</h3>
+<p>二分答案，枚举一维，用 set
+维护另一维的可行位置即可，转移时变化的元素个数是 <span
+class="math inline">\(O(1)\)</span> 的。</p>
+<h3 id="codeforces-1096g">CodeForces-1096G</h3>
+<p>算出 <span class="math inline">\(n/2\)</span>
+个数能表示出的所有数的集合即可，可以用多项式快速幂优化。</p>
+<h3 id="codeforces-875f">CodeForces-875F</h3>
+<p>转化后题意转化为最大生成基环树，类似最小生成树地贪心即可。</p>
+<h3 id="codeforces-875d">CodeForces-875D</h3>
+<p>进行极值分治，枚举短的一边，随后二分另一边的最远距离。</p>
+<h3 id="luogu-p9546">Luogu-P9546</h3>
+<p>存在 <span class="math inline">\(0\)</span>
+时可以根据段的长度奇偶性算出胜负，不存在 <span
+class="math inline">\(0\)</span> 时根据讨论可以转化为存在 <span
+class="math inline">\(0\)</span>，线段树维护之。</p>
+<h3 id="codeforces-1867f">CodeForces-1867F</h3>
+<p>只需要找一棵节点数最少的树使得其未出现，然后上面挂一条链。这个树节点数很小，可以暴力。</p>
+<h3 id="codeforces-959f">CodeForces-959F</h3>
+<p>离线询问，维护线性基，没插入线性基的元素能对答案产生 <span
+class="math inline">\(\times 2\)</span> 的贡献。</p>
+<h3 id="codeforces-1207f">CodeForces-1207F</h3>
+<p>根号分治，小于根号的模数修改时暴力，大于根号的模数询问时暴力。</p>
+<h3 id="atcoder-agc058f">AtCoder-AGC058F</h3>
+<p>每条边上加一个点，再挂 <span class="math inline">\(P-1\)</span>
+个点，问题转化为给边定向，容斥后可以树形背包解决。</p>
+<h3 id="luogu-p6620">Luogu-P6620</h3>
+<p>将多项式转化为下降幂多项式，进行一个式子的推后可以快速计算。</p>
+<h3 id="atcoder-arc165d">AtCoder-ARC165D</h3>
+<p>同时考虑限制的每一位，相同则跳过，不同时从小的向大的连边，然后缩点，同一个点内的一定相等，最多做
+<span class="math inline">\(O(n)\)</span> 轮。</p>
+<h3 id="atcoder-arc165e">AtCoder-ARC165E</h3>
+<p>考虑每一个点被操作的概率，以这一个点为根，可以二维树形背包计算形如切
+<span class="math inline">\(x\)</span> 个子树，最终剩 <span
+class="math inline">\(y\)</span> 个点的方案。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%B0%B4%E9%A2%98/" rel="tag"># 水题</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/08/10/day-1-2/" rel="prev" title="逆天记录-2">
+      <i class="fa fa-chevron-left"></i> 逆天记录-2
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/09/14/day-1-3/" rel="next" title="逆天记录-3">
+      逆天记录-3 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-1864g"><span class="nav-number">1.</span> <span class="nav-text">CodeForces-1864G</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p5631"><span class="nav-number">2.</span> <span class="nav-text">Luogu-P5631</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-1615f"><span class="nav-number">3.</span> <span class="nav-text">CodeForces-1615F</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-1354g"><span class="nav-number">4.</span> <span class="nav-text">CodeForces-1354G</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-838c"><span class="nav-number">5.</span> <span class="nav-text">CodeForces-838C</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p7565"><span class="nav-number">6.</span> <span class="nav-text">Luogu-P7565</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p5105"><span class="nav-number">7.</span> <span class="nav-text">Luogu-P5105</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p6891"><span class="nav-number">8.</span> <span class="nav-text">Luogu-P6891</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p7212"><span class="nav-number">9.</span> <span class="nav-text">Luogu-P7212</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p9597"><span class="nav-number">10.</span> <span class="nav-text">Luogu-P9597</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p9599"><span class="nav-number">11.</span> <span class="nav-text">Luogu-P9599</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-1863e"><span class="nav-number">12.</span> <span class="nav-text">CodeForces-1863E</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-1863f"><span class="nav-number">13.</span> <span class="nav-text">CodeForces-1863F</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-1863g"><span class="nav-number">14.</span> <span class="nav-text">CodeForces-1863G</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-1861f"><span class="nav-number">15.</span> <span class="nav-text">CodeForces-1861F</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-1866l"><span class="nav-number">16.</span> <span class="nav-text">CodeForces-1866L</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-1866g"><span class="nav-number">17.</span> <span class="nav-text">CodeForces-1866G</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p5812"><span class="nav-number">18.</span> <span class="nav-text">Luogu-P5812</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-1267g"><span class="nav-number">19.</span> <span class="nav-text">CodeForces-1267G</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-1120d"><span class="nav-number">20.</span> <span class="nav-text">CodeForces-1120D</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-1303g"><span class="nav-number">21.</span> <span class="nav-text">CodeForces-1303G</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#atcoder-arc094f"><span class="nav-number">22.</span> <span class="nav-text">AtCoder-ARC094F</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p5331"><span class="nav-number">23.</span> <span class="nav-text">Luogu-P5331</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p9596"><span class="nav-number">24.</span> <span class="nav-text">Luogu-P9596</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p9531"><span class="nav-number">25.</span> <span class="nav-text">Luogu-P9531</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p5776"><span class="nav-number">26.</span> <span class="nav-text">Luogu-P5776</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#atcoder-abc318ex"><span class="nav-number">27.</span> <span class="nav-text">AtCoder-ABC318Ex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#atcoder-agc003d"><span class="nav-number">28.</span> <span class="nav-text">AtCoder-AGC003D</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-536e"><span class="nav-number">29.</span> <span class="nav-text">CodeForces-536E</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-845g"><span class="nav-number">30.</span> <span class="nav-text">CodeForces-845G</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-724g"><span class="nav-number">31.</span> <span class="nav-text">CodeForces-724G</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-1801d"><span class="nav-number">32.</span> <span class="nav-text">CodeForces-1801D</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-cf1801e"><span class="nav-number">33.</span> <span class="nav-text">CodeForces-CF1801E</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p8162"><span class="nav-number">34.</span> <span class="nav-text">Luogu-P8162</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p5100"><span class="nav-number">35.</span> <span class="nav-text">Luogu-P5100</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#atcoder-abc219h"><span class="nav-number">36.</span> <span class="nav-text">AtCoder-ABC219H</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-1327f"><span class="nav-number">37.</span> <span class="nav-text">CodeForces-1327F</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-1801f"><span class="nav-number">38.</span> <span class="nav-text">CodeForces-1801F</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p9631"><span class="nav-number">39.</span> <span class="nav-text">Luogu-P9631</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p3488"><span class="nav-number">40.</span> <span class="nav-text">Luogu-P3488</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p9607"><span class="nav-number">41.</span> <span class="nav-text">Luogu-P9607</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-1693d"><span class="nav-number">42.</span> <span class="nav-text">CodeForces-1693D</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-1693c"><span class="nav-number">43.</span> <span class="nav-text">CodeForces-1693C</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p9613"><span class="nav-number">44.</span> <span class="nav-text">Luogu-P9613</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p9606"><span class="nav-number">45.</span> <span class="nav-text">Luogu-P9606</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-1379e"><span class="nav-number">46.</span> <span class="nav-text">CodeForces-1379E</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p6623"><span class="nav-number">47.</span> <span class="nav-text">Luogu-P6623</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p6672"><span class="nav-number">48.</span> <span class="nav-text">Luogu-P6672</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p8456"><span class="nav-number">49.</span> <span class="nav-text">Luogu-P8456</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-1152f2"><span class="nav-number">50.</span> <span class="nav-text">CodeForces-1152F2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p4870"><span class="nav-number">51.</span> <span class="nav-text">Luogu-P4870</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p3793"><span class="nav-number">52.</span> <span class="nav-text">Luogu-P3793</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p4007"><span class="nav-number">53.</span> <span class="nav-text">Luogu-P4007</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p8688"><span class="nav-number">54.</span> <span class="nav-text">Luogu-P8688</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#uva-1464"><span class="nav-number">55.</span> <span class="nav-text">UVA-1464</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p8946"><span class="nav-number">56.</span> <span class="nav-text">Luogu-P8946</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-1418f"><span class="nav-number">57.</span> <span class="nav-text">CodeForces-1418F</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-1017h"><span class="nav-number">58.</span> <span class="nav-text">CodeForces-1017H</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-1418e"><span class="nav-number">59.</span> <span class="nav-text">CodeForces-1418E</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-875e"><span class="nav-number">60.</span> <span class="nav-text">CodeForces-875E</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-1096g"><span class="nav-number">61.</span> <span class="nav-text">CodeForces-1096G</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-875f"><span class="nav-number">62.</span> <span class="nav-text">CodeForces-875F</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-875d"><span class="nav-number">63.</span> <span class="nav-text">CodeForces-875D</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p9546"><span class="nav-number">64.</span> <span class="nav-text">Luogu-P9546</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-1867f"><span class="nav-number">65.</span> <span class="nav-text">CodeForces-1867F</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-959f"><span class="nav-number">66.</span> <span class="nav-text">CodeForces-959F</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#codeforces-1207f"><span class="nav-number">67.</span> <span class="nav-text">CodeForces-1207F</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#atcoder-agc058f"><span class="nav-number">68.</span> <span class="nav-text">AtCoder-AGC058F</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luogu-p6620"><span class="nav-number">69.</span> <span class="nav-text">Luogu-P6620</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#atcoder-arc165d"><span class="nav-number">70.</span> <span class="nav-text">AtCoder-ARC165D</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#atcoder-arc165e"><span class="nav-number">71.</span> <span class="nav-text">AtCoder-ARC165E</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Enucai"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Enucai</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/enucai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;enucai" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:3425993912@qq.com" title="E-Mail → mailto:3425993912@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://plus.google.com/wsyear13" title="Google → https:&#x2F;&#x2F;plus.google.com&#x2F;wsyear13" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/enucai" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;enucai" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://youtube.com/wsyear13" title="YouTube → https:&#x2F;&#x2F;youtube.com&#x2F;wsyear13" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/enucai" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;enucai" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://cnblogs.com/shaojia" title="https:&#x2F;&#x2F;cnblogs.com&#x2F;shaojia" rel="noopener" target="_blank">ShaoJia</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://cmk666.github.io/" title="https:&#x2F;&#x2F;cmk666.github.io" rel="noopener" target="_blank">cmk666</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://ftt2333.gitlab.io/" title="https:&#x2F;&#x2F;ftt2333.gitlab.io" rel="noopener" target="_blank">ftt2333</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://cyb1010.github.io/" title="https:&#x2F;&#x2F;cyb1010.github.io" rel="noopener" target="_blank">cyb1010</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://red-black-tree.github.io/" title="https:&#x2F;&#x2F;red-black-tree.github.io" rel="noopener" target="_blank">rb_tree</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Enucai</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+</body>
+</html>

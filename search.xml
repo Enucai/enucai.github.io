@@ -53,6 +53,98 @@ rank12，寄吧了，拿了个词典笔，一分钱都没有。</p>
       </tags>
   </entry>
   <entry>
+    <title>2022CSP</title>
+    <url>/2022/09/18/csp2022/</url>
+    <content><![CDATA[<h1 id="day--6">Day -6</h1>
+<p>烧烧烧！38.2！！感觉要寄了！！！</p>
+<h1 id="day--5">Day -5</h1>
+<p>明天是 csp 前最后一场 noip 联考了，希望能好好打。</p>
+<p>又是颓废的一天，唯一的成就是 tetr 40lines 突破到 2:05 了。</p>
+<p>联考就打了一个题，t2 比较麻烦的初始 dp 想出来了，但是非常 ez
+的修改不想写就摆烂，光荣挂成 10pts。</p>
+<h1 id="day--4">Day -4</h1>
+<p>虽然想好好打模拟赛，但是只想出来一题，赛后发现是
+*2800，还是很欣慰的。</p>
+<p>明天加了一场 csp 模拟赛，希望别太毒瘤呜呜呜。</p>
+<p>又 vp 了两场 cf，AK
+了一场，虽然第二场某人说全是诈骗题，但是感觉思维含量还是有的。</p>
+<p>晚上补了一下 嘉心糖 <span class="citation"
+data-cites="chenxinyang2006">@chenxinyang2006</span> vp 的 cf
+题，还没补完，明天继续。</p>
+<h1 id="day--3">Day -3</h1>
+<p>上午 vp 了一场 cf，做出了 5 题，感觉还行。</p>
+<p>下午加的 csp 模拟赛终于不是 NOIplus 了，但是感觉简单了点。期望得分
+360，实际得分 400，机房一车阿克的。</p>
+<p>虽然但是，感觉这个 t2 写 <span class="math inline">\(O(n)\)</span>
+的做法还是很高妙的，听说某些人写虚树写了几个小时还挂分了。</p>
+<h1 id="day--2">Day -2</h1>
+<p>马上要 csp 了，于是鸽了上午的 noi
+原题模拟赛，开始打板子，大概把网络流和 tarjan 相关的给打了一下，tarjan
+反正是我一直不会的，随便复习一下就敷衍了吧。</p>
+<p>下午又 vp 了一场 cf，又只做出了 5 题，F
+在众人的讨论之下最后会做了，但是由于过于毒瘤，还是咕了，赛后也没补。</p>
+<p>晚上又在打板子，顺便整理了一下板子。由于把 <code>gauss</code> 写成了
+<code>guass</code>，成功发明了瓜丝消元算法。</p>
+<p>然后又被迫推了两个数论题，写了一个。</p>
+<h1 id="day--1">Day -1</h1>
+<p>我也不知道在干啥，大概就打了打板子吧。</p>
+<h1 id="day-0">Day 0</h1>
+<p>终于比赛了。早上睡到八点半，然后就寄寄地起来了。</p>
+<p>下午 1 点在比赛门口碰到了
+chenxinyang2006，5ab，Little09，Cxny，ftt2333，lzytag
+等人，然后就进考场了。</p>
+<p>入场又不让打板子，感觉要寄寄。</p>
+<p>开考 t1 不难，但是不会预处理，于是写了个 <span
+class="math inline">\(O(\frac{nmk}{w})\)</span> 的 bitset，写了 30min
+过了大样例，15:00 开了 t2。</p>
+<p>t2
+也非常一眼，随便写一棵线段树就行，然后瞎搞搞，但是发现大样例寄了，调了半天发现
+inf 和一个值乘一乘就寄了，于是改了改就过了大样例，然后就 16:00 了。</p>
+<p>然后开 t3，一眼看不出来，上了个厕所洗了把脸，回来看了看部分分，把
+60pts 的暴力给写了，然后准备先鸽着，开了 t4。</p>
+<p>脑子不是很清醒，于是先把暴力敲了，自己也不知道能拿几分，然后开始咕咕咕，不知道想哪道。</p>
+<p>突然发现 t4 是个 ddp
+的板子，然后准备开写，但又不想写，然后又咕咕咕了，时间还剩
+1h，感觉要退役了。</p>
+<p>继续想
+t3，还是不会，一直想怎么用数据结构维护，但是死都想不出来，感觉寄寄，于是再转到
+t4。</p>
+<p>还有不到一个小时，要写完一个 ddp
+感觉不太现实，但还是离谱地开始写了起来。写了半个多小时终于写完了，然后寄寄了。</p>
+<p>于是就没调，随便把暴力找了回来检查了一下文操比赛就结束了。</p>
+<p>出场听说 Little09 的 t4 ddp
+好像也没调出来，心里有了点安慰，但是大家好像 t3
+都过了啊，居然是个随机权值，感觉这种随机的东西自己死也想不出来，怎么办呢。</p>
+<p>出场估分 <span
+class="math inline">\(100+100+60+[10,20]=[270,290]\)</span>。</p>
+<p>回家到 infoj 上一测，发现 t2 挂成了 <span
+class="math inline">\(40\)</span>，怎么回事呢，又 t 又 wa 的，而且 <span
+class="math inline">\(n=200\)</span>
+的都寄了，为什么呢。看了半天终于发现了，原来把 <span
+class="math inline">\(b\)</span> 的大小打成了 <span
+class="math inline">\(m\)</span>，要寄吧了。。。。。</p>
+<p>发现只有在 <span class="math inline">\(n&lt;m\)</span>
+的时候会寄，但愿西西弗的数据都是 <span
+class="math inline">\(n=m\)</span> 的吧 qwq，这样就能过了 ahhh。</p>
+<p>最后 infoj 的估分 <span
+class="math inline">\(100+40+60+36=236\)</span>。寄吧了，拳击房垫底。</p>
+<p>看了一眼 Shaojia 的分数 <span
+class="math inline">\(100+100+100+68=368\)</span>，感觉非常可怕啊，不愧是初三的神！</p>
+<p>听说一堆人 t1 没开 ll 挂分了，感觉还是很庆幸啊。</p>
+<p>说到底，还是菜。。。。。。</p>
+<p>接下来几天就痛苦的等成绩了，但愿 t2 <span
+class="math inline">\(n\equiv
+m\)</span>，这样成绩就还能见人了。不然会文化都没脸了驱蚊器。</p>
+<p>民间有分了，infoj 测出来 241，网易测出来 281，感觉要寄吧了。</p>
+<h1 id="day-114514">Day 114514</h1>
+<p>出分了，CCF 傻逼数据，<span
+class="math inline">\(100+100+60+36=296\)</span>，哈哈了。</p>
+]]></content>
+      <tags>
+        <tag>游记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>逆天记录-1</title>
     <url>/2023/07/11/day-1-1/</url>
     <content><![CDATA[<h2 id="cf407e-k-d-sequence">CF407E k-d-sequence</h2>
@@ -497,341 +589,6 @@ n)\)</span>，瓶颈在排序。</p>
       </tags>
   </entry>
   <entry>
-    <title>2022CSP</title>
-    <url>/2022/09/18/csp2022/</url>
-    <content><![CDATA[<h1 id="day--6">Day -6</h1>
-<p>烧烧烧！38.2！！感觉要寄了！！！</p>
-<h1 id="day--5">Day -5</h1>
-<p>明天是 csp 前最后一场 noip 联考了，希望能好好打。</p>
-<p>又是颓废的一天，唯一的成就是 tetr 40lines 突破到 2:05 了。</p>
-<p>联考就打了一个题，t2 比较麻烦的初始 dp 想出来了，但是非常 ez
-的修改不想写就摆烂，光荣挂成 10pts。</p>
-<h1 id="day--4">Day -4</h1>
-<p>虽然想好好打模拟赛，但是只想出来一题，赛后发现是
-*2800，还是很欣慰的。</p>
-<p>明天加了一场 csp 模拟赛，希望别太毒瘤呜呜呜。</p>
-<p>又 vp 了两场 cf，AK
-了一场，虽然第二场某人说全是诈骗题，但是感觉思维含量还是有的。</p>
-<p>晚上补了一下 嘉心糖 <span class="citation"
-data-cites="chenxinyang2006">@chenxinyang2006</span> vp 的 cf
-题，还没补完，明天继续。</p>
-<h1 id="day--3">Day -3</h1>
-<p>上午 vp 了一场 cf，做出了 5 题，感觉还行。</p>
-<p>下午加的 csp 模拟赛终于不是 NOIplus 了，但是感觉简单了点。期望得分
-360，实际得分 400，机房一车阿克的。</p>
-<p>虽然但是，感觉这个 t2 写 <span class="math inline">\(O(n)\)</span>
-的做法还是很高妙的，听说某些人写虚树写了几个小时还挂分了。</p>
-<h1 id="day--2">Day -2</h1>
-<p>马上要 csp 了，于是鸽了上午的 noi
-原题模拟赛，开始打板子，大概把网络流和 tarjan 相关的给打了一下，tarjan
-反正是我一直不会的，随便复习一下就敷衍了吧。</p>
-<p>下午又 vp 了一场 cf，又只做出了 5 题，F
-在众人的讨论之下最后会做了，但是由于过于毒瘤，还是咕了，赛后也没补。</p>
-<p>晚上又在打板子，顺便整理了一下板子。由于把 <code>gauss</code> 写成了
-<code>guass</code>，成功发明了瓜丝消元算法。</p>
-<p>然后又被迫推了两个数论题，写了一个。</p>
-<h1 id="day--1">Day -1</h1>
-<p>我也不知道在干啥，大概就打了打板子吧。</p>
-<h1 id="day-0">Day 0</h1>
-<p>终于比赛了。早上睡到八点半，然后就寄寄地起来了。</p>
-<p>下午 1 点在比赛门口碰到了
-chenxinyang2006，5ab，Little09，Cxny，ftt2333，lzytag
-等人，然后就进考场了。</p>
-<p>入场又不让打板子，感觉要寄寄。</p>
-<p>开考 t1 不难，但是不会预处理，于是写了个 <span
-class="math inline">\(O(\frac{nmk}{w})\)</span> 的 bitset，写了 30min
-过了大样例，15:00 开了 t2。</p>
-<p>t2
-也非常一眼，随便写一棵线段树就行，然后瞎搞搞，但是发现大样例寄了，调了半天发现
-inf 和一个值乘一乘就寄了，于是改了改就过了大样例，然后就 16:00 了。</p>
-<p>然后开 t3，一眼看不出来，上了个厕所洗了把脸，回来看了看部分分，把
-60pts 的暴力给写了，然后准备先鸽着，开了 t4。</p>
-<p>脑子不是很清醒，于是先把暴力敲了，自己也不知道能拿几分，然后开始咕咕咕，不知道想哪道。</p>
-<p>突然发现 t4 是个 ddp
-的板子，然后准备开写，但又不想写，然后又咕咕咕了，时间还剩
-1h，感觉要退役了。</p>
-<p>继续想
-t3，还是不会，一直想怎么用数据结构维护，但是死都想不出来，感觉寄寄，于是再转到
-t4。</p>
-<p>还有不到一个小时，要写完一个 ddp
-感觉不太现实，但还是离谱地开始写了起来。写了半个多小时终于写完了，然后寄寄了。</p>
-<p>于是就没调，随便把暴力找了回来检查了一下文操比赛就结束了。</p>
-<p>出场听说 Little09 的 t4 ddp
-好像也没调出来，心里有了点安慰，但是大家好像 t3
-都过了啊，居然是个随机权值，感觉这种随机的东西自己死也想不出来，怎么办呢。</p>
-<p>出场估分 <span
-class="math inline">\(100+100+60+[10,20]=[270,290]\)</span>。</p>
-<p>回家到 infoj 上一测，发现 t2 挂成了 <span
-class="math inline">\(40\)</span>，怎么回事呢，又 t 又 wa 的，而且 <span
-class="math inline">\(n=200\)</span>
-的都寄了，为什么呢。看了半天终于发现了，原来把 <span
-class="math inline">\(b\)</span> 的大小打成了 <span
-class="math inline">\(m\)</span>，要寄吧了。。。。。</p>
-<p>发现只有在 <span class="math inline">\(n&lt;m\)</span>
-的时候会寄，但愿西西弗的数据都是 <span
-class="math inline">\(n=m\)</span> 的吧 qwq，这样就能过了 ahhh。</p>
-<p>最后 infoj 的估分 <span
-class="math inline">\(100+40+60+36=236\)</span>。寄吧了，拳击房垫底。</p>
-<p>看了一眼 Shaojia 的分数 <span
-class="math inline">\(100+100+100+68=368\)</span>，感觉非常可怕啊，不愧是初三的神！</p>
-<p>听说一堆人 t1 没开 ll 挂分了，感觉还是很庆幸啊。</p>
-<p>说到底，还是菜。。。。。。</p>
-<p>接下来几天就痛苦的等成绩了，但愿 t2 <span
-class="math inline">\(n\equiv
-m\)</span>，这样成绩就还能见人了。不然会文化都没脸了驱蚊器。</p>
-<p>民间有分了，infoj 测出来 241，网易测出来 281，感觉要寄吧了。</p>
-<h1 id="day-114514">Day 114514</h1>
-<p>出分了，CCF 傻逼数据，<span
-class="math inline">\(100+100+60+36=296\)</span>，哈哈了。</p>
-]]></content>
-      <tags>
-        <tag>游记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>逆天记录-3</title>
-    <url>/2023/09/14/day-1-3/</url>
-    <content><![CDATA[<h2 id="p9531-joisc-2022-day4-复兴计划">P9531 [JOISC 2022 Day4]
-复兴计划</h2>
-<p>首先有结论：对于每条边，在最终方案中会被选择的 <span
-class="math inline">\(X\)</span> 是一个区间。</p>
-<p>将所有的边按照边权排序，那么他被选择的代价关于 <span
-class="math inline">\(X\)</span>
-是一个绝对值函数。对于每条边，找出前一条能与他形成环的边，那么分界的
-<span class="math inline">\(X\)</span> 就是两条边边权的平均值。</p>
-<p>找出每条边的 pre 可以在 <span
-class="math inline">\(O(nm\alpha(n))\)</span>
-的复杂度内完成，并将询问离线，按照 <span
-class="math inline">\(X\)</span> 排序后维护一堆一次函数的和即可。</p>
-<h2 id="cf1801e-gasoline-prices">CF1801E Gasoline prices</h2>
-<p>对于每一个形如 <span
-class="math inline">\(\{(u_1,v_1),(u_2,v_2)\}\)</span>
-的限制，等价于将两条路径上对应点并查集合并，最后在同一个并查集中的元素的值必须相等，因此在求出最后并查集的合并情况后，只需要求出每个并查集连通块内部
-<span class="math inline">\(L\)</span> 的 <span
-class="math inline">\(\max\)</span> 与 <span
-class="math inline">\(R\)</span> 的 <span
-class="math inline">\(\min\)</span> 即可，这一部分是容易计算的。</p>
-<p>接下来考虑如何在合理的复杂度内计算出并查集的合并情况。</p>
-<p>首先发现，将所有点全部合并联通只需要进行 <span
-class="math inline">\(n-1\)</span> 次合并操作，因此有效的合并操作是
-<span class="math inline">\(O(n)\)</span>
-的，只需要依次找到有效的合并操作即可。</p>
-<p>考虑将每个点赋值上他所在并查集的祖先的点权，每次产生一个新的限制时，可以二分两条链上权值组成的序列的
-LCP，第一个不同的位置即为需要合并的两个点。</p>
-<p>因此只需要支持对于一个树上的单点修改，链上 hash
-查询操作，可以直接把树拍成 dfn 序之后用树状数组维护。</p>
-<p>时间复杂度 <span class="math inline">\(O(m\log^2n+n\alpha(n)+n\log
-V)\)</span>。</p>
-<h2 id="p8162-joi-2022-final-让我们赢得选举">P8162 [JOI 2022 Final]
-让我们赢得选举</h2>
-<p>以下称收获一张票为 A，收获一个支持者为 B。</p>
-<p>首先考虑在确定了最终哪几个选择 A，哪几个选择 B 时，一定是先按照 <span
-class="math inline">\(b_i\)</span> 从小到大依次完成
-B，随后以任意顺序完成 A，所需要的时间为 <span
-class="math inline">\(\sum\frac{b_i}{i}+\frac{\sum
-a_i}{|B|+1}\)</span>。没有很好的贪心选择策略，考虑 dp。</p>
-<p>由于 <span class="math inline">\(\frac{\sum a_i}{|B|+1}\)</span>
-的存在，因此在不确定 <span class="math inline">\(|B|\)</span>
-的前提下，很难对 A 进行 dp，因此首先枚举最终 B 选择了几个。</p>
-<p>先按照 <span class="math inline">\(b_i\)</span> 排序，暴力 dp 为
-<span class="math inline">\(f_{i,j,k}\)</span> 表示对于前 <span
-class="math inline">\(i\)</span> 个人，当前 B 选了 <span
-class="math inline">\(j\)</span> 个，A 选了 <span
-class="math inline">\(k\)</span>
-个，最小的时间是多少，但是这样时间复杂度为 <span
-class="math inline">\(O(n^4)\)</span>，可能可以通过 wqs 二分优化到 <span
-class="math inline">\(O(n^3\log n)\)</span>（我没证过），无法通过。</p>
-<p>观察一下性质，在对 <span class="math inline">\(b_i\)</span>
-排完序后，如果 <span class="math inline">\(i\)</span> 选择了 B，那么
-<span class="math inline">\(&lt;i\)</span>
-的位置不可能不选，因为如果位置 <span class="math inline">\(j\)</span>
-不选，那么可以选择 <span class="math inline">\(j\)</span> 成为 B 而不选
-<span class="math inline">\(i\)</span>，这样不会使结果更劣。</p>
-<p>因此可以枚举最后一个选 B 的位置是 <span
-class="math inline">\(i\)</span>，那么此时前面已经收获了 <span
-class="math inline">\(i\)</span>
-张票，后面需要的票数是确定的，直接贪心选择前 <span
-class="math inline">\(k-i\)</span> 小的 <span
-class="math inline">\(a_j\)</span> 即可。</p>
-<p>时间复杂度被优化至 <span
-class="math inline">\(O(n^3)\)</span>，可以通过。</p>
-<h2 id="abc219ex-candles">ABC219Ex Candles</h2>
-<p>首先有很显然的性质，由于吹灭蜡烛不需要时间，因此走到一个蜡烛的位置时一定会吹灭这根蜡烛，因此在对
-<span class="math inline">\(a\)</span>
-排序后，吹灭的蜡烛一定是一段区间。而没走一步，所有还没有被吹灭的蜡烛的长度都会
-<span class="math inline">\(-1\)</span>。</p>
-<p>但是如果每走一步都将不在区间内的蜡烛长度 <span
-class="math inline">\(-1\)</span>
-的话，会出现一些蜡烛的长度被减至负数的情况，导致计算得到的结果更小。</p>
-<p>因此考虑对于 dp 状态加一维，表示仍未熄灭的且最终长度 <span
-class="math inline">\(\ge 0\)</span>
-的蜡烛个数，显然这样不会得到比答案更优的结果。</p>
-<p>因此令 <span class="math inline">\(f_{l,r,0/1,i}\)</span>
-表示在吹灭的 <span class="math inline">\([l,r]\)</span>
-区间内的蜡烛后，当前在 <span class="math inline">\(0/1\)</span>（左/右
-端点），还未被吹灭的会记入最终答案的蜡烛个数为 <span
-class="math inline">\(i\)</span>
-的最大答案。转移时，枚举这个蜡烛是否被计入最终答案即可。</p>
-<p>时间复杂度 <span class="math inline">\(O(n^3)\)</span>。</p>
-<h2 id="p3488-poi2009-lyz-ice-skates">P3488 [POI2009] LYZ-Ice
-Skates</h2>
-<p>不考虑修改，对于一次询问，建立二分图，左边的每个点表示一个人，右边的每个点表示一双鞋，如果存在一个对于左部点的完美匹配，那么答案为
-YES。</p>
-<p>根据 Hall
-定理，对于左部点的任意一个集合，其对应的右部点的集合大小都应该要大于左部点集合大小。</p>
-<p>考虑这张二分图的性质，左部的每个点都对应右部的连续 <span
-class="math inline">\(k(d+1)\)</span>
-个点，因此对于左部点，区间的条件不弱于集合的条件，因此只要对于左部点的每个区间合法即可。</p>
-<p>考虑左部点 <span class="math inline">\([l,r]\)</span>
-的区间，需要满足 <span class="math inline">\(\sum_{i=l}^r a_i\le k\times
-(r-l+1+d)\)</span>，将每个 <span
-class="math inline">\(b_i=a_i-k\)</span>，只需要满足 <span
-class="math inline">\(\sum_{i=l}^rb_i\le k\times d\)</span>
-即可，因此只需要拿线段树维护 <span class="math inline">\(b\)</span>
-的最大子段和即可。</p>
-<h2 id="cf1693c-keshi-in-search-of-amshz">CF1693C Keshi in Search of
-AmShZ</h2>
-<p>不难，但是很有借鉴价值的好题。</p>
-<p>考虑题目要求求出最坏情况下的最少时间，因此每次走出边时，考虑走到仍未被删除的最坏的出边。</p>
-<p>令 <span class="math inline">\(d_u\)</span> 表示从 <span
-class="math inline">\(u\)</span> 到终点所需要的最少天数。对于一点 <span
-class="math inline">\(u\)</span>，如果没有割掉出边集合 <span
-class="math inline">\(S\)</span>，那么 <span
-class="math inline">\(d_u=\max_{(u,v)\in
-S}d_v+deg_u-|S|\)</span>。因此最终保留的边的集合一定是按照 <span
-class="math inline">\(d_v\)</span> 从小到大排序之后的一段前缀。</p>
-<p>但是这张图并不是一张 DAG，所以并不能直接求解。考虑在进行 dijkstra
-时有性质：当前枚举到的 <span class="math inline">\(dis\)</span>
-一定比之前枚举到的 <span class="math inline">\(dis\)</span>
-大，因此在进行一次 <span class="math inline">\(v\to u\)</span>
-的更新操作时，选择 <span class="math inline">\(d_v\)</span>
-作为排序后最后一个选择的没有割边的点，其最短路是 <span
-class="math inline">\(dis_v+deg_u-cnt_u\)</span>，其中 <span
-class="math inline">\(cnt_u\)</span> 表示已经更新过的 <span
-class="math inline">\(u\)</span> 的出边数量。</p>
-<p>直接跑 dijkstra 即可，时间复杂度 <span class="math inline">\(O(m\log
-n)\)</span>，本题巧妙之处在于利用了 dijkstra
-过程中的性质来拟合了题目要求的条件。</p>
-<h2 id="p6623-省选联考-2020-a-卷-树">P6623 [省选联考 2020 A 卷] 树</h2>
-<p>考虑每一位分别计算。每个点 <span class="math inline">\(u\)</span>
-对他的 <span class="math inline">\(k\)</span> 级祖先会产生 <span
-class="math inline">\(a_u+k\)</span> 的贡献，考虑将贡献差分，在每一位的
-<span class="math inline">\(0/1\)</span> 分界处将差分数组 <span
-class="math inline">\(\oplus1\)</span>，但是这样总的差分数组更改量还是
-<span class="math inline">\(O(n)\)</span> 的。</p>
-<p>考虑除了第一段，接下来二进制第 <span class="math inline">\(i\)</span>
-位的每一个 <span class="math inline">\(0/1\)</span> 连续段的长度都是
-<span class="math inline">\(2^i\)</span>，因此所有要更改差分的点的深度
-<span class="math inline">\(\bmod 2^i\)</span>
-都是相等的，因此直接对于每一个二进制位开一个差分数组，<span
-class="math inline">\(c_{i,s}\)</span> 表示二进制后 <span
-class="math inline">\(i\)</span> 位为 <span
-class="math inline">\(s\)</span> 的点的差分应该要异或多少。</p>
-<p>直接在 dfs 的时候维护差分数组即可，复杂度 <span
-class="math inline">\(O(n\log V)\)</span>，只需要枚举每个二进制位。</p>
-<p>另一种解法是直接维护 01trie，需要支持插入元素，合并 01trie，每个数
-<span class="math inline">\(+1\)</span> 与全局求异或和，可以将 01trie
-从低位往高位建，这样全局 <span class="math inline">\(+1\)</span>
-操作可以通过交换子树来完成，复杂度还是 <span
-class="math inline">\(O(n\log V)\)</span>。</p>
-<h2 id="cf1152f2-neko-rules-the-catniverse-large-version">CF1152F2 Neko
-Rules the Catniverse (Large Version)</h2>
-<p>由于限制了每个数只能出现一次，如果按照序列的位置
-dp，需要记录每个数是否出现，直接爆炸，因此考虑改变 dp 顺序。</p>
-<p>考虑从小到大考虑每一个数 <span
-class="math inline">\(i\)</span>，讨论他是否加入序列。</p>
-<p>此时如果再记录每个位置是否填了数，那么状态数会飙升至 <span
-class="math inline">\(2^k\)</span> 往上，再乘上 <span
-class="math inline">\(n\)</span> 又炸飞了。但是考虑到每个数的具体位置在
-dp
-过程中并不重要，我们只需要关心每个已经插入的数的相对位置即可，因此可以据此设计
-dp 状态。</p>
-<p>设 <span class="math inline">\(f_{i,j,k}\)</span> 表示已经考虑插入了
-<span class="math inline">\(1\sim i\)</span>
-这些数，其中加入序列中的数有 <span class="math inline">\(j\)</span>
-个，最后的四种数是否在序列中出现的状态集合为 <span
-class="math inline">\(k\)</span> 的方案数。</p>
-<p>由于题目要求对于相邻两个数，后面的数不能大于前面的数 <span
-class="math inline">\(+m\)</span>，因此对于一个数 <span
-class="math inline">\(i\)</span>，要么放在序列的开头，要么插在前 <span
-class="math inline">\(m\)</span> 个数之后，要么不放，因此转移如下：</p>
-<p><span class="math display">\[
-\begin{cases}
-f_{i,j,k}\to f_{i+1,j,k\times 2}\\
-f_{i,j,k}\times (\operatorname{popcount}(k)+1)\to f_{i+1,j+1,k\times
-2+1}
-\end{cases}
-\]</span></p>
-<p>对于 <span class="math inline">\(\{j,k\}\)</span> 一共只有 <span
-class="math inline">\(k\times 2^m\)</span>
-种，因此可以直接矩阵快速幂优化，时间复杂度 <span
-class="math inline">\(O(k^38^m\log n)\)</span>。</p>
-<h2 id="p8688-蓝桥杯-2019-省-a-组合数问题">P8688 [蓝桥杯 2019 省 A]
-组合数问题</h2>
-<p>组合数转化成了数位 dp，卢卡斯和进制之间的转化，很新奇。</p>
-<p>根据卢卡斯定理，有 <span class="math inline">\(\binom{n}{m}\equiv
-\binom{n/k}{m/k}\times \binom{n\bmod k}{m\bmod k}\pmod
-k\)</span>，发现这个东西就是将 <span class="math inline">\(n,m\)</span>
-写成 <span class="math inline">\(k\)</span>
-进制后对应位组合数的乘积。</p>
-<p>题目要求 <span class="math inline">\(\binom{x}{y}\equiv 0\pmod
-k\)</span>，由于 <span class="math inline">\(k\)</span> 为质数，因此只要
-<span class="math inline">\(x,y\)</span> 在 <span
-class="math inline">\(k\)</span> 进制下任意一位的组合数 <span
-class="math inline">\(\bmod k=0\)</span> 即可。又由于 <span
-class="math inline">\(x,y\)</span> 在 <span
-class="math inline">\(k\)</span> 进制下的每一位都 <span
-class="math inline">\(&lt;k\)</span>，因此其组合数 <span
-class="math inline">\(=0\)</span> 只有可能是这一位上的 <span
-class="math inline">\((a,b)\)</span> 满足 <span
-class="math inline">\(a&lt;b\)</span>。</p>
-<p>因此可以对 <span class="math inline">\(n,m\)</span> 为上界，在 <span
-class="math inline">\(k\)</span> 进制下数位 dp。令 <span
-class="math inline">\(f_{i,0/1,0/1,0/1}\)</span> 表示考虑了 <span
-class="math inline">\(k\)</span> 进制的前 <span
-class="math inline">\(i\)</span> 位，<span
-class="math inline">\(n\)</span> 是否顶到上界，<span
-class="math inline">\(m\)</span> 是否顶到上界，是否存在某一位 <span
-class="math inline">\((a,b)\)</span> 满足 <span
-class="math inline">\(a&lt;b\)</span> 的方案数。</p>
-<p>转移可以直接分类讨论并计算方案数，时间复杂度 <span
-class="math inline">\(O(T\log_k n)\)</span>。</p>
-<h2 id="cf1418f-equal-product">CF1418F Equal Product</h2>
-<p>考虑对于满足条件的 <span
-class="math inline">\((x_1,y_1,x_2,y_2)\)</span>，必有 <span
-class="math inline">\(x_1\cdot y_1=x_2\cdot y_2\)</span>，因此 <span
-class="math inline">\(\frac{x_1}{x_2}=\frac{y_2}{y_1}=\frac{a}{b}\)</span>，因此
-<span class="math inline">\(x_2=\frac{x_1}{a}\cdot
-b,y_2=\frac{y_1}{b}\cdot a\)</span>，并且可以证明 <span
-class="math inline">\(a\mid x_1\)</span> 且 <span
-class="math inline">\(b\mid y_1\)</span>。</p>
-<p>通过这个转化，可以发现满足 <span class="math inline">\(a\mid
-x_1\)</span> 的 <span class="math inline">\((x_1,a)\)</span> 只有 <span
-class="math inline">\(O(n\log n)\)</span> 对，可以直接枚举。</p>
-<p>对于一个 <span class="math inline">\(x_1\)</span>，我们需要找出一对
-<span class="math inline">\((y_1,b)\)</span> 满足如下条件：</p>
-<p><span class="math display">\[
-\begin{cases}
-\lceil\frac{L}{x_1}\rceil\le y_1\le\lfloor\frac{R}{x_1}\rfloor\\
-\frac{x_1}{a}\cdot b\le n\\
-y_1\le m\\
-a&lt;b
-\end{cases}
-\]</span></p>
-<p>发现在 <span class="math inline">\(x_1\)</span> 递增时，<span
-class="math inline">\(\lceil\frac{L}{x_1}\rceil\)</span> 与 <span
-class="math inline">\(\lfloor\frac{R}{x_1}\rfloor\)</span>
-都是单调不增的，因此可以时刻用一个 set 维护满足第一个条件的 <span
-class="math inline">\((y_1,b)\)</span> 数对，每次查询时找到最小的满足
-<span class="math inline">\(b&gt;a\)</span> 的数对 <span
-class="math inline">\((y_1,b)\)</span>，判断其是否满足第二个条件即可。时间复杂度
-<span class="math inline">\(O(n\log^2n)\)</span>。</p>
-]]></content>
-      <tags>
-        <tag>好题</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2022杭电多校</title>
     <url>/2022/07/20/hdu2022/</url>
     <content><![CDATA[<p><a
@@ -1142,68 +899,6 @@ class="math inline">\(10^8\)</span> 次修改了。</p>
 ]]></content>
       <tags>
         <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>联合省选2023</title>
-    <url>/2023/04/01/pe2023/</url>
-    <content><![CDATA[<h2 id="day--1">Day -1</h2>
-<p>学校请假，上午去机房 goose goose duck，好爽。</p>
-<p>下午去试机，车费好贵 /fn/fn/fn。</p>
-<p>键盘手感好评，居然和我用的完全一样。</p>
-<p>晚上不知道在干啥。</p>
-<h2 id="day-1">Day 1</h2>
-<p>早起，有点没睡醒。</p>
-<p>车上背了一下 pb_ds 的单词，相信是用不上的。</p>
-<p>开考 20 min 先把 T1 写了，然后开始坐牢。</p>
-<p>T2 是数数，感觉不太会，于是先开 T3，发现 <span
-class="math inline">\(O(nq\log^2 n)\)</span> 有点傻逼，写了一下。</p>
-<p>然后继续看 T2，花了 30+ min，才发现读错题了，好久才搞懂题意。</p>
-<p>一脸懵，写了 <span class="math inline">\(O(2^n\text{poly} n)\)</span>
-就跑路了，不太想想 <span class="math inline">\(k=0\)</span> 的。</p>
-<p>然后测了一下 T3 的效率，大样例跑了 3s 左右，时限只有
-5s，感觉很卡常啊！</p>
-<p>于是把 multiset 改成了四个堆，写了巨大久，改完跑了 2.5s
-左右，就扔掉了。</p>
-<p>大概已经 11:00 左右了，接下来开始徘徊 T2 的树部分分 和 T3
-的链特殊性质，最后都没拿分，呜呜呜。</p>
-<p>出场后发现大家 T2 都 <span class="math inline">\(50\)</span>
-了，有点寄，感觉 <span class="math inline">\(k=0\)</span> 的 dp
-不难想啊，我为什么要强吃树的部分？？？</p>
-<p>出场估分 <span
-class="math inline">\(100+25+48=173\)</span>，比大众分低了一大截，呜呜呜。</p>
-<p>感觉队线 <span class="math inline">\(100+100+48=248\)</span> 啊！</p>
-<p>晚上不知道在干啥，摸了一会儿鱼。</p>
-<h2 id="day-2">Day 2</h2>
-<p>本来想翻盘的，结果被翻盘了。呜呜呜。</p>
-<p>一开 T1
-发现有点神秘，不好估计难度，感觉不是很难，但是感觉又不简单，于是先丢了。</p>
-<p>然后看 T2，好久都没有想出一个合理的做法，甚至是否有解都只会 <span
-class="math inline">\(O(n\sqrt n)\)</span> 的 dinic 算，感觉寄飞了。</p>
-<p>不会正解，开始看特殊性质，A 和 B 都很好写，于是写完去看了看 T3。</p>
-<p>还是不会啊，但是只剩 2.5h 了，赶紧回去码 T1。</p>
-<p>写了大概 8k 左右，样例都没过，很多次都是 RE，还好没开无限栈。</p>
-<p>调了好久发现做法假了，眼看只有 1.5h 了，赶紧开始拼暴力，写了 20
-的部分分就跑路了。</p>
-<p>然后开始想 T3，突然发现自己之前看错题了。。</p>
-<p>赶紧开始写 T3 的 10 部分分的暴力 dp，很好写啊！但是一下就挂了啊！</p>
-<p>调了好久还是每过，于是重构，一遍过了样例。</p>
-<p>还剩大概半小时吧，看了看 T1 的部分分要大分讨，不好写，于是去写 T2 的
-C 性质。</p>
-<p>写完之后发现不对，怎么回事呢，调了好久的 dinic，才发现不是 dinic
-写炸了，是建图炸了。</p>
-<p>没修完就马上结束了，赶紧理了理文件夹，润了。</p>
-<p>出场估分 <span
-class="math inline">\(20+40+10=70\)</span>，没到大众分的一般，呜呜呜。</p>
-<p>感觉队线 <span class="math inline">\(100+100+10=210\)</span> 啊！</p>
-<p>下午一直在打鹅，好谔谔。</p>
-<p>总分估计 <span
-class="math inline">\(100+25+48+20+40+10=243\)</span>。</p>
-<p>队线估计 <span
-class="math inline">\(100+100+48+100+100+10=458\)</span>，寄！</p>
-]]></content>
-      <tags>
-        <tag>游记</tag>
       </tags>
   </entry>
   <entry>
@@ -1664,6 +1359,311 @@ n)\)</span>，直接跑费用流即可。</p>
       </tags>
   </entry>
   <entry>
+    <title>逆天记录-3</title>
+    <url>/2023/09/14/day-1-3/</url>
+    <content><![CDATA[<h2 id="p9531-joisc-2022-day4-复兴计划">P9531 [JOISC 2022 Day4]
+复兴计划</h2>
+<p>首先有结论：对于每条边，在最终方案中会被选择的 <span
+class="math inline">\(X\)</span> 是一个区间。</p>
+<p>将所有的边按照边权排序，那么他被选择的代价关于 <span
+class="math inline">\(X\)</span>
+是一个绝对值函数。对于每条边，找出前一条能与他形成环的边，那么分界的
+<span class="math inline">\(X\)</span> 就是两条边边权的平均值。</p>
+<p>找出每条边的 pre 可以在 <span
+class="math inline">\(O(nm\alpha(n))\)</span>
+的复杂度内完成，并将询问离线，按照 <span
+class="math inline">\(X\)</span> 排序后维护一堆一次函数的和即可。</p>
+<h2 id="cf1801e-gasoline-prices">CF1801E Gasoline prices</h2>
+<p>对于每一个形如 <span
+class="math inline">\(\{(u_1,v_1),(u_2,v_2)\}\)</span>
+的限制，等价于将两条路径上对应点并查集合并，最后在同一个并查集中的元素的值必须相等，因此在求出最后并查集的合并情况后，只需要求出每个并查集连通块内部
+<span class="math inline">\(L\)</span> 的 <span
+class="math inline">\(\max\)</span> 与 <span
+class="math inline">\(R\)</span> 的 <span
+class="math inline">\(\min\)</span> 即可，这一部分是容易计算的。</p>
+<p>接下来考虑如何在合理的复杂度内计算出并查集的合并情况。</p>
+<p>首先发现，将所有点全部合并联通只需要进行 <span
+class="math inline">\(n-1\)</span> 次合并操作，因此有效的合并操作是
+<span class="math inline">\(O(n)\)</span>
+的，只需要依次找到有效的合并操作即可。</p>
+<p>考虑将每个点赋值上他所在并查集的祖先的点权，每次产生一个新的限制时，可以二分两条链上权值组成的序列的
+LCP，第一个不同的位置即为需要合并的两个点。</p>
+<p>因此只需要支持对于一个树上的单点修改，链上 hash
+查询操作，可以直接把树拍成 dfn 序之后用树状数组维护。</p>
+<p>时间复杂度 <span class="math inline">\(O(m\log^2n+n\alpha(n)+n\log
+V)\)</span>。</p>
+<h2 id="p8162-joi-2022-final-让我们赢得选举">P8162 [JOI 2022 Final]
+让我们赢得选举</h2>
+<p>以下称收获一张票为 A，收获一个支持者为 B。</p>
+<p>首先考虑在确定了最终哪几个选择 A，哪几个选择 B 时，一定是先按照 <span
+class="math inline">\(b_i\)</span> 从小到大依次完成
+B，随后以任意顺序完成 A，所需要的时间为 <span
+class="math inline">\(\sum\frac{b_i}{i}+\frac{\sum
+a_i}{|B|+1}\)</span>。没有很好的贪心选择策略，考虑 dp。</p>
+<p>由于 <span class="math inline">\(\frac{\sum a_i}{|B|+1}\)</span>
+的存在，因此在不确定 <span class="math inline">\(|B|\)</span>
+的前提下，很难对 A 进行 dp，因此首先枚举最终 B 选择了几个。</p>
+<p>先按照 <span class="math inline">\(b_i\)</span> 排序，暴力 dp 为
+<span class="math inline">\(f_{i,j,k}\)</span> 表示对于前 <span
+class="math inline">\(i\)</span> 个人，当前 B 选了 <span
+class="math inline">\(j\)</span> 个，A 选了 <span
+class="math inline">\(k\)</span>
+个，最小的时间是多少，但是这样时间复杂度为 <span
+class="math inline">\(O(n^4)\)</span>，可能可以通过 wqs 二分优化到 <span
+class="math inline">\(O(n^3\log n)\)</span>（我没证过），无法通过。</p>
+<p>观察一下性质，在对 <span class="math inline">\(b_i\)</span>
+排完序后，如果 <span class="math inline">\(i\)</span> 选择了 B，那么
+<span class="math inline">\(&lt;i\)</span>
+的位置不可能不选，因为如果位置 <span class="math inline">\(j\)</span>
+不选，那么可以选择 <span class="math inline">\(j\)</span> 成为 B 而不选
+<span class="math inline">\(i\)</span>，这样不会使结果更劣。</p>
+<p>因此可以枚举最后一个选 B 的位置是 <span
+class="math inline">\(i\)</span>，那么此时前面已经收获了 <span
+class="math inline">\(i\)</span>
+张票，后面需要的票数是确定的，直接贪心选择前 <span
+class="math inline">\(k-i\)</span> 小的 <span
+class="math inline">\(a_j\)</span> 即可。</p>
+<p>时间复杂度被优化至 <span
+class="math inline">\(O(n^3)\)</span>，可以通过。</p>
+<h2 id="abc219ex-candles">ABC219Ex Candles</h2>
+<p>首先有很显然的性质，由于吹灭蜡烛不需要时间，因此走到一个蜡烛的位置时一定会吹灭这根蜡烛，因此在对
+<span class="math inline">\(a\)</span>
+排序后，吹灭的蜡烛一定是一段区间。而没走一步，所有还没有被吹灭的蜡烛的长度都会
+<span class="math inline">\(-1\)</span>。</p>
+<p>但是如果每走一步都将不在区间内的蜡烛长度 <span
+class="math inline">\(-1\)</span>
+的话，会出现一些蜡烛的长度被减至负数的情况，导致计算得到的结果更小。</p>
+<p>因此考虑对于 dp 状态加一维，表示仍未熄灭的且最终长度 <span
+class="math inline">\(\ge 0\)</span>
+的蜡烛个数，显然这样不会得到比答案更优的结果。</p>
+<p>因此令 <span class="math inline">\(f_{l,r,0/1,i}\)</span>
+表示在吹灭的 <span class="math inline">\([l,r]\)</span>
+区间内的蜡烛后，当前在 <span class="math inline">\(0/1\)</span>（左/右
+端点），还未被吹灭的会记入最终答案的蜡烛个数为 <span
+class="math inline">\(i\)</span>
+的最大答案。转移时，枚举这个蜡烛是否被计入最终答案即可。</p>
+<p>时间复杂度 <span class="math inline">\(O(n^3)\)</span>。</p>
+<h2 id="p3488-poi2009-lyz-ice-skates">P3488 [POI2009] LYZ-Ice
+Skates</h2>
+<p>不考虑修改，对于一次询问，建立二分图，左边的每个点表示一个人，右边的每个点表示一双鞋，如果存在一个对于左部点的完美匹配，那么答案为
+YES。</p>
+<p>根据 Hall
+定理，对于左部点的任意一个集合，其对应的右部点的集合大小都应该要大于左部点集合大小。</p>
+<p>考虑这张二分图的性质，左部的每个点都对应右部的连续 <span
+class="math inline">\(k(d+1)\)</span>
+个点，因此对于左部点，区间的条件不弱于集合的条件，因此只要对于左部点的每个区间合法即可。</p>
+<p>考虑左部点 <span class="math inline">\([l,r]\)</span>
+的区间，需要满足 <span class="math inline">\(\sum_{i=l}^r a_i\le k\times
+(r-l+1+d)\)</span>，将每个 <span
+class="math inline">\(b_i=a_i-k\)</span>，只需要满足 <span
+class="math inline">\(\sum_{i=l}^rb_i\le k\times d\)</span>
+即可，因此只需要拿线段树维护 <span class="math inline">\(b\)</span>
+的最大子段和即可。</p>
+<h2 id="cf1693c-keshi-in-search-of-amshz">CF1693C Keshi in Search of
+AmShZ</h2>
+<p>不难，但是很有借鉴价值的好题。</p>
+<p>考虑题目要求求出最坏情况下的最少时间，因此每次走出边时，考虑走到仍未被删除的最坏的出边。</p>
+<p>令 <span class="math inline">\(d_u\)</span> 表示从 <span
+class="math inline">\(u\)</span> 到终点所需要的最少天数。对于一点 <span
+class="math inline">\(u\)</span>，如果没有割掉出边集合 <span
+class="math inline">\(S\)</span>，那么 <span
+class="math inline">\(d_u=\max_{(u,v)\in
+S}d_v+deg_u-|S|\)</span>。因此最终保留的边的集合一定是按照 <span
+class="math inline">\(d_v\)</span> 从小到大排序之后的一段前缀。</p>
+<p>但是这张图并不是一张 DAG，所以并不能直接求解。考虑在进行 dijkstra
+时有性质：当前枚举到的 <span class="math inline">\(dis\)</span>
+一定比之前枚举到的 <span class="math inline">\(dis\)</span>
+大，因此在进行一次 <span class="math inline">\(v\to u\)</span>
+的更新操作时，选择 <span class="math inline">\(d_v\)</span>
+作为排序后最后一个选择的没有割边的点，其最短路是 <span
+class="math inline">\(dis_v+deg_u-cnt_u\)</span>，其中 <span
+class="math inline">\(cnt_u\)</span> 表示已经更新过的 <span
+class="math inline">\(u\)</span> 的出边数量。</p>
+<p>直接跑 dijkstra 即可，时间复杂度 <span class="math inline">\(O(m\log
+n)\)</span>，本题巧妙之处在于利用了 dijkstra
+过程中的性质来拟合了题目要求的条件。</p>
+<h2 id="p6623-省选联考-2020-a-卷-树">P6623 [省选联考 2020 A 卷] 树</h2>
+<p>考虑每一位分别计算。每个点 <span class="math inline">\(u\)</span>
+对他的 <span class="math inline">\(k\)</span> 级祖先会产生 <span
+class="math inline">\(a_u+k\)</span> 的贡献，考虑将贡献差分，在每一位的
+<span class="math inline">\(0/1\)</span> 分界处将差分数组 <span
+class="math inline">\(\oplus1\)</span>，但是这样总的差分数组更改量还是
+<span class="math inline">\(O(n)\)</span> 的。</p>
+<p>考虑除了第一段，接下来二进制第 <span class="math inline">\(i\)</span>
+位的每一个 <span class="math inline">\(0/1\)</span> 连续段的长度都是
+<span class="math inline">\(2^i\)</span>，因此所有要更改差分的点的深度
+<span class="math inline">\(\bmod 2^i\)</span>
+都是相等的，因此直接对于每一个二进制位开一个差分数组，<span
+class="math inline">\(c_{i,s}\)</span> 表示二进制后 <span
+class="math inline">\(i\)</span> 位为 <span
+class="math inline">\(s\)</span> 的点的差分应该要异或多少。</p>
+<p>直接在 dfs 的时候维护差分数组即可，复杂度 <span
+class="math inline">\(O(n\log V)\)</span>，只需要枚举每个二进制位。</p>
+<p>另一种解法是直接维护 01trie，需要支持插入元素，合并 01trie，每个数
+<span class="math inline">\(+1\)</span> 与全局求异或和，可以将 01trie
+从低位往高位建，这样全局 <span class="math inline">\(+1\)</span>
+操作可以通过交换子树来完成，复杂度还是 <span
+class="math inline">\(O(n\log V)\)</span>。</p>
+<h2 id="cf1152f2-neko-rules-the-catniverse-large-version">CF1152F2 Neko
+Rules the Catniverse (Large Version)</h2>
+<p>由于限制了每个数只能出现一次，如果按照序列的位置
+dp，需要记录每个数是否出现，直接爆炸，因此考虑改变 dp 顺序。</p>
+<p>考虑从小到大考虑每一个数 <span
+class="math inline">\(i\)</span>，讨论他是否加入序列。</p>
+<p>此时如果再记录每个位置是否填了数，那么状态数会飙升至 <span
+class="math inline">\(2^k\)</span> 往上，再乘上 <span
+class="math inline">\(n\)</span> 又炸飞了。但是考虑到每个数的具体位置在
+dp
+过程中并不重要，我们只需要关心每个已经插入的数的相对位置即可，因此可以据此设计
+dp 状态。</p>
+<p>设 <span class="math inline">\(f_{i,j,k}\)</span> 表示已经考虑插入了
+<span class="math inline">\(1\sim i\)</span>
+这些数，其中加入序列中的数有 <span class="math inline">\(j\)</span>
+个，最后的四种数是否在序列中出现的状态集合为 <span
+class="math inline">\(k\)</span> 的方案数。</p>
+<p>由于题目要求对于相邻两个数，后面的数不能大于前面的数 <span
+class="math inline">\(+m\)</span>，因此对于一个数 <span
+class="math inline">\(i\)</span>，要么放在序列的开头，要么插在前 <span
+class="math inline">\(m\)</span> 个数之后，要么不放，因此转移如下：</p>
+<p><span class="math display">\[
+\begin{cases}
+f_{i,j,k}\to f_{i+1,j,k\times 2}\\
+f_{i,j,k}\times (\operatorname{popcount}(k)+1)\to f_{i+1,j+1,k\times
+2+1}
+\end{cases}
+\]</span></p>
+<p>对于 <span class="math inline">\(\{j,k\}\)</span> 一共只有 <span
+class="math inline">\(k\times 2^m\)</span>
+种，因此可以直接矩阵快速幂优化，时间复杂度 <span
+class="math inline">\(O(k^38^m\log n)\)</span>。</p>
+<h2 id="p8688-蓝桥杯-2019-省-a-组合数问题">P8688 [蓝桥杯 2019 省 A]
+组合数问题</h2>
+<p>组合数转化成了数位 dp，卢卡斯和进制之间的转化，很新奇。</p>
+<p>根据卢卡斯定理，有 <span class="math inline">\(\binom{n}{m}\equiv
+\binom{n/k}{m/k}\times \binom{n\bmod k}{m\bmod k}\pmod
+k\)</span>，发现这个东西就是将 <span class="math inline">\(n,m\)</span>
+写成 <span class="math inline">\(k\)</span>
+进制后对应位组合数的乘积。</p>
+<p>题目要求 <span class="math inline">\(\binom{x}{y}\equiv 0\pmod
+k\)</span>，由于 <span class="math inline">\(k\)</span> 为质数，因此只要
+<span class="math inline">\(x,y\)</span> 在 <span
+class="math inline">\(k\)</span> 进制下任意一位的组合数 <span
+class="math inline">\(\bmod k=0\)</span> 即可。又由于 <span
+class="math inline">\(x,y\)</span> 在 <span
+class="math inline">\(k\)</span> 进制下的每一位都 <span
+class="math inline">\(&lt;k\)</span>，因此其组合数 <span
+class="math inline">\(=0\)</span> 只有可能是这一位上的 <span
+class="math inline">\((a,b)\)</span> 满足 <span
+class="math inline">\(a&lt;b\)</span>。</p>
+<p>因此可以对 <span class="math inline">\(n,m\)</span> 为上界，在 <span
+class="math inline">\(k\)</span> 进制下数位 dp。令 <span
+class="math inline">\(f_{i,0/1,0/1,0/1}\)</span> 表示考虑了 <span
+class="math inline">\(k\)</span> 进制的前 <span
+class="math inline">\(i\)</span> 位，<span
+class="math inline">\(n\)</span> 是否顶到上界，<span
+class="math inline">\(m\)</span> 是否顶到上界，是否存在某一位 <span
+class="math inline">\((a,b)\)</span> 满足 <span
+class="math inline">\(a&lt;b\)</span> 的方案数。</p>
+<p>转移可以直接分类讨论并计算方案数，时间复杂度 <span
+class="math inline">\(O(T\log_k n)\)</span>。</p>
+<h2 id="cf1418f-equal-product">CF1418F Equal Product</h2>
+<p>考虑对于满足条件的 <span
+class="math inline">\((x_1,y_1,x_2,y_2)\)</span>，必有 <span
+class="math inline">\(x_1\cdot y_1=x_2\cdot y_2\)</span>，因此 <span
+class="math inline">\(\frac{x_1}{x_2}=\frac{y_2}{y_1}=\frac{a}{b}\)</span>，因此
+<span class="math inline">\(x_2=\frac{x_1}{a}\cdot
+b,y_2=\frac{y_1}{b}\cdot a\)</span>，并且可以证明 <span
+class="math inline">\(a\mid x_1\)</span> 且 <span
+class="math inline">\(b\mid y_1\)</span>。</p>
+<p>通过这个转化，可以发现满足 <span class="math inline">\(a\mid
+x_1\)</span> 的 <span class="math inline">\((x_1,a)\)</span> 只有 <span
+class="math inline">\(O(n\log n)\)</span> 对，可以直接枚举。</p>
+<p>对于一个 <span class="math inline">\(x_1\)</span>，我们需要找出一对
+<span class="math inline">\((y_1,b)\)</span> 满足如下条件：</p>
+<p><span class="math display">\[
+\begin{cases}
+\lceil\frac{L}{x_1}\rceil\le y_1\le\lfloor\frac{R}{x_1}\rfloor\\
+\frac{x_1}{a}\cdot b\le n\\
+y_1\le m\\
+a&lt;b
+\end{cases}
+\]</span></p>
+<p>发现在 <span class="math inline">\(x_1\)</span> 递增时，<span
+class="math inline">\(\lceil\frac{L}{x_1}\rceil\)</span> 与 <span
+class="math inline">\(\lfloor\frac{R}{x_1}\rfloor\)</span>
+都是单调不增的，因此可以时刻用一个 set 维护满足第一个条件的 <span
+class="math inline">\((y_1,b)\)</span> 数对，每次查询时找到最小的满足
+<span class="math inline">\(b&gt;a\)</span> 的数对 <span
+class="math inline">\((y_1,b)\)</span>，判断其是否满足第二个条件即可。时间复杂度
+<span class="math inline">\(O(n\log^2n)\)</span>。</p>
+]]></content>
+      <tags>
+        <tag>好题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>联合省选2023</title>
+    <url>/2023/04/01/pe2023/</url>
+    <content><![CDATA[<h2 id="day--1">Day -1</h2>
+<p>学校请假，上午去机房 goose goose duck，好爽。</p>
+<p>下午去试机，车费好贵 /fn/fn/fn。</p>
+<p>键盘手感好评，居然和我用的完全一样。</p>
+<p>晚上不知道在干啥。</p>
+<h2 id="day-1">Day 1</h2>
+<p>早起，有点没睡醒。</p>
+<p>车上背了一下 pb_ds 的单词，相信是用不上的。</p>
+<p>开考 20 min 先把 T1 写了，然后开始坐牢。</p>
+<p>T2 是数数，感觉不太会，于是先开 T3，发现 <span
+class="math inline">\(O(nq\log^2 n)\)</span> 有点傻逼，写了一下。</p>
+<p>然后继续看 T2，花了 30+ min，才发现读错题了，好久才搞懂题意。</p>
+<p>一脸懵，写了 <span class="math inline">\(O(2^n\text{poly} n)\)</span>
+就跑路了，不太想想 <span class="math inline">\(k=0\)</span> 的。</p>
+<p>然后测了一下 T3 的效率，大样例跑了 3s 左右，时限只有
+5s，感觉很卡常啊！</p>
+<p>于是把 multiset 改成了四个堆，写了巨大久，改完跑了 2.5s
+左右，就扔掉了。</p>
+<p>大概已经 11:00 左右了，接下来开始徘徊 T2 的树部分分 和 T3
+的链特殊性质，最后都没拿分，呜呜呜。</p>
+<p>出场后发现大家 T2 都 <span class="math inline">\(50\)</span>
+了，有点寄，感觉 <span class="math inline">\(k=0\)</span> 的 dp
+不难想啊，我为什么要强吃树的部分？？？</p>
+<p>出场估分 <span
+class="math inline">\(100+25+48=173\)</span>，比大众分低了一大截，呜呜呜。</p>
+<p>感觉队线 <span class="math inline">\(100+100+48=248\)</span> 啊！</p>
+<p>晚上不知道在干啥，摸了一会儿鱼。</p>
+<h2 id="day-2">Day 2</h2>
+<p>本来想翻盘的，结果被翻盘了。呜呜呜。</p>
+<p>一开 T1
+发现有点神秘，不好估计难度，感觉不是很难，但是感觉又不简单，于是先丢了。</p>
+<p>然后看 T2，好久都没有想出一个合理的做法，甚至是否有解都只会 <span
+class="math inline">\(O(n\sqrt n)\)</span> 的 dinic 算，感觉寄飞了。</p>
+<p>不会正解，开始看特殊性质，A 和 B 都很好写，于是写完去看了看 T3。</p>
+<p>还是不会啊，但是只剩 2.5h 了，赶紧回去码 T1。</p>
+<p>写了大概 8k 左右，样例都没过，很多次都是 RE，还好没开无限栈。</p>
+<p>调了好久发现做法假了，眼看只有 1.5h 了，赶紧开始拼暴力，写了 20
+的部分分就跑路了。</p>
+<p>然后开始想 T3，突然发现自己之前看错题了。。</p>
+<p>赶紧开始写 T3 的 10 部分分的暴力 dp，很好写啊！但是一下就挂了啊！</p>
+<p>调了好久还是每过，于是重构，一遍过了样例。</p>
+<p>还剩大概半小时吧，看了看 T1 的部分分要大分讨，不好写，于是去写 T2 的
+C 性质。</p>
+<p>写完之后发现不对，怎么回事呢，调了好久的 dinic，才发现不是 dinic
+写炸了，是建图炸了。</p>
+<p>没修完就马上结束了，赶紧理了理文件夹，润了。</p>
+<p>出场估分 <span
+class="math inline">\(20+40+10=70\)</span>，没到大众分的一般，呜呜呜。</p>
+<p>感觉队线 <span class="math inline">\(100+100+10=210\)</span> 啊！</p>
+<p>下午一直在打鹅，好谔谔。</p>
+<p>总分估计 <span
+class="math inline">\(100+25+48+20+40+10=243\)</span>。</p>
+<p>队线估计 <span
+class="math inline">\(100+100+48+100+100+10=458\)</span>，寄！</p>
+]]></content>
+      <tags>
+        <tag>游记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PKUSC2023</title>
     <url>/2023/05/07/pkusc2023/</url>
     <content><![CDATA[<h2 id="day-0">Day 0</h2>
@@ -1721,6 +1721,198 @@ class="math inline">\(155+130=285\)</span>，初三有约吗有约吗有约吗�
 ]]></content>
       <tags>
         <tag>游记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>水题乱做 - 1</title>
+    <url>/2023/09/01/water-23-9/</url>
+    <content><![CDATA[<h3 id="codeforces-1864g">CodeForces-1864G</h3>
+<p>观察一下性质，然后直接数数，最后是一些阶乘的乘积。</p>
+<h3 id="luogu-p5631">Luogu-P5631</h3>
+<p>按照边权线段树分治，用并查集维护连通性。</p>
+<h3 id="codeforces-1615f">CodeForces-1615F</h3>
+<p>将操作做差分转化为交换元素，求每个间隔对答案的贡献。</p>
+<h3 id="codeforces-1354g">CodeForces-1354G</h3>
+<p>先通过随机寻找一个石头，再通过倍增和二分来寻找第一个礼物的位置。</p>
+<h3 id="codeforces-838c">CodeForces-838C</h3>
+<p>观察先手必胜的字符串特征，随后随便状压 dp 即可。</p>
+<h3 id="luogu-p7565">Luogu-P7565</h3>
+<p>要找一个最长的且使两边子树大小相等的最长链，直接点分治。</p>
+<h3 id="luogu-p5105">Luogu-P5105</h3>
+<p>可重集去重后价值不变，且连续区间可以快速算出，使用线段树维护。</p>
+<h3 id="luogu-p6891">Luogu-P6891</h3>
+<p>直接 dp 时合法的 dp 位置是一段区间，记录区间把 <span
+class="math inline">\(O(n^2)\)</span> 优化为 <span
+class="math inline">\(O(n)\)</span>。</p>
+<h3 id="luogu-p7212">Luogu-P7212</h3>
+<p>按照题意模拟，合并时采用启发式合并即可，注意模拟时的细节。</p>
+<h3 id="luogu-p9597">Luogu-P9597</h3>
+<p>容易写出暴力 dp，带修改直接使用动态 dp 即可。</p>
+<h3 id="luogu-p9599">Luogu-P9599</h3>
+<p>通过询问相邻两个与三个的结果，确定出先对大小关系，直接模拟构造。</p>
+<h3 id="codeforces-1863e">CodeForces-1863E</h3>
+<p>完成每个任务的结束时间确定，直接拓扑，合并时贪心往后放。</p>
+<h3 id="codeforces-1863f">CodeForces-1863F</h3>
+<p>从外到内区间 dp，能转移到的可以被表示为区间前后缀和某一位为 <span
+class="math inline">\(0/1\)</span>，在左右端点打标记。</p>
+<h3 id="codeforces-1863g">CodeForces-1863G</h3>
+<p>建出基环树，每个点可以被每个入点表示，环上会被多算，删除重复贡献后相乘。</p>
+<h3 id="codeforces-1861f">CodeForces-1861F</h3>
+<p>二分答案后转化为最小割，枚举右边每个点被割至哪里，可以 <span
+class="math inline">\(2^4\cdot \log\)</span> 进行 check。</p>
+<h3 id="codeforces-1866l">CodeForces-1866L</h3>
+<p>枚举每一个 <span class="math inline">\(k\)</span>，随后可以 <span
+class="math inline">\(O(k)\)</span> 数出能得到多少个球。</p>
+<h3 id="codeforces-1866g">CodeForces-1866G</h3>
+<p>二分答案，每个数可以处于一个区间，用堆来模拟贪心即可。</p>
+<h3 id="luogu-p5812">Luogu-P5812</h3>
+<p>通过观察性质来减少有效点数，随后建图跑 dijkstra 即可。</p>
+<h3 id="codeforces-1267g">CodeForces-1267G</h3>
+<p>计算出每次操作两种方式各自的期望收益，贪心选择较大的。计算到达每个状态的概率可以背包。</p>
+<h3 id="codeforces-1120d">CodeForces-1120D</h3>
+<p>每个叶子都至少对应一个祖先，树形 dp
+并记录转移方案，构造可以通过转移推算。</p>
+<h3 id="codeforces-1303g">CodeForces-1303G</h3>
+<p>点分治后转化为选一个一次函数和一个点，将一次函数插入李超树中，再枚举点查询。</p>
+<h3 id="atcoder-arc094f">AtCoder-ARC094F</h3>
+<p>特判特殊情况后，只需要相邻不同且和 <span class="math inline">\(\bmod
+3\)</span> 同余，可以直接 dp 计数。</p>
+<h3 id="luogu-p5331">Luogu-P5331</h3>
+<p>cdq 分治过程中优化费用流建边。</p>
+<h3 id="luogu-p9596">Luogu-P9596</h3>
+<p>答案为一个数之前大于他的个数最大值，观察性质并弱化条件，直接使用线段树维护。</p>
+<h3 id="luogu-p9531">Luogu-P9531</h3>
+<p>按照边权排序，每条边控制的 <span class="math inline">\(X\)</span>
+是一个区间，求出每条边所控制的区间，询问双指针。</p>
+<h3 id="luogu-p5776">Luogu-P5776</h3>
+<p>一个边双联通子图可以进行耳分解，反向耳分解来构造边双联通子图，可以状压
+dp 计算。</p>
+<h3 id="atcoder-abc318ex">AtCoder-ABC318Ex</h3>
+<p>推一波式子之后发现方案数是一个多项式 exp 的形式。</p>
+<h3 id="atcoder-agc003d">AtCoder-AGC003D</h3>
+<p>将每个数的完全立方因子除去，每个数恰好对应一个数，二选一，贪心选多的。</p>
+<h3 id="codeforces-536e">CodeForces-536E</h3>
+<p>离线询问，扫描限制，每个边权为 <span
+class="math inline">\(0/1\)</span>，直接树剖维护即可。</p>
+<h3 id="codeforces-845g">CodeForces-845G</h3>
+<p>可以去环上绕一个圈后回来，异或上的恰好是环上边权异或，把所有环上边权异或和插到线性基里。</p>
+<h3 id="codeforces-724g">CodeForces-724G</h3>
+<p>与上一题类似，算每一位对于答案的贡献，要么是全部，要么是恰好一半，直接计算。</p>
+<h3 id="codeforces-1801d">CodeForces-1801D</h3>
+<p>按照演出次数与剩余的钱当作两位关键字，直接跑最短路。</p>
+<h3 id="codeforces-cf1801e">CodeForces-CF1801E</h3>
+<p>有效合并次数为 <span
+class="math inline">\(O(n)\)</span>，可以通过哈希找到每一次的下一个有效合并点对。</p>
+<h3 id="luogu-p8162">Luogu-P8162</h3>
+<p>枚举最终选择的支持者数量，观察性质后可以直接做最优化 dp。</p>
+<h3 id="luogu-p5100">Luogu-P5100</h3>
+<p>建出分层图，横向、竖向移动可以分别开一层，随后跑最短路。</p>
+<h3 id="atcoder-abc219h">AtCoder-ABC219H</h3>
+<p>吹灭的蜡烛一定是一个区间，可以将原长和烧掉的长度分开计算，做区间
+dp。</p>
+<h3 id="codeforces-1327f">CodeForces-1327F</h3>
+<p>每一位是独立的，分别找出限制，随后前缀和优化 dp。</p>
+<h3 id="codeforces-1801f">CodeForces-1801F</h3>
+<p>暴力 dp 时发现第二维的有效值只有 <span class="math inline">\(O(\sqrt
+V)\)</span> 个，直接优化 dp。</p>
+<h3 id="luogu-p9631">Luogu-P9631</h3>
+<p>合法的数可以表示为某一个二进制位为 <span
+class="math inline">\(1\)</span>。直接用吉司机线段树维护每个二进制位
+<span class="math inline">\(1\)</span> 个数。</p>
+<h3 id="luogu-p3488">Luogu-P3488</h3>
+<p>判定形如二分图是否存在左部点完全匹配，Hall
+定理转化后维护最大子段和状物。</p>
+<h3 id="luogu-p9607">Luogu-P9607</h3>
+<p>极值分治，枚举短的那一边，找出 <span
+class="math inline">\(\gcd\)</span> 不同的 <span
+class="math inline">\(\log\)</span> 个位置计算。</p>
+<h3 id="codeforces-1693d">CodeForces-1693D</h3>
+<p>暴力做法是枚举左端点后向右 dp，遇到相同的 dp 值直接 break，一个 dp
+值最多被更新 <span class="math inline">\(O(1)\)</span> 次。</p>
+<h3 id="codeforces-1693c">CodeForces-1693C</h3>
+<p>直接倒序跑 dijkstra，被更新到的 dis
+一定是递增的，因此选择保留的一定是一段签注。</p>
+<h3 id="luogu-p9613">Luogu-P9613</h3>
+<p>建出 ACAM。ACAM 节点数是 <span class="math inline">\(O(\sum
+len)\)</span> 的，可以直接矩阵快速幂优化转移。</p>
+<h3 id="luogu-p9606">Luogu-P9606</h3>
+<p>求出最长的回文后缀，可以直接 manacher。</p>
+<h3 id="codeforces-1379e">CodeForces-1379E</h3>
+<p>先构造一条长度为 <span class="math inline">\(k-1\)</span>
+的类链形状，然后在下面接一个满二叉树。</p>
+<h3 id="luogu-p6623">Luogu-P6623</h3>
+<p>每个点每个二进制位的贡献是有循环的，直接对于每个循环节长度开差分数组即可。</p>
+<h3 id="luogu-p6672">Luogu-P6672</h3>
+<p>由引理：对于一个和为 <span class="math inline">\(0\)</span>
+的整数序列，则其所有循环位移中恰好有一个满足所有的前缀和都是正数。直接转化后套用。</p>
+<h3 id="luogu-p8456">Luogu-P8456</h3>
+<p>建出圆方树，点双之间的点对容易计算，同一个点双内如果连结两种颜色的只有两个，则减一。</p>
+<h3 id="codeforces-1152f2">CodeForces-1152F2</h3>
+<p>从小往大加数，状压记录一下前 <span class="math inline">\(m\)</span>
+个数的填写情况。</p>
+<h3 id="luogu-p4870">Luogu-P4870</h3>
+<p>做法同 AtCoder-ABC219H，增加一个滚动数组即可。</p>
+<h3 id="luogu-p3793">Luogu-P3793</h3>
+<p>详见 <a href="/2023/09/15/on-o1-rmq/">浅谈 <span
+class="math inline">\(O(1)-O(n)\)</span> rmq</a>。</p>
+<h3 id="luogu-p4007">Luogu-P4007</h3>
+<p>本质不同的状态大约只有 <span class="math inline">\(200\)</span>
+种，直接矩阵快速幂优化转移。</p>
+<h3 id="luogu-p8688">Luogu-P8688</h3>
+<p>根据卢卡斯定理，原问题转化为数位 dp，直接按照数位 dp 的方式转移。</p>
+<h3 id="uva-1464">UVA-1464</h3>
+<p>建出圆方树，必经点是圆方树路径上的圆点个数。</p>
+<h3 id="luogu-p8946">Luogu-P8946</h3>
+<p>根据转移分类，特殊转移数量较少，用数据结构（数组）优化转移即可。</p>
+<h3 id="codeforces-1418f">CodeForces-1418F</h3>
+<p>枚举 <span class="math inline">\(x_1\)</span> 与其因数，用 set
+维护可行的 <span
+class="math inline">\(y\)</span>，列出限制即可快速查询。</p>
+<h3 id="codeforces-1017h">CodeForces-1017H</h3>
+<p>对于每一种不同的 <span class="math inline">\(k\)</span>
+分别跑莫队，注意每次根据询问数量取块长。</p>
+<h3 id="codeforces-1418e">CodeForces-1418E</h3>
+<p>对于每一块盾牌分别算贡献，<span class="math inline">\(\ge b\)</span>
+与 <span class="math inline">\(&lt; b\)</span>
+的盾牌产生贡献的概率是相同的。</p>
+<h3 id="codeforces-875e">CodeForces-875E</h3>
+<p>二分答案，枚举一维，用 set
+维护另一维的可行位置即可，转移时变化的元素个数是 <span
+class="math inline">\(O(1)\)</span> 的。</p>
+<h3 id="codeforces-1096g">CodeForces-1096G</h3>
+<p>算出 <span class="math inline">\(n/2\)</span>
+个数能表示出的所有数的集合即可，可以用多项式快速幂优化。</p>
+<h3 id="codeforces-875f">CodeForces-875F</h3>
+<p>转化后题意转化为最大生成基环树，类似最小生成树地贪心即可。</p>
+<h3 id="codeforces-875d">CodeForces-875D</h3>
+<p>进行极值分治，枚举短的一边，随后二分另一边的最远距离。</p>
+<h3 id="luogu-p9546">Luogu-P9546</h3>
+<p>存在 <span class="math inline">\(0\)</span>
+时可以根据段的长度奇偶性算出胜负，不存在 <span
+class="math inline">\(0\)</span> 时根据讨论可以转化为存在 <span
+class="math inline">\(0\)</span>，线段树维护之。</p>
+<h3 id="codeforces-1867f">CodeForces-1867F</h3>
+<p>只需要找一棵节点数最少的树使得其未出现，然后上面挂一条链。这个树节点数很小，可以暴力。</p>
+<h3 id="codeforces-959f">CodeForces-959F</h3>
+<p>离线询问，维护线性基，没插入线性基的元素能对答案产生 <span
+class="math inline">\(\times 2\)</span> 的贡献。</p>
+<h3 id="codeforces-1207f">CodeForces-1207F</h3>
+<p>根号分治，小于根号的模数修改时暴力，大于根号的模数询问时暴力。</p>
+<h3 id="atcoder-agc058f">AtCoder-AGC058F</h3>
+<p>每条边上加一个点，再挂 <span class="math inline">\(P-1\)</span>
+个点，问题转化为给边定向，容斥后可以树形背包解决。</p>
+<h3 id="luogu-p6620">Luogu-P6620</h3>
+<p>将多项式转化为下降幂多项式，进行一个式子的推后可以快速计算。</p>
+<h3 id="atcoder-arc165d">AtCoder-ARC165D</h3>
+<p>同时考虑限制的每一位，相同则跳过，不同时从小的向大的连边，然后缩点，同一个点内的一定相等，最多做
+<span class="math inline">\(O(n)\)</span> 轮。</p>
+<h3 id="atcoder-arc165e">AtCoder-ARC165E</h3>
+<p>考虑每一个点被操作的概率，以这一个点为根，可以二维树形背包计算形如切
+<span class="math inline">\(x\)</span> 个子树，最终剩 <span
+class="math inline">\(y\)</span> 个点的方案。</p>
+]]></content>
+      <tags>
+        <tag>水题</tag>
       </tags>
   </entry>
 </search>
