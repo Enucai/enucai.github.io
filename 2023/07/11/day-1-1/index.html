@@ -28,7 +28,7 @@
 <meta property="og:description" content="记录一下最近做到的逆天题目，主要是没想出来的和启发意义较大的。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-07-11T15:12:34.000Z">
-<meta property="article:modified_time" content="2023-09-14T15:37:41.737Z">
+<meta property="article:modified_time" content="2023-09-18T10:01:56.246Z">
 <meta property="article:author" content="Enucai">
 <meta property="article:tag" content="好题">
 <meta name="twitter:card" content="summary">
@@ -221,7 +221,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-14 23:37:41" itemprop="dateModified" datetime="2023-09-14T23:37:41+08:00">2023-09-14</time>
+                <time title="修改时间：2023-09-18 18:01:56" itemprop="dateModified" datetime="2023-09-18T18:01:56+08:00">2023-09-18</time>
               </span>
 
           
@@ -515,17 +515,17 @@ class="math inline">\(\max_{i\in S_A}\alpha(i,k)=\max_{i\in
 S_B}\alpha(i,k)\)</span>。把 <span class="math inline">\(\max\)</span>
 的等于转化为互相小于等于，然后推一推式子：</p>
 <p><span class="math display">\[
-\forall k,\forall x\in S_A,\exist y\in S_B,\alpha(x,k)\le\alpha(y,k)\\
+\forall k,\forall x\in S_A,\exists y\in S_B,\alpha(x,k)\le\alpha(y,k)\\
 \]</span></p>
 <p>再把小于等于转化为等于：</p>
 <p><span class="math display">\[
-\forall k,\forall x\in S_A,\exist y\in
+\forall k,\forall x\in S_A,\exists y\in
 S_B,\alpha(x,k)-\min\{\alpha(x,k),\alpha(y,k)\}=0
 \]</span></p>
 <p>发现因数个数的 <span class="math inline">\(\min\)</span> 其实就是
 <span class="math inline">\(\gcd\)</span> 运算，式子转化为：</p>
 <p><span class="math display">\[
-\forall k,\forall x\in S_A,\exist y\in
+\forall k,\forall x\in S_A,\exists y\in
 S_B,\alpha(\frac{x}{\gcd(x,y)},k)=0
 \]</span></p>
 <p>发现存在一个 <span class="math inline">\(y\)</span> 满足上式 <span
@@ -779,7 +779,7 @@ Random Real Numbers</span></a></li><li class="nav-item nav-level-2"><a class="na
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
