@@ -28,7 +28,7 @@
 <meta property="og:description" content="鉴于四毛子狗都不写，学习了一些有用且好写的 $O(n)-O(1)$ rmq 方法。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-14T23:48:58.000Z">
-<meta property="article:modified_time" content="2023-09-15T04:53:23.495Z">
+<meta property="article:modified_time" content="2023-09-18T05:09:25.300Z">
 <meta property="article:author" content="Enucai">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
@@ -213,10 +213,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-09-15 07:48:58 / 修改时间：12:53:23" itemprop="dateCreated datePublished" datetime="2023-09-15T07:48:58+08:00">2023-09-15</time>
+              <time title="创建时间：2023-09-15 07:48:58" itemprop="dateCreated datePublished" datetime="2023-09-15T07:48:58+08:00">2023-09-15</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-09-18 13:09:25" itemprop="dateModified" datetime="2023-09-18T13:09:25+08:00">2023-09-18</time>
+              </span>
 
           
             <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -261,9 +267,13 @@ class="math inline">\(O(1)\)</span>。</p>
 的，每个元素可以用他在块内的位置表示，值域也是 <span
 class="math inline">\(O(\log n)\)</span> 的。</p>
 <p>我们可以将者 <span class="math inline">\(O(\log n)\)</span> 个值域为
-<span class="math inline">\(O(n\log n)\)</span> 的数压缩成一个值域为
-<span class="math inline">\(O(\log^2 n)\)</span> 的 long long
+<span class="math inline">\(O(\log n)\)</span> 的数压缩成一个值域为
+<span class="math inline">\(O(\log^{\log n} n)\)</span> 的 long long
 记录下来，不难发现这个 long long 可以在入栈和弹栈的时候同时维护。</p>
+<p>另一种存贮方式是对于每个数，记录这个数到当前块的开头哪些位置在单调栈中，每次询问是可以使用
+<code>__builtin_ctz</code>
+函数进行查询。这种方式所使用的空间更少，单个元素的值域是 <span
+class="math inline">\(O(2^{\log n})=O(n)\)</span>。</p>
 <p>询问时，直接调用 <span class="math inline">\(r\)</span>
 所在位置的单调栈信息即可，不难发现复杂度也是 <span
 class="math inline">\(O(n)-O(1)\)</span> 的。</p>
@@ -289,24 +299,9 @@ n}\)</span> 个数，判断每个数是否在询问的区间中，找到即退�
 class="math inline">\(O(1)\)</span>
 的，可以直接暴力枚举，或者使用线段树查询。</p>
 <p>在保证数据随机时，查询复杂度为期望 <span class="math inline">\(O(\log
-n)\)</span>，且拥有一个即小的常数，甚至可以视为 <span
+n)\)</span>，且拥有一个极小的常数，甚至可以视为 <span
 class="math inline">\(O(1)\)</span>。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> n, m, a[N], t, w[<span class="number">1</span> &lt;&lt; <span class="number">26</span>];</span><br><span class="line">pii b[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">qry</span><span class="params">(<span class="type">int</span> c, <span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> x, <span class="type">int</span> y)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (l == x &amp;&amp; r == y) <span class="keyword">return</span> w[c];</span><br><span class="line">  <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">if</span> (y &lt;= mid) <span class="keyword">return</span> <span class="built_in">qry</span>(c &lt;&lt; <span class="number">1</span>, l, mid, x, y);</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (x &gt; mid) <span class="keyword">return</span> <span class="built_in">qry</span>(c &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, mid + <span class="number">1</span>, r, x, y);</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">return</span> <span class="built_in">max</span>(<span class="built_in">qry</span>(c &lt;&lt; <span class="number">1</span>, l, mid, x, mid), <span class="built_in">qry</span>(c &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, mid + <span class="number">1</span>, r, mid + <span class="number">1</span>, y));</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">rep</span> (i, <span class="number">1</span>, n) a[i] = <span class="built_in">read</span>(), b[i] = <span class="built_in">pii</span>(-a[i], i);</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) w[i + t - <span class="number">1</span>] = a[i];</span><br><span class="line"><span class="built_in">per</span> (i, t, <span class="number">1</span>) w[i] = <span class="built_in">max</span>(w[i &lt;&lt; <span class="number">1</span>], w[i &lt;&lt; <span class="number">1</span> | <span class="number">1</span>]);</span><br><span class="line"><span class="built_in">nth_element</span>(b + <span class="number">1</span>, b + B, b + n + <span class="number">1</span>), <span class="built_in">sort</span>(b + <span class="number">1</span>, b + B + <span class="number">1</span>);</span><br><span class="line"><span class="comment">// query</span></span><br><span class="line"><span class="built_in">rep</span> (i, <span class="number">1</span>, B) <span class="keyword">if</span> (b[i].se &gt;= l &amp;&amp; b[i].se &lt;= r) &#123; ans = -b[i].fi, f = <span class="number">1</span>; <span class="keyword">break</span>; &#125;</span><br><span class="line"><span class="keyword">if</span> (!f) ans = <span class="built_in">qry</span>(<span class="number">1</span>, <span class="number">1</span>, t, l, r);</span><br></pre></td></tr></table></figure>
-<h2 id="期望-o1-线段树">期望 <span class="math inline">\(O(1)\)</span>
-线段树</h2>
-<ul>
-<li>优点：支持修改，效率较高。</li>
-<li>缺点：询问严格 <span class="math inline">\(O(\log n)\)</span>。</li>
-</ul>
-<p>其实这也不是严格的 <span class="math inline">\(O(n)-O(1)\)</span> rmq
-方法，甚至询问是严格的 <span class="math inline">\(O(\log
-n)\)</span>，但他能支持修改。</p>
-<p>直接使用线段树维护，在进行 checkmax 修改操作时，如果当前区间的 <span
-class="math inline">\(\min\)</span> 已经 <span
-class="math inline">\(&gt;\)</span> checkmax 的值时，可以直接退出。</p>
-<p>在询问时，直接采用非递归版本即可。看似是期望 <span
-class="math inline">\(O(1)\)</span> 修改的线段树，至少他能跑 <span
-class="math inline">\(10^8\)</span> 次修改了。</p>
 
     </div>
 
@@ -387,8 +382,7 @@ class="math inline">\(10^8\)</span> 次修改了。</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%9D%97"><span class="nav-number">1.</span> <span class="nav-text">分块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%81%E6%B3%A2-rmq"><span class="nav-number">2.</span> <span class="nav-text">谁波 rmq</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%9F%E6%9C%9B-o1-%E7%BA%BF%E6%AE%B5%E6%A0%91"><span class="nav-number">3.</span> <span class="nav-text">期望 \(O(1)\)
-线段树</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%9D%97"><span class="nav-number">1.</span> <span class="nav-text">分块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%81%E6%B3%A2-rmq"><span class="nav-number">2.</span> <span class="nav-text">谁波 rmq</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -451,7 +445,7 @@ class="math inline">\(10^8\)</span> 次修改了。</p>
           <a href="https://cmk666.github.io/" title="https:&#x2F;&#x2F;cmk666.github.io" rel="noopener" target="_blank">cmk666</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://ftt2333.gitlab.io/" title="https:&#x2F;&#x2F;ftt2333.gitlab.io" rel="noopener" target="_blank">ftt2333</a>
+          <a href="https://ftt2333.github.io/" title="https:&#x2F;&#x2F;ftt2333.github.io" rel="noopener" target="_blank">ftt2333</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="https://cyb1010.github.io/" title="https:&#x2F;&#x2F;cyb1010.github.io" rel="noopener" target="_blank">cyb1010</a>
