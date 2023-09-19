@@ -1,11 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>百度之星决赛2022</title>
+    <url>/2022/11/26/astar2022/</url>
+    <content><![CDATA[<h2 id="day-0">Day 0</h2>
+<p>上午学长们在 NOIp，初中生没得去，在家颓废。</p>
+<p>下午去现场看了一下，感觉还不错，被采访了，一时半会儿没答上话来。</p>
+<p>希望明天不要太寄，睡觉！</p>
+<h2 id="day-1">Day 1</h2>
+<p>上午最早到，有点尴尬，不过还好过一会儿孙老师就来了，8
+点比赛就开始了。</p>
+<p>今年题目比去年人性很多，大概是给你各种类型的信息，让你 encode 和
+decode，encode 后的数列长度越小分越高，你还可以写一个词典。</p>
+<p>第一题非常困难，要输入各种语言的字符，不太会，于是先鸽了。</p>
+<p>然后发现图片信息的题目很好做，随手写了一个就交了，但是一直格式错误，人快崩溃。还好最后瞎改改过了，打开
+80pts。</p>
+<p>然后去做其他题，主要是要找出 出现次数*长度 最大的几个子串，感觉很
+hard。</p>
+<p>然后本地随便开了个 map，把所有长度 <span class="math inline">\(\le
+5\)</span> 的子串塞进去，但是还是很大，最后直接果断到 <span
+class="math inline">\(1e6\)</span> 个就
+<code>break</code>，但是分数不太理想。</p>
+<p>（赛后才发现可以直接 SAM，感觉自己是个智障。）</p>
+<p>中午随便吃了点，然后下午直接开 6，一度拿到 100pts 的 rank1
+成绩，但是不久之后就只剩下 80pts 左右了，很寄吧。</p>
+<p>下午还有 3h 时间，研究了好久怎么输入输出 <code>utf-8</code>
+编码的字符，看了各种关于 <code>wstring</code> 和 <code>wchar_t</code>
+的文章，但还是无果。</p>
+<p>最后直接用 <code>char</code> 类型的来
+<code>getchar</code>，在最后一小时过了
+/jy。但是已经封榜了，不知道能拿几分。</p>
+<p>7 是把所有的组合起来，但是不想写了，于是直接交了 1
+的代码就跑路了。</p>
+<p>最后把图片处理优化了一下，然后去改
+1，但是没改完就结束了。于是跑路。</p>
+<p>下午有好久的活动时间，碰到学车的人，直接联机打块，很爽啊！还见到了一些学车的人。</p>
+<p>下午出榜了，<span
+class="math inline">\(4.25+25.46+28.43+80.96+29.29+47.29+4.96\)</span>，加完权之后
+<span class="math inline">\(23.55\)</span>，只有 rank53。</p>
+<p>不知道自己 1 实现地这么垃圾，只有 4 分，7 有 <span
+class="math inline">\(40\%\)</span> 的权重，但是只有 5
+分不到，亏麻了，早知道就去磕 1 和 7 了，还好图片处理的分数不低。</p>
+<p>晚上颁奖，又听了 114514 年的废话，然后只拿了个纪念奖，小星星
+rank12，寄吧了，拿了个词典笔，一分钱都没有。</p>
+<p>章绍嘉这个 AK IOI 的人喜提 5k，xay 喜提 1w。</p>
+<p>晚上抽奖，孙老师两张票，第一张抽中了，他直接上去了，然后下一个第二张又中了，于是我直接抢了上去，白嫖一个音响
+/qiang。</p>
+<p>拿到好多钱 OvO，明年最后一次小星星机会，多给点钱吧 /kel。</p>
+]]></content>
+      <tags>
+        <tag>游记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>浅谈构造问题</title>
     <url>/2023/09/18/constructive/</url>
     <content><![CDATA[<p>构造题的解决方法较为丰富，感觉需要较多的人类智慧与灵感，但是一些套路的构造题通常会有以下几种构造方式。</p>
 <h2 id="递归分治构造">递归/分治构造</h2>
-<p>大致思路为我们能够解决一个较小规模问题的构造，而构造一个大规模的问题可以在构造完小规模的子问题后进行合并，从而完成构造。</p>
+<p>我们能够解决一个较小规模问题的构造，而构造一个大规模的问题可以在构造完小规模的子问题后进行合并，从而完成构造。</p>
 <h3 id="codeforces-1773k-kings-puzzle">CodeForces-1773K King’s
 Puzzle</h3>
 <p><strong>题意：</strong>给你两个整数 <span
@@ -77,8 +129,7 @@ class="math inline">\(\le 60\)</span> 的数的方案数。</p>
 可以使总的子集个数加上 <span
 class="math inline">\(f_{60-x}\)</span>。只需要贪心的添加即可。</p>
 <h2 id="分组构造">分组构造</h2>
-<p>将一个构造问题分解为 <span class="math inline">\(O(1)\)</span>
-个部分分别构造后组合而成，不同部分的构造将采用不同形式的构造方法。</p>
+<p>将一个构造问题分解为几个部分分别构造后组合而成，不同部分的构造将采用不同形式的构造方法。</p>
 <h3 id="codeforces-1379e-inverse-genealogy">CodeForces-1379E Inverse
 Genealogy</h3>
 <p><strong>题意：</strong>给定 <span
@@ -106,453 +157,35 @@ class="math inline">\(k\)</span> 个非平衡点的限制。</p>
 <p>先使用第二种构造方式，构造出 <span class="math inline">\(k-1\)</span>
 个非平衡点，随后在链的底端接上一个满二叉树，来补充剩下一个非平衡点即可。</p>
 <p>对于非一般情况需要特判，但是不在本博客讨论的范围内，不做具体分析。</p>
+<h2 id="调整构造">调整构造</h2>
+<p>首先根据题目要求构造出一个大致符合要求的构造方案，随后对方案进行调整来获得正确的答案。</p>
+<h3 id="codeforces-1019c-sergeys-problem">CodeForces-1019C Sergey's
+problem</h3>
+<p><strong>题意：</strong>给定一张 <span
+class="math inline">\(n\)</span> 个点 <span
+class="math inline">\(m\)</span>
+条边的有向图，你需要构造一个点集，使得点集内的点两两之间没有边，且从点集内的点出发不超过
+<span class="math inline">\(2\)</span> 步能够到达所有点。<span
+class="math inline">\(1\le n,m\le 10^6\)</span>。</p>
+<p>首先考虑忽略第一个限制，找出一个点集使得从这个点集出发走一步能走到所有点。</p>
+<p>对于每个点维护一个标记，表示这个点是否能被当前点集中的至少一个点走一步后到达。依次枚举每个点，如果这个点未被标记，那么将这个点加入点集，并将这个点的所有出边能到达的点进行标记。</p>
+<p>不难发现这样构造出的点集能在之多一条边内走到所有点，并且这个点集的导出子图是一个
+DAG！</p>
+<p>证明考虑记录每一个点被标记的时间戳 <span
+class="math inline">\(t_u\)</span>，对于一条边 <span
+class="math inline">\(u\to v\)</span>，如果 <span
+class="math inline">\(u,v\)</span> 都在点集中，那么一定有 <span
+class="math inline">\(t_v&lt; t_u\)</span>，否则在标记 <span
+class="math inline">\(u\)</span> 时一定会将 <span
+class="math inline">\(v\)</span> 标记。因此对于导出子图中的每一条边
+<span class="math inline">\(u\to v\)</span>，必有 <span
+class="math inline">\(t_u&gt; t_v\)</span>。因此这张导出子图一定是
+DAG。</p>
+<p>考虑对 DAG
+拓扑排序，也类似第一次构造的形式进行标记，那么最终选择的点集内的点至少一步能走到第一次选出的点集，从而保证了至少两步能够到达所有点，也满足的点集内的点两两之间不变的限制。</p>
 ]]></content>
       <tags>
         <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>逆天记录-1</title>
-    <url>/2023/07/11/day-1-1/</url>
-    <content><![CDATA[<h2 id="cf407e-k-d-sequence">CF407E k-d-sequence</h2>
-<p>首先特判 <span class="math inline">\(d=0\)</span>
-的情况。否则显然一个合法的区间所有数 <span class="math inline">\(\bmod
-d\)</span> 都相等。</p>
-<p>将这样的区间拉出来，一个个考察，显然可以将所有的数都 <span
-class="math inline">\(\div d\)</span>，这样就变成了公差 <span
-class="math inline">\(=1\)</span> 的等差数列。一个区间 <span
-class="math inline">\([l,r]\)</span> 合法，当且仅当：</p>
-<ul>
-<li><p><span class="math inline">\([l,r]\)</span>
-中的数两两不同。</p></li>
-<li><p><span class="math inline">\(r - l + 1 + k\ge \max{a_i} -
-\min{a_i} (l\le i\le r)\)</span>。</p></li>
-</ul>
-<p>第一个容易处理，直接开一个 map 记录一下每个数最后出现的位置即可。</p>
-<p>对于第二个限制，化简变为 <span class="math inline">\(r + k\ge
-\max{a_i} - \min{a_i} + l -
-1\)</span>，开一个线段树维护右边这依托即可，修改 <span
-class="math inline">\(\min\)</span> 与 <span
-class="math inline">\(\max\)</span> 可以开两个单调栈，这是套路的。</p>
-<p>所以每次要查询区间内第一个值 <span class="math inline">\(\le
-val\)</span> 的位置，采用线段树二分即可。复杂度 <span
-class="math inline">\(O(n\log n)\)</span>。</p>
-<h2 id="cf587f-duff-is-mad">CF587F Duff is Mad</h2>
-<p>暴力做法是建出 ACAM，每次询问时对于 <span
-class="math inline">\(s_{[l,r]}\)</span>，每个字符串在 ACAM 上的 endpos
-的 fail 树的子树内点权全部 <span
-class="math inline">\(+1\)</span>，然后查询 <span
-class="math inline">\(s_k\)</span> 在 ACAM 上的所有节点点权之和。</p>
-<p>考虑对于 <span class="math inline">\(|s_k|\)</span> 根号分治。</p>
-<ul>
-<li><p>若 <span class="math inline">\(|s_k|\le
-\sqrt.\)</span>，那么显然可以将询问离线，差分贡献，每次查询时暴力在 ACAM
-上跳。</p></li>
-<li><p>若 <span class="math inline">\(|s_k|&gt; \sqrt
-.\)</span>，那么显然这样的串不超过 <span class="math inline">\(\sqrt
-.\)</span> 个，对于每个这样的串统一处理，算出 ACAM 上每个节点的点权
-<span class="math inline">\(+1\)</span>
-会对答案产生多少的贡献。然后枚举每个串，用 Fenwick Tree
-统计贡献，或者用值域分块平衡。</p></li>
-</ul>
-<p>平衡后的复杂度 <span class="math inline">\(O(m\sqrt{q\log
-m})\)</span>，如果用值域分块则是 <span class="math inline">\(O(m\sqrt
-q)\)</span>。</p>
-<h2 id="cf1842h-tenzing-and-random-real-numbers">CF1842H Tenzing and
-Random Real Numbers</h2>
-<p>我们将所有数 <span class="math inline">\(a_x\)</span> 按照 <span
-class="math inline">\(|a_x-0.5|\)</span> 的大小从小到大逐个确定。由于在
-<span class="math inline">\([0,1]\)</span>
-之间随机，所以随到相同的数的概率是 <span
-class="math inline">\(0\)</span>。</p>
-<p>考虑状压 dp，设 <span class="math inline">\(f_S\)</span> 表示 <span
-class="math inline">\(S\)</span> 集合中的数都已经确定的合法概率。</p>
-<p>对于接下来确定的 <span class="math inline">\(x\)</span>，如果 <span
-class="math inline">\(S\)</span> 中存在一个 <span
-class="math inline">\(y\)</span>，满足：</p>
-<ul>
-<li><p><span class="math inline">\(a_x+a_y\le 1\)</span>，那么显然 <span
-class="math inline">\(a_x\)</span> 只能 <span
-class="math inline">\(&lt;0.5\)</span>。</p></li>
-<li><p><span class="math inline">\(a_x+a_y\ge 1\)</span>，那么显然 <span
-class="math inline">\(a_x\)</span> 只能 <span
-class="math inline">\(&gt;0.5\)</span>。</p></li>
-</ul>
-<p>所以按照 <span class="math inline">\(S\)</span> 中的数与当前 <span
-class="math inline">\(x\)</span> 的关系来确定转移系数是 <span
-class="math inline">\(0/0.5/1\)</span>。</p>
-<p>最后答案即为 <span
-class="math inline">\(f(2^n-1)/(n!)\)</span>。复杂度 <span
-class="math inline">\(O(2^nn)\)</span>。</p>
-<h2 id="abc242ex-random-painting">ABC242Ex Random Painting</h2>
-<p>题目要求所有点都被覆盖的期望时间，设随机变量 <span
-class="math inline">\(t_i\)</span> 表示位置 <span
-class="math inline">\(i\)</span> 被覆盖的时间，则要求的是 <span
-class="math inline">\(\mathbb{E}[\max\{t_i\}]\)</span>。</p>
-<p>一眼 min-max 容斥，摁推一下柿子：</p>
-<p><span class="math display">\[
-\mathbb{E}[\max_{i\in S}\{t_i\}]=\sum_{T\subseteq
-S}(-1)^{|T|+1}\mathbb{E}[\min_{i\in T}\{t_i\}]
-\]</span></p>
-<p>考虑 <span class="math inline">\(\mathbb{E}[\min\{t_i\}]\)</span>
-的意义，假设与 <span class="math inline">\(T\)</span>
-这个几何中的点有交的线段数量为 <span
-class="math inline">\(x\)</span>，那么 <span
-class="math inline">\(\mathbb{E}[\min\{t_i\}]=\frac{m}{x}\)</span>。</p>
-<p>考虑 dp，假设 <span class="math inline">\(f_{i,j}\)</span> 表示考察了
-<span class="math inline">\([1,i]\)</span> 中的点，选了一些点作为子集
-（<span class="math inline">\(i\)</span> 点必选），有 <span
-class="math inline">\(j\)</span> 条线段与这个子集无交的 <span
-class="math inline">\((-1)^{|T|+1}\)</span> 之和。</p>
-<p>转移时，枚举 <span
-class="math inline">\(i,j,k\)</span>，分别表示当前装它与上一个选择的点，那么
-<span class="math inline">\((k,i)\)</span>
-中的线段与选择的集合无交，设为 <span
-class="math inline">\(cnt(k,i)\)</span>，转移时只要：</p>
-<p><span class="math display">\[
-f_{k,j}\times (-1)\to f_{i,j+cnt(k,i)}
-\]</span></p>
-<p>至于如何求 <span
-class="math inline">\(cnt\)</span>，直接做一遍二位前缀和即可。做完 dp
-后带回 min-max 容斥的柿子中计算即可。</p>
-<p>时间复杂度 <span class="math inline">\(O(n^2m)\)</span>。</p>
-<h2 id="abc241ex-card-deck-score">ABC241Ex Card Deck Score</h2>
-<p><span class="math inline">\(n\)</span> 很小，<span
-class="math inline">\(b_i\)</span>
-的限制显然可以容斥计算。所以可以忽略每个卡的个数限制。考虑用生成函数计算：</p>
-<p><span class="math display">\[
-\prod_{i=1}^n\sum_{k\ge 0}a_i^k\cdot x^k=\prod_{i=1}^n\frac{1}{1-a_ix}
-\]</span></p>
-<p>采用待定系数尝试算出每个 <span class="math inline">\(a_i\)</span>
-的系数 <span class="math inline">\(c_i\)</span>：</p>
-<p><span class="math display">\[
-\prod_{i=1}^n\frac{1}{1-a_ix}=\sum_{i=1}^n\frac{c_i}{1-a_ix}
-\]</span></p>
-<p>两遍同时乘上 <span
-class="math inline">\(\prod(1-a_ix)\)</span>，得到：</p>
-<p><span class="math display">\[
-\sum_{i=1}^n c_i\prod_{j\not=i}(1-a_jx)=1
-\]</span></p>
-<p>对于每个 <span class="math inline">\(i\)</span>，将 <span
-class="math inline">\(a_i^{-1}\)</span> 带入柿子，得到：</p>
-<p><span class="math display">\[
-c_i\prod_{j\not=i}(1-a_j\cdot a_i^{-1})=1
-\]</span></p>
-<p>这样即可在 <span class="math inline">\(O(n^2)\)</span>
-的复杂度内计算出每个 <span class="math inline">\(a_i\)</span> 的系数
-<span class="math inline">\(c_i\)</span>。</p>
-<p>然后枚举不合法的卡片集合 <span
-class="math inline">\(S\)</span>，钦定这个集合中的卡片都超过限制。计算出
-<span class="math inline">\(cnt=m-\sum_{i\in
-S}(b_i+1)\)</span>。即可算出贡献：</p>
-<p><span class="math display">\[
-(-1)^{|S|}\cdot\prod_{i\in S}a_i^{b_i+1}\cdot\left(\sum_{i=1}^n c_i\cdot
-a_i^{cnt}\right)
-\]</span></p>
-<p>时间复杂度 <span class="math inline">\(O(n^2+n2^n\log
-P)\)</span>。</p>
-<h2 id="abc237ex-hakata">ABC237Ex Hakata</h2>
-<p>首先可以证明，对于一个字符串 <span
-class="math inline">\(S\)</span>，其本质不同的回文子串个数 <span
-class="math inline">\(\le n\)</span>。</p>
-<p>考虑每次在 <span class="math inline">\(S\)</span>
-后面加入一个字符后，字符串长度为 <span
-class="math inline">\(n\)</span>，如果出现了 <span
-class="math inline">\(S_{[x,n]}\)</span> 与 <span
-class="math inline">\(S_{[y,n]}\)</span> 两个回文串，那么可以推断出
-<span
-class="math inline">\(S_{n-e}=S_{x+e}=S_{y+e}=S_{n+x-y-e}\)</span>，所以
-<span class="math inline">\(S_{[x,x+n-y]}\)</span> 也是回文串，与 <span
-class="math inline">\(S_{[y,n]}\)</span> 相同，故 <span
-class="math inline">\(S_{[y,n]}\)</span> 已经在之前出现过。矛盾。</p>
-<p>故每次添加一个字符，最多只会产生一个本质不同的回文串，原命题得证。</p>
-<p>考虑计算出所有的本质不同的回文子串，若 <span
-class="math inline">\(S_1\)</span> 是 <span
-class="math inline">\(S_2\)</span> 的子串，那么我们连一条从 <span
-class="math inline">\(S_2\)</span> 向 <span
-class="math inline">\(S_1\)</span> 的有向边，不难发现会构成一张
-DAG。</p>
-<p>题目要求的即使这张 DAG 的最长反链，由 Dilworth 定理，最长反链 <span
-class="math inline">\(=\)</span> 最小链覆盖。</p>
-<p>由于最小链覆盖的过程可以看成把一些链合并的过程，每个点可以选一个出边合并，选一个入边合并，我们希望链合并的次数尽可能多。</p>
-<p>考虑构建一张二分图，每个 DAG 上的点拆成左右两个点，将一条 <span
-class="math inline">\(u\to v\)</span> 的有向边转化为 <span
-class="math inline">\(u\)</span> 的左部点与 <span
-class="math inline">\(v\)</span>
-的右部点之间的边，然后求二分图最大匹配。最小连覆盖 <span
-class="math inline">\(=\)</span> 点数 <span
-class="math inline">\(-\)</span> 最大匹配数。</p>
-<p>时间复杂度看代码实现，大致为 <span
-class="math inline">\(O(n^4)\)</span> 或 <span
-class="math inline">\(O(n^3)\)</span>，瓶颈在于判断两个回文子串是否为包含关系，除这一点外可以做到
-<span class="math inline">\(O(n^2)\)</span>。</p>
-<h2 id="agc006f-blackout">AGC006F Blackout</h2>
-<p>很妙的题啊！首先观察到这个题中的点和平面没有什么关系，直接把点转化成边，构成一幅有向图。原来的变换等价于若有边
-<span class="math inline">\(u\to v\)</span> 与 <span
-class="math inline">\(v\to w\)</span>，则连上边 <span
-class="math inline">\(w\to u\)</span>。</p>
-<p>由于连上的是三元环，所以考虑将这张有向图进行三染色（为什么是三染色想了半天，感觉自己是纸张）。假设图能够成功进行三染色，且有颜色
-<span class="math inline">\(1\to 2\)</span> 的边，<span
-class="math inline">\(2\to 3\)</span> 的边与 <span
-class="math inline">\(3\to 1\)</span>
-的边，那么同一个连通块内所有这样的颜色对的点对都能连上边。证明显然。</p>
-<p>如果无法进行进行三染色，那么必然存在一条这三类边之外的边。假设存在同色间的边
-<span class="math inline">\(x\to x\)</span>，假设 <span
-class="math inline">\(y=x-1\)</span>，那么原本存在 <span
-class="math inline">\(y\to x\)</span> 的边，操作后存在 <span
-class="math inline">\(x\to y\)</span> 的边。</p>
-<p>现在有 <span class="math inline">\(x\to y\)</span> 的边与 <span
-class="math inline">\(y\to x\)</span> 的边（设 <span
-class="math inline">\(y=x+1\)</span>，<span
-class="math inline">\(z=y+1\)</span>，<span
-class="math inline">\(x=z+1\)</span>，均在 <span
-class="math inline">\(\bmod 3\)</span>
-意义下）。那么可以通过以下操作：</p>
-<ul>
-<li><span class="math inline">\(x\to y,y\to x\)</span> 推出 <span
-class="math inline">\(x\to x\)</span>。</li>
-<li><span class="math inline">\(y\to x,x\to y\)</span> 推出 <span
-class="math inline">\(y\to y\)</span>。</li>
-<li><span class="math inline">\(z\to x,x\to x\)</span> 推出 <span
-class="math inline">\(x\to z\)</span>。</li>
-<li><span class="math inline">\(z\to x,x\to z\)</span> 推出 <span
-class="math inline">\(z\to z\)</span>。</li>
-<li><span class="math inline">\(y\to y,y\to z\)</span> 推出 <span
-class="math inline">\(z\to y\)</span>。</li>
-</ul>
-<p>所以若三染色不成功，则任意两点之间都能到达。</p>
-<p>需要注意的是，如果三染色成功，且只有两种颜色，则是单向边的二分图，并无法使左部点与右部点全部连边。</p>
-<h2 id="cf1437g-death-dbms">CF1437G Death DBMS</h2>
-<p>先把所有串建出 ACAM，然后给每个串的 endpos 在 fail
-树上的子树内的点权与这个串的权值 checkmax。</p>
-<p>每次询问时，沿着询问串向下走，将答案
-checkmax。不难发现每个点的权值其实是它在 fail 树上所有祖先的字符串权值
-max，那么这个值就是答案。</p>
-<p>考虑维护方法，将 fail 树拍成 dfn
-序，建出线段树，线段树每个节点维护一个
-<code>multiset</code>，就可以支持区间加，区间删除，单点查询最大值。时间复杂度
-<span class="math inline">\(O(n\log^2 n)\)</span>。</p>
-<p>还有一种根号做法，串长的总和限制了，由于 <span
-class="math inline">\(\sum_{i=1}^xi=O(x^2)\)</span>，所以串长只会有根号种。使用字符串哈希，每次询问时枚举串长计算即可。时间复杂度
-<span class="math inline">\(O(n\sqrt{\sum len})\)</span>。</p>
-<h2 id="qoj-6504-flowers-land-2">qoj 6504 Flower's Land 2</h2>
-<p>找一找能删玩的序列的性质，发现没有成果。</p>
-<p>考虑用一种运算方式来表示抵消操作。显然这种运算需要有逆来使抵消后变成单位元，需要有结合律来表示抵消操作后的消失，需要不能有交换律来防止不合法的抵消。</p>
-<p>一看，这不是矩阵乘法吗！考虑对三种数各自刻画一个 <span
-class="math inline">\(3\times 3\)</span>
-的矩阵。奇数位置为对应矩阵，偶数位置为对应矩阵的逆。直接用线段树维护区间操作
-<span class="math inline">\(0,1,2\)</span> 次操作后的矩阵乘积即可。</p>
-<p>每次判断只需要判断当前区间矩阵的乘积是否为单位矩阵即可。</p>
-<p>时间复杂度 <span class="math inline">\(O(k^3n\log n)\)</span>，其中
-<span class="math inline">\(k=3\)</span>。如果维护 <span
-class="math inline">\(2\times 2\)</span> 的矩阵，好像根据什么 Ping-Pong
-Lemma 会出问题，具体的我也不会证呜呜呜。</p>
-<h2 id="cf618f-double-knapsack">CF618F Double Knapsack</h2>
-<p>不做 CF 的人，高考都有难了！</p>
-<p>结论：不需要选子集，只需要选子区间就能保证一定有解。</p>
-<p>证明：转化为选子区间后，把序列求一遍前缀和，原问题等价于给你两个单调递增的序列
-<span class="math inline">\(a,b\)</span>，你需要找出 <span
-class="math inline">\(0\le l_1&lt;r_1\le n\)</span> 与 <span
-class="math inline">\(0\le l_2&lt;r_2\le n\)</span>，满足 <span
-class="math inline">\(a_{r_1}-a_{l_1}=b_{r_2}-b_{l_2}\)</span>。</p>
-<p>不妨设 <span class="math inline">\(a_n\le b_n\)</span>，那么对于每个
-<span class="math inline">\(0\le i\le n\)</span>，都存在至少一个 <span
-class="math inline">\(0\le j\le n\)</span> ，使得 <span
-class="math inline">\(b_j\ge a_i\)</span>。我们对于每个 <span
-class="math inline">\(a_i\)</span> 找出这样的最小的 <span
-class="math inline">\(j\)</span>。由于值域为 <span
-class="math inline">\([1,n]\)</span>，因此最小的 <span
-class="math inline">\(j\)</span> 一定满足 <span
-class="math inline">\(0\le b_j-a_i&lt;n\)</span>。</p>
-<p>这样的差只有 <span class="math inline">\(n\)</span> 种，而这样的
-<span class="math inline">\((i,j)\)</span> 有 <span
-class="math inline">\(n+1\)</span> 个，根据鸽笼原理，一定存在一对 <span
-class="math inline">\(((i_1,j_1),(i_2,j_2))\)</span>
-满足两个的差相等，那么原问题中要找的 <span
-class="math inline">\(l_1,r_1\)</span> 与 <span
-class="math inline">\(l_2,r_2\)</span> 就随之找到了。</p>
-<p>对于 <span class="math inline">\(a_n&gt;b_n\)</span>
-的同理。这样，仅用子区间就能找到一组答案。</p>
-<p>对于每个位置二分找比它大的复杂度 <span class="math inline">\(O(n\log
-n)\)</span>，当然你可以用双指针做到 <span
-class="math inline">\(O(n)\)</span>。</p>
-<h2 id="cf1656h-equal-lcm-subsets">CF1656H Equal LCM Subsets</h2>
-<p>由于值域很大，无法直接算 <span
-class="math inline">\(\operatorname{lcm}\)</span>，因此考虑对每一个质因数考虑。</p>
-<p>设 <span
-class="math inline">\(a_{i}=\prod_kp_k^{\alpha(a_i,k)}\)</span>，那么对于每一个
-<span class="math inline">\(k\)</span>，<span
-class="math inline">\(\max_{i\in S_A}\alpha(i,k)=\max_{i\in
-S_B}\alpha(i,k)\)</span>。把 <span class="math inline">\(\max\)</span>
-的等于转化为互相小于等于，然后推一推式子：</p>
-<p><span class="math display">\[
-\forall k,\forall x\in S_A,\exists y\in S_B,\alpha(x,k)\le\alpha(y,k)\\
-\]</span></p>
-<p>再把小于等于转化为等于：</p>
-<p><span class="math display">\[
-\forall k,\forall x\in S_A,\exists y\in
-S_B,\alpha(x,k)-\min\{\alpha(x,k),\alpha(y,k)\}=0
-\]</span></p>
-<p>发现因数个数的 <span class="math inline">\(\min\)</span> 其实就是
-<span class="math inline">\(\gcd\)</span> 运算，式子转化为：</p>
-<p><span class="math display">\[
-\forall k,\forall x\in S_A,\exists y\in
-S_B,\alpha(\frac{x}{\gcd(x,y)},k)=0
-\]</span></p>
-<p>发现存在一个 <span class="math inline">\(y\)</span> 满足上式 <span
-class="math inline">\(=0\)</span>，实际上就是对于所有 <span
-class="math inline">\(y\)</span> 他们的 <span
-class="math inline">\(\gcd\)</span> 的值 <span
-class="math inline">\(=0\)</span>：</p>
-<p><span class="math display">\[
-\forall k,\forall x\in S_A,\alpha(\gcd_{y\in
-S_B}(\frac{x}{\gcd(x,y)}),k)=0
-\]</span></p>
-<p>然后把所有的质因数放在一起考虑，每个都没有出现，就是 <span
-class="math inline">\(\gcd=1\)</span>：</p>
-<p><span class="math display">\[
-\forall x\in S_A,\gcd_{y\in S_B}(\frac{x}{\gcd(x,y)})=1
-\]</span></p>
-<p>对于每一个 <span class="math inline">\(S_B\)</span>
-中的元素同理，由：</p>
-<p><span class="math display">\[
-\forall x\in S_B,\gcd_{y\in S_A}(\frac{x}{\gcd(x,y)})=1
-\]</span></p>
-<p>直接暴力删除不合法元素，需要删除 <span
-class="math inline">\(n+m\)</span> 次，每次遍历所有元素 <span
-class="math inline">\(n+m\)</span> 次，计算上述值的复杂度是 <span
-class="math inline">\(O(n\log V)\)</span> 或 <span
-class="math inline">\(O(m\log V)\)</span> 的，复杂度是 <span
-class="math inline">\(O(n^3\log V)\)</span> 的，无法通过。</p>
-<p>考虑优化，用 <span class="math inline">\(n+m\)</span>
-棵线段树维护每个 <span class="math inline">\(S_A,S_B\)</span>
-中元素的上述值即可，删除后对于每个另一个集合中的数，将他的位置设为 <span
-class="math inline">\(0\)</span>。不难发现，这样单次计算上述值得复杂度是
-<span class="math inline">\(O(1)\)</span>
-的，而每个元素至多删除一次，单次删除复杂度 <span
-class="math inline">\(O(n\log n\log V)\)</span> 或 <span
-class="math inline">\(O(m\log m\log V)\)</span>。</p>
-<p>设 <span class="math inline">\(n,m\)</span> 同阶，则最终复杂度 <span
-class="math inline">\(O(n^2\log n\log V)\)</span>。</p>
-<h2 id="cf878d-magic-breeding">CF878D Magic Breeding</h2>
-<p>虽然每个生物的特征很多，但不难发现，对于每一次询问，答案一定是对应特征中
-<span class="math inline">\(k\)</span> 个值中的一个。</p>
-<p>考虑每次询问时枚举这个答案，判断是否可行。我们将所有 <span
-class="math inline">\(\ge x\)</span> 的值标记为 <span
-class="math inline">\(1\)</span>，不难发现本质不同的大小关系只有 <span
-class="math inline">\(2^k\)</span> 种，用一个 <code>bitset</code>
-维护一下这 <span class="math inline">\(2^k\)</span>
-种初始大小关系在变换结束后的结果是多少。</p>
-<p>由于值域是 <span class="math inline">\(\{0,1\}\)</span>，所以取 <span
-class="math inline">\(\max\)</span> 就是两个 <code>bitset</code>
-取或，<span class="math inline">\(\min\)</span> 就是两个
-<code>bitset</code> 取与。</p>
-<p>最终复杂度 <span class="math inline">\(O(nk\log
-k+qk+\frac{q2^k}{\omega})\)</span>。</p>
-<h2 id="cf1474f-1-2-3-4-...">CF1474F 1 2 3 4 ...</h2>
-<p>由于相邻两项的差都是 <span class="math inline">\(1\)</span>，因此 LIS
-是公差为 <span class="math inline">\(1\)</span> 的等差数列。LIS
-的长度很好求，直接枚举起点段和终点段即可，复杂度不高也不重要。难点在于计算
-LIS 的个数。</p>
-<p>LIS 的数的区间并不唯一，但是不难发现不同数的区间的 LIS
-都不交。因此考虑将原序列的折线段分段，每段以下降段开始，以上升段结束，且能够取到最长
-LIS 的长度，且 LIS 的值域唯一，且是能取到该值域 LIS 的最长区间。</p>
-<p>对于每个区间内，可以考虑 dp 计算方案数。令 <span
-class="math inline">\(f_{i,j}\)</span> 表示填到值为 <span
-class="math inline">\(i\)</span> 的数，目前位于第 <span
-class="math inline">\(j\)</span>
-条折线的方案数。转移时，考虑上一个数所在的区间，但是直接转移复杂度爆炸。</p>
-<p>发现值域被所有折线段的左右端点分成了 <span
-class="math inline">\(O(n)\)</span>
-各区间，每个区间中的转移方式是相同的，因此可以考虑使用矩阵快速幂来优化，这样就能快速转移了。</p>
-<p>最终时间复杂度 <span class="math inline">\(O(n^4\log
-V)\)</span>。注意一些细节，比如所有数都是负数，特判也要取模等。</p>
-<h2 id="p9462-终点">P9462 终点</h2>
-<p>钦定以 <span class="math inline">\(1\)</span>
-号点为根。首先询问出所有点到 <span class="math inline">\(1\)</span>
-号的中点，假设 <span class="math inline">\(1\)</span> 号点的深度为 <span
-class="math inline">\(0\)</span>，那么所有的连边都是从深度为 <span
-class="math inline">\(x\)</span> 的点连向深度为 <span
-class="math inline">\(2x\)</span> 的点。</p>
-<p>定义一个点的长度为一直向上走询问得到的“返祖边”走的距离。</p>
-<p>找出所有点中长度最大的点，这个点的最终祖先一定是深度为 <span
-class="math inline">\(1\)</span>
-的节点。证明考虑如果这个点的祖先不是深度为 <span
-class="math inline">\(1\)</span> 的，那么他的深度一定可以被表示为 <span
-class="math inline">\(c\times 2^k\)</span>，而 <span
-class="math inline">\(c\)</span> 是奇数且 <span
-class="math inline">\(\not=1\)</span>。那么我们找一个深度 <span
-class="math inline">\(=c-1\)</span> 的节点，那个节点的深度就能被表示为
-<span class="math inline">\(\frac{c-1}{2}\times
-2^{k+1}\)</span>，长度比那个点大，矛盾。</p>
-<p>这样我们找到了深度为 <span class="math inline">\(1\)</span>
-的节点。然后询问所有深度为奇数的节点（就是前一次询问未得到答案的节点）与这个深度为
-<span class="math inline">\(1\)</span>
-的节点的中点。通过这些询问我们可以类似 bfs 的得到所有点的深度。</p>
-<p>接下来，考虑按照节点的深度从小到大依次确定父亲节点，从而确定这颗树的形态。</p>
-<p>考察一个节点 <span class="math inline">\(u\)</span> 时，考虑定义函数
-<span class="math inline">\(\operatorname{solve}(rt,u)\)</span> 表示在
-<span class="math inline">\(rt\)</span> 为根的子树内寻找 <span
-class="math inline">\(u\)</span> 的父亲（保证 <span
-class="math inline">\(u\)</span> 在 <span
-class="math inline">\(rt\)</span> 子树内）。分以下三种情况考虑：</p>
-<ul>
-<li>若 <span class="math inline">\(dep_{rt}+1=dep_u\)</span>，那么 <span
-class="math inline">\(rt\)</span> 即为 <span
-class="math inline">\(u\)</span> 的父亲节点。</li>
-<li>若 <span class="math inline">\(dep_u-dep_{rt}\equiv0\pmod
-2\)</span>，那么询问 <span class="math inline">\(u\)</span> 与 <span
-class="math inline">\(rt\)</span> 的中点 <span
-class="math inline">\(v\)</span>，递归查找 <span
-class="math inline">\(\operatorname{solve}(v,u)\)</span>。</li>
-<li>若 <span class="math inline">\(dep_u-dep_{rt}\equiv 1\pmod
-2\)</span>，那么随便找一个 <span class="math inline">\(u\)</span> 的儿子
-<span class="math inline">\(s\)</span>，询问 <span
-class="math inline">\(s\)</span> 与 <span
-class="math inline">\(u\)</span> 的中点 <span
-class="math inline">\(v\)</span>，递归查找 <span
-class="math inline">\(\operatorname{solve}(v,u)\)</span>。</li>
-</ul>
-<p>发现这样递归的深度上限是 <span class="math inline">\(\lceil\log
-n\rceil\)</span> 的，但是长度很小，因为 <span
-class="math inline">\(n\)</span> 其实是 <span
-class="math inline">\(u\)</span> 的 <span
-class="math inline">\(dep\)</span>。</p>
-<p>确定完每个节点的父亲节点后，树的形态就确定了。询问次数为 <span
-class="math inline">\(O(n\log n)\)</span>，严格来说是 <span
-class="math inline">\(O(2n+\sum_u\log_{dep_u})\)</span>。</p>
-<h2 id="qoj-4193-joined-sessions">qoj 4193 Joined Sessions</h2>
-<p>考虑什么时候无解。如果当前最小支配集大小 <span
-class="math inline">\(=1\)</span>
-或所有线段不相交，那么无解，否则有解。</p>
-<p>容易证明如果有解，那么至多三次合并就一定能使最小支配集的大小 <span
-class="math inline">\(-1\)</span>。证明随便画画就好了。</p>
-<p>对于每个区间 <span class="math inline">\(i\)</span>，我们令 <span
-class="math inline">\(\operatorname{last}(i)\)</span> 表示右端点在 <span
-class="math inline">\(l_i\)</span> 之前的右端点最大的线段，<span
-class="math inline">\(\operatorname{cont}(i)\)</span> 表示与 <span
-class="math inline">\(i\)</span> 相交的区间中左端点最小的区间。</p>
-<p>容易发现，对于每次合并，一定是选择一个 <span
-class="math inline">\(x\)</span> 与 <span
-class="math inline">\(\operatorname{cont}(x)\)</span> 合并。</p>
-<p>由于至多三次合并就能使最小支配集大小 <span
-class="math inline">\(-1\)</span>，因此考虑 dp。</p>
-<p>令 <span class="math inline">\(dp(j,s)\)</span> 表示对于前 <span
-class="math inline">\(j\)</span> 条线段，用了 <span
-class="math inline">\(s\)</span>
-次合并操作，最小支配集的大小最小是多少。转移方程：</p>
-<p><span class="math display">\[
-dp(j,s)=\min\{dp(\operatorname{last}(j),s)+1,\min\{dp(\operatorname{cont}^k(j),s-t)|1\le
-t\le s\}\}
-\]</span></p>
-<p>最后找出 <span class="math inline">\(dp(n,k)\)</span>
-中第一个小于初始最小支配集大小的 <span
-class="math inline">\(k\)</span>，即为答案。</p>
-<p>时间复杂度 <span class="math inline">\(O(n\log
-n)\)</span>，瓶颈在排序。</p>
-]]></content>
-      <tags>
-        <tag>好题</tag>
       </tags>
   </entry>
   <entry>
@@ -642,665 +275,6 @@ m\)</span>，这样成绩就还能见人了。不然会文化都没脸了驱蚊�
 <h1 id="day-114514">Day 114514</h1>
 <p>出分了，CCF 傻逼数据，<span
 class="math inline">\(100+100+60+36=296\)</span>，哈哈了。</p>
-]]></content>
-      <tags>
-        <tag>游记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>杭电多校2022</title>
-    <url>/2022/07/20/hdu2022/</url>
-    <content><![CDATA[<p><a
-href="https://www.cnblogs.com/zhangshaojia/p/16503449.html">ShaoJia的游记</a></p>
-<p><del>其实没有游，都在ez机房。</del></p>
-<p>人生第二次打 ACM（第一次算是 THUPC 吧）。</p>
-<h1 id="day1">Day1</h1>
-<p>中午去面馆吃面，会到二中已经 11:55 ，跑去机房就开始了。</p>
-<p>一下就开了 1011 签到题，结果误以为红色是 WA，想了好久那里挂了，结果
-10 分钟后有人告诉我我过了。/qd</p>
-<p>全场就做了 1011 和 1012 两道题，成为全队最卷选手。总之把 Shaojia 和
-Cxny 带飞了。</p>
-<p>中途帮 Shaojia 调了 1007，最后竟然是因为没加 <code>inline</code>
-而爆栈了。/qd</p>
-<p>最后在死磕 1001，一道 KMP 毒瘤题，WA 了两发无果。</p>
-<p>Solved 6 problems，Rank 79。</p>
-<h1 id="day2">Day2</h1>
-<p>吸取 Day1 的教训，早点出去吃饭，顺便换了一家快餐店。</p>
-<p>到场离开始还有几分钟，和 Shaojia 打了一场 Generals
-2V2，成功偷家，ShaoJia <a
-href="https://www.bilibili.com/video/BV1rA411g7q8/">太逊了</a>。</p>
-<p>继续倒序开题，1012 签到题，但 <code>INF</code> 没开够挂了一发。</p>
-<p>然后看 1007，题目看了半个多小时，最后 5min 写完代码切掉了。</p>
-<p>1011
-线段树，但第一次写假了，还写得很繁。最后只能再写一次，过的时候已经 14:22
-了。</p>
-<p>1005 又是线段树，死磕 Dp 式最后和 Shaojia
-研究出来了，但发现前面处理区间写挂了。</p>
-<p>最后改了半小时还是 WA。贡献 3 题结束。最后半小时 Shaojia 和 Cxny 开始
-Generals，本巨佬还在调题（驱蚊器）。</p>
-<p>Solved 8 problems，Rank 56。</p>
-<h1 id="day3">Day3</h1>
-<p>Shaojia 没来，没法吊打他了。</p>
-<p>开场傻乎乎一题都不会，Cxny 把 2 道签到题给切了。我过了好久才把 1012
-这道爪巴 Dp 给过了。</p>
-<p>然后看
-1011，第一反应曼哈顿距离转切比雪夫距离，然后分四个方向讨论，前后缀 <span
-class="math inline">\(x\)</span> 与 <span
-class="math inline">\(w\)</span> 最小最大值即可。</p>
-<p>于是开始写，但发现很难写，才写四分之一 Daniel
-就过了，问了以下发现自己是傻逼，并不用转切比雪夫距离，去掉冗余状态直接二分即可，于是过了。</p>
-<p>1002
-也是萌萌题，理解题意理解错了好多次，最后才知道每个技能只能用一次，直接
-二分 + 状压 Dp 即可，很快就写完了。</p>
-<p>1001 Daniel 柿子推错了，正解好像是 cdq 分治 + 多项式（FFT）优化
-Dp，不在自己能力范围之内（虽然算法都会），没切正常。</p>
-<p>1008 三维计算几何，一开始把 plane(平面)
-理解成了飞机，笑了好久。当然计算几何还是算了（尽管过了一车人）。</p>
-<p>今天一共就过了 5 道签到题，自己做了 3 道（当然感谢 Cxny
-的翻译<strong>与罚时</strong>），没有 Shaojia 的日子真舒服，abandon
-后打了好久的 Generals。</p>
-<p>Solved 5 problems，Rank 143。</p>
-<h1 id="day4">Day4</h1>
-<p>Shaojia 仍然没来，不过今天在家里打，不用担心吃饭的问题。</p>
-<p>一开始选了几道题都没咋仔细看题面，然后看 1004
-一车人过了，于是去看题，手玩几组发现这不就全是 <code>NO</code>
-吗，然后又看时限给了 8000ms，不敢交。</p>
-<p>过了好久才去试了试，然后过了，出题人你母亲时限干啥的。</p>
-<p>然后 1006，非常的简单，比 1004 还简单，但没判一下就上 <span
-class="math inline">\(200\)</span> 的情况，吃了一发罚时。</p>
-<p>随后去看 1007，发现又是非常萌萌的题，虽然但是，还是吃了一发罚时。</p>
-<p>随后 Cxny 把 1001 切了，是一道记忆化搜索跑区间 Dp 的题，与 CSP-S2021
-的 t2 有些类似。</p>
-<p>然后发现 1011
-过的人也挺多。虽然不会证，但奶了一口直接线性基，然后过了 /qd。</p>
-<p>1002 则是罚时聚集地，我和 Cxny 一起写，一遍最短路再一遍最长路。然后我
-WA 了，Cxny TLE 了，看了看写法，我的最长路是 topo 序 Dp 的，Cxny 直接
-dij 了。于是我明白了会有 <span class="math inline">\(0\)</span>
-环，然后加了个 tarjan 缩点就过了。</p>
-<p>1005 过的人很多，但我看了一眼不会，然后去看
-1003。一眼就看出对前缀和差分约束。然后写挂了。查了半天发现差分约束返回无解时队列里会有东西，下一次开始又没清空
-/qd。改了下过了。</p>
-<p>然后颓了一会儿。再看 1005
-发现两层合并就是矩阵乘法，而点数又很少，一口奶定是用矩阵做的。然后是个双指针类似，但矩阵除法需要求逆，步数又会很大，又不能取模，于是寄了。</p>
-<p>然后就开始写线段树，每次线段树查询区间乘积。正确的，但是多了一只
-<span class="math inline">\(\log\)</span> 被卡了。</p>
-<p>最后才想到能在用一个指针记录一下现在处理到的位置，然后对这个 <span
-class="math inline">\(l\)</span>
-求基于这个位置的后缀积，复杂度与双指针相同（妙啊），于是最后半小时冲过了。</p>
-<p>今天这场写了 7 题，手感还是不错的 doge。</p>
-<p>Solved 8 problems，Rank 65。</p>
-<h1 id="day5">Day5</h1>
-<p>Shaojia 回归，但是今天的剧情加了这个傻逼怎么会这样的呢？</p>
-<p>开场 Shaojia 切了 1002，我看了 1012。1012
-手写一个堆即可，但我蜜汁写挂了。</p>
-<p>然后愣了半天发现节点更新写错了，改了就过了。</p>
-<p>然后我和 Cxny 看 1010。又是一道博弈论，英文太差，完全看不懂题。在
-Cxny 的技术支持下，我发现答案全是
-<code>Win!</code>，即先手询问最大的正确信息，后手必输。</p>
-<p>但是 WA 了。愣了半天发现 <span class="math inline">\(x\ge
-1\)</span>。改了就过了，空吃 3 发罚时。</p>
-<p>1007 的柿子我和 Shaojia 推了半天无果，OEIS 还是无果，Cxny OEIS
-了一下就出来了。然后他把柿子给我，我写了一个 NTT
-加速转移就过了。很激动，第一次做多项式题就过了。</p>
-<p>于是去看 1002，证了一下发现这是个积性函数，可以直接 Min_25
-筛。但是以前没写过，怎么办呢？贺板子。</p>
-<p>先贺了 OI-wiki 的板子，调了半天结果 TLE 了，十分愤怒，直接弃题。</p>
-<p>然后去看 1006，想了好久发现是一个 dp，写了一下 WA
-了，看了一下发现数组清空写错了，改了下就过了。</p>
-<p>然后又是 1002，去 loj 上找跑地最快的板子，改到结束还是
-TLE，十分愤怒。</p>
-<p>Shaojia 状态不佳啊，是不是没睡够呢，还是本来就这么菜。</p>
-<p>Solved 5 problems，Rank 92。</p>
-<h1 id="day6">Day6</h1>
-<p><del>我发现我每次开场总不能先蒙到水题（盲狙一直很不准</del></p>
-<p>赛前吸收了肯爷爷的祝福，神清气爽。</p>
-<p>开场 Shaojia 直接爆切 1006 和 1009，排名直接 rank
-8。我被震撼到了，膜膜膜。</p>
-<p>我看 1012，看着一个一个队过了，自己一片混乱，感觉要寄。</p>
-<p>然后 Shaojia 让我看
-1008。手玩了一会儿发现根据二进制可以推出神秘的规律（不知道叫啥，且称周期性吧）。</p>
-<p>然后和 Shaojia
-讨论了一下，打了个暴力发现是正确的，于是两人开始一起码。</p>
-<p>码完发现样例都过不了，非常疑惑。Shaojia 一下就看出了问题，改了 1min
-就过了，不愧是 Shaojia。</p>
-<p>然后 1010
-平面图转对偶图，对偶图上的最小生成树等于原图上最大生成树中没有被选的边，并查集即可，很水，1A（终于
-A 题了）。</p>
-<p>Cxny 很快就把 1012 给过了，代码很短，<del>我们都说 Cxny
-在演</del>。</p>
-<p>接下来 Shaojia 把 1007 自己的见解告诉我，我想了想，Shaojia 开搞。</p>
-<p>大概是一道同余原根的题目，Shaojia 想想想推推推发现有 BSGS + exgcd
-的算法，虽然能够，但是时间有点卡。</p>
-<p>Shaojia 说他人傻常数大，太逊了,但我还是怂恿他开写。</p>
-<p><del>随后我作弊看了 cxy 他们的代码，发现直接逆元 + unordered_map
-过，时间复杂度飞快，</del>Shaojia 非常尴尬，我们都嘲笑他 OvO。</p>
-<p>随后 Shaojia 就过了 1007。</p>
-<p>我开始和 Cxny 讨论 1011，Shaojia 切完后也参与套路。我 oeis，被 wxw
-看见了，他说“他们在 O 一道题”，非常尴尬。</p>
-<p><del>最后绷不住，直接看 wxw 队的代码，Shaojia 直接怂恿我抄，过不了
-TLE。</del></p>
-<p>回头检查一下发现他们算次是 <span class="math inline">\(10^9\)</span>
-级别的，本因过不了，但是他们就蜜汁过了。</p>
-<p>wsyear 改了一下，从枚举因数到倍数 <span
-class="math inline">\(O(n\sqrt n\log n)\rightarrow O(n\log^2
-n)\)</span>，过了。</p>
-<p>此后又把 1002 经过几次罚时调参调过了，之前就听到 xay 说他在调参。</p>
-<p>最后 15min 集体颓废，FFA 了 3 把，第二把碰到了 Daniel777。</p>
-<p><del>Cxny 抱怨说为啥你俩讨论不带我。</del></p>
-<p>最后，Shaojia：4 题，我：3 题，cxny：1 题。<del>Cxny
-太演了。</del></p>
-<p>Solved 8 problems，Rank 29。</p>
-<p>总榜排名 Rank 50，非常爽。</p>
-<h1 id="day7">Day7</h1>
-<p>zhy 来了，于是我们把 zhy 一起请了过来。</p>
-<p>开场我准备倒开，发现一道不会。过了一会儿有队过了
-1008，于是前去观赏，一道很不 naive 的博弈论，过了一会儿写完提交，发现
-zhy 已经 A 了，非常尴尬。</p>
-<p>为了防止再出现多名队员重复看题的情况，我建了个 QQ 群。</p>
-<p>随后 Shaojia 写完了 1004，但是没有过，WA 了 2
-发。他让我调，我也没看出来，后来还是他自己调过了，实在太强。</p>
-<p>然后我开始停滞，一题不会，Shaojia 写 1003 树形
-dp。写完之后没有过，TLE。让我一起调。</p>
-<p>我们都认为是 IO 问题，我还减少了取模次数，用了 buff 的 Fast
-IO，还是蜜汁 TLE。</p>
-<p>于是我开始写数据生成，本地跑了一下，发现真的特别慢。然后发现一个
-<span class="math inline">\(tot\)</span> 写成了 <span
-class="math inline">\(n\)</span>，于是过了。</p>
-<p>zhy 说只要无视罚时他就能切 1001，我说罚时不重要，于是他开切。</p>
-<p>Cxny 从半小时前说所有人都别看
-1009，给他机会切题，到如今说他寄了，开始摆烂，真是太演了。</p>
-<p>我和 Shaojia 开始想 1006，一道稍加（绍嘉）改变的数位
-dp。很显然的统计每种数个数，柿子也不难推，于是我催促 Shaojia
-开始写，他说他有 <span class="math inline">\(16\)</span>
-的常数，我说没事。</p>
-<p>过了好久写完，有过了好久过样例，中间还有 UB。交了还是
-WA，我写了个对拍，大数据没有问题。</p>
-<p>后来才发现 <span class="math inline">\(k=0\)</span>
-的时候会错，改了一下终于过了，很开心的 2 发罚时。</p>
-<p>Shaojia: &gt; 正当我刚刚说的排查掉头发时，cxny 开始和同桌的 zqs 打
-florr，还时不时戳我让我看游戏局面，当时我非常恼火。</p>
-<p>最后我看 1002，发现每个三角形需要恰好选一个，又没有环，做一遍 dp
-即可，第一遍用了 map TLE，改成 unordered_map 就过了。</p>
-<p>随后 zhy 把全场不到 20 人过的 1001 给切了，写个 8 个
-binary_search，太强了。</p>
-<p>（所以 Cxny 写了歌姬吧）</p>
-<p>Solved 6 problems，Rank 86。</p>
-<p>总排名还上升到了 Rank 49，非常吃鲸。</p>
-<h1 id="day8">Day8</h1>
-<p>开场先写了 3 道签到题（1004 1001 1008），非常的爽，抢人头，一道树形
-dp 第一遍还推假了，非常傻逼。</p>
-<p>因此 Cxny 再次被迫成为演员。</p>
-<p>Shaojia 同时把 1011
-整除分块切了，非常强，但是赛后发现这题暴力就能过，<span
-class="math inline">\(10^7\)</span> 级别运算量。</p>
-<p>然后 Cxny 非常厉害地想出了 1007 的 <span
-class="math inline">\(O(n\sqrt n)\)</span>
-解法，但是没有卡过去，我花了好些时间帮 Cxny 卡常，还是 TLE。随后 Cxny
-把值域阀调小了，终于过了，可惜吃了 8 发罚时。</p>
-<p>此时 Shaojia 在写 1005，我在看 1002。中途 Shaojia 的 1005 WA
-了，还问我她有没有想错，我觉得是对的。然后 Shaojia
-对拍了好久，最后还是我交过的（事实上 Shaojia
-拍着去上厕所了，让后我看没问题就拿她电脑交了。</p>
-<p>然后我把 1002 过了，听 xsc 说他们也会了，但好像没调出来？</p>
-<p>然后我们去上课，Shaojia 在楼上继续想题 1010，他说面积与 <span
-class="math inline">\(t\)</span>
-成二次函数关系，然后就很简单了。于是我，Shaojia 和 zhy 一起写
-1010，但是我贺得板子是错的，贺了两次都是错的，Shaojia 没开
-<code>__int128</code>，最终 zhy 第一个过，并在 16:59 帮 Shaojia
-调过了，实在是太强辣！</p>
-<p>最终我无耻地抢到了 4 道题，Shaojia 2 道，Cxny 1 道，zhy 1 道。</p>
-<p>Solved 8 problems，Rank 50。</p>
-<p>总排名 Rank 45，Shaojia 和 zhy 非常强。</p>
-<h1 id="day9">Day9</h1>
-<p>现在已经是几个月以后了，记不太清了，大致讲讲就好。</p>
-<p>开场先速切两道签到题，然后开始坐牢，和 Shaojia 一起想
-1008，想到了容斥套容斥。</p>
-<p>结果 Shaojia
-写完锅了，才发现外层容斥有问题。于是想直接内层容斥，我算了一下发现复杂度并不会爆。</p>
-<p>于是改 1008，Shaojia 去写 1001，他所是二进制翻转 +
-排序，非常强大。</p>
-<p>Shaojia 又把 1006 贺过了，Cxny 又非常强大的把 1003 过了。</p>
-<p>Solved 6 problems，Rank 51。</p>
-<h1 id="day10">Day10</h1>
-<p>最后一场了，开场还是签到，我 1007，Cxny 1003。</p>
-<p>让后 xsc 发现 1001 是原题，我写了一下，直接 dinic 速过。</p>
-<p>然后我又去把 1009 过了，非常愉悦。</p>
-<p>Shaojia 说这段时间他都在和 zhy 讨论
-1004，发现难推，写了一个暴力，然后连猜两个结论，第一个结论证出来后他直接开写，过了。</p>
-<p>1 hour 出头过 5 题，直接 rank11，非常震撼，甚至 ez rank1 了。</p>
-<p>然后我们推 1002，Shaojia 推柿子，我写，是一个 容斥 + 矩阵快速幂优化
-dp。但是交了几发都没过。</p>
-<p>最后发现是 Shaojia 边界的容斥推错了，多了一个 <span
-class="math inline">\(1\)</span>。随后便过了。</p>
-<p>然后一起想 1008，有 LCT 启发式合并 树剖
-倍增四种写法，然后我写了倍增过了。常数比 wdssean 的树剖大不少。</p>
-<p>Solved 7 problems，Rank 41。</p>
-<h1 id="end">End</h1>
-<p>终于结束了，10 场连打真的很累，总分排名 Rank 46，还是比较满意的。</p>
-]]></content>
-      <tags>
-        <tag>游记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>逆天记录-3</title>
-    <url>/2023/09/14/day-1-3/</url>
-    <content><![CDATA[<h2 id="p9531-joisc-2022-day4-复兴计划">P9531 [JOISC 2022 Day4]
-复兴计划</h2>
-<p>首先有结论：对于每条边，在最终方案中会被选择的 <span
-class="math inline">\(X\)</span> 是一个区间。</p>
-<p>将所有的边按照边权排序，那么他被选择的代价关于 <span
-class="math inline">\(X\)</span>
-是一个绝对值函数。对于每条边，找出前一条能与他形成环的边，那么分界的
-<span class="math inline">\(X\)</span> 就是两条边边权的平均值。</p>
-<p>找出每条边的 pre 可以在 <span
-class="math inline">\(O(nm\alpha(n))\)</span>
-的复杂度内完成，并将询问离线，按照 <span
-class="math inline">\(X\)</span> 排序后维护一堆一次函数的和即可。</p>
-<h2 id="cf1801e-gasoline-prices">CF1801E Gasoline prices</h2>
-<p>对于每一个形如 <span
-class="math inline">\(\{(u_1,v_1),(u_2,v_2)\}\)</span>
-的限制，等价于将两条路径上对应点并查集合并，最后在同一个并查集中的元素的值必须相等，因此在求出最后并查集的合并情况后，只需要求出每个并查集连通块内部
-<span class="math inline">\(L\)</span> 的 <span
-class="math inline">\(\max\)</span> 与 <span
-class="math inline">\(R\)</span> 的 <span
-class="math inline">\(\min\)</span> 即可，这一部分是容易计算的。</p>
-<p>接下来考虑如何在合理的复杂度内计算出并查集的合并情况。</p>
-<p>首先发现，将所有点全部合并联通只需要进行 <span
-class="math inline">\(n-1\)</span> 次合并操作，因此有效的合并操作是
-<span class="math inline">\(O(n)\)</span>
-的，只需要依次找到有效的合并操作即可。</p>
-<p>考虑将每个点赋值上他所在并查集的祖先的点权，每次产生一个新的限制时，可以二分两条链上权值组成的序列的
-LCP，第一个不同的位置即为需要合并的两个点。</p>
-<p>因此只需要支持对于一个树上的单点修改，链上 hash
-查询操作，可以直接把树拍成 dfn 序之后用树状数组维护。</p>
-<p>时间复杂度 <span class="math inline">\(O(m\log^2n+n\alpha(n)+n\log
-V)\)</span>。</p>
-<h2 id="p8162-joi-2022-final-让我们赢得选举">P8162 [JOI 2022 Final]
-让我们赢得选举</h2>
-<p>以下称收获一张票为 A，收获一个支持者为 B。</p>
-<p>首先考虑在确定了最终哪几个选择 A，哪几个选择 B 时，一定是先按照 <span
-class="math inline">\(b_i\)</span> 从小到大依次完成
-B，随后以任意顺序完成 A，所需要的时间为 <span
-class="math inline">\(\sum\frac{b_i}{i}+\frac{\sum
-a_i}{|B|+1}\)</span>。没有很好的贪心选择策略，考虑 dp。</p>
-<p>由于 <span class="math inline">\(\frac{\sum a_i}{|B|+1}\)</span>
-的存在，因此在不确定 <span class="math inline">\(|B|\)</span>
-的前提下，很难对 A 进行 dp，因此首先枚举最终 B 选择了几个。</p>
-<p>先按照 <span class="math inline">\(b_i\)</span> 排序，暴力 dp 为
-<span class="math inline">\(f_{i,j,k}\)</span> 表示对于前 <span
-class="math inline">\(i\)</span> 个人，当前 B 选了 <span
-class="math inline">\(j\)</span> 个，A 选了 <span
-class="math inline">\(k\)</span>
-个，最小的时间是多少，但是这样时间复杂度为 <span
-class="math inline">\(O(n^4)\)</span>，可能可以通过 wqs 二分优化到 <span
-class="math inline">\(O(n^3\log n)\)</span>（我没证过），无法通过。</p>
-<p>观察一下性质，在对 <span class="math inline">\(b_i\)</span>
-排完序后，如果 <span class="math inline">\(i\)</span> 选择了 B，那么
-<span class="math inline">\(&lt;i\)</span>
-的位置不可能不选，因为如果位置 <span class="math inline">\(j\)</span>
-不选，那么可以选择 <span class="math inline">\(j\)</span> 成为 B 而不选
-<span class="math inline">\(i\)</span>，这样不会使结果更劣。</p>
-<p>因此可以枚举最后一个选 B 的位置是 <span
-class="math inline">\(i\)</span>，那么此时前面已经收获了 <span
-class="math inline">\(i\)</span>
-张票，后面需要的票数是确定的，直接贪心选择前 <span
-class="math inline">\(k-i\)</span> 小的 <span
-class="math inline">\(a_j\)</span> 即可。</p>
-<p>时间复杂度被优化至 <span
-class="math inline">\(O(n^3)\)</span>，可以通过。</p>
-<h2 id="abc219ex-candles">ABC219Ex Candles</h2>
-<p>首先有很显然的性质，由于吹灭蜡烛不需要时间，因此走到一个蜡烛的位置时一定会吹灭这根蜡烛，因此在对
-<span class="math inline">\(a\)</span>
-排序后，吹灭的蜡烛一定是一段区间。而没走一步，所有还没有被吹灭的蜡烛的长度都会
-<span class="math inline">\(-1\)</span>。</p>
-<p>但是如果每走一步都将不在区间内的蜡烛长度 <span
-class="math inline">\(-1\)</span>
-的话，会出现一些蜡烛的长度被减至负数的情况，导致计算得到的结果更小。</p>
-<p>因此考虑对于 dp 状态加一维，表示仍未熄灭的且最终长度 <span
-class="math inline">\(\ge 0\)</span>
-的蜡烛个数，显然这样不会得到比答案更优的结果。</p>
-<p>因此令 <span class="math inline">\(f_{l,r,0/1,i}\)</span>
-表示在吹灭的 <span class="math inline">\([l,r]\)</span>
-区间内的蜡烛后，当前在 <span class="math inline">\(0/1\)</span>（左/右
-端点），还未被吹灭的会记入最终答案的蜡烛个数为 <span
-class="math inline">\(i\)</span>
-的最大答案。转移时，枚举这个蜡烛是否被计入最终答案即可。</p>
-<p>时间复杂度 <span class="math inline">\(O(n^3)\)</span>。</p>
-<h2 id="p3488-poi2009-lyz-ice-skates">P3488 [POI2009] LYZ-Ice
-Skates</h2>
-<p>不考虑修改，对于一次询问，建立二分图，左边的每个点表示一个人，右边的每个点表示一双鞋，如果存在一个对于左部点的完美匹配，那么答案为
-YES。</p>
-<p>根据 Hall
-定理，对于左部点的任意一个集合，其对应的右部点的集合大小都应该要大于左部点集合大小。</p>
-<p>考虑这张二分图的性质，左部的每个点都对应右部的连续 <span
-class="math inline">\(k(d+1)\)</span>
-个点，因此对于左部点，区间的条件不弱于集合的条件，因此只要对于左部点的每个区间合法即可。</p>
-<p>考虑左部点 <span class="math inline">\([l,r]\)</span>
-的区间，需要满足 <span class="math inline">\(\sum_{i=l}^r a_i\le k\times
-(r-l+1+d)\)</span>，将每个 <span
-class="math inline">\(b_i=a_i-k\)</span>，只需要满足 <span
-class="math inline">\(\sum_{i=l}^rb_i\le k\times d\)</span>
-即可，因此只需要拿线段树维护 <span class="math inline">\(b\)</span>
-的最大子段和即可。</p>
-<h2 id="cf1693c-keshi-in-search-of-amshz">CF1693C Keshi in Search of
-AmShZ</h2>
-<p>不难，但是很有借鉴价值的好题。</p>
-<p>考虑题目要求求出最坏情况下的最少时间，因此每次走出边时，考虑走到仍未被删除的最坏的出边。</p>
-<p>令 <span class="math inline">\(d_u\)</span> 表示从 <span
-class="math inline">\(u\)</span> 到终点所需要的最少天数。对于一点 <span
-class="math inline">\(u\)</span>，如果没有割掉出边集合 <span
-class="math inline">\(S\)</span>，那么 <span
-class="math inline">\(d_u=\max_{(u,v)\in
-S}d_v+deg_u-|S|\)</span>。因此最终保留的边的集合一定是按照 <span
-class="math inline">\(d_v\)</span> 从小到大排序之后的一段前缀。</p>
-<p>但是这张图并不是一张 DAG，所以并不能直接求解。考虑在进行 dijkstra
-时有性质：当前枚举到的 <span class="math inline">\(dis\)</span>
-一定比之前枚举到的 <span class="math inline">\(dis\)</span>
-大，因此在进行一次 <span class="math inline">\(v\to u\)</span>
-的更新操作时，选择 <span class="math inline">\(d_v\)</span>
-作为排序后最后一个选择的没有割边的点，其最短路是 <span
-class="math inline">\(dis_v+deg_u-cnt_u\)</span>，其中 <span
-class="math inline">\(cnt_u\)</span> 表示已经更新过的 <span
-class="math inline">\(u\)</span> 的出边数量。</p>
-<p>直接跑 dijkstra 即可，时间复杂度 <span class="math inline">\(O(m\log
-n)\)</span>，本题巧妙之处在于利用了 dijkstra
-过程中的性质来拟合了题目要求的条件。</p>
-<h2 id="p6623-省选联考-2020-a-卷-树">P6623 [省选联考 2020 A 卷] 树</h2>
-<p>考虑每一位分别计算。每个点 <span class="math inline">\(u\)</span>
-对他的 <span class="math inline">\(k\)</span> 级祖先会产生 <span
-class="math inline">\(a_u+k\)</span> 的贡献，考虑将贡献差分，在每一位的
-<span class="math inline">\(0/1\)</span> 分界处将差分数组 <span
-class="math inline">\(\oplus1\)</span>，但是这样总的差分数组更改量还是
-<span class="math inline">\(O(n)\)</span> 的。</p>
-<p>考虑除了第一段，接下来二进制第 <span class="math inline">\(i\)</span>
-位的每一个 <span class="math inline">\(0/1\)</span> 连续段的长度都是
-<span class="math inline">\(2^i\)</span>，因此所有要更改差分的点的深度
-<span class="math inline">\(\bmod 2^i\)</span>
-都是相等的，因此直接对于每一个二进制位开一个差分数组，<span
-class="math inline">\(c_{i,s}\)</span> 表示二进制后 <span
-class="math inline">\(i\)</span> 位为 <span
-class="math inline">\(s\)</span> 的点的差分应该要异或多少。</p>
-<p>直接在 dfs 的时候维护差分数组即可，复杂度 <span
-class="math inline">\(O(n\log V)\)</span>，只需要枚举每个二进制位。</p>
-<p>另一种解法是直接维护 01trie，需要支持插入元素，合并 01trie，每个数
-<span class="math inline">\(+1\)</span> 与全局求异或和，可以将 01trie
-从低位往高位建，这样全局 <span class="math inline">\(+1\)</span>
-操作可以通过交换子树来完成，复杂度还是 <span
-class="math inline">\(O(n\log V)\)</span>。</p>
-<h2 id="cf1152f2-neko-rules-the-catniverse-large-version">CF1152F2 Neko
-Rules the Catniverse (Large Version)</h2>
-<p>由于限制了每个数只能出现一次，如果按照序列的位置
-dp，需要记录每个数是否出现，直接爆炸，因此考虑改变 dp 顺序。</p>
-<p>考虑从小到大考虑每一个数 <span
-class="math inline">\(i\)</span>，讨论他是否加入序列。</p>
-<p>此时如果再记录每个位置是否填了数，那么状态数会飙升至 <span
-class="math inline">\(2^k\)</span> 往上，再乘上 <span
-class="math inline">\(n\)</span> 又炸飞了。但是考虑到每个数的具体位置在
-dp
-过程中并不重要，我们只需要关心每个已经插入的数的相对位置即可，因此可以据此设计
-dp 状态。</p>
-<p>设 <span class="math inline">\(f_{i,j,k}\)</span> 表示已经考虑插入了
-<span class="math inline">\(1\sim i\)</span>
-这些数，其中加入序列中的数有 <span class="math inline">\(j\)</span>
-个，最后的四种数是否在序列中出现的状态集合为 <span
-class="math inline">\(k\)</span> 的方案数。</p>
-<p>由于题目要求对于相邻两个数，后面的数不能大于前面的数 <span
-class="math inline">\(+m\)</span>，因此对于一个数 <span
-class="math inline">\(i\)</span>，要么放在序列的开头，要么插在前 <span
-class="math inline">\(m\)</span> 个数之后，要么不放，因此转移如下：</p>
-<p><span class="math display">\[
-\begin{cases}
-f_{i,j,k}\to f_{i+1,j,k\times 2}\\
-f_{i,j,k}\times (\operatorname{popcount}(k)+1)\to f_{i+1,j+1,k\times
-2+1}
-\end{cases}
-\]</span></p>
-<p>对于 <span class="math inline">\(\{j,k\}\)</span> 一共只有 <span
-class="math inline">\(k\times 2^m\)</span>
-种，因此可以直接矩阵快速幂优化，时间复杂度 <span
-class="math inline">\(O(k^38^m\log n)\)</span>。</p>
-<h2 id="p8688-蓝桥杯-2019-省-a-组合数问题">P8688 [蓝桥杯 2019 省 A]
-组合数问题</h2>
-<p>组合数转化成了数位 dp，卢卡斯和进制之间的转化，很新奇。</p>
-<p>根据卢卡斯定理，有 <span class="math inline">\(\binom{n}{m}\equiv
-\binom{n/k}{m/k}\times \binom{n\bmod k}{m\bmod k}\pmod
-k\)</span>，发现这个东西就是将 <span class="math inline">\(n,m\)</span>
-写成 <span class="math inline">\(k\)</span>
-进制后对应位组合数的乘积。</p>
-<p>题目要求 <span class="math inline">\(\binom{x}{y}\equiv 0\pmod
-k\)</span>，由于 <span class="math inline">\(k\)</span> 为质数，因此只要
-<span class="math inline">\(x,y\)</span> 在 <span
-class="math inline">\(k\)</span> 进制下任意一位的组合数 <span
-class="math inline">\(\bmod k=0\)</span> 即可。又由于 <span
-class="math inline">\(x,y\)</span> 在 <span
-class="math inline">\(k\)</span> 进制下的每一位都 <span
-class="math inline">\(&lt;k\)</span>，因此其组合数 <span
-class="math inline">\(=0\)</span> 只有可能是这一位上的 <span
-class="math inline">\((a,b)\)</span> 满足 <span
-class="math inline">\(a&lt;b\)</span>。</p>
-<p>因此可以对 <span class="math inline">\(n,m\)</span> 为上界，在 <span
-class="math inline">\(k\)</span> 进制下数位 dp。令 <span
-class="math inline">\(f_{i,0/1,0/1,0/1}\)</span> 表示考虑了 <span
-class="math inline">\(k\)</span> 进制的前 <span
-class="math inline">\(i\)</span> 位，<span
-class="math inline">\(n\)</span> 是否顶到上界，<span
-class="math inline">\(m\)</span> 是否顶到上界，是否存在某一位 <span
-class="math inline">\((a,b)\)</span> 满足 <span
-class="math inline">\(a&lt;b\)</span> 的方案数。</p>
-<p>转移可以直接分类讨论并计算方案数，时间复杂度 <span
-class="math inline">\(O(T\log_k n)\)</span>。</p>
-<h2 id="cf1418f-equal-product">CF1418F Equal Product</h2>
-<p>考虑对于满足条件的 <span
-class="math inline">\((x_1,y_1,x_2,y_2)\)</span>，必有 <span
-class="math inline">\(x_1\cdot y_1=x_2\cdot y_2\)</span>，因此 <span
-class="math inline">\(\frac{x_1}{x_2}=\frac{y_2}{y_1}=\frac{a}{b}\)</span>，因此
-<span class="math inline">\(x_2=\frac{x_1}{a}\cdot
-b,y_2=\frac{y_1}{b}\cdot a\)</span>，并且可以证明 <span
-class="math inline">\(a\mid x_1\)</span> 且 <span
-class="math inline">\(b\mid y_1\)</span>。</p>
-<p>通过这个转化，可以发现满足 <span class="math inline">\(a\mid
-x_1\)</span> 的 <span class="math inline">\((x_1,a)\)</span> 只有 <span
-class="math inline">\(O(n\log n)\)</span> 对，可以直接枚举。</p>
-<p>对于一个 <span class="math inline">\(x_1\)</span>，我们需要找出一对
-<span class="math inline">\((y_1,b)\)</span> 满足如下条件：</p>
-<p><span class="math display">\[
-\begin{cases}
-\lceil\frac{L}{x_1}\rceil\le y_1\le\lfloor\frac{R}{x_1}\rfloor\\
-\frac{x_1}{a}\cdot b\le n\\
-y_1\le m\\
-a&lt;b
-\end{cases}
-\]</span></p>
-<p>发现在 <span class="math inline">\(x_1\)</span> 递增时，<span
-class="math inline">\(\lceil\frac{L}{x_1}\rceil\)</span> 与 <span
-class="math inline">\(\lfloor\frac{R}{x_1}\rfloor\)</span>
-都是单调不增的，因此可以时刻用一个 set 维护满足第一个条件的 <span
-class="math inline">\((y_1,b)\)</span> 数对，每次查询时找到最小的满足
-<span class="math inline">\(b&gt;a\)</span> 的数对 <span
-class="math inline">\((y_1,b)\)</span>，判断其是否满足第二个条件即可。时间复杂度
-<span class="math inline">\(O(n\log^2n)\)</span>。</p>
-]]></content>
-      <tags>
-        <tag>好题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>浅谈 $O(n)-O(1)$ rmq</title>
-    <url>/2023/09/15/on-o1-rmq/</url>
-    <content><![CDATA[<p>说到 <span class="math inline">\(O(n)-O(1)\)</span> rmq
-问题，最广为认知的就是四毛子，但是四毛子不好写，因此来记录几个较为好写的
-<span class="math inline">\(O(n)-O(1)\)</span> rmq 算法。</p>
-<h2 id="分块">分块</h2>
-<ul>
-<li>优点：较为好写，且能够做到严格的 <span
-class="math inline">\(O(n)-O(1)\)</span>。</li>
-<li>缺点：不能算非常好写。</li>
-</ul>
-<p>将序列按照每 <span class="math inline">\(\log n\)</span>
-个元素分为一块，序列将被分为 <span class="math inline">\(\frac{n}{\log
-n}\)</span> 块，求出每个块内的最大值，并在块间建立 ST
-表。并且对于每个块内，处理出前缀和后缀最大值。</p>
-<p>对于一个询问 <span
-class="math inline">\([l,r]\)</span>，找出被完全包含的区间，求出这几个块之间的最大值，对于两边的散块，调用前后缀最大值即可。</p>
-<p>至此，预处理时间复杂度 <span class="math inline">\(O(\frac{n}{\log
-n}\cdot \log n+n)=O(n)\)</span>，查询时间复杂度 <span
-class="math inline">\(O(1)\)</span>。</p>
-<p>看似结束了，但是如果询问的区间被包含在了一个块内该怎么办呢？</p>
-<p>在预处理时，可以对于每个块内分别跑一遍单调栈，维护块内每个位置的前缀的后缀最大值。同时，单调栈内的元素个数是
-<span class="math inline">\(O(\log n)\)</span>
-的，每个元素可以用他在块内的位置表示，值域也是 <span
-class="math inline">\(O(\log n)\)</span> 的。</p>
-<p>我们可以将者 <span class="math inline">\(O(\log n)\)</span> 个值域为
-<span class="math inline">\(O(\log n)\)</span> 的数压缩成一个值域为
-<span class="math inline">\(O(\log^{\log n} n)\)</span> 的 long long
-记录下来，不难发现这个 long long 可以在入栈和弹栈的时候同时维护。</p>
-<p>另一种存贮方式是对于每个数，记录这个数到当前块的开头哪些位置在单调栈中，每次询问是可以使用
-<code>__builtin_ctz</code>
-函数进行查询。这种方式所使用的空间更少，单个元素的值域是 <span
-class="math inline">\(O(2^{\log n})=O(n)\)</span>。</p>
-<p>询问时，直接调用 <span class="math inline">\(r\)</span>
-所在位置的单调栈信息即可，不难发现复杂度也是 <span
-class="math inline">\(O(n)-O(1)\)</span> 的。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> T = <span class="type">int</span>;</span><br><span class="line"><span class="type">const</span> <span class="keyword">auto</span> cmp = [](T x, T y) &#123; <span class="keyword">return</span> x &gt; y; &#125;;</span><br><span class="line"><span class="type">unsigned</span> f[N];</span><br><span class="line">T val[N], st[<span class="number">20</span>][( N &gt;&gt; <span class="number">5</span> ) + <span class="number">9</span>], pre[N], suf[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> T <span class="title">mx</span><span class="params">(T x, T y)</span> </span>&#123; <span class="keyword">return</span> <span class="built_in">cmp</span>(x, y) ? x : y; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">init</span><span class="params">(T *x, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">  <span class="built_in">copy</span>(x + <span class="number">1</span>, x + n + <span class="number">1</span>, val);</span><br><span class="line">  <span class="built_in">rep</span> (i, <span class="number">0</span>, n - <span class="number">1</span>) st[<span class="number">0</span>][i &gt;&gt; <span class="number">5</span>] = i &amp; <span class="number">31</span> ? <span class="built_in">mx</span>(st[<span class="number">0</span>][i &gt;&gt; <span class="number">5</span>], val[i]) : val[i];</span><br><span class="line">  <span class="built_in">rep</span> (i, <span class="number">1</span>, __lg(( ( n - <span class="number">1</span> ) &gt;&gt; <span class="number">5</span> ) + <span class="number">1</span>)) <span class="built_in">rep</span> (j, <span class="number">0</span>, ( ( n - <span class="number">1</span> ) &gt;&gt; <span class="number">5</span> ) + <span class="number">1</span> - ( <span class="number">1</span> &lt;&lt; i ))</span><br><span class="line">    st[i][j] = <span class="built_in">mx</span>(st[i - <span class="number">1</span>][j], st[i - <span class="number">1</span>][j + ( <span class="number">1</span> &lt;&lt; ( i - <span class="number">1</span> ) )]);</span><br><span class="line">  <span class="built_in">rep</span> (i, <span class="number">0</span>, n - <span class="number">1</span>) pre[i] = i &amp; <span class="number">31</span> ? <span class="built_in">mx</span>(pre[i - <span class="number">1</span>], val[i]) : val[i];</span><br><span class="line">  <span class="built_in">per</span> (i, n - <span class="number">1</span>, <span class="number">0</span>) suf[i] = i != n - <span class="number">1</span> &amp;&amp; ( ~i &amp; <span class="number">31</span> ) ? <span class="built_in">mx</span>(suf[i + <span class="number">1</span>], val[i]) : val[i];</span><br><span class="line">  <span class="type">int</span> top = <span class="number">0</span>, stk[<span class="number">39</span>];</span><br><span class="line">  <span class="built_in">rep</span> (i, <span class="number">0</span>, n - <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> ( i &amp; <span class="number">31</span> ) f[i] = f[i - <span class="number">1</span>]; <span class="keyword">else</span> f[i] = top = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> ( top &amp;&amp; !<span class="built_in">cmp</span>(val[stk[top]], val[i]) ) f[i] &amp;= ~( <span class="number">1u</span> &lt;&lt; ( stk[top--] &amp; <span class="number">31</span> ) );</span><br><span class="line">    f[i] |= <span class="number">1u</span> &lt;&lt; ( ( stk[++top] = i ) &amp; <span class="number">31</span> );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> T <span class="title">qry</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> ( ( --l &gt;&gt; <span class="number">5</span> ) != ( --r &gt;&gt; <span class="number">5</span> ) ) &#123;</span><br><span class="line">    T ret = <span class="built_in">mx</span>(suf[l], pre[r]);</span><br><span class="line">    <span class="keyword">if</span> ( ( r &gt;&gt; <span class="number">5</span> ) - ( l &gt;&gt; <span class="number">5</span> ) &gt; <span class="number">1</span> ) &#123;</span><br><span class="line">      <span class="type">int</span> t = __lg(( r &gt;&gt; <span class="number">5</span> ) - ( l &gt;&gt; <span class="number">5</span> ) - <span class="number">1</span>);</span><br><span class="line">      ret = <span class="built_in">mx</span>(ret, <span class="built_in">mx</span>(st[t][( l &gt;&gt; <span class="number">5</span> ) + <span class="number">1</span>], st[t][( r &gt;&gt; <span class="number">5</span> ) - ( <span class="number">1</span> &lt;&lt; t )]));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> val[l + __builtin_ctz(f[r] &gt;&gt; ( l &amp; <span class="number">31</span> ))];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="谁波-rmq">谁波 rmq</h2>
-<ul>
-<li>优点：非常好写，且跑得很快</li>
-<li>缺点：依赖于随机数据，查询复杂度并非 <span
-class="math inline">\(O(1)\)</span>。</li>
-</ul>
-<p>准确来说并不能放在 <span class="math inline">\(O(n)-O(1)\)</span> rmq
-的博客中，但是因为他实在是太好写了，跑得太快了。</p>
-<p>首先调用 <code>nth_element</code> 求出序列中前 <span
-class="math inline">\(\frac{n}{\log n}\)</span> 大元素，然后对这 <span
-class="math inline">\(\frac{n}{\log n}\)</span> 个数从大到小排序。</p>
-<p>预处理复杂度为 <code>nth_element</code> 的 <span
-class="math inline">\(O(n)\)</span> 与排序的 <span
-class="math inline">\(O(\frac{n}{\log n}\cdot \log
-n)=O(n)\)</span>。</p>
-<p>每次查询时，从大到小枚举前 <span class="math inline">\(\frac{n}{\log
-n}\)</span> 个数，判断每个数是否在询问的区间中，找到即退出。</p>
-<p>如果找不到，这样的询问数量是 <span
-class="math inline">\(O(1)\)</span>
-的，可以直接暴力枚举，或者使用线段树查询。</p>
-<p>在保证数据随机时，查询复杂度为期望 <span class="math inline">\(O(\log
-n)\)</span>，且拥有一个极小的常数，甚至可以视为 <span
-class="math inline">\(O(1)\)</span>。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> n, m, a[N], t, w[<span class="number">1</span> &lt;&lt; <span class="number">26</span>];</span><br><span class="line">pii b[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">qry</span><span class="params">(<span class="type">int</span> c, <span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> x, <span class="type">int</span> y)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (l == x &amp;&amp; r == y) <span class="keyword">return</span> w[c];</span><br><span class="line">  <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">if</span> (y &lt;= mid) <span class="keyword">return</span> <span class="built_in">qry</span>(c &lt;&lt; <span class="number">1</span>, l, mid, x, y);</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (x &gt; mid) <span class="keyword">return</span> <span class="built_in">qry</span>(c &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, mid + <span class="number">1</span>, r, x, y);</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">return</span> <span class="built_in">max</span>(<span class="built_in">qry</span>(c &lt;&lt; <span class="number">1</span>, l, mid, x, mid), <span class="built_in">qry</span>(c &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, mid + <span class="number">1</span>, r, mid + <span class="number">1</span>, y));</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">rep</span> (i, <span class="number">1</span>, n) a[i] = <span class="built_in">read</span>(), b[i] = <span class="built_in">pii</span>(-a[i], i);</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) w[i + t - <span class="number">1</span>] = a[i];</span><br><span class="line"><span class="built_in">per</span> (i, t, <span class="number">1</span>) w[i] = <span class="built_in">max</span>(w[i &lt;&lt; <span class="number">1</span>], w[i &lt;&lt; <span class="number">1</span> | <span class="number">1</span>]);</span><br><span class="line"><span class="built_in">nth_element</span>(b + <span class="number">1</span>, b + B, b + n + <span class="number">1</span>), <span class="built_in">sort</span>(b + <span class="number">1</span>, b + B + <span class="number">1</span>);</span><br><span class="line"><span class="comment">// query</span></span><br><span class="line"><span class="built_in">rep</span> (i, <span class="number">1</span>, B) <span class="keyword">if</span> (b[i].se &gt;= l &amp;&amp; b[i].se &lt;= r) &#123; ans = -b[i].fi, f = <span class="number">1</span>; <span class="keyword">break</span>; &#125;</span><br><span class="line"><span class="keyword">if</span> (!f) ans = <span class="built_in">qry</span>(<span class="number">1</span>, <span class="number">1</span>, t, l, r);</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>百度之星决赛2022</title>
-    <url>/2022/11/26/astar2022/</url>
-    <content><![CDATA[<h2 id="day-0">Day 0</h2>
-<p>上午学长们在 NOIp，初中生没得去，在家颓废。</p>
-<p>下午去现场看了一下，感觉还不错，被采访了，一时半会儿没答上话来。</p>
-<p>希望明天不要太寄，睡觉！</p>
-<h2 id="day-1">Day 1</h2>
-<p>上午最早到，有点尴尬，不过还好过一会儿孙老师就来了，8
-点比赛就开始了。</p>
-<p>今年题目比去年人性很多，大概是给你各种类型的信息，让你 encode 和
-decode，encode 后的数列长度越小分越高，你还可以写一个词典。</p>
-<p>第一题非常困难，要输入各种语言的字符，不太会，于是先鸽了。</p>
-<p>然后发现图片信息的题目很好做，随手写了一个就交了，但是一直格式错误，人快崩溃。还好最后瞎改改过了，打开
-80pts。</p>
-<p>然后去做其他题，主要是要找出 出现次数*长度 最大的几个子串，感觉很
-hard。</p>
-<p>然后本地随便开了个 map，把所有长度 <span class="math inline">\(\le
-5\)</span> 的子串塞进去，但是还是很大，最后直接果断到 <span
-class="math inline">\(1e6\)</span> 个就
-<code>break</code>，但是分数不太理想。</p>
-<p>（赛后才发现可以直接 SAM，感觉自己是个智障。）</p>
-<p>中午随便吃了点，然后下午直接开 6，一度拿到 100pts 的 rank1
-成绩，但是不久之后就只剩下 80pts 左右了，很寄吧。</p>
-<p>下午还有 3h 时间，研究了好久怎么输入输出 <code>utf-8</code>
-编码的字符，看了各种关于 <code>wstring</code> 和 <code>wchar_t</code>
-的文章，但还是无果。</p>
-<p>最后直接用 <code>char</code> 类型的来
-<code>getchar</code>，在最后一小时过了
-/jy。但是已经封榜了，不知道能拿几分。</p>
-<p>7 是把所有的组合起来，但是不想写了，于是直接交了 1
-的代码就跑路了。</p>
-<p>最后把图片处理优化了一下，然后去改
-1，但是没改完就结束了。于是跑路。</p>
-<p>下午有好久的活动时间，碰到学车的人，直接联机打块，很爽啊！还见到了一些学车的人。</p>
-<p>下午出榜了，<span
-class="math inline">\(4.25+25.46+28.43+80.96+29.29+47.29+4.96\)</span>，加完权之后
-<span class="math inline">\(23.55\)</span>，只有 rank53。</p>
-<p>不知道自己 1 实现地这么垃圾，只有 4 分，7 有 <span
-class="math inline">\(40\%\)</span> 的权重，但是只有 5
-分不到，亏麻了，早知道就去磕 1 和 7 了，还好图片处理的分数不低。</p>
-<p>晚上颁奖，又听了 114514 年的废话，然后只拿了个纪念奖，小星星
-rank12，寄吧了，拿了个词典笔，一分钱都没有。</p>
-<p>章绍嘉这个 AK IOI 的人喜提 5k，xay 喜提 1w。</p>
-<p>晚上抽奖，孙老师两张票，第一张抽中了，他直接上去了，然后下一个第二张又中了，于是我直接抢了上去，白嫖一个音响
-/qiang。</p>
-<p>拿到好多钱 OvO，明年最后一次小星星机会，多给点钱吧 /kel。</p>
-]]></content>
-      <tags>
-        <tag>游记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>联合省选2023</title>
-    <url>/2023/04/01/pe2023/</url>
-    <content><![CDATA[<h2 id="day--1">Day -1</h2>
-<p>学校请假，上午去机房 goose goose duck，好爽。</p>
-<p>下午去试机，车费好贵 /fn/fn/fn。</p>
-<p>键盘手感好评，居然和我用的完全一样。</p>
-<p>晚上不知道在干啥。</p>
-<h2 id="day-1">Day 1</h2>
-<p>早起，有点没睡醒。</p>
-<p>车上背了一下 pb_ds 的单词，相信是用不上的。</p>
-<p>开考 20 min 先把 T1 写了，然后开始坐牢。</p>
-<p>T2 是数数，感觉不太会，于是先开 T3，发现 <span
-class="math inline">\(O(nq\log^2 n)\)</span> 有点傻逼，写了一下。</p>
-<p>然后继续看 T2，花了 30+ min，才发现读错题了，好久才搞懂题意。</p>
-<p>一脸懵，写了 <span class="math inline">\(O(2^n\text{poly} n)\)</span>
-就跑路了，不太想想 <span class="math inline">\(k=0\)</span> 的。</p>
-<p>然后测了一下 T3 的效率，大样例跑了 3s 左右，时限只有
-5s，感觉很卡常啊！</p>
-<p>于是把 multiset 改成了四个堆，写了巨大久，改完跑了 2.5s
-左右，就扔掉了。</p>
-<p>大概已经 11:00 左右了，接下来开始徘徊 T2 的树部分分 和 T3
-的链特殊性质，最后都没拿分，呜呜呜。</p>
-<p>出场后发现大家 T2 都 <span class="math inline">\(50\)</span>
-了，有点寄，感觉 <span class="math inline">\(k=0\)</span> 的 dp
-不难想啊，我为什么要强吃树的部分？？？</p>
-<p>出场估分 <span
-class="math inline">\(100+25+48=173\)</span>，比大众分低了一大截，呜呜呜。</p>
-<p>感觉队线 <span class="math inline">\(100+100+48=248\)</span> 啊！</p>
-<p>晚上不知道在干啥，摸了一会儿鱼。</p>
-<h2 id="day-2">Day 2</h2>
-<p>本来想翻盘的，结果被翻盘了。呜呜呜。</p>
-<p>一开 T1
-发现有点神秘，不好估计难度，感觉不是很难，但是感觉又不简单，于是先丢了。</p>
-<p>然后看 T2，好久都没有想出一个合理的做法，甚至是否有解都只会 <span
-class="math inline">\(O(n\sqrt n)\)</span> 的 dinic 算，感觉寄飞了。</p>
-<p>不会正解，开始看特殊性质，A 和 B 都很好写，于是写完去看了看 T3。</p>
-<p>还是不会啊，但是只剩 2.5h 了，赶紧回去码 T1。</p>
-<p>写了大概 8k 左右，样例都没过，很多次都是 RE，还好没开无限栈。</p>
-<p>调了好久发现做法假了，眼看只有 1.5h 了，赶紧开始拼暴力，写了 20
-的部分分就跑路了。</p>
-<p>然后开始想 T3，突然发现自己之前看错题了。。</p>
-<p>赶紧开始写 T3 的 10 部分分的暴力 dp，很好写啊！但是一下就挂了啊！</p>
-<p>调了好久还是每过，于是重构，一遍过了样例。</p>
-<p>还剩大概半小时吧，看了看 T1 的部分分要大分讨，不好写，于是去写 T2 的
-C 性质。</p>
-<p>写完之后发现不对，怎么回事呢，调了好久的 dinic，才发现不是 dinic
-写炸了，是建图炸了。</p>
-<p>没修完就马上结束了，赶紧理了理文件夹，润了。</p>
-<p>出场估分 <span
-class="math inline">\(20+40+10=70\)</span>，没到大众分的一般，呜呜呜。</p>
-<p>感觉队线 <span class="math inline">\(100+100+10=210\)</span> 啊！</p>
-<p>下午一直在打鹅，好谔谔。</p>
-<p>总分估计 <span
-class="math inline">\(100+25+48+20+40+10=243\)</span>。</p>
-<p>队线估计 <span
-class="math inline">\(100+100+48+100+100+10=458\)</span>，寄！</p>
 ]]></content>
       <tags>
         <tag>游记</tag>
@@ -1764,6 +738,1200 @@ n)\)</span>，直接跑费用流即可。</p>
       </tags>
   </entry>
   <entry>
+    <title>杭电多校2022</title>
+    <url>/2022/07/20/hdu2022/</url>
+    <content><![CDATA[<p><a
+href="https://www.cnblogs.com/zhangshaojia/p/16503449.html">ShaoJia的游记</a></p>
+<p><del>其实没有游，都在ez机房。</del></p>
+<p>人生第二次打 ACM（第一次算是 THUPC 吧）。</p>
+<h1 id="day1">Day1</h1>
+<p>中午去面馆吃面，会到二中已经 11:55 ，跑去机房就开始了。</p>
+<p>一下就开了 1011 签到题，结果误以为红色是 WA，想了好久那里挂了，结果
+10 分钟后有人告诉我我过了。/qd</p>
+<p>全场就做了 1011 和 1012 两道题，成为全队最卷选手。总之把 Shaojia 和
+Cxny 带飞了。</p>
+<p>中途帮 Shaojia 调了 1007，最后竟然是因为没加 <code>inline</code>
+而爆栈了。/qd</p>
+<p>最后在死磕 1001，一道 KMP 毒瘤题，WA 了两发无果。</p>
+<p>Solved 6 problems，Rank 79。</p>
+<h1 id="day2">Day2</h1>
+<p>吸取 Day1 的教训，早点出去吃饭，顺便换了一家快餐店。</p>
+<p>到场离开始还有几分钟，和 Shaojia 打了一场 Generals
+2V2，成功偷家，ShaoJia <a
+href="https://www.bilibili.com/video/BV1rA411g7q8/">太逊了</a>。</p>
+<p>继续倒序开题，1012 签到题，但 <code>INF</code> 没开够挂了一发。</p>
+<p>然后看 1007，题目看了半个多小时，最后 5min 写完代码切掉了。</p>
+<p>1011
+线段树，但第一次写假了，还写得很繁。最后只能再写一次，过的时候已经 14:22
+了。</p>
+<p>1005 又是线段树，死磕 Dp 式最后和 Shaojia
+研究出来了，但发现前面处理区间写挂了。</p>
+<p>最后改了半小时还是 WA。贡献 3 题结束。最后半小时 Shaojia 和 Cxny 开始
+Generals，本巨佬还在调题（驱蚊器）。</p>
+<p>Solved 8 problems，Rank 56。</p>
+<h1 id="day3">Day3</h1>
+<p>Shaojia 没来，没法吊打他了。</p>
+<p>开场傻乎乎一题都不会，Cxny 把 2 道签到题给切了。我过了好久才把 1012
+这道爪巴 Dp 给过了。</p>
+<p>然后看
+1011，第一反应曼哈顿距离转切比雪夫距离，然后分四个方向讨论，前后缀 <span
+class="math inline">\(x\)</span> 与 <span
+class="math inline">\(w\)</span> 最小最大值即可。</p>
+<p>于是开始写，但发现很难写，才写四分之一 Daniel
+就过了，问了以下发现自己是傻逼，并不用转切比雪夫距离，去掉冗余状态直接二分即可，于是过了。</p>
+<p>1002
+也是萌萌题，理解题意理解错了好多次，最后才知道每个技能只能用一次，直接
+二分 + 状压 Dp 即可，很快就写完了。</p>
+<p>1001 Daniel 柿子推错了，正解好像是 cdq 分治 + 多项式（FFT）优化
+Dp，不在自己能力范围之内（虽然算法都会），没切正常。</p>
+<p>1008 三维计算几何，一开始把 plane(平面)
+理解成了飞机，笑了好久。当然计算几何还是算了（尽管过了一车人）。</p>
+<p>今天一共就过了 5 道签到题，自己做了 3 道（当然感谢 Cxny
+的翻译<strong>与罚时</strong>），没有 Shaojia 的日子真舒服，abandon
+后打了好久的 Generals。</p>
+<p>Solved 5 problems，Rank 143。</p>
+<h1 id="day4">Day4</h1>
+<p>Shaojia 仍然没来，不过今天在家里打，不用担心吃饭的问题。</p>
+<p>一开始选了几道题都没咋仔细看题面，然后看 1004
+一车人过了，于是去看题，手玩几组发现这不就全是 <code>NO</code>
+吗，然后又看时限给了 8000ms，不敢交。</p>
+<p>过了好久才去试了试，然后过了，出题人你母亲时限干啥的。</p>
+<p>然后 1006，非常的简单，比 1004 还简单，但没判一下就上 <span
+class="math inline">\(200\)</span> 的情况，吃了一发罚时。</p>
+<p>随后去看 1007，发现又是非常萌萌的题，虽然但是，还是吃了一发罚时。</p>
+<p>随后 Cxny 把 1001 切了，是一道记忆化搜索跑区间 Dp 的题，与 CSP-S2021
+的 t2 有些类似。</p>
+<p>然后发现 1011
+过的人也挺多。虽然不会证，但奶了一口直接线性基，然后过了 /qd。</p>
+<p>1002 则是罚时聚集地，我和 Cxny 一起写，一遍最短路再一遍最长路。然后我
+WA 了，Cxny TLE 了，看了看写法，我的最长路是 topo 序 Dp 的，Cxny 直接
+dij 了。于是我明白了会有 <span class="math inline">\(0\)</span>
+环，然后加了个 tarjan 缩点就过了。</p>
+<p>1005 过的人很多，但我看了一眼不会，然后去看
+1003。一眼就看出对前缀和差分约束。然后写挂了。查了半天发现差分约束返回无解时队列里会有东西，下一次开始又没清空
+/qd。改了下过了。</p>
+<p>然后颓了一会儿。再看 1005
+发现两层合并就是矩阵乘法，而点数又很少，一口奶定是用矩阵做的。然后是个双指针类似，但矩阵除法需要求逆，步数又会很大，又不能取模，于是寄了。</p>
+<p>然后就开始写线段树，每次线段树查询区间乘积。正确的，但是多了一只
+<span class="math inline">\(\log\)</span> 被卡了。</p>
+<p>最后才想到能在用一个指针记录一下现在处理到的位置，然后对这个 <span
+class="math inline">\(l\)</span>
+求基于这个位置的后缀积，复杂度与双指针相同（妙啊），于是最后半小时冲过了。</p>
+<p>今天这场写了 7 题，手感还是不错的 doge。</p>
+<p>Solved 8 problems，Rank 65。</p>
+<h1 id="day5">Day5</h1>
+<p>Shaojia 回归，但是今天的剧情加了这个傻逼怎么会这样的呢？</p>
+<p>开场 Shaojia 切了 1002，我看了 1012。1012
+手写一个堆即可，但我蜜汁写挂了。</p>
+<p>然后愣了半天发现节点更新写错了，改了就过了。</p>
+<p>然后我和 Cxny 看 1010。又是一道博弈论，英文太差，完全看不懂题。在
+Cxny 的技术支持下，我发现答案全是
+<code>Win!</code>，即先手询问最大的正确信息，后手必输。</p>
+<p>但是 WA 了。愣了半天发现 <span class="math inline">\(x\ge
+1\)</span>。改了就过了，空吃 3 发罚时。</p>
+<p>1007 的柿子我和 Shaojia 推了半天无果，OEIS 还是无果，Cxny OEIS
+了一下就出来了。然后他把柿子给我，我写了一个 NTT
+加速转移就过了。很激动，第一次做多项式题就过了。</p>
+<p>于是去看 1002，证了一下发现这是个积性函数，可以直接 Min_25
+筛。但是以前没写过，怎么办呢？贺板子。</p>
+<p>先贺了 OI-wiki 的板子，调了半天结果 TLE 了，十分愤怒，直接弃题。</p>
+<p>然后去看 1006，想了好久发现是一个 dp，写了一下 WA
+了，看了一下发现数组清空写错了，改了下就过了。</p>
+<p>然后又是 1002，去 loj 上找跑地最快的板子，改到结束还是
+TLE，十分愤怒。</p>
+<p>Shaojia 状态不佳啊，是不是没睡够呢，还是本来就这么菜。</p>
+<p>Solved 5 problems，Rank 92。</p>
+<h1 id="day6">Day6</h1>
+<p><del>我发现我每次开场总不能先蒙到水题（盲狙一直很不准</del></p>
+<p>赛前吸收了肯爷爷的祝福，神清气爽。</p>
+<p>开场 Shaojia 直接爆切 1006 和 1009，排名直接 rank
+8。我被震撼到了，膜膜膜。</p>
+<p>我看 1012，看着一个一个队过了，自己一片混乱，感觉要寄。</p>
+<p>然后 Shaojia 让我看
+1008。手玩了一会儿发现根据二进制可以推出神秘的规律（不知道叫啥，且称周期性吧）。</p>
+<p>然后和 Shaojia
+讨论了一下，打了个暴力发现是正确的，于是两人开始一起码。</p>
+<p>码完发现样例都过不了，非常疑惑。Shaojia 一下就看出了问题，改了 1min
+就过了，不愧是 Shaojia。</p>
+<p>然后 1010
+平面图转对偶图，对偶图上的最小生成树等于原图上最大生成树中没有被选的边，并查集即可，很水，1A（终于
+A 题了）。</p>
+<p>Cxny 很快就把 1012 给过了，代码很短，<del>我们都说 Cxny
+在演</del>。</p>
+<p>接下来 Shaojia 把 1007 自己的见解告诉我，我想了想，Shaojia 开搞。</p>
+<p>大概是一道同余原根的题目，Shaojia 想想想推推推发现有 BSGS + exgcd
+的算法，虽然能够，但是时间有点卡。</p>
+<p>Shaojia 说他人傻常数大，太逊了,但我还是怂恿他开写。</p>
+<p><del>随后我作弊看了 cxy 他们的代码，发现直接逆元 + unordered_map
+过，时间复杂度飞快，</del>Shaojia 非常尴尬，我们都嘲笑他 OvO。</p>
+<p>随后 Shaojia 就过了 1007。</p>
+<p>我开始和 Cxny 讨论 1011，Shaojia 切完后也参与套路。我 oeis，被 wxw
+看见了，他说“他们在 O 一道题”，非常尴尬。</p>
+<p><del>最后绷不住，直接看 wxw 队的代码，Shaojia 直接怂恿我抄，过不了
+TLE。</del></p>
+<p>回头检查一下发现他们算次是 <span class="math inline">\(10^9\)</span>
+级别的，本因过不了，但是他们就蜜汁过了。</p>
+<p>wsyear 改了一下，从枚举因数到倍数 <span
+class="math inline">\(O(n\sqrt n\log n)\rightarrow O(n\log^2
+n)\)</span>，过了。</p>
+<p>此后又把 1002 经过几次罚时调参调过了，之前就听到 xay 说他在调参。</p>
+<p>最后 15min 集体颓废，FFA 了 3 把，第二把碰到了 Daniel777。</p>
+<p><del>Cxny 抱怨说为啥你俩讨论不带我。</del></p>
+<p>最后，Shaojia：4 题，我：3 题，cxny：1 题。<del>Cxny
+太演了。</del></p>
+<p>Solved 8 problems，Rank 29。</p>
+<p>总榜排名 Rank 50，非常爽。</p>
+<h1 id="day7">Day7</h1>
+<p>zhy 来了，于是我们把 zhy 一起请了过来。</p>
+<p>开场我准备倒开，发现一道不会。过了一会儿有队过了
+1008，于是前去观赏，一道很不 naive 的博弈论，过了一会儿写完提交，发现
+zhy 已经 A 了，非常尴尬。</p>
+<p>为了防止再出现多名队员重复看题的情况，我建了个 QQ 群。</p>
+<p>随后 Shaojia 写完了 1004，但是没有过，WA 了 2
+发。他让我调，我也没看出来，后来还是他自己调过了，实在太强。</p>
+<p>然后我开始停滞，一题不会，Shaojia 写 1003 树形
+dp。写完之后没有过，TLE。让我一起调。</p>
+<p>我们都认为是 IO 问题，我还减少了取模次数，用了 buff 的 Fast
+IO，还是蜜汁 TLE。</p>
+<p>于是我开始写数据生成，本地跑了一下，发现真的特别慢。然后发现一个
+<span class="math inline">\(tot\)</span> 写成了 <span
+class="math inline">\(n\)</span>，于是过了。</p>
+<p>zhy 说只要无视罚时他就能切 1001，我说罚时不重要，于是他开切。</p>
+<p>Cxny 从半小时前说所有人都别看
+1009，给他机会切题，到如今说他寄了，开始摆烂，真是太演了。</p>
+<p>我和 Shaojia 开始想 1006，一道稍加（绍嘉）改变的数位
+dp。很显然的统计每种数个数，柿子也不难推，于是我催促 Shaojia
+开始写，他说他有 <span class="math inline">\(16\)</span>
+的常数，我说没事。</p>
+<p>过了好久写完，有过了好久过样例，中间还有 UB。交了还是
+WA，我写了个对拍，大数据没有问题。</p>
+<p>后来才发现 <span class="math inline">\(k=0\)</span>
+的时候会错，改了一下终于过了，很开心的 2 发罚时。</p>
+<p>Shaojia: &gt; 正当我刚刚说的排查掉头发时，cxny 开始和同桌的 zqs 打
+florr，还时不时戳我让我看游戏局面，当时我非常恼火。</p>
+<p>最后我看 1002，发现每个三角形需要恰好选一个，又没有环，做一遍 dp
+即可，第一遍用了 map TLE，改成 unordered_map 就过了。</p>
+<p>随后 zhy 把全场不到 20 人过的 1001 给切了，写个 8 个
+binary_search，太强了。</p>
+<p>（所以 Cxny 写了歌姬吧）</p>
+<p>Solved 6 problems，Rank 86。</p>
+<p>总排名还上升到了 Rank 49，非常吃鲸。</p>
+<h1 id="day8">Day8</h1>
+<p>开场先写了 3 道签到题（1004 1001 1008），非常的爽，抢人头，一道树形
+dp 第一遍还推假了，非常傻逼。</p>
+<p>因此 Cxny 再次被迫成为演员。</p>
+<p>Shaojia 同时把 1011
+整除分块切了，非常强，但是赛后发现这题暴力就能过，<span
+class="math inline">\(10^7\)</span> 级别运算量。</p>
+<p>然后 Cxny 非常厉害地想出了 1007 的 <span
+class="math inline">\(O(n\sqrt n)\)</span>
+解法，但是没有卡过去，我花了好些时间帮 Cxny 卡常，还是 TLE。随后 Cxny
+把值域阀调小了，终于过了，可惜吃了 8 发罚时。</p>
+<p>此时 Shaojia 在写 1005，我在看 1002。中途 Shaojia 的 1005 WA
+了，还问我她有没有想错，我觉得是对的。然后 Shaojia
+对拍了好久，最后还是我交过的（事实上 Shaojia
+拍着去上厕所了，让后我看没问题就拿她电脑交了。</p>
+<p>然后我把 1002 过了，听 xsc 说他们也会了，但好像没调出来？</p>
+<p>然后我们去上课，Shaojia 在楼上继续想题 1010，他说面积与 <span
+class="math inline">\(t\)</span>
+成二次函数关系，然后就很简单了。于是我，Shaojia 和 zhy 一起写
+1010，但是我贺得板子是错的，贺了两次都是错的，Shaojia 没开
+<code>__int128</code>，最终 zhy 第一个过，并在 16:59 帮 Shaojia
+调过了，实在是太强辣！</p>
+<p>最终我无耻地抢到了 4 道题，Shaojia 2 道，Cxny 1 道，zhy 1 道。</p>
+<p>Solved 8 problems，Rank 50。</p>
+<p>总排名 Rank 45，Shaojia 和 zhy 非常强。</p>
+<h1 id="day9">Day9</h1>
+<p>现在已经是几个月以后了，记不太清了，大致讲讲就好。</p>
+<p>开场先速切两道签到题，然后开始坐牢，和 Shaojia 一起想
+1008，想到了容斥套容斥。</p>
+<p>结果 Shaojia
+写完锅了，才发现外层容斥有问题。于是想直接内层容斥，我算了一下发现复杂度并不会爆。</p>
+<p>于是改 1008，Shaojia 去写 1001，他所是二进制翻转 +
+排序，非常强大。</p>
+<p>Shaojia 又把 1006 贺过了，Cxny 又非常强大的把 1003 过了。</p>
+<p>Solved 6 problems，Rank 51。</p>
+<h1 id="day10">Day10</h1>
+<p>最后一场了，开场还是签到，我 1007，Cxny 1003。</p>
+<p>让后 xsc 发现 1001 是原题，我写了一下，直接 dinic 速过。</p>
+<p>然后我又去把 1009 过了，非常愉悦。</p>
+<p>Shaojia 说这段时间他都在和 zhy 讨论
+1004，发现难推，写了一个暴力，然后连猜两个结论，第一个结论证出来后他直接开写，过了。</p>
+<p>1 hour 出头过 5 题，直接 rank11，非常震撼，甚至 ez rank1 了。</p>
+<p>然后我们推 1002，Shaojia 推柿子，我写，是一个 容斥 + 矩阵快速幂优化
+dp。但是交了几发都没过。</p>
+<p>最后发现是 Shaojia 边界的容斥推错了，多了一个 <span
+class="math inline">\(1\)</span>。随后便过了。</p>
+<p>然后一起想 1008，有 LCT 启发式合并 树剖
+倍增四种写法，然后我写了倍增过了。常数比 wdssean 的树剖大不少。</p>
+<p>Solved 7 problems，Rank 41。</p>
+<h1 id="end">End</h1>
+<p>终于结束了，10 场连打真的很累，总分排名 Rank 46，还是比较满意的。</p>
+]]></content>
+      <tags>
+        <tag>游记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>逆天记录-3</title>
+    <url>/2023/09/14/day-1-3/</url>
+    <content><![CDATA[<h2 id="p9531-joisc-2022-day4-复兴计划">P9531 [JOISC 2022 Day4]
+复兴计划</h2>
+<p>首先有结论：对于每条边，在最终方案中会被选择的 <span
+class="math inline">\(X\)</span> 是一个区间。</p>
+<p>将所有的边按照边权排序，那么他被选择的代价关于 <span
+class="math inline">\(X\)</span>
+是一个绝对值函数。对于每条边，找出前一条能与他形成环的边，那么分界的
+<span class="math inline">\(X\)</span> 就是两条边边权的平均值。</p>
+<p>找出每条边的 pre 可以在 <span
+class="math inline">\(O(nm\alpha(n))\)</span>
+的复杂度内完成，并将询问离线，按照 <span
+class="math inline">\(X\)</span> 排序后维护一堆一次函数的和即可。</p>
+<h2 id="cf1801e-gasoline-prices">CF1801E Gasoline prices</h2>
+<p>对于每一个形如 <span
+class="math inline">\(\{(u_1,v_1),(u_2,v_2)\}\)</span>
+的限制，等价于将两条路径上对应点并查集合并，最后在同一个并查集中的元素的值必须相等，因此在求出最后并查集的合并情况后，只需要求出每个并查集连通块内部
+<span class="math inline">\(L\)</span> 的 <span
+class="math inline">\(\max\)</span> 与 <span
+class="math inline">\(R\)</span> 的 <span
+class="math inline">\(\min\)</span> 即可，这一部分是容易计算的。</p>
+<p>接下来考虑如何在合理的复杂度内计算出并查集的合并情况。</p>
+<p>首先发现，将所有点全部合并联通只需要进行 <span
+class="math inline">\(n-1\)</span> 次合并操作，因此有效的合并操作是
+<span class="math inline">\(O(n)\)</span>
+的，只需要依次找到有效的合并操作即可。</p>
+<p>考虑将每个点赋值上他所在并查集的祖先的点权，每次产生一个新的限制时，可以二分两条链上权值组成的序列的
+LCP，第一个不同的位置即为需要合并的两个点。</p>
+<p>因此只需要支持对于一个树上的单点修改，链上 hash
+查询操作，可以直接把树拍成 dfn 序之后用树状数组维护。</p>
+<p>时间复杂度 <span class="math inline">\(O(m\log^2n+n\alpha(n)+n\log
+V)\)</span>。</p>
+<h2 id="p8162-joi-2022-final-让我们赢得选举">P8162 [JOI 2022 Final]
+让我们赢得选举</h2>
+<p>以下称收获一张票为 A，收获一个支持者为 B。</p>
+<p>首先考虑在确定了最终哪几个选择 A，哪几个选择 B 时，一定是先按照 <span
+class="math inline">\(b_i\)</span> 从小到大依次完成
+B，随后以任意顺序完成 A，所需要的时间为 <span
+class="math inline">\(\sum\frac{b_i}{i}+\frac{\sum
+a_i}{|B|+1}\)</span>。没有很好的贪心选择策略，考虑 dp。</p>
+<p>由于 <span class="math inline">\(\frac{\sum a_i}{|B|+1}\)</span>
+的存在，因此在不确定 <span class="math inline">\(|B|\)</span>
+的前提下，很难对 A 进行 dp，因此首先枚举最终 B 选择了几个。</p>
+<p>先按照 <span class="math inline">\(b_i\)</span> 排序，暴力 dp 为
+<span class="math inline">\(f_{i,j,k}\)</span> 表示对于前 <span
+class="math inline">\(i\)</span> 个人，当前 B 选了 <span
+class="math inline">\(j\)</span> 个，A 选了 <span
+class="math inline">\(k\)</span>
+个，最小的时间是多少，但是这样时间复杂度为 <span
+class="math inline">\(O(n^4)\)</span>，可能可以通过 wqs 二分优化到 <span
+class="math inline">\(O(n^3\log n)\)</span>（我没证过），无法通过。</p>
+<p>观察一下性质，在对 <span class="math inline">\(b_i\)</span>
+排完序后，如果 <span class="math inline">\(i\)</span> 选择了 B，那么
+<span class="math inline">\(&lt; i\)</span>
+的位置不可能不选，因为如果位置 <span class="math inline">\(j\)</span>
+不选，那么可以选择 <span class="math inline">\(j\)</span> 成为 B 而不选
+<span class="math inline">\(i\)</span>，这样不会使结果更劣。</p>
+<p>因此可以枚举最后一个选 B 的位置是 <span
+class="math inline">\(i\)</span>，那么此时前面已经收获了 <span
+class="math inline">\(i\)</span>
+张票，后面需要的票数是确定的，直接贪心选择前 <span
+class="math inline">\(k-i\)</span> 小的 <span
+class="math inline">\(a_j\)</span> 即可。</p>
+<p>时间复杂度被优化至 <span
+class="math inline">\(O(n^3)\)</span>，可以通过。</p>
+<h2 id="abc219ex-candles">ABC219Ex Candles</h2>
+<p>首先有很显然的性质，由于吹灭蜡烛不需要时间，因此走到一个蜡烛的位置时一定会吹灭这根蜡烛，因此在对
+<span class="math inline">\(a\)</span>
+排序后，吹灭的蜡烛一定是一段区间。而没走一步，所有还没有被吹灭的蜡烛的长度都会
+<span class="math inline">\(-1\)</span>。</p>
+<p>但是如果每走一步都将不在区间内的蜡烛长度 <span
+class="math inline">\(-1\)</span>
+的话，会出现一些蜡烛的长度被减至负数的情况，导致计算得到的结果更小。</p>
+<p>因此考虑对于 dp 状态加一维，表示仍未熄灭的且最终长度 <span
+class="math inline">\(\ge 0\)</span>
+的蜡烛个数，显然这样不会得到比答案更优的结果。</p>
+<p>因此令 <span class="math inline">\(f_{l,r,0/1,i}\)</span>
+表示在吹灭的 <span class="math inline">\([l,r]\)</span>
+区间内的蜡烛后，当前在 <span class="math inline">\(0/1\)</span>（左/右
+端点），还未被吹灭的会记入最终答案的蜡烛个数为 <span
+class="math inline">\(i\)</span>
+的最大答案。转移时，枚举这个蜡烛是否被计入最终答案即可。</p>
+<p>时间复杂度 <span class="math inline">\(O(n^3)\)</span>。</p>
+<h2 id="p3488-poi2009-lyz-ice-skates">P3488 [POI2009] LYZ-Ice
+Skates</h2>
+<p>不考虑修改，对于一次询问，建立二分图，左边的每个点表示一个人，右边的每个点表示一双鞋，如果存在一个对于左部点的完美匹配，那么答案为
+YES。</p>
+<p>根据 Hall
+定理，对于左部点的任意一个集合，其对应的右部点的集合大小都应该要大于左部点集合大小。</p>
+<p>考虑这张二分图的性质，左部的每个点都对应右部的连续 <span
+class="math inline">\(k(d+1)\)</span>
+个点，因此对于左部点，区间的条件不弱于集合的条件，因此只要对于左部点的每个区间合法即可。</p>
+<p>考虑左部点 <span class="math inline">\([l,r]\)</span>
+的区间，需要满足 <span class="math inline">\(\sum_{i=l}^r a_i\le k\times
+(r-l+1+d)\)</span>，将每个 <span
+class="math inline">\(b_i=a_i-k\)</span>，只需要满足 <span
+class="math inline">\(\sum_{i=l}^rb_i\le k\times d\)</span>
+即可，因此只需要拿线段树维护 <span class="math inline">\(b\)</span>
+的最大子段和即可。</p>
+<h2 id="cf1693c-keshi-in-search-of-amshz">CF1693C Keshi in Search of
+AmShZ</h2>
+<p>不难，但是很有借鉴价值的好题。</p>
+<p>考虑题目要求求出最坏情况下的最少时间，因此每次走出边时，考虑走到仍未被删除的最坏的出边。</p>
+<p>令 <span class="math inline">\(d_u\)</span> 表示从 <span
+class="math inline">\(u\)</span> 到终点所需要的最少天数。对于一点 <span
+class="math inline">\(u\)</span>，如果没有割掉出边集合 <span
+class="math inline">\(S\)</span>，那么 <span
+class="math inline">\(d_u=\max_{(u,v)\in
+S}d_v+deg_u-|S|\)</span>。因此最终保留的边的集合一定是按照 <span
+class="math inline">\(d_v\)</span> 从小到大排序之后的一段前缀。</p>
+<p>但是这张图并不是一张 DAG，所以并不能直接求解。考虑在进行 dijkstra
+时有性质：当前枚举到的 <span class="math inline">\(dis\)</span>
+一定比之前枚举到的 <span class="math inline">\(dis\)</span>
+大，因此在进行一次 <span class="math inline">\(v\to u\)</span>
+的更新操作时，选择 <span class="math inline">\(d_v\)</span>
+作为排序后最后一个选择的没有割边的点，其最短路是 <span
+class="math inline">\(dis_v+deg_u-cnt_u\)</span>，其中 <span
+class="math inline">\(cnt_u\)</span> 表示已经更新过的 <span
+class="math inline">\(u\)</span> 的出边数量。</p>
+<p>直接跑 dijkstra 即可，时间复杂度 <span class="math inline">\(O(m\log
+n)\)</span>，本题巧妙之处在于利用了 dijkstra
+过程中的性质来拟合了题目要求的条件。</p>
+<h2 id="p6623-省选联考-2020-a-卷-树">P6623 [省选联考 2020 A 卷] 树</h2>
+<p>考虑每一位分别计算。每个点 <span class="math inline">\(u\)</span>
+对他的 <span class="math inline">\(k\)</span> 级祖先会产生 <span
+class="math inline">\(a_u+k\)</span> 的贡献，考虑将贡献差分，在每一位的
+<span class="math inline">\(0/1\)</span> 分界处将差分数组 <span
+class="math inline">\(\oplus1\)</span>，但是这样总的差分数组更改量还是
+<span class="math inline">\(O(n)\)</span> 的。</p>
+<p>考虑除了第一段，接下来二进制第 <span class="math inline">\(i\)</span>
+位的每一个 <span class="math inline">\(0/1\)</span> 连续段的长度都是
+<span class="math inline">\(2^i\)</span>，因此所有要更改差分的点的深度
+<span class="math inline">\(\bmod 2^i\)</span>
+都是相等的，因此直接对于每一个二进制位开一个差分数组，<span
+class="math inline">\(c_{i,s}\)</span> 表示二进制后 <span
+class="math inline">\(i\)</span> 位为 <span
+class="math inline">\(s\)</span> 的点的差分应该要异或多少。</p>
+<p>直接在 dfs 的时候维护差分数组即可，复杂度 <span
+class="math inline">\(O(n\log V)\)</span>，只需要枚举每个二进制位。</p>
+<p>另一种解法是直接维护 01trie，需要支持插入元素，合并 01trie，每个数
+<span class="math inline">\(+1\)</span> 与全局求异或和，可以将 01trie
+从低位往高位建，这样全局 <span class="math inline">\(+1\)</span>
+操作可以通过交换子树来完成，复杂度还是 <span
+class="math inline">\(O(n\log V)\)</span>。</p>
+<h2 id="cf1152f2-neko-rules-the-catniverse-large-version">CF1152F2 Neko
+Rules the Catniverse (Large Version)</h2>
+<p>由于限制了每个数只能出现一次，如果按照序列的位置
+dp，需要记录每个数是否出现，直接爆炸，因此考虑改变 dp 顺序。</p>
+<p>考虑从小到大考虑每一个数 <span
+class="math inline">\(i\)</span>，讨论他是否加入序列。</p>
+<p>此时如果再记录每个位置是否填了数，那么状态数会飙升至 <span
+class="math inline">\(2^k\)</span> 往上，再乘上 <span
+class="math inline">\(n\)</span> 又炸飞了。但是考虑到每个数的具体位置在
+dp
+过程中并不重要，我们只需要关心每个已经插入的数的相对位置即可，因此可以据此设计
+dp 状态。</p>
+<p>设 <span class="math inline">\(f_{i,j,k}\)</span> 表示已经考虑插入了
+<span class="math inline">\(1\sim i\)</span>
+这些数，其中加入序列中的数有 <span class="math inline">\(j\)</span>
+个，最后的四种数是否在序列中出现的状态集合为 <span
+class="math inline">\(k\)</span> 的方案数。</p>
+<p>由于题目要求对于相邻两个数，后面的数不能大于前面的数 <span
+class="math inline">\(+m\)</span>，因此对于一个数 <span
+class="math inline">\(i\)</span>，要么放在序列的开头，要么插在前 <span
+class="math inline">\(m\)</span> 个数之后，要么不放，因此转移如下：</p>
+<p><span class="math display">\[
+\begin{cases}
+f_{i,j,k}\to f_{i+1,j,k\times 2}\\
+f_{i,j,k}\times (\operatorname{popcount}(k)+1)\to f_{i+1,j+1,k\times
+2+1}
+\end{cases}
+\]</span></p>
+<p>对于 <span class="math inline">\(\{j,k\}\)</span> 一共只有 <span
+class="math inline">\(k\times 2^m\)</span>
+种，因此可以直接矩阵快速幂优化，时间复杂度 <span
+class="math inline">\(O(k^38^m\log n)\)</span>。</p>
+<h2 id="p8688-蓝桥杯-2019-省-a-组合数问题">P8688 [蓝桥杯 2019 省 A]
+组合数问题</h2>
+<p>组合数转化成了数位 dp，卢卡斯和进制之间的转化，很新奇。</p>
+<p>根据卢卡斯定理，有 <span class="math inline">\(\binom{n}{m}\equiv
+\binom{n/k}{m/k}\times \binom{n\bmod k}{m\bmod k}\pmod
+k\)</span>，发现这个东西就是将 <span class="math inline">\(n,m\)</span>
+写成 <span class="math inline">\(k\)</span>
+进制后对应位组合数的乘积。</p>
+<p>题目要求 <span class="math inline">\(\binom{x}{y}\equiv 0\pmod
+k\)</span>，由于 <span class="math inline">\(k\)</span> 为质数，因此只要
+<span class="math inline">\(x,y\)</span> 在 <span
+class="math inline">\(k\)</span> 进制下任意一位的组合数 <span
+class="math inline">\(\bmod k=0\)</span> 即可。又由于 <span
+class="math inline">\(x,y\)</span> 在 <span
+class="math inline">\(k\)</span> 进制下的每一位都 <span
+class="math inline">\(&lt; k\)</span>，因此其组合数 <span
+class="math inline">\(=0\)</span> 只有可能是这一位上的 <span
+class="math inline">\((a,b)\)</span> 满足 <span class="math inline">\(a
+&lt; b\)</span>。</p>
+<p>因此可以对 <span class="math inline">\(n,m\)</span> 为上界，在 <span
+class="math inline">\(k\)</span> 进制下数位 dp。令 <span
+class="math inline">\(f_{i,0/1,0/1,0/1}\)</span> 表示考虑了 <span
+class="math inline">\(k\)</span> 进制的前 <span
+class="math inline">\(i\)</span> 位，<span
+class="math inline">\(n\)</span> 是否顶到上界，<span
+class="math inline">\(m\)</span> 是否顶到上界，是否存在某一位 <span
+class="math inline">\((a,b)\)</span> 满足 <span class="math inline">\(a
+&lt; b\)</span> 的方案数。</p>
+<p>转移可以直接分类讨论并计算方案数，时间复杂度 <span
+class="math inline">\(O(T\log_k n)\)</span>。</p>
+<h2 id="cf1418f-equal-product">CF1418F Equal Product</h2>
+<p>考虑对于满足条件的 <span
+class="math inline">\((x_1,y_1,x_2,y_2)\)</span>，必有 <span
+class="math inline">\(x_1\cdot y_1=x_2\cdot y_2\)</span>，因此 <span
+class="math inline">\(\frac{x_1}{x_2}=\frac{y_2}{y_1}=\frac{a}{b}\)</span>，因此
+<span class="math inline">\(x_2=\frac{x_1}{a}\cdot
+b,y_2=\frac{y_1}{b}\cdot a\)</span>，并且可以证明 <span
+class="math inline">\(a\mid x_1\)</span> 且 <span
+class="math inline">\(b\mid y_1\)</span>。</p>
+<p>通过这个转化，可以发现满足 <span class="math inline">\(a\mid
+x_1\)</span> 的 <span class="math inline">\((x_1,a)\)</span> 只有 <span
+class="math inline">\(O(n\log n)\)</span> 对，可以直接枚举。</p>
+<p>对于一个 <span class="math inline">\(x_1\)</span>，我们需要找出一对
+<span class="math inline">\((y_1,b)\)</span> 满足如下条件：</p>
+<p><span class="math display">\[
+\begin{cases}
+\lceil\frac{L}{x_1}\rceil\le y_1\le\lfloor\frac{R}{x_1}\rfloor\\
+\frac{x_1}{a}\cdot b\le n\\
+y_1\le m\\
+a&lt; b
+\end{cases}
+\]</span></p>
+<p>发现在 <span class="math inline">\(x_1\)</span> 递增时，<span
+class="math inline">\(\lceil\frac{L}{x_1}\rceil\)</span> 与 <span
+class="math inline">\(\lfloor\frac{R}{x_1}\rfloor\)</span>
+都是单调不增的，因此可以时刻用一个 set 维护满足第一个条件的 <span
+class="math inline">\((y_1,b)\)</span> 数对，每次查询时找到最小的满足
+<span class="math inline">\(b&gt;a\)</span> 的数对 <span
+class="math inline">\((y_1,b)\)</span>，判断其是否满足第二个条件即可。时间复杂度
+<span class="math inline">\(O(n\log^2n)\)</span>。</p>
+<h2 id="cf1774g-segment-covering">CF1774G Segment Covering</h2>
+<p>考察对于一对相互包含的区间 <span
+class="math inline">\([l_i,r_i]\subset
+[l_j,r_j]\)</span>，如果选择了区间 <span
+class="math inline">\([l_j,r_j]\)</span>，那么多选择一个 <span
+class="math inline">\([l_i,r_i]\)</span> 也无妨，因此在选择 <span
+class="math inline">\([l_j,r_j]\)</span>
+的情况下，奇数方案与偶数方案个数相等，可以直接将 <span
+class="math inline">\([l_j,r_j]\)</span> 忽略。</p>
+<p>现在问题被转化为了一堆左右端点都递增的线段，求恰好覆盖 <span
+class="math inline">\([L,R]\)</span> 的方案数。考虑一次询问怎么做。</p>
+<p>设 <span class="math inline">\(f_{i}\)</span> 表示选择了 <span
+class="math inline">\([l_i,r_i]\)</span> 线段，且恰好覆盖了 <span
+class="math inline">\([L,r_i]\)</span> 这段区间的选偶数个线段的方案
+<span class="math inline">\(-\)</span> 选奇数个线段的方案。</p>
+<p>初始状态有 <span class="math inline">\(f_1 = -1\)</span>，转移为
+<span class="math inline">\(f_i=-\sum_{r_j\ge
+l_i}f_j\)</span>。模拟几次转移观察有什么性质。<br />
+对于第二条线段 <span class="math inline">\([l_2,r_2]\)</span>，如果
+<span class="math inline">\(l_2 &gt; r_1\)</span>，那么方案数就变为了
+<span
+class="math inline">\(0\)</span>，因为始终无法覆盖中间一段区间，否则
+<span class="math inline">\(f_2=1\)</span>。<br />
+对于第三条线段 <span class="math inline">\([l_3,r_3]\)</span>，如果
+<span class="math inline">\(l_1\le l_2\le l_3\le r_1\)</span>，那么有
+<span class="math inline">\(f_3=f_2+f_1=0\)</span>，可以看作 <span
+class="math inline">\(f_3\)</span> 不存在。</p>
+<p>同理地，对于接下来的连续一段满足该条件的线段，都有 <span
+class="math inline">\(f_i=0\)</span>。</p>
+<p>直到第一条满足 <span class="math inline">\(l_i&gt;r_1\)</span> 的线段
+<span class="math inline">\(i\)</span>，如果 <span
+class="math inline">\(l_i&gt;r_2\)</span>，那么 <span
+class="math inline">\(f_i=0\)</span>，后面的 <span
+class="math inline">\(f\)</span> 也全部为 <span
+class="math inline">\(0\)</span>，否则 <span
+class="math inline">\(f_i=-f_2=-1\)</span>。<br />
+这条线段的下一条线段 <span class="math inline">\(i+1\)</span> 也有 <span
+class="math inline">\(1\to 2\)</span>
+类似的转移方式。由此解决了一组询问的问题。</p>
+<p>考虑 <span class="math inline">\(p_i\)</span> 表示第一条满足 <span
+class="math inline">\(l_j&gt; r_i\)</span> 的线段 <span
+class="math inline">\(j\)</span>，那么我们维护这两个 <span
+class="math inline">\(f\)</span> 值为 <span
+class="math inline">\(-1\)</span> 与 <span
+class="math inline">\(1\)</span> 的线段 <span
+class="math inline">\(x\)</span> 与 <span
+class="math inline">\(y\)</span>，其实是一直在做 <span
+class="math inline">\(x=p_x,y=p_y\)</span>
+操作，如果存在两条线段不交那么就无解。</p>
+<p>此时观察到一个很妙的性质，如果中途出现了两条线段不交，那么下一步中后面的线段会走到前面的线段位置上，从而使得这两条线段最终重合。而如果不存在线段不交的情况，那么最后两条线段不会重合。</p>
+<p>因此将 <span class="math inline">\(i\to p_i\)</span>
+连边，构成一个内向树的结构，每次询问时倍增跳父亲，答案可以根据最后 <span
+class="math inline">\(x,y\)</span> 的位置计算得出。</p>
+<h2 id="cf1305g-kuroni-and-antihype">CF1305G Kuroni and Antihype</h2>
+<p>首先考虑加入一个虚点，点权为 <span
+class="math inline">\(0\)</span>，初始时 <span
+class="math inline">\(0\)</span>
+在组织中，这样就能保证最终一定存在一种最优状态是所有人都在组织中的。</p>
+<p>假设将一个人加入组织时，被邀请的人也能获得收益，那么一对人相互邀请的贡献是确定了，最后只需要减去所有人的收益和（加入组织实际上是没有收益的）即可。</p>
+<p>考虑在能相互邀请的人之间连边，边权为 <span
+class="math inline">\(a_u+a_v\)</span>。原问题等价于求出这棵树的最大生成树。</p>
+<p>虽然这棵树的边树可能会很多，但是把相同点权的点缩起来之后，本质不同的边只有
+<span class="math inline">\(3^{18}\)</span>
+条。可以从大到小枚举边权，然后枚举两边点，用 kruskal
+求解最大生成树即可。时间复杂度 <span
+class="math inline">\(O(n+3^{18}\alpha(3^{18}))\)</span>。</p>
+<h2 id="cf1019c-sergeys-problem">CF1019C Sergey's problem</h2>
+<p>首先考虑忽略第一个限制，找出一个点集使得从这个点集出发走一步能走到所有点。</p>
+<p>对于每个点维护一个标记，表示这个点是否能被当前点集中的至少一个点走一步后到达。依次枚举每个点，如果这个点未被标记，那么将这个点加入点集，并将这个点的所有出边能到达的点进行标记。</p>
+<p>不难发现这样构造出的点集能在之多一条边内走到所有点，并且这个点集的导出子图是一个
+DAG！</p>
+<p>证明考虑记录每一个点被标记的时间戳 <span
+class="math inline">\(t_u\)</span>，对于一条边 <span
+class="math inline">\(u\to v\)</span>，如果 <span
+class="math inline">\(u,v\)</span> 都在点集中，那么一定有 <span
+class="math inline">\(t_v&lt; t_u\)</span>，否则在标记 <span
+class="math inline">\(u\)</span> 时一定会将 <span
+class="math inline">\(v\)</span> 标记。因此对于导出子图中的每一条边
+<span class="math inline">\(u\to v\)</span>，必有 <span
+class="math inline">\(t_u&gt; t_v\)</span>。因此这张导出子图一定是
+DAG。</p>
+<p>考虑对 DAG
+拓扑排序，也类似第一次构造的形式进行标记，那么最终选择的点集内的点至少一步能走到第一次选出的点集，从而保证了至少两步能够到达所有点，也满足的点集内的点两两之间不变的限制。</p>
+]]></content>
+      <tags>
+        <tag>好题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>浅谈 $O(n)-O(1)$ rmq</title>
+    <url>/2023/09/15/on-o1-rmq/</url>
+    <content><![CDATA[<p>说到 <span class="math inline">\(O(n)-O(1)\)</span> rmq
+问题，最广为认知的就是四毛子，但是四毛子不好写，因此来记录几个较为好写的
+<span class="math inline">\(O(n)-O(1)\)</span> rmq 算法。</p>
+<h2 id="分块">分块</h2>
+<ul>
+<li>优点：较为好写，且能够做到严格的 <span
+class="math inline">\(O(n)-O(1)\)</span>。</li>
+<li>缺点：不能算非常好写。</li>
+</ul>
+<p>将序列按照每 <span class="math inline">\(\log n\)</span>
+个元素分为一块，序列将被分为 <span class="math inline">\(\frac{n}{\log
+n}\)</span> 块，求出每个块内的最大值，并在块间建立 ST
+表。并且对于每个块内，处理出前缀和后缀最大值。</p>
+<p>对于一个询问 <span
+class="math inline">\([l,r]\)</span>，找出被完全包含的区间，求出这几个块之间的最大值，对于两边的散块，调用前后缀最大值即可。</p>
+<p>至此，预处理时间复杂度 <span class="math inline">\(O(\frac{n}{\log
+n}\cdot \log n+n)=O(n)\)</span>，查询时间复杂度 <span
+class="math inline">\(O(1)\)</span>。</p>
+<p>看似结束了，但是如果询问的区间被包含在了一个块内该怎么办呢？</p>
+<p>在预处理时，可以对于每个块内分别跑一遍单调栈，维护块内每个位置的前缀的后缀最大值。同时，单调栈内的元素个数是
+<span class="math inline">\(O(\log n)\)</span>
+的，每个元素可以用他在块内的位置表示，值域也是 <span
+class="math inline">\(O(\log n)\)</span> 的。</p>
+<p>我们可以将者 <span class="math inline">\(O(\log n)\)</span> 个值域为
+<span class="math inline">\(O(\log n)\)</span> 的数压缩成一个值域为
+<span class="math inline">\(O(\log^{\log n} n)\)</span> 的 long long
+记录下来，不难发现这个 long long 可以在入栈和弹栈的时候同时维护。</p>
+<p>另一种存贮方式是对于每个数，记录这个数到当前块的开头哪些位置在单调栈中，每次询问是可以使用
+<code>__builtin_ctz</code>
+函数进行查询。这种方式所使用的空间更少，单个元素的值域是 <span
+class="math inline">\(O(2^{\log n})=O(n)\)</span>。</p>
+<p>询问时，直接调用 <span class="math inline">\(r\)</span>
+所在位置的单调栈信息即可，不难发现复杂度也是 <span
+class="math inline">\(O(n)-O(1)\)</span> 的。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">using</span> T = <span class="type">int</span>;</span><br><span class="line"><span class="type">const</span> <span class="keyword">auto</span> cmp = [](T x, T y) &#123; <span class="keyword">return</span> x &gt; y; &#125;;</span><br><span class="line"><span class="type">unsigned</span> f[N];</span><br><span class="line">T val[N], st[<span class="number">20</span>][( N &gt;&gt; <span class="number">5</span> ) + <span class="number">9</span>], pre[N], suf[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> T <span class="title">mx</span><span class="params">(T x, T y)</span> </span>&#123; <span class="keyword">return</span> <span class="built_in">cmp</span>(x, y) ? x : y; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">init</span><span class="params">(T *x, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">  <span class="built_in">copy</span>(x + <span class="number">1</span>, x + n + <span class="number">1</span>, val);</span><br><span class="line">  <span class="built_in">rep</span> (i, <span class="number">0</span>, n - <span class="number">1</span>) st[<span class="number">0</span>][i &gt;&gt; <span class="number">5</span>] = i &amp; <span class="number">31</span> ? <span class="built_in">mx</span>(st[<span class="number">0</span>][i &gt;&gt; <span class="number">5</span>], val[i]) : val[i];</span><br><span class="line">  <span class="built_in">rep</span> (i, <span class="number">1</span>, __lg(( ( n - <span class="number">1</span> ) &gt;&gt; <span class="number">5</span> ) + <span class="number">1</span>)) <span class="built_in">rep</span> (j, <span class="number">0</span>, ( ( n - <span class="number">1</span> ) &gt;&gt; <span class="number">5</span> ) + <span class="number">1</span> - ( <span class="number">1</span> &lt;&lt; i ))</span><br><span class="line">    st[i][j] = <span class="built_in">mx</span>(st[i - <span class="number">1</span>][j], st[i - <span class="number">1</span>][j + ( <span class="number">1</span> &lt;&lt; ( i - <span class="number">1</span> ) )]);</span><br><span class="line">  <span class="built_in">rep</span> (i, <span class="number">0</span>, n - <span class="number">1</span>) pre[i] = i &amp; <span class="number">31</span> ? <span class="built_in">mx</span>(pre[i - <span class="number">1</span>], val[i]) : val[i];</span><br><span class="line">  <span class="built_in">per</span> (i, n - <span class="number">1</span>, <span class="number">0</span>) suf[i] = i != n - <span class="number">1</span> &amp;&amp; ( ~i &amp; <span class="number">31</span> ) ? <span class="built_in">mx</span>(suf[i + <span class="number">1</span>], val[i]) : val[i];</span><br><span class="line">  <span class="type">int</span> top = <span class="number">0</span>, stk[<span class="number">39</span>];</span><br><span class="line">  <span class="built_in">rep</span> (i, <span class="number">0</span>, n - <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> ( i &amp; <span class="number">31</span> ) f[i] = f[i - <span class="number">1</span>]; <span class="keyword">else</span> f[i] = top = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> ( top &amp;&amp; !<span class="built_in">cmp</span>(val[stk[top]], val[i]) ) f[i] &amp;= ~( <span class="number">1u</span> &lt;&lt; ( stk[top--] &amp; <span class="number">31</span> ) );</span><br><span class="line">    f[i] |= <span class="number">1u</span> &lt;&lt; ( ( stk[++top] = i ) &amp; <span class="number">31</span> );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> T <span class="title">qry</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> ( ( --l &gt;&gt; <span class="number">5</span> ) != ( --r &gt;&gt; <span class="number">5</span> ) ) &#123;</span><br><span class="line">    T ret = <span class="built_in">mx</span>(suf[l], pre[r]);</span><br><span class="line">    <span class="keyword">if</span> ( ( r &gt;&gt; <span class="number">5</span> ) - ( l &gt;&gt; <span class="number">5</span> ) &gt; <span class="number">1</span> ) &#123;</span><br><span class="line">      <span class="type">int</span> t = __lg(( r &gt;&gt; <span class="number">5</span> ) - ( l &gt;&gt; <span class="number">5</span> ) - <span class="number">1</span>);</span><br><span class="line">      ret = <span class="built_in">mx</span>(ret, <span class="built_in">mx</span>(st[t][( l &gt;&gt; <span class="number">5</span> ) + <span class="number">1</span>], st[t][( r &gt;&gt; <span class="number">5</span> ) - ( <span class="number">1</span> &lt;&lt; t )]));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> val[l + __builtin_ctz(f[r] &gt;&gt; ( l &amp; <span class="number">31</span> ))];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="谁波-rmq">谁波 rmq</h2>
+<ul>
+<li>优点：非常好写，且跑得很快</li>
+<li>缺点：依赖于随机数据，查询复杂度并非 <span
+class="math inline">\(O(1)\)</span>。</li>
+</ul>
+<p>准确来说并不能放在 <span class="math inline">\(O(n)-O(1)\)</span> rmq
+的博客中，但是因为他实在是太好写了，跑得太快了。</p>
+<p>首先调用 <code>nth_element</code> 求出序列中前 <span
+class="math inline">\(\frac{n}{\log n}\)</span> 大元素，然后对这 <span
+class="math inline">\(\frac{n}{\log n}\)</span> 个数从大到小排序。</p>
+<p>预处理复杂度为 <code>nth_element</code> 的 <span
+class="math inline">\(O(n)\)</span> 与排序的 <span
+class="math inline">\(O(\frac{n}{\log n}\cdot \log
+n)=O(n)\)</span>。</p>
+<p>每次查询时，从大到小枚举前 <span class="math inline">\(\frac{n}{\log
+n}\)</span> 个数，判断每个数是否在询问的区间中，找到即退出。</p>
+<p>如果找不到，这样的询问数量是 <span
+class="math inline">\(O(1)\)</span>
+的，可以直接暴力枚举，或者使用线段树查询。</p>
+<p>在保证数据随机时，查询复杂度为期望 <span class="math inline">\(O(\log
+n)\)</span>，且拥有一个极小的常数，甚至可以视为 <span
+class="math inline">\(O(1)\)</span>。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> n, m, a[N], t, w[<span class="number">1</span> &lt;&lt; <span class="number">26</span>];</span><br><span class="line">pii b[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">qry</span><span class="params">(<span class="type">int</span> c, <span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> x, <span class="type">int</span> y)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (l == x &amp;&amp; r == y) <span class="keyword">return</span> w[c];</span><br><span class="line">  <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">if</span> (y &lt;= mid) <span class="keyword">return</span> <span class="built_in">qry</span>(c &lt;&lt; <span class="number">1</span>, l, mid, x, y);</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (x &gt; mid) <span class="keyword">return</span> <span class="built_in">qry</span>(c &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, mid + <span class="number">1</span>, r, x, y);</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">return</span> <span class="built_in">max</span>(<span class="built_in">qry</span>(c &lt;&lt; <span class="number">1</span>, l, mid, x, mid), <span class="built_in">qry</span>(c &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, mid + <span class="number">1</span>, r, mid + <span class="number">1</span>, y));</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">rep</span> (i, <span class="number">1</span>, n) a[i] = <span class="built_in">read</span>(), b[i] = <span class="built_in">pii</span>(-a[i], i);</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) w[i + t - <span class="number">1</span>] = a[i];</span><br><span class="line"><span class="built_in">per</span> (i, t, <span class="number">1</span>) w[i] = <span class="built_in">max</span>(w[i &lt;&lt; <span class="number">1</span>], w[i &lt;&lt; <span class="number">1</span> | <span class="number">1</span>]);</span><br><span class="line"><span class="built_in">nth_element</span>(b + <span class="number">1</span>, b + B, b + n + <span class="number">1</span>), <span class="built_in">sort</span>(b + <span class="number">1</span>, b + B + <span class="number">1</span>);</span><br><span class="line"><span class="comment">// query</span></span><br><span class="line"><span class="built_in">rep</span> (i, <span class="number">1</span>, B) <span class="keyword">if</span> (b[i].se &gt;= l &amp;&amp; b[i].se &lt;= r) &#123; ans = -b[i].fi, f = <span class="number">1</span>; <span class="keyword">break</span>; &#125;</span><br><span class="line"><span class="keyword">if</span> (!f) ans = <span class="built_in">qry</span>(<span class="number">1</span>, <span class="number">1</span>, t, l, r);</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>逆天记录-1</title>
+    <url>/2023/07/11/day-1-1/</url>
+    <content><![CDATA[<h2 id="cf407e-k-d-sequence">CF407E k-d-sequence</h2>
+<p>首先特判 <span class="math inline">\(d=0\)</span>
+的情况。否则显然一个合法的区间所有数 <span class="math inline">\(\bmod
+d\)</span> 都相等。</p>
+<p>将这样的区间拉出来，一个个考察，显然可以将所有的数都 <span
+class="math inline">\(\div d\)</span>，这样就变成了公差 <span
+class="math inline">\(=1\)</span> 的等差数列。一个区间 <span
+class="math inline">\([l,r]\)</span> 合法，当且仅当：</p>
+<ul>
+<li><p><span class="math inline">\([l,r]\)</span>
+中的数两两不同。</p></li>
+<li><p><span class="math inline">\(r - l + 1 + k\ge \max{a_i} -
+\min{a_i} (l\le i\le r)\)</span>。</p></li>
+</ul>
+<p>第一个容易处理，直接开一个 map 记录一下每个数最后出现的位置即可。</p>
+<p>对于第二个限制，化简变为 <span class="math inline">\(r + k\ge
+\max{a_i} - \min{a_i} + l -
+1\)</span>，开一个线段树维护右边这依托即可，修改 <span
+class="math inline">\(\min\)</span> 与 <span
+class="math inline">\(\max\)</span> 可以开两个单调栈，这是套路的。</p>
+<p>所以每次要查询区间内第一个值 <span class="math inline">\(\le
+val\)</span> 的位置，采用线段树二分即可。复杂度 <span
+class="math inline">\(O(n\log n)\)</span>。</p>
+<h2 id="cf587f-duff-is-mad">CF587F Duff is Mad</h2>
+<p>暴力做法是建出 ACAM，每次询问时对于 <span
+class="math inline">\(s_{[l,r]}\)</span>，每个字符串在 ACAM 上的 endpos
+的 fail 树的子树内点权全部 <span
+class="math inline">\(+1\)</span>，然后查询 <span
+class="math inline">\(s_k\)</span> 在 ACAM 上的所有节点点权之和。</p>
+<p>考虑对于 <span class="math inline">\(|s_k|\)</span> 根号分治。</p>
+<ul>
+<li><p>若 <span class="math inline">\(|s_k|\le
+\sqrt.\)</span>，那么显然可以将询问离线，差分贡献，每次查询时暴力在 ACAM
+上跳。</p></li>
+<li><p>若 <span class="math inline">\(|s_k|&gt; \sqrt
+.\)</span>，那么显然这样的串不超过 <span class="math inline">\(\sqrt
+.\)</span> 个，对于每个这样的串统一处理，算出 ACAM 上每个节点的点权
+<span class="math inline">\(+1\)</span>
+会对答案产生多少的贡献。然后枚举每个串，用 Fenwick Tree
+统计贡献，或者用值域分块平衡。</p></li>
+</ul>
+<p>平衡后的复杂度 <span class="math inline">\(O(m\sqrt{q\log
+m})\)</span>，如果用值域分块则是 <span class="math inline">\(O(m\sqrt
+q)\)</span>。</p>
+<h2 id="cf1842h-tenzing-and-random-real-numbers">CF1842H Tenzing and
+Random Real Numbers</h2>
+<p>我们将所有数 <span class="math inline">\(a_x\)</span> 按照 <span
+class="math inline">\(|a_x-0.5|\)</span> 的大小从小到大逐个确定。由于在
+<span class="math inline">\([0,1]\)</span>
+之间随机，所以随到相同的数的概率是 <span
+class="math inline">\(0\)</span>。</p>
+<p>考虑状压 dp，设 <span class="math inline">\(f_S\)</span> 表示 <span
+class="math inline">\(S\)</span> 集合中的数都已经确定的合法概率。</p>
+<p>对于接下来确定的 <span class="math inline">\(x\)</span>，如果 <span
+class="math inline">\(S\)</span> 中存在一个 <span
+class="math inline">\(y\)</span>，满足：</p>
+<ul>
+<li><p><span class="math inline">\(a_x+a_y\le 1\)</span>，那么显然 <span
+class="math inline">\(a_x\)</span> 只能 <span
+class="math inline">\(&lt;0.5\)</span>。</p></li>
+<li><p><span class="math inline">\(a_x+a_y\ge 1\)</span>，那么显然 <span
+class="math inline">\(a_x\)</span> 只能 <span
+class="math inline">\(&gt;0.5\)</span>。</p></li>
+</ul>
+<p>所以按照 <span class="math inline">\(S\)</span> 中的数与当前 <span
+class="math inline">\(x\)</span> 的关系来确定转移系数是 <span
+class="math inline">\(0/0.5/1\)</span>。</p>
+<p>最后答案即为 <span
+class="math inline">\(f(2^n-1)/(n!)\)</span>。复杂度 <span
+class="math inline">\(O(2^nn)\)</span>。</p>
+<h2 id="abc242ex-random-painting">ABC242Ex Random Painting</h2>
+<p>题目要求所有点都被覆盖的期望时间，设随机变量 <span
+class="math inline">\(t_i\)</span> 表示位置 <span
+class="math inline">\(i\)</span> 被覆盖的时间，则要求的是 <span
+class="math inline">\(\mathbb{E}[\max\{t_i\}]\)</span>。</p>
+<p>一眼 min-max 容斥，摁推一下柿子：</p>
+<p><span class="math display">\[
+\mathbb{E}[\max_{i\in S}\{t_i\}]=\sum_{T\subseteq
+S}(-1)^{|T|+1}\mathbb{E}[\min_{i\in T}\{t_i\}]
+\]</span></p>
+<p>考虑 <span class="math inline">\(\mathbb{E}[\min\{t_i\}]\)</span>
+的意义，假设与 <span class="math inline">\(T\)</span>
+这个几何中的点有交的线段数量为 <span
+class="math inline">\(x\)</span>，那么 <span
+class="math inline">\(\mathbb{E}[\min\{t_i\}]=\frac{m}{x}\)</span>。</p>
+<p>考虑 dp，假设 <span class="math inline">\(f_{i,j}\)</span> 表示考察了
+<span class="math inline">\([1,i]\)</span> 中的点，选了一些点作为子集
+（<span class="math inline">\(i\)</span> 点必选），有 <span
+class="math inline">\(j\)</span> 条线段与这个子集无交的 <span
+class="math inline">\((-1)^{|T|+1}\)</span> 之和。</p>
+<p>转移时，枚举 <span
+class="math inline">\(i,j,k\)</span>，分别表示当前装它与上一个选择的点，那么
+<span class="math inline">\((k,i)\)</span>
+中的线段与选择的集合无交，设为 <span
+class="math inline">\(cnt(k,i)\)</span>，转移时只要：</p>
+<p><span class="math display">\[
+f_{k,j}\times (-1)\to f_{i,j+cnt(k,i)}
+\]</span></p>
+<p>至于如何求 <span
+class="math inline">\(cnt\)</span>，直接做一遍二位前缀和即可。做完 dp
+后带回 min-max 容斥的柿子中计算即可。</p>
+<p>时间复杂度 <span class="math inline">\(O(n^2m)\)</span>。</p>
+<h2 id="abc241ex-card-deck-score">ABC241Ex Card Deck Score</h2>
+<p><span class="math inline">\(n\)</span> 很小，<span
+class="math inline">\(b_i\)</span>
+的限制显然可以容斥计算。所以可以忽略每个卡的个数限制。考虑用生成函数计算：</p>
+<p><span class="math display">\[
+\prod_{i=1}^n\sum_{k\ge 0}a_i^k\cdot x^k=\prod_{i=1}^n\frac{1}{1-a_ix}
+\]</span></p>
+<p>采用待定系数尝试算出每个 <span class="math inline">\(a_i\)</span>
+的系数 <span class="math inline">\(c_i\)</span>：</p>
+<p><span class="math display">\[
+\prod_{i=1}^n\frac{1}{1-a_ix}=\sum_{i=1}^n\frac{c_i}{1-a_ix}
+\]</span></p>
+<p>两遍同时乘上 <span
+class="math inline">\(\prod(1-a_ix)\)</span>，得到：</p>
+<p><span class="math display">\[
+\sum_{i=1}^n c_i\prod_{j\not=i}(1-a_jx)=1
+\]</span></p>
+<p>对于每个 <span class="math inline">\(i\)</span>，将 <span
+class="math inline">\(a_i^{-1}\)</span> 带入柿子，得到：</p>
+<p><span class="math display">\[
+c_i\prod_{j\not=i}(1-a_j\cdot a_i^{-1})=1
+\]</span></p>
+<p>这样即可在 <span class="math inline">\(O(n^2)\)</span>
+的复杂度内计算出每个 <span class="math inline">\(a_i\)</span> 的系数
+<span class="math inline">\(c_i\)</span>。</p>
+<p>然后枚举不合法的卡片集合 <span
+class="math inline">\(S\)</span>，钦定这个集合中的卡片都超过限制。计算出
+<span class="math inline">\(cnt=m-\sum_{i\in
+S}(b_i+1)\)</span>。即可算出贡献：</p>
+<p><span class="math display">\[
+(-1)^{|S|}\cdot\prod_{i\in S}a_i^{b_i+1}\cdot\left(\sum_{i=1}^n c_i\cdot
+a_i^{cnt}\right)
+\]</span></p>
+<p>时间复杂度 <span class="math inline">\(O(n^2+n2^n\log
+P)\)</span>。</p>
+<h2 id="abc237ex-hakata">ABC237Ex Hakata</h2>
+<p>首先可以证明，对于一个字符串 <span
+class="math inline">\(S\)</span>，其本质不同的回文子串个数 <span
+class="math inline">\(\le n\)</span>。</p>
+<p>考虑每次在 <span class="math inline">\(S\)</span>
+后面加入一个字符后，字符串长度为 <span
+class="math inline">\(n\)</span>，如果出现了 <span
+class="math inline">\(S_{[x,n]}\)</span> 与 <span
+class="math inline">\(S_{[y,n]}\)</span> 两个回文串，那么可以推断出
+<span
+class="math inline">\(S_{n-e}=S_{x+e}=S_{y+e}=S_{n+x-y-e}\)</span>，所以
+<span class="math inline">\(S_{[x,x+n-y]}\)</span> 也是回文串，与 <span
+class="math inline">\(S_{[y,n]}\)</span> 相同，故 <span
+class="math inline">\(S_{[y,n]}\)</span> 已经在之前出现过。矛盾。</p>
+<p>故每次添加一个字符，最多只会产生一个本质不同的回文串，原命题得证。</p>
+<p>考虑计算出所有的本质不同的回文子串，若 <span
+class="math inline">\(S_1\)</span> 是 <span
+class="math inline">\(S_2\)</span> 的子串，那么我们连一条从 <span
+class="math inline">\(S_2\)</span> 向 <span
+class="math inline">\(S_1\)</span> 的有向边，不难发现会构成一张
+DAG。</p>
+<p>题目要求的即使这张 DAG 的最长反链，由 Dilworth 定理，最长反链 <span
+class="math inline">\(=\)</span> 最小链覆盖。</p>
+<p>由于最小链覆盖的过程可以看成把一些链合并的过程，每个点可以选一个出边合并，选一个入边合并，我们希望链合并的次数尽可能多。</p>
+<p>考虑构建一张二分图，每个 DAG 上的点拆成左右两个点，将一条 <span
+class="math inline">\(u\to v\)</span> 的有向边转化为 <span
+class="math inline">\(u\)</span> 的左部点与 <span
+class="math inline">\(v\)</span>
+的右部点之间的边，然后求二分图最大匹配。最小连覆盖 <span
+class="math inline">\(=\)</span> 点数 <span
+class="math inline">\(-\)</span> 最大匹配数。</p>
+<p>时间复杂度看代码实现，大致为 <span
+class="math inline">\(O(n^4)\)</span> 或 <span
+class="math inline">\(O(n^3)\)</span>，瓶颈在于判断两个回文子串是否为包含关系，除这一点外可以做到
+<span class="math inline">\(O(n^2)\)</span>。</p>
+<h2 id="agc006f-blackout">AGC006F Blackout</h2>
+<p>很妙的题啊！首先观察到这个题中的点和平面没有什么关系，直接把点转化成边，构成一幅有向图。原来的变换等价于若有边
+<span class="math inline">\(u\to v\)</span> 与 <span
+class="math inline">\(v\to w\)</span>，则连上边 <span
+class="math inline">\(w\to u\)</span>。</p>
+<p>由于连上的是三元环，所以考虑将这张有向图进行三染色（为什么是三染色想了半天，感觉自己是纸张）。假设图能够成功进行三染色，且有颜色
+<span class="math inline">\(1\to 2\)</span> 的边，<span
+class="math inline">\(2\to 3\)</span> 的边与 <span
+class="math inline">\(3\to 1\)</span>
+的边，那么同一个连通块内所有这样的颜色对的点对都能连上边。证明显然。</p>
+<p>如果无法进行进行三染色，那么必然存在一条这三类边之外的边。假设存在同色间的边
+<span class="math inline">\(x\to x\)</span>，假设 <span
+class="math inline">\(y=x-1\)</span>，那么原本存在 <span
+class="math inline">\(y\to x\)</span> 的边，操作后存在 <span
+class="math inline">\(x\to y\)</span> 的边。</p>
+<p>现在有 <span class="math inline">\(x\to y\)</span> 的边与 <span
+class="math inline">\(y\to x\)</span> 的边（设 <span
+class="math inline">\(y=x+1\)</span>，<span
+class="math inline">\(z=y+1\)</span>，<span
+class="math inline">\(x=z+1\)</span>，均在 <span
+class="math inline">\(\bmod 3\)</span>
+意义下）。那么可以通过以下操作：</p>
+<ul>
+<li><span class="math inline">\(x\to y,y\to x\)</span> 推出 <span
+class="math inline">\(x\to x\)</span>。</li>
+<li><span class="math inline">\(y\to x,x\to y\)</span> 推出 <span
+class="math inline">\(y\to y\)</span>。</li>
+<li><span class="math inline">\(z\to x,x\to x\)</span> 推出 <span
+class="math inline">\(x\to z\)</span>。</li>
+<li><span class="math inline">\(z\to x,x\to z\)</span> 推出 <span
+class="math inline">\(z\to z\)</span>。</li>
+<li><span class="math inline">\(y\to y,y\to z\)</span> 推出 <span
+class="math inline">\(z\to y\)</span>。</li>
+</ul>
+<p>所以若三染色不成功，则任意两点之间都能到达。</p>
+<p>需要注意的是，如果三染色成功，且只有两种颜色，则是单向边的二分图，并无法使左部点与右部点全部连边。</p>
+<h2 id="cf1437g-death-dbms">CF1437G Death DBMS</h2>
+<p>先把所有串建出 ACAM，然后给每个串的 endpos 在 fail
+树上的子树内的点权与这个串的权值 checkmax。</p>
+<p>每次询问时，沿着询问串向下走，将答案
+checkmax。不难发现每个点的权值其实是它在 fail 树上所有祖先的字符串权值
+max，那么这个值就是答案。</p>
+<p>考虑维护方法，将 fail 树拍成 dfn
+序，建出线段树，线段树每个节点维护一个
+<code>multiset</code>，就可以支持区间加，区间删除，单点查询最大值。时间复杂度
+<span class="math inline">\(O(n\log^2 n)\)</span>。</p>
+<p>还有一种根号做法，串长的总和限制了，由于 <span
+class="math inline">\(\sum_{i=1}^xi=O(x^2)\)</span>，所以串长只会有根号种。使用字符串哈希，每次询问时枚举串长计算即可。时间复杂度
+<span class="math inline">\(O(n\sqrt{\sum len})\)</span>。</p>
+<h2 id="qoj-6504-flowers-land-2">qoj 6504 Flower's Land 2</h2>
+<p>找一找能删玩的序列的性质，发现没有成果。</p>
+<p>考虑用一种运算方式来表示抵消操作。显然这种运算需要有逆来使抵消后变成单位元，需要有结合律来表示抵消操作后的消失，需要不能有交换律来防止不合法的抵消。</p>
+<p>一看，这不是矩阵乘法吗！考虑对三种数各自刻画一个 <span
+class="math inline">\(3\times 3\)</span>
+的矩阵。奇数位置为对应矩阵，偶数位置为对应矩阵的逆。直接用线段树维护区间操作
+<span class="math inline">\(0,1,2\)</span> 次操作后的矩阵乘积即可。</p>
+<p>每次判断只需要判断当前区间矩阵的乘积是否为单位矩阵即可。</p>
+<p>时间复杂度 <span class="math inline">\(O(k^3n\log n)\)</span>，其中
+<span class="math inline">\(k=3\)</span>。如果维护 <span
+class="math inline">\(2\times 2\)</span> 的矩阵，好像根据什么 Ping-Pong
+Lemma 会出问题，具体的我也不会证呜呜呜。</p>
+<h2 id="cf618f-double-knapsack">CF618F Double Knapsack</h2>
+<p>不做 CF 的人，高考都有难了！</p>
+<p>结论：不需要选子集，只需要选子区间就能保证一定有解。</p>
+<p>证明：转化为选子区间后，把序列求一遍前缀和，原问题等价于给你两个单调递增的序列
+<span class="math inline">\(a,b\)</span>，你需要找出 <span
+class="math inline">\(0\le l_1&lt;r_1\le n\)</span> 与 <span
+class="math inline">\(0\le l_2&lt;r_2\le n\)</span>，满足 <span
+class="math inline">\(a_{r_1}-a_{l_1}=b_{r_2}-b_{l_2}\)</span>。</p>
+<p>不妨设 <span class="math inline">\(a_n\le b_n\)</span>，那么对于每个
+<span class="math inline">\(0\le i\le n\)</span>，都存在至少一个 <span
+class="math inline">\(0\le j\le n\)</span> ，使得 <span
+class="math inline">\(b_j\ge a_i\)</span>。我们对于每个 <span
+class="math inline">\(a_i\)</span> 找出这样的最小的 <span
+class="math inline">\(j\)</span>。由于值域为 <span
+class="math inline">\([1,n]\)</span>，因此最小的 <span
+class="math inline">\(j\)</span> 一定满足 <span
+class="math inline">\(0\le b_j-a_i&lt;n\)</span>。</p>
+<p>这样的差只有 <span class="math inline">\(n\)</span> 种，而这样的
+<span class="math inline">\((i,j)\)</span> 有 <span
+class="math inline">\(n+1\)</span> 个，根据鸽笼原理，一定存在一对 <span
+class="math inline">\(((i_1,j_1),(i_2,j_2))\)</span>
+满足两个的差相等，那么原问题中要找的 <span
+class="math inline">\(l_1,r_1\)</span> 与 <span
+class="math inline">\(l_2,r_2\)</span> 就随之找到了。</p>
+<p>对于 <span class="math inline">\(a_n&gt;b_n\)</span>
+的同理。这样，仅用子区间就能找到一组答案。</p>
+<p>对于每个位置二分找比它大的复杂度 <span class="math inline">\(O(n\log
+n)\)</span>，当然你可以用双指针做到 <span
+class="math inline">\(O(n)\)</span>。</p>
+<h2 id="cf1656h-equal-lcm-subsets">CF1656H Equal LCM Subsets</h2>
+<p>由于值域很大，无法直接算 <span
+class="math inline">\(\operatorname{lcm}\)</span>，因此考虑对每一个质因数考虑。</p>
+<p>设 <span
+class="math inline">\(a_{i}=\prod_kp_k^{\alpha(a_i,k)}\)</span>，那么对于每一个
+<span class="math inline">\(k\)</span>，<span
+class="math inline">\(\max_{i\in S_A}\alpha(i,k)=\max_{i\in
+S_B}\alpha(i,k)\)</span>。把 <span class="math inline">\(\max\)</span>
+的等于转化为互相小于等于，然后推一推式子：</p>
+<p><span class="math display">\[
+\forall k,\forall x\in S_A,\exists y\in S_B,\alpha(x,k)\le\alpha(y,k)\\
+\]</span></p>
+<p>再把小于等于转化为等于：</p>
+<p><span class="math display">\[
+\forall k,\forall x\in S_A,\exists y\in
+S_B,\alpha(x,k)-\min\{\alpha(x,k),\alpha(y,k)\}=0
+\]</span></p>
+<p>发现因数个数的 <span class="math inline">\(\min\)</span> 其实就是
+<span class="math inline">\(\gcd\)</span> 运算，式子转化为：</p>
+<p><span class="math display">\[
+\forall k,\forall x\in S_A,\exists y\in
+S_B,\alpha(\frac{x}{\gcd(x,y)},k)=0
+\]</span></p>
+<p>发现存在一个 <span class="math inline">\(y\)</span> 满足上式 <span
+class="math inline">\(=0\)</span>，实际上就是对于所有 <span
+class="math inline">\(y\)</span> 他们的 <span
+class="math inline">\(\gcd\)</span> 的值 <span
+class="math inline">\(=0\)</span>：</p>
+<p><span class="math display">\[
+\forall k,\forall x\in S_A,\alpha(\gcd_{y\in
+S_B}(\frac{x}{\gcd(x,y)}),k)=0
+\]</span></p>
+<p>然后把所有的质因数放在一起考虑，每个都没有出现，就是 <span
+class="math inline">\(\gcd=1\)</span>：</p>
+<p><span class="math display">\[
+\forall x\in S_A,\gcd_{y\in S_B}(\frac{x}{\gcd(x,y)})=1
+\]</span></p>
+<p>对于每一个 <span class="math inline">\(S_B\)</span>
+中的元素同理，由：</p>
+<p><span class="math display">\[
+\forall x\in S_B,\gcd_{y\in S_A}(\frac{x}{\gcd(x,y)})=1
+\]</span></p>
+<p>直接暴力删除不合法元素，需要删除 <span
+class="math inline">\(n+m\)</span> 次，每次遍历所有元素 <span
+class="math inline">\(n+m\)</span> 次，计算上述值的复杂度是 <span
+class="math inline">\(O(n\log V)\)</span> 或 <span
+class="math inline">\(O(m\log V)\)</span> 的，复杂度是 <span
+class="math inline">\(O(n^3\log V)\)</span> 的，无法通过。</p>
+<p>考虑优化，用 <span class="math inline">\(n+m\)</span>
+棵线段树维护每个 <span class="math inline">\(S_A,S_B\)</span>
+中元素的上述值即可，删除后对于每个另一个集合中的数，将他的位置设为 <span
+class="math inline">\(0\)</span>。不难发现，这样单次计算上述值得复杂度是
+<span class="math inline">\(O(1)\)</span>
+的，而每个元素至多删除一次，单次删除复杂度 <span
+class="math inline">\(O(n\log n\log V)\)</span> 或 <span
+class="math inline">\(O(m\log m\log V)\)</span>。</p>
+<p>设 <span class="math inline">\(n,m\)</span> 同阶，则最终复杂度 <span
+class="math inline">\(O(n^2\log n\log V)\)</span>。</p>
+<h2 id="cf878d-magic-breeding">CF878D Magic Breeding</h2>
+<p>虽然每个生物的特征很多，但不难发现，对于每一次询问，答案一定是对应特征中
+<span class="math inline">\(k\)</span> 个值中的一个。</p>
+<p>考虑每次询问时枚举这个答案，判断是否可行。我们将所有 <span
+class="math inline">\(\ge x\)</span> 的值标记为 <span
+class="math inline">\(1\)</span>，不难发现本质不同的大小关系只有 <span
+class="math inline">\(2^k\)</span> 种，用一个 <code>bitset</code>
+维护一下这 <span class="math inline">\(2^k\)</span>
+种初始大小关系在变换结束后的结果是多少。</p>
+<p>由于值域是 <span class="math inline">\(\{0,1\}\)</span>，所以取 <span
+class="math inline">\(\max\)</span> 就是两个 <code>bitset</code>
+取或，<span class="math inline">\(\min\)</span> 就是两个
+<code>bitset</code> 取与。</p>
+<p>最终复杂度 <span class="math inline">\(O(nk\log
+k+qk+\frac{q2^k}{\omega})\)</span>。</p>
+<h2 id="cf1474f-1-2-3-4-...">CF1474F 1 2 3 4 ...</h2>
+<p>由于相邻两项的差都是 <span class="math inline">\(1\)</span>，因此 LIS
+是公差为 <span class="math inline">\(1\)</span> 的等差数列。LIS
+的长度很好求，直接枚举起点段和终点段即可，复杂度不高也不重要。难点在于计算
+LIS 的个数。</p>
+<p>LIS 的数的区间并不唯一，但是不难发现不同数的区间的 LIS
+都不交。因此考虑将原序列的折线段分段，每段以下降段开始，以上升段结束，且能够取到最长
+LIS 的长度，且 LIS 的值域唯一，且是能取到该值域 LIS 的最长区间。</p>
+<p>对于每个区间内，可以考虑 dp 计算方案数。令 <span
+class="math inline">\(f_{i,j}\)</span> 表示填到值为 <span
+class="math inline">\(i\)</span> 的数，目前位于第 <span
+class="math inline">\(j\)</span>
+条折线的方案数。转移时，考虑上一个数所在的区间，但是直接转移复杂度爆炸。</p>
+<p>发现值域被所有折线段的左右端点分成了 <span
+class="math inline">\(O(n)\)</span>
+各区间，每个区间中的转移方式是相同的，因此可以考虑使用矩阵快速幂来优化，这样就能快速转移了。</p>
+<p>最终时间复杂度 <span class="math inline">\(O(n^4\log
+V)\)</span>。注意一些细节，比如所有数都是负数，特判也要取模等。</p>
+<h2 id="p9462-终点">P9462 终点</h2>
+<p>钦定以 <span class="math inline">\(1\)</span>
+号点为根。首先询问出所有点到 <span class="math inline">\(1\)</span>
+号的中点，假设 <span class="math inline">\(1\)</span> 号点的深度为 <span
+class="math inline">\(0\)</span>，那么所有的连边都是从深度为 <span
+class="math inline">\(x\)</span> 的点连向深度为 <span
+class="math inline">\(2x\)</span> 的点。</p>
+<p>定义一个点的长度为一直向上走询问得到的“返祖边”走的距离。</p>
+<p>找出所有点中长度最大的点，这个点的最终祖先一定是深度为 <span
+class="math inline">\(1\)</span>
+的节点。证明考虑如果这个点的祖先不是深度为 <span
+class="math inline">\(1\)</span> 的，那么他的深度一定可以被表示为 <span
+class="math inline">\(c\times 2^k\)</span>，而 <span
+class="math inline">\(c\)</span> 是奇数且 <span
+class="math inline">\(\not=1\)</span>。那么我们找一个深度 <span
+class="math inline">\(=c-1\)</span> 的节点，那个节点的深度就能被表示为
+<span class="math inline">\(\frac{c-1}{2}\times
+2^{k+1}\)</span>，长度比那个点大，矛盾。</p>
+<p>这样我们找到了深度为 <span class="math inline">\(1\)</span>
+的节点。然后询问所有深度为奇数的节点（就是前一次询问未得到答案的节点）与这个深度为
+<span class="math inline">\(1\)</span>
+的节点的中点。通过这些询问我们可以类似 bfs 的得到所有点的深度。</p>
+<p>接下来，考虑按照节点的深度从小到大依次确定父亲节点，从而确定这颗树的形态。</p>
+<p>考察一个节点 <span class="math inline">\(u\)</span> 时，考虑定义函数
+<span class="math inline">\(\operatorname{solve}(rt,u)\)</span> 表示在
+<span class="math inline">\(rt\)</span> 为根的子树内寻找 <span
+class="math inline">\(u\)</span> 的父亲（保证 <span
+class="math inline">\(u\)</span> 在 <span
+class="math inline">\(rt\)</span> 子树内）。分以下三种情况考虑：</p>
+<ul>
+<li>若 <span class="math inline">\(dep_{rt}+1=dep_u\)</span>，那么 <span
+class="math inline">\(rt\)</span> 即为 <span
+class="math inline">\(u\)</span> 的父亲节点。</li>
+<li>若 <span class="math inline">\(dep_u-dep_{rt}\equiv0\pmod
+2\)</span>，那么询问 <span class="math inline">\(u\)</span> 与 <span
+class="math inline">\(rt\)</span> 的中点 <span
+class="math inline">\(v\)</span>，递归查找 <span
+class="math inline">\(\operatorname{solve}(v,u)\)</span>。</li>
+<li>若 <span class="math inline">\(dep_u-dep_{rt}\equiv 1\pmod
+2\)</span>，那么随便找一个 <span class="math inline">\(u\)</span> 的儿子
+<span class="math inline">\(s\)</span>，询问 <span
+class="math inline">\(s\)</span> 与 <span
+class="math inline">\(u\)</span> 的中点 <span
+class="math inline">\(v\)</span>，递归查找 <span
+class="math inline">\(\operatorname{solve}(v,u)\)</span>。</li>
+</ul>
+<p>发现这样递归的深度上限是 <span class="math inline">\(\lceil\log
+n\rceil\)</span> 的，但是长度很小，因为 <span
+class="math inline">\(n\)</span> 其实是 <span
+class="math inline">\(u\)</span> 的 <span
+class="math inline">\(dep\)</span>。</p>
+<p>确定完每个节点的父亲节点后，树的形态就确定了。询问次数为 <span
+class="math inline">\(O(n\log n)\)</span>，严格来说是 <span
+class="math inline">\(O(2n+\sum_u\log_{dep_u})\)</span>。</p>
+<h2 id="qoj-4193-joined-sessions">qoj 4193 Joined Sessions</h2>
+<p>考虑什么时候无解。如果当前最小支配集大小 <span
+class="math inline">\(=1\)</span>
+或所有线段不相交，那么无解，否则有解。</p>
+<p>容易证明如果有解，那么至多三次合并就一定能使最小支配集的大小 <span
+class="math inline">\(-1\)</span>。证明随便画画就好了。</p>
+<p>对于每个区间 <span class="math inline">\(i\)</span>，我们令 <span
+class="math inline">\(\operatorname{last}(i)\)</span> 表示右端点在 <span
+class="math inline">\(l_i\)</span> 之前的右端点最大的线段，<span
+class="math inline">\(\operatorname{cont}(i)\)</span> 表示与 <span
+class="math inline">\(i\)</span> 相交的区间中左端点最小的区间。</p>
+<p>容易发现，对于每次合并，一定是选择一个 <span
+class="math inline">\(x\)</span> 与 <span
+class="math inline">\(\operatorname{cont}(x)\)</span> 合并。</p>
+<p>由于至多三次合并就能使最小支配集大小 <span
+class="math inline">\(-1\)</span>，因此考虑 dp。</p>
+<p>令 <span class="math inline">\(dp(j,s)\)</span> 表示对于前 <span
+class="math inline">\(j\)</span> 条线段，用了 <span
+class="math inline">\(s\)</span>
+次合并操作，最小支配集的大小最小是多少。转移方程：</p>
+<p><span class="math display">\[
+dp(j,s)=\min\{dp(\operatorname{last}(j),s)+1,\min\{dp(\operatorname{cont}^k(j),s-t)|1\le
+t\le s\}\}
+\]</span></p>
+<p>最后找出 <span class="math inline">\(dp(n,k)\)</span>
+中第一个小于初始最小支配集大小的 <span
+class="math inline">\(k\)</span>，即为答案。</p>
+<p>时间复杂度 <span class="math inline">\(O(n\log
+n)\)</span>，瓶颈在排序。</p>
+]]></content>
+      <tags>
+        <tag>好题</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>联合省选2023</title>
+    <url>/2023/04/01/pe2023/</url>
+    <content><![CDATA[<h2 id="day--1">Day -1</h2>
+<p>学校请假，上午去机房 goose goose duck，好爽。</p>
+<p>下午去试机，车费好贵 /fn/fn/fn。</p>
+<p>键盘手感好评，居然和我用的完全一样。</p>
+<p>晚上不知道在干啥。</p>
+<h2 id="day-1">Day 1</h2>
+<p>早起，有点没睡醒。</p>
+<p>车上背了一下 pb_ds 的单词，相信是用不上的。</p>
+<p>开考 20 min 先把 T1 写了，然后开始坐牢。</p>
+<p>T2 是数数，感觉不太会，于是先开 T3，发现 <span
+class="math inline">\(O(nq\log^2 n)\)</span> 有点傻逼，写了一下。</p>
+<p>然后继续看 T2，花了 30+ min，才发现读错题了，好久才搞懂题意。</p>
+<p>一脸懵，写了 <span class="math inline">\(O(2^n\text{poly} n)\)</span>
+就跑路了，不太想想 <span class="math inline">\(k=0\)</span> 的。</p>
+<p>然后测了一下 T3 的效率，大样例跑了 3s 左右，时限只有
+5s，感觉很卡常啊！</p>
+<p>于是把 multiset 改成了四个堆，写了巨大久，改完跑了 2.5s
+左右，就扔掉了。</p>
+<p>大概已经 11:00 左右了，接下来开始徘徊 T2 的树部分分 和 T3
+的链特殊性质，最后都没拿分，呜呜呜。</p>
+<p>出场后发现大家 T2 都 <span class="math inline">\(50\)</span>
+了，有点寄，感觉 <span class="math inline">\(k=0\)</span> 的 dp
+不难想啊，我为什么要强吃树的部分？？？</p>
+<p>出场估分 <span
+class="math inline">\(100+25+48=173\)</span>，比大众分低了一大截，呜呜呜。</p>
+<p>感觉队线 <span class="math inline">\(100+100+48=248\)</span> 啊！</p>
+<p>晚上不知道在干啥，摸了一会儿鱼。</p>
+<h2 id="day-2">Day 2</h2>
+<p>本来想翻盘的，结果被翻盘了。呜呜呜。</p>
+<p>一开 T1
+发现有点神秘，不好估计难度，感觉不是很难，但是感觉又不简单，于是先丢了。</p>
+<p>然后看 T2，好久都没有想出一个合理的做法，甚至是否有解都只会 <span
+class="math inline">\(O(n\sqrt n)\)</span> 的 dinic 算，感觉寄飞了。</p>
+<p>不会正解，开始看特殊性质，A 和 B 都很好写，于是写完去看了看 T3。</p>
+<p>还是不会啊，但是只剩 2.5h 了，赶紧回去码 T1。</p>
+<p>写了大概 8k 左右，样例都没过，很多次都是 RE，还好没开无限栈。</p>
+<p>调了好久发现做法假了，眼看只有 1.5h 了，赶紧开始拼暴力，写了 20
+的部分分就跑路了。</p>
+<p>然后开始想 T3，突然发现自己之前看错题了。。</p>
+<p>赶紧开始写 T3 的 10 部分分的暴力 dp，很好写啊！但是一下就挂了啊！</p>
+<p>调了好久还是每过，于是重构，一遍过了样例。</p>
+<p>还剩大概半小时吧，看了看 T1 的部分分要大分讨，不好写，于是去写 T2 的
+C 性质。</p>
+<p>写完之后发现不对，怎么回事呢，调了好久的 dinic，才发现不是 dinic
+写炸了，是建图炸了。</p>
+<p>没修完就马上结束了，赶紧理了理文件夹，润了。</p>
+<p>出场估分 <span
+class="math inline">\(20+40+10=70\)</span>，没到大众分的一般，呜呜呜。</p>
+<p>感觉队线 <span class="math inline">\(100+100+10=210\)</span> 啊！</p>
+<p>下午一直在打鹅，好谔谔。</p>
+<p>总分估计 <span
+class="math inline">\(100+25+48+20+40+10=243\)</span>。</p>
+<p>队线估计 <span
+class="math inline">\(100+100+48+100+100+10=458\)</span>，寄！</p>
+]]></content>
+      <tags>
+        <tag>游记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PKUSC2023</title>
+    <url>/2023/05/07/pkusc2023/</url>
+    <content><![CDATA[<h2 id="day-0">Day 0</h2>
+<p>早起赶到火车站，做了 4.5h 的复兴号从杭州东到北京南，然后做了 1h
+地铁才到酒店，去对面吃了肉夹馍，某些人 9 元买了 7 元优惠券 /cf。</p>
+<p>下午和晚上在酒店魔域，好像他们夜骑去面基了。。</p>
+<p>10 点半还打了个 div2，花了 20min 写了个 E，抢了一血，很爽。口胡了个 F
+就睡了（但好像假了？。</p>
+<h2 id="day-1">Day 1</h2>
+<p>早上 5 点半就醒了，去对面吃了馄饨和豆腐脑（第一次吃豆腐脑
+/tuu）。骑车去北大报道，然后开幕式，很高效，一下就好了。</p>
+<p>然后去试机，电脑感觉还行，虽然是
+win，但是挺好用的。写了个试机题就润了（如果早知道试机代码不会被删。</p>
+<p>下午正式比赛，先开 T1，感觉不难，稍微想了一下就会了，写了 <span
+class="math inline">\(O(n\log n)\)</span> 的倍增哈希被卡成了
+91，改成二分就过了，大概 1h。</p>
+<p>开 T2，不太会，写了状压 23pts。然后开 T3，也不会，写了暴力 dp
+32pts。</p>
+<p>开始疯狂思考，浪费了 1h+，直到最后 40min 才发现 T3 有 ddp
+的部分分，赶紧开冲。</p>
+<p>主题调完了，但是最后 2min
+过样例却只有随机数据的部分分，很奇怪，然后结束了。</p>
+<p>赛后才发现 ddp
+修改节点信息的时候没有更新到根的链，只更新了自己和当前链链顶，属实是太久没写
+ddp 了。</p>
+<p>考完去圆明园玩，发现未成年人免费，很好！逛了
+1h，差点迷路。最后骑车回家，然后开始魔域。晚上 div4 狗都不打。</p>
+<p>11
+点半就睡了，有点早，不过可能逛圆明园走的路太多了，很快就睡着了。</p>
+<p><span
+class="math inline">\(100+23+32=155\)</span>，感觉是个大众分（大中分
+bushi。</p>
+<h2 id="day-2">Day 2</h2>
+<p>不知道为什么早上 5 点就自然醒，睡眠 5h，高质量。于是起来看了 热火 -
+尼克斯 G3，薄纱。</p>
+<p>上午听讲座，结果发现是广告，于是开始看 勇士 - 湖人
+G3，哨子有点离谱，看了一会儿就关了，，。</p>
+<p>下午上机，开局先开 T1，很容易的 65pts，写了 1h
+就写完了。感觉正解直接平衡树就好，但感觉有点浪费时间，就先鸽了。</p>
+<p>然后看 T2，神迷题，写个随机调整过了前两个 subtask，然后发现 <span
+class="math inline">\(a+b=100\)</span>
+好像稍微推一下柿子就好，一下就过了，50 pts。</p>
+<p>然后开 T3，神迷题，但是 <span class="math inline">\(nq\sqrt
+x\)</span>
+很容易，很好写，但是卡常数被卡飞了，卡了好久的常都过不了。</p>
+<p>最后 10min 莫名其妙就过了，15 pts 拿下，但是 T1
+的平衡树来不及写了呜呜呜。</p>
+<p>晚上去赶火车，写游记。</p>
+<p><span
+class="math inline">\(65+50+15=130\)</span>，不知道大众分多少，感觉没到大众分呜呜呜。</p>
+<h2 id="day-3">Day 3</h2>
+<p><span
+class="math inline">\(155+130=285\)</span>，初三有约吗有约吗有约吗有约吗有约吗有约吗有约吗有约吗有约吗有约吗有约吗有约吗有约吗有约吗有约吗？？？？</p>
+<p>Upd：有了，赢！</p>
+]]></content>
+      <tags>
+        <tag>游记</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>水题乱做 - 1</title>
     <url>/2023/09/01/water-23-9/</url>
     <content><![CDATA[<h3 id="codeforces-1864g">CodeForces-1864G</h3>
@@ -1976,72 +2144,15 @@ class="math inline">\(i\)</span>，操作 <span
 class="math inline">\(j\)</span>
 次的最小代价，可以决策单调性优化转移。</p>
 <h3 id="luogu-p5574">Luogu-P5574</h3>
-<p>同上题。</p>
+<p>同上题，统计区间 cost 时可以使用树状数组，复杂度多一个 <span
+class="math inline">\(O(\log n)\)</span>。</p>
 <h3 id="codeforces-1305g">CodeForces-1305G</h3>
 <p>新建一个虚点，转化为最大生成树。从大到小枚举边权，点对可以通过枚举子集得出。</p>
+<h3 id="codeforces-1774g">CodeForces-1774G</h3>
+<p>寻找正负抵消的限制后，将线段构造成树形结构，倍增寻找最近的满足条件的祖先。</p>
 ]]></content>
       <tags>
         <tag>水题</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PKUSC2023</title>
-    <url>/2023/05/07/pkusc2023/</url>
-    <content><![CDATA[<h2 id="day-0">Day 0</h2>
-<p>早起赶到火车站，做了 4.5h 的复兴号从杭州东到北京南，然后做了 1h
-地铁才到酒店，去对面吃了肉夹馍，某些人 9 元买了 7 元优惠券 /cf。</p>
-<p>下午和晚上在酒店魔域，好像他们夜骑去面基了。。</p>
-<p>10 点半还打了个 div2，花了 20min 写了个 E，抢了一血，很爽。口胡了个 F
-就睡了（但好像假了？。</p>
-<h2 id="day-1">Day 1</h2>
-<p>早上 5 点半就醒了，去对面吃了馄饨和豆腐脑（第一次吃豆腐脑
-/tuu）。骑车去北大报道，然后开幕式，很高效，一下就好了。</p>
-<p>然后去试机，电脑感觉还行，虽然是
-win，但是挺好用的。写了个试机题就润了（如果早知道试机代码不会被删。</p>
-<p>下午正式比赛，先开 T1，感觉不难，稍微想了一下就会了，写了 <span
-class="math inline">\(O(n\log n)\)</span> 的倍增哈希被卡成了
-91，改成二分就过了，大概 1h。</p>
-<p>开 T2，不太会，写了状压 23pts。然后开 T3，也不会，写了暴力 dp
-32pts。</p>
-<p>开始疯狂思考，浪费了 1h+，直到最后 40min 才发现 T3 有 ddp
-的部分分，赶紧开冲。</p>
-<p>主题调完了，但是最后 2min
-过样例却只有随机数据的部分分，很奇怪，然后结束了。</p>
-<p>赛后才发现 ddp
-修改节点信息的时候没有更新到根的链，只更新了自己和当前链链顶，属实是太久没写
-ddp 了。</p>
-<p>考完去圆明园玩，发现未成年人免费，很好！逛了
-1h，差点迷路。最后骑车回家，然后开始魔域。晚上 div4 狗都不打。</p>
-<p>11
-点半就睡了，有点早，不过可能逛圆明园走的路太多了，很快就睡着了。</p>
-<p><span
-class="math inline">\(100+23+32=155\)</span>，感觉是个大众分（大中分
-bushi。</p>
-<h2 id="day-2">Day 2</h2>
-<p>不知道为什么早上 5 点就自然醒，睡眠 5h，高质量。于是起来看了 热火 -
-尼克斯 G3，薄纱。</p>
-<p>上午听讲座，结果发现是广告，于是开始看 勇士 - 湖人
-G3，哨子有点离谱，看了一会儿就关了，，。</p>
-<p>下午上机，开局先开 T1，很容易的 65pts，写了 1h
-就写完了。感觉正解直接平衡树就好，但感觉有点浪费时间，就先鸽了。</p>
-<p>然后看 T2，神迷题，写个随机调整过了前两个 subtask，然后发现 <span
-class="math inline">\(a+b=100\)</span>
-好像稍微推一下柿子就好，一下就过了，50 pts。</p>
-<p>然后开 T3，神迷题，但是 <span class="math inline">\(nq\sqrt
-x\)</span>
-很容易，很好写，但是卡常数被卡飞了，卡了好久的常都过不了。</p>
-<p>最后 10min 莫名其妙就过了，15 pts 拿下，但是 T1
-的平衡树来不及写了呜呜呜。</p>
-<p>晚上去赶火车，写游记。</p>
-<p><span
-class="math inline">\(65+50+15=130\)</span>，不知道大众分多少，感觉没到大众分呜呜呜。</p>
-<h2 id="day-3">Day 3</h2>
-<p><span
-class="math inline">\(155+130=285\)</span>，初三有约吗有约吗有约吗有约吗有约吗有约吗有约吗有约吗有约吗有约吗有约吗有约吗有约吗有约吗有约吗？？？？</p>
-<p>Upd：有了，赢！</p>
-]]></content>
-      <tags>
-        <tag>游记</tag>
       </tags>
   </entry>
 </search>
