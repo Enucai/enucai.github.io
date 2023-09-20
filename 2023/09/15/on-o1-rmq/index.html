@@ -1,630 +1,176 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.3.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+  <title>Enucaiの小屋</title>
+  <link rel="icon" href="/images/avatar.jpeg">
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/fomantic-ui/2.9.3/semantic.min.css">
+  <script src="https://cdn.bootcdn.net/ajax/libs/fomantic-ui/2.9.3/semantic.min.js"></script>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/prism-themes/1.9.0/prism-vsc-dark-plus.min.css">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.8/katex.min.css">
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+  <script src="/js/main.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
 
-<link rel="stylesheet" href="/css/main.css">
-
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Fira Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"enucai.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
-
-  <meta name="description" content="鉴于四毛子狗都不写，学习了一些有用且好写的 $O(n)-O(1)$ rmq 方法。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="浅谈 $O(n)-O(1)$ rmq">
-<meta property="og:url" content="http://enucai.github.io/2023/09/15/on-o1-rmq/index.html">
-<meta property="og:site_name" content="Enucaiの小屋">
-<meta property="og:description" content="鉴于四毛子狗都不写，学习了一些有用且好写的 $O(n)-O(1)$ rmq 方法。">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-09-14T23:48:58.000Z">
-<meta property="article:modified_time" content="2023-09-18T05:09:25.300Z">
-<meta property="article:author" content="Enucai">
-<meta property="article:tag" content="笔记">
-<meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="http://enucai.github.io/2023/09/15/on-o1-rmq/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
-
-  <title>浅谈 $O(n)-O(1)$ rmq | Enucaiの小屋</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --></head>
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
+<body style="background-image: url('images/background-image.jpeg'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
+  <div class="ui-col">
+    <div id="dark-mode" onclick="dark_mode()">🌓</div>
+    <div class="ui-header ui-shadow" style="transition: all 0.3s ease; padding: 20px; background: var(--header-bgcol); z-index: 10; height: 60px; width: 100%;">
+      <div class="ui-row ui-space-between">
+  <div>
+    <a href="/" style="color: var(--header-col);">Enucaiの小屋</a>
   </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Enucaiの小屋</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-      <p class="site-subtitle" itemprop="description">进屋坐坐咩，进来的就别走诺</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
-</nav>
-
-
-
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
-</div>
-
-    </div>
-  </div>
-
-</div>
-    </header>
-
+  <div class="ui-row">
     
-
-  <a href="https://github.com/enucai" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
-
+    <div class="ui-row-space"></div>
     
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://enucai.github.io/2023/09/15/on-o1-rmq/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Enucai">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Enucaiの小屋">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          浅谈 $O(n)-O(1)$ rmq
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-09-15 07:48:58" itemprop="dateCreated datePublished" datetime="2023-09-15T07:48:58+08:00">2023-09-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-18 13:09:25" itemprop="dateModified" datetime="2023-09-18T13:09:25+08:00">2023-09-18</time>
-              </span>
-
+      <div class="ui dropdown scrolling">
+        <div style="color: var(--title-col);">Friends<i class="dropdown icon"></i></div>
+        <div class="menu" style="width: max-content;">
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-            <div class="post-description">鉴于四毛子狗都不写，学习了一些有用且好写的 $O(n)-O(1)$ rmq 方法。</div>
-
+            <a class="item" target="_blank" rel="noopener" href="https://cnblogs.com/ShaoJia/" style="min-width: max-content; text-align: right; display: flex;">
+              
+                <img class="image" src="https://cdn.luogu.com.cn/upload/usericon/101868.png">
+              
+              <div style="flex: 1;"></div>
+              ShaoJia
+            </a>
+          
+            <a class="item" target="_blank" rel="noopener" href="https://ftt2333.github.io/" style="min-width: max-content; text-align: right; display: flex;">
+              
+                <img class="image" src="https://cdn.luogu.com.cn/upload/usericon/34225.png">
+              
+              <div style="flex: 1;"></div>
+              ftt2333
+            </a>
+          
+            <a class="item" target="_blank" rel="noopener" href="https://cmk666.github.io/" style="min-width: max-content; text-align: right; display: flex;">
+              
+                <img class="image" src="https://cdn.luogu.com.cn/upload/usericon/127949.png">
+              
+              <div style="flex: 1;"></div>
+              cmk666
+            </a>
+          
+            <a class="item" target="_blank" rel="noopener" href="https://cyb1010.github.io/" style="min-width: max-content; text-align: right; display: flex;">
+              
+                <img class="image" src="https://cdn.luogu.com.cn/upload/usericon/333119.png">
+              
+              <div style="flex: 1;"></div>
+              cyb1010
+            </a>
+          
+            <a class="item" target="_blank" rel="noopener" href="https://red-black-tree.github.io/" style="min-width: max-content; text-align: right; display: flex;">
+              
+                <img class="image" src="https://cdn.luogu.com.cn/upload/usericon/173951.png">
+              
+              <div style="flex: 1;"></div>
+              rb_tree
+            </a>
+          
         </div>
-      </header>
+      </div>
+    
+    <div class="ui-row-space"></div>
+    
+      <a href="/archives/" style="color: var(--header-col); margin: 2px;">
+        Archives
+      </a>
+    
+    <div class="ui-row-space"></div>
+    
+      <a href="/tags/" style="color: var(--header-col); margin: 2px;">
+        Tags
+      </a>
+    
+    <div class="ui-row-space"></div>
+    
+      <a href="/about/" style="color: var(--header-col); margin: 2px;">
+        About
+      </a>
+    
+  </div>
+</div>
+    </div>
+    <div class="ui-col-space-big"></div>
+    <div class="ui-col" style="height: max-content;">
+      <div class="ui-content" id="page-content">
+        <div class="ui-max-width ui-card ui-shadow">
+  <div>
+    <div class="ui-padding ui-col">
+<h1>浅谈 O(n)-O(1) rmq</h1>
+<p>创建于 2023-09-15</p>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+<p>
+  Tags:
+  
+  <a href="/tags/笔记/">笔记</a>
+  
+</p>
 
-      
-        <p>说到 <span class="math inline">\(O(n)-O(1)\)</span> rmq
-问题，最广为认知的就是四毛子，但是四毛子不好写，因此来记录几个较为好写的
-<span class="math inline">\(O(n)-O(1)\)</span> rmq 算法。</p>
-<h2 id="分块">分块</h2>
+
+</div>
+  </div>
+  <div class="ui-padding">
+    <p>说到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo>−</mo><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)-O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span> rmq 问题，最广为认知的就是四毛子，但是四毛子不好写，因此来记录几个较为好写的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo>−</mo><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)-O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span> rmq 算法。</p>
+<h2>分块</h2>
 <ul>
-<li>优点：较为好写，且能够做到严格的 <span
-class="math inline">\(O(n)-O(1)\)</span>。</li>
+<li>优点：较为好写，且能够做到严格的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo>−</mo><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)-O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>。</li>
 <li>缺点：不能算非常好写。</li>
 </ul>
-<p>将序列按照每 <span class="math inline">\(\log n\)</span>
-个元素分为一块，序列将被分为 <span class="math inline">\(\frac{n}{\log
-n}\)</span> 块，求出每个块内的最大值，并在块间建立 ST
-表。并且对于每个块内，处理出前缀和后缀最大值。</p>
-<p>对于一个询问 <span
-class="math inline">\([l,r]\)</span>，找出被完全包含的区间，求出这几个块之间的最大值，对于两边的散块，调用前后缀最大值即可。</p>
-<p>至此，预处理时间复杂度 <span class="math inline">\(O(\frac{n}{\log
-n}\cdot \log n+n)=O(n)\)</span>，查询时间复杂度 <span
-class="math inline">\(O(1)\)</span>。</p>
+<p>将序列按照每 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>log</mi><mo>⁡</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">\log n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">n</span></span></span></span> 个元素分为一块，序列将被分为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mi>n</mi><mrow><mi>log</mi><mo>⁡</mo><mi>n</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{n}{\log n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1764999999999999em;vertical-align:-0.481108em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.695392em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mop mtight"><span class="mtight">l</span><span class="mtight">o</span><span class="mtight" style="margin-right:0.01389em;">g</span></span><span class="mspace mtight" style="margin-right:0.19516666666666668em;"></span><span class="mord mathnormal mtight">n</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.481108em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> 块，求出每个块内的最大值，并在块间建立 ST 表。并且对于每个块内，处理出前缀和后缀最大值。</p>
+<p>对于一个询问 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[l,r]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span>，找出被完全包含的区间，求出这几个块之间的最大值，对于两边的散块，调用前后缀最大值即可。</p>
+<p>至此，预处理时间复杂度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mfrac><mi>n</mi><mrow><mi>log</mi><mo>⁡</mo><mi>n</mi></mrow></mfrac><mo>⋅</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>+</mo><mi>n</mi><mo stretchy="false">)</mo><mo>=</mo><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\frac{n}{\log n}\cdot \log n+n)=O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2311079999999999em;vertical-align:-0.481108em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.695392em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mop mtight"><span class="mtight">l</span><span class="mtight">o</span><span class="mtight" style="margin-right:0.01389em;">g</span></span><span class="mspace mtight" style="margin-right:0.19516666666666668em;"></span><span class="mord mathnormal mtight">n</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.481108em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>，查询时间复杂度 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>。</p>
 <p>看似结束了，但是如果询问的区间被包含在了一个块内该怎么办呢？</p>
-<p>在预处理时，可以对于每个块内分别跑一遍单调栈，维护块内每个位置的前缀的后缀最大值。同时，单调栈内的元素个数是
-<span class="math inline">\(O(\log n)\)</span>
-的，每个元素可以用他在块内的位置表示，值域也是 <span
-class="math inline">\(O(\log n)\)</span> 的。</p>
-<p>我们可以将者 <span class="math inline">\(O(\log n)\)</span> 个值域为
-<span class="math inline">\(O(\log n)\)</span> 的数压缩成一个值域为
-<span class="math inline">\(O(\log^{\log n} n)\)</span> 的 long long
-记录下来，不难发现这个 long long 可以在入栈和弹栈的时候同时维护。</p>
-<p>另一种存贮方式是对于每个数，记录这个数到当前块的开头哪些位置在单调栈中，每次询问是可以使用
-<code>__builtin_ctz</code>
-函数进行查询。这种方式所使用的空间更少，单个元素的值域是 <span
-class="math inline">\(O(2^{\log n})=O(n)\)</span>。</p>
-<p>询问时，直接调用 <span class="math inline">\(r\)</span>
-所在位置的单调栈信息即可，不难发现复杂度也是 <span
-class="math inline">\(O(n)-O(1)\)</span> 的。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> T = <span class="type">int</span>;</span><br><span class="line"><span class="type">const</span> <span class="keyword">auto</span> cmp = [](T x, T y) &#123; <span class="keyword">return</span> x &gt; y; &#125;;</span><br><span class="line"><span class="type">unsigned</span> f[N];</span><br><span class="line">T val[N], st[<span class="number">20</span>][( N &gt;&gt; <span class="number">5</span> ) + <span class="number">9</span>], pre[N], suf[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> T <span class="title">mx</span><span class="params">(T x, T y)</span> </span>&#123; <span class="keyword">return</span> <span class="built_in">cmp</span>(x, y) ? x : y; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">init</span><span class="params">(T *x, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">  <span class="built_in">copy</span>(x + <span class="number">1</span>, x + n + <span class="number">1</span>, val);</span><br><span class="line">  <span class="built_in">rep</span> (i, <span class="number">0</span>, n - <span class="number">1</span>) st[<span class="number">0</span>][i &gt;&gt; <span class="number">5</span>] = i &amp; <span class="number">31</span> ? <span class="built_in">mx</span>(st[<span class="number">0</span>][i &gt;&gt; <span class="number">5</span>], val[i]) : val[i];</span><br><span class="line">  <span class="built_in">rep</span> (i, <span class="number">1</span>, __lg(( ( n - <span class="number">1</span> ) &gt;&gt; <span class="number">5</span> ) + <span class="number">1</span>)) <span class="built_in">rep</span> (j, <span class="number">0</span>, ( ( n - <span class="number">1</span> ) &gt;&gt; <span class="number">5</span> ) + <span class="number">1</span> - ( <span class="number">1</span> &lt;&lt; i ))</span><br><span class="line">    st[i][j] = <span class="built_in">mx</span>(st[i - <span class="number">1</span>][j], st[i - <span class="number">1</span>][j + ( <span class="number">1</span> &lt;&lt; ( i - <span class="number">1</span> ) )]);</span><br><span class="line">  <span class="built_in">rep</span> (i, <span class="number">0</span>, n - <span class="number">1</span>) pre[i] = i &amp; <span class="number">31</span> ? <span class="built_in">mx</span>(pre[i - <span class="number">1</span>], val[i]) : val[i];</span><br><span class="line">  <span class="built_in">per</span> (i, n - <span class="number">1</span>, <span class="number">0</span>) suf[i] = i != n - <span class="number">1</span> &amp;&amp; ( ~i &amp; <span class="number">31</span> ) ? <span class="built_in">mx</span>(suf[i + <span class="number">1</span>], val[i]) : val[i];</span><br><span class="line">  <span class="type">int</span> top = <span class="number">0</span>, stk[<span class="number">39</span>];</span><br><span class="line">  <span class="built_in">rep</span> (i, <span class="number">0</span>, n - <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> ( i &amp; <span class="number">31</span> ) f[i] = f[i - <span class="number">1</span>]; <span class="keyword">else</span> f[i] = top = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> ( top &amp;&amp; !<span class="built_in">cmp</span>(val[stk[top]], val[i]) ) f[i] &amp;= ~( <span class="number">1u</span> &lt;&lt; ( stk[top--] &amp; <span class="number">31</span> ) );</span><br><span class="line">    f[i] |= <span class="number">1u</span> &lt;&lt; ( ( stk[++top] = i ) &amp; <span class="number">31</span> );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> T <span class="title">qry</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> ( ( --l &gt;&gt; <span class="number">5</span> ) != ( --r &gt;&gt; <span class="number">5</span> ) ) &#123;</span><br><span class="line">    T ret = <span class="built_in">mx</span>(suf[l], pre[r]);</span><br><span class="line">    <span class="keyword">if</span> ( ( r &gt;&gt; <span class="number">5</span> ) - ( l &gt;&gt; <span class="number">5</span> ) &gt; <span class="number">1</span> ) &#123;</span><br><span class="line">      <span class="type">int</span> t = __lg(( r &gt;&gt; <span class="number">5</span> ) - ( l &gt;&gt; <span class="number">5</span> ) - <span class="number">1</span>);</span><br><span class="line">      ret = <span class="built_in">mx</span>(ret, <span class="built_in">mx</span>(st[t][( l &gt;&gt; <span class="number">5</span> ) + <span class="number">1</span>], st[t][( r &gt;&gt; <span class="number">5</span> ) - ( <span class="number">1</span> &lt;&lt; t )]));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> val[l + __builtin_ctz(f[r] &gt;&gt; ( l &amp; <span class="number">31</span> ))];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="谁波-rmq">谁波 rmq</h2>
+<p>在预处理时，可以对于每个块内分别跑一遍单调栈，维护块内每个位置的前缀的后缀最大值。同时，单调栈内的元素个数是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 的，每个元素可以用他在块内的位置表示，值域也是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 的。</p>
+<p>我们可以将者 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 个值域为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 的数压缩成一个值域为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mo><mi>log</mi><mo>⁡</mo></mo><mrow><mi>log</mi><mo>⁡</mo><mi>n</mi></mrow></msup><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\log^{\log n} n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1834479999999998em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.9334479999999998em;"><span style="top:-3.1473400000000002em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mop mtight"><span class="mtight">l</span><span class="mtight">o</span><span class="mtight" style="margin-right:0.01389em;">g</span></span><span class="mspace mtight" style="margin-right:0.19516666666666668em;"></span><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 的 long long 记录下来，不难发现这个 long long 可以在入栈和弹栈的时候同时维护。</p>
+<p>另一种存贮方式是对于每个数，记录这个数到当前块的开头哪些位置在单调栈中，每次询问是可以使用 <code>__builtin_ctz</code> 函数进行查询。这种方式所使用的空间更少，单个元素的值域是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mn>2</mn><mrow><mi>log</mi><mo>⁡</mo><mi>n</mi></mrow></msup><mo stretchy="false">)</mo><mo>=</mo><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(2^{\log n})=O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0991079999999998em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8491079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mop mtight"><span class="mtight">l</span><span class="mtight">o</span><span class="mtight" style="margin-right:0.01389em;">g</span></span><span class="mspace mtight" style="margin-right:0.19516666666666668em;"></span><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>。</p>
+<p>询问时，直接调用 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span> 所在位置的单调栈信息即可，不难发现复杂度也是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo>−</mo><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)-O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span> 的。</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> T = <span class="type">int</span>;</span><br><span class="line"><span class="type">const</span> <span class="keyword">auto</span> cmp = [](T x, T y) &#123; <span class="keyword">return</span> x &gt; y; &#125;;</span><br><span class="line"><span class="type">unsigned</span> f[N];</span><br><span class="line">T val[N], st[<span class="number">20</span>][( N &gt;&gt; <span class="number">5</span> ) + <span class="number">9</span>], pre[N], suf[N];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> T <span class="title">mx</span><span class="params">(T x, T y)</span> </span>&#123; <span class="keyword">return</span> <span class="built_in">cmp</span>(x, y) ? x : y; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">init</span><span class="params">(T *x, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">  <span class="built_in">copy</span>(x + <span class="number">1</span>, x + n + <span class="number">1</span>, val);</span><br><span class="line">  <span class="built_in">rep</span> (i, <span class="number">0</span>, n - <span class="number">1</span>) st[<span class="number">0</span>][i &gt;&gt; <span class="number">5</span>] = i &amp; <span class="number">31</span> ? <span class="built_in">mx</span>(st[<span class="number">0</span>][i &gt;&gt; <span class="number">5</span>], val[i]) : val[i];</span><br><span class="line">  <span class="built_in">rep</span> (i, <span class="number">1</span>, __lg(( ( n - <span class="number">1</span> ) &gt;&gt; <span class="number">5</span> ) + <span class="number">1</span>)) <span class="built_in">rep</span> (j, <span class="number">0</span>, ( ( n - <span class="number">1</span> ) &gt;&gt; <span class="number">5</span> ) + <span class="number">1</span> - ( <span class="number">1</span> &lt;&lt; i ))</span><br><span class="line">    st[i][j] = <span class="built_in">mx</span>(st[i - <span class="number">1</span>][j], st[i - <span class="number">1</span>][j + ( <span class="number">1</span> &lt;&lt; ( i - <span class="number">1</span> ) )]);</span><br><span class="line">  <span class="built_in">rep</span> (i, <span class="number">0</span>, n - <span class="number">1</span>) pre[i] = i &amp; <span class="number">31</span> ? <span class="built_in">mx</span>(pre[i - <span class="number">1</span>], val[i]) : val[i];</span><br><span class="line">  <span class="built_in">per</span> (i, n - <span class="number">1</span>, <span class="number">0</span>) suf[i] = i != n - <span class="number">1</span> &amp;&amp; ( ~i &amp; <span class="number">31</span> ) ? <span class="built_in">mx</span>(suf[i + <span class="number">1</span>], val[i]) : val[i];</span><br><span class="line">  <span class="type">int</span> top = <span class="number">0</span>, stk[<span class="number">39</span>];</span><br><span class="line">  <span class="built_in">rep</span> (i, <span class="number">0</span>, n - <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> ( i &amp; <span class="number">31</span> ) f[i] = f[i - <span class="number">1</span>]; <span class="keyword">else</span> f[i] = top = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> ( top &amp;&amp; !<span class="built_in">cmp</span>(val[stk[top]], val[i]) ) f[i] &amp;= ~( <span class="number">1u</span> &lt;&lt; ( stk[top--] &amp; <span class="number">31</span> ) );</span><br><span class="line">    f[i] |= <span class="number">1u</span> &lt;&lt; ( ( stk[++top] = i ) &amp; <span class="number">31</span> );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> T <span class="title">qry</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> ( ( --l &gt;&gt; <span class="number">5</span> ) != ( --r &gt;&gt; <span class="number">5</span> ) ) &#123;</span><br><span class="line">    T ret = <span class="built_in">mx</span>(suf[l], pre[r]);</span><br><span class="line">    <span class="keyword">if</span> ( ( r &gt;&gt; <span class="number">5</span> ) - ( l &gt;&gt; <span class="number">5</span> ) &gt; <span class="number">1</span> ) &#123;</span><br><span class="line">      <span class="type">int</span> t = __lg(( r &gt;&gt; <span class="number">5</span> ) - ( l &gt;&gt; <span class="number">5</span> ) - <span class="number">1</span>);</span><br><span class="line">      ret = <span class="built_in">mx</span>(ret, <span class="built_in">mx</span>(st[t][( l &gt;&gt; <span class="number">5</span> ) + <span class="number">1</span>], st[t][( r &gt;&gt; <span class="number">5</span> ) - ( <span class="number">1</span> &lt;&lt; t )]));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> val[l + __builtin_ctz(f[r] &gt;&gt; ( l &amp; <span class="number">31</span> ))];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2>谁波 rmq</h2>
 <ul>
 <li>优点：非常好写，且跑得很快</li>
-<li>缺点：依赖于随机数据，查询复杂度并非 <span
-class="math inline">\(O(1)\)</span>。</li>
+<li>缺点：依赖于随机数据，查询复杂度并非 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>。</li>
 </ul>
-<p>准确来说并不能放在 <span class="math inline">\(O(n)-O(1)\)</span> rmq
-的博客中，但是因为他实在是太好写了，跑得太快了。</p>
-<p>首先调用 <code>nth_element</code> 求出序列中前 <span
-class="math inline">\(\frac{n}{\log n}\)</span> 大元素，然后对这 <span
-class="math inline">\(\frac{n}{\log n}\)</span> 个数从大到小排序。</p>
-<p>预处理复杂度为 <code>nth_element</code> 的 <span
-class="math inline">\(O(n)\)</span> 与排序的 <span
-class="math inline">\(O(\frac{n}{\log n}\cdot \log
-n)=O(n)\)</span>。</p>
-<p>每次查询时，从大到小枚举前 <span class="math inline">\(\frac{n}{\log
-n}\)</span> 个数，判断每个数是否在询问的区间中，找到即退出。</p>
-<p>如果找不到，这样的询问数量是 <span
-class="math inline">\(O(1)\)</span>
-的，可以直接暴力枚举，或者使用线段树查询。</p>
-<p>在保证数据随机时，查询复杂度为期望 <span class="math inline">\(O(\log
-n)\)</span>，且拥有一个极小的常数，甚至可以视为 <span
-class="math inline">\(O(1)\)</span>。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> n, m, a[N], t, w[<span class="number">1</span> &lt;&lt; <span class="number">26</span>];</span><br><span class="line">pii b[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">qry</span><span class="params">(<span class="type">int</span> c, <span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> x, <span class="type">int</span> y)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (l == x &amp;&amp; r == y) <span class="keyword">return</span> w[c];</span><br><span class="line">  <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">if</span> (y &lt;= mid) <span class="keyword">return</span> <span class="built_in">qry</span>(c &lt;&lt; <span class="number">1</span>, l, mid, x, y);</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (x &gt; mid) <span class="keyword">return</span> <span class="built_in">qry</span>(c &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, mid + <span class="number">1</span>, r, x, y);</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">return</span> <span class="built_in">max</span>(<span class="built_in">qry</span>(c &lt;&lt; <span class="number">1</span>, l, mid, x, mid), <span class="built_in">qry</span>(c &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, mid + <span class="number">1</span>, r, mid + <span class="number">1</span>, y));</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">rep</span> (i, <span class="number">1</span>, n) a[i] = <span class="built_in">read</span>(), b[i] = <span class="built_in">pii</span>(-a[i], i);</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) w[i + t - <span class="number">1</span>] = a[i];</span><br><span class="line"><span class="built_in">per</span> (i, t, <span class="number">1</span>) w[i] = <span class="built_in">max</span>(w[i &lt;&lt; <span class="number">1</span>], w[i &lt;&lt; <span class="number">1</span> | <span class="number">1</span>]);</span><br><span class="line"><span class="built_in">nth_element</span>(b + <span class="number">1</span>, b + B, b + n + <span class="number">1</span>), <span class="built_in">sort</span>(b + <span class="number">1</span>, b + B + <span class="number">1</span>);</span><br><span class="line"><span class="comment">// query</span></span><br><span class="line"><span class="built_in">rep</span> (i, <span class="number">1</span>, B) <span class="keyword">if</span> (b[i].se &gt;= l &amp;&amp; b[i].se &lt;= r) &#123; ans = -b[i].fi, f = <span class="number">1</span>; <span class="keyword">break</span>; &#125;</span><br><span class="line"><span class="keyword">if</span> (!f) ans = <span class="built_in">qry</span>(<span class="number">1</span>, <span class="number">1</span>, t, l, r);</span><br></pre></td></tr></table></figure>
+<p>准确来说并不能放在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo><mo>−</mo><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)-O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span> rmq 的博客中，但是因为他实在是太好写了，跑得太快了。</p>
+<p>首先调用 <code>nth_element</code> 求出序列中前 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mi>n</mi><mrow><mi>log</mi><mo>⁡</mo><mi>n</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{n}{\log n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1764999999999999em;vertical-align:-0.481108em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.695392em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mop mtight"><span class="mtight">l</span><span class="mtight">o</span><span class="mtight" style="margin-right:0.01389em;">g</span></span><span class="mspace mtight" style="margin-right:0.19516666666666668em;"></span><span class="mord mathnormal mtight">n</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.481108em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> 大元素，然后对这 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mi>n</mi><mrow><mi>log</mi><mo>⁡</mo><mi>n</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{n}{\log n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1764999999999999em;vertical-align:-0.481108em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.695392em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mop mtight"><span class="mtight">l</span><span class="mtight">o</span><span class="mtight" style="margin-right:0.01389em;">g</span></span><span class="mspace mtight" style="margin-right:0.19516666666666668em;"></span><span class="mord mathnormal mtight">n</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.481108em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> 个数从大到小排序。</p>
+<p>预处理复杂度为 <code>nth_element</code> 的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 与排序的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mfrac><mi>n</mi><mrow><mi>log</mi><mo>⁡</mo><mi>n</mi></mrow></mfrac><mo>⋅</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo><mo>=</mo><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\frac{n}{\log n}\cdot \log n)=O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2311079999999999em;vertical-align:-0.481108em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.695392em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mop mtight"><span class="mtight">l</span><span class="mtight">o</span><span class="mtight" style="margin-right:0.01389em;">g</span></span><span class="mspace mtight" style="margin-right:0.19516666666666668em;"></span><span class="mord mathnormal mtight">n</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.481108em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>。</p>
+<p>每次查询时，从大到小枚举前 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mi>n</mi><mrow><mi>log</mi><mo>⁡</mo><mi>n</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{n}{\log n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1764999999999999em;vertical-align:-0.481108em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.695392em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mop mtight"><span class="mtight">l</span><span class="mtight">o</span><span class="mtight" style="margin-right:0.01389em;">g</span></span><span class="mspace mtight" style="margin-right:0.19516666666666668em;"></span><span class="mord mathnormal mtight">n</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.481108em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span> 个数，判断每个数是否在询问的区间中，找到即退出。</p>
+<p>如果找不到，这样的询问数量是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span> 的，可以直接暴力枚举，或者使用线段树查询。</p>
+<p>在保证数据随机时，查询复杂度为期望 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>，且拥有一个极小的常数，甚至可以视为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span>。</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> n, m, a[N], t, w[<span class="number">1</span> &lt;&lt; <span class="number">26</span>];</span><br><span class="line">pii b[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">qry</span><span class="params">(<span class="type">int</span> c, <span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> x, <span class="type">int</span> y)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (l == x &amp;&amp; r == y) <span class="keyword">return</span> w[c];</span><br><span class="line">  <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">if</span> (y &lt;= mid) <span class="keyword">return</span> <span class="built_in">qry</span>(c &lt;&lt; <span class="number">1</span>, l, mid, x, y);</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span> (x &gt; mid) <span class="keyword">return</span> <span class="built_in">qry</span>(c &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, mid + <span class="number">1</span>, r, x, y);</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">return</span> <span class="built_in">max</span>(<span class="built_in">qry</span>(c &lt;&lt; <span class="number">1</span>, l, mid, x, mid), <span class="built_in">qry</span>(c &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, mid + <span class="number">1</span>, r, mid + <span class="number">1</span>, y));</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">rep</span> (i, <span class="number">1</span>, n) a[i] = <span class="built_in">read</span>(), b[i] = <span class="built_in">pii</span>(-a[i], i);</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) w[i + t - <span class="number">1</span>] = a[i];</span><br><span class="line"><span class="built_in">per</span> (i, t, <span class="number">1</span>) w[i] = <span class="built_in">max</span>(w[i &lt;&lt; <span class="number">1</span>], w[i &lt;&lt; <span class="number">1</span> | <span class="number">1</span>]);</span><br><span class="line"><span class="built_in">nth_element</span>(b + <span class="number">1</span>, b + B, b + n + <span class="number">1</span>), <span class="built_in">sort</span>(b + <span class="number">1</span>, b + B + <span class="number">1</span>);</span><br><span class="line"><span class="comment">// query</span></span><br><span class="line"><span class="built_in">rep</span> (i, <span class="number">1</span>, B) <span class="keyword">if</span> (b[i].se &gt;= l &amp;&amp; b[i].se &lt;= r) &#123; ans = -b[i].fi, f = <span class="number">1</span>; <span class="keyword">break</span>; &#125;</span><br><span class="line"><span class="keyword">if</span> (!f) ans = <span class="built_in">qry</span>(<span class="number">1</span>, <span class="number">1</span>, t, l, r);</span><br></pre></td></tr></table></figure></p>
 
-    </div>
-
-    
-    
-    
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
-          </div>
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2023/09/14/day-1-3/" rel="prev" title="逆天记录-3">
-      <i class="fa fa-chevron-left"></i> 逆天记录-3
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2023/09/18/constructive/" rel="next" title="浅谈构造问题">
-      浅谈构造问题 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
+    <div id="comment" style="margin: auto;"></div>
 
 
 
-          </div>
-          
 
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+
+
+
   </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E5%9D%97"><span class="nav-number">1.</span> <span class="nav-text">分块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%81%E6%B3%A2-rmq"><span class="nav-number">2.</span> <span class="nav-text">谁波 rmq</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Enucai"
-      src="/images/avatar.jpeg">
-  <p class="site-author-name" itemprop="name">Enucai</p>
-  <div class="site-description" itemprop="description"></div>
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">12</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
       </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">5</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
+      <div class="ui-col-space-mid"></div>
+      <div>
+        <div class="ui-col">
+  <p style="color: var(--footer-col); padding: 20px 30px;">
+    Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo</a>,
+    theme by <a target="_blank" rel="noopener" href="https://github.com/ftt2333/hexo-theme-facter">Facter</a>
+  </p>
 </div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/enucai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;enucai" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:3425993912@qq.com" title="E-Mail → mailto:3425993912@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://plus.google.com/wsyear" title="Google → https:&#x2F;&#x2F;plus.google.com&#x2F;wsyear" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://twitter.com/enucai" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;enucai" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://youtube.com/wsyear13" title="YouTube → https:&#x2F;&#x2F;youtube.com&#x2F;wsyear13" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://instagram.com/enucai" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;enucai" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
-      </span>
-  </div>
-
-
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title">
-      <i class="fa fa-fw fa-link"></i>
-      Links
+      </div>
+      <div class="ui-col-space-mid"></div>
     </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://cnblogs.com/shaojia" title="https:&#x2F;&#x2F;cnblogs.com&#x2F;shaojia" rel="noopener" target="_blank">ShaoJia</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://cmk666.github.io/" title="https:&#x2F;&#x2F;cmk666.github.io" rel="noopener" target="_blank">cmk666</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://ftt2333.github.io/" title="https:&#x2F;&#x2F;ftt2333.github.io" rel="noopener" target="_blank">ftt2333</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://cyb1010.github.io/" title="https:&#x2F;&#x2F;cyb1010.github.io" rel="noopener" target="_blank">cyb1010</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://red-black-tree.github.io/" title="https:&#x2F;&#x2F;red-black-tree.github.io" rel="noopener" target="_blank">rb_tree</a>
-        </li>
-    </ul>
   </div>
-
-      </div>
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          <span>0%</span>
-        </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2023</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Enucai</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-  </div>
-
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
-
-  
-
-
-
-
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-          load: ['[tex]/mhchem'],
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-          packages: {'[+]': ['mhchem']},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
-
-  
-
-  
-  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
-  
+  <script>
+    $(document).pjax('a[target!=_blank]', '#page-content', {fragment: '#page-content'});
+  </script>
 </body>
+
 </html>

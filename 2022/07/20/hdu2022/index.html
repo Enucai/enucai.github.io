@@ -1,795 +1,305 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 6.3.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+  <title>Enucaiの小屋</title>
+  <link rel="icon" href="/images/avatar.jpeg">
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.bootcdn.net/ajax/libs/fomantic-ui/2.9.3/semantic.min.css">
+  <script src="https://cdn.bootcdn.net/ajax/libs/fomantic-ui/2.9.3/semantic.min.js"></script>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/prism-themes/1.9.0/prism-vsc-dark-plus.min.css">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.16.8/katex.min.css">
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+  <script src="/js/main.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
 
-<link rel="stylesheet" href="/css/main.css">
-
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Fira Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-
-<script id="hexo-configurations">
-    var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"enucai.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
-  </script>
-
-  <meta name="description" content="第一次打 hdu，记录一下写题过程喵。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="杭电多校2022">
-<meta property="og:url" content="http://enucai.github.io/2022/07/20/hdu2022/index.html">
-<meta property="og:site_name" content="Enucaiの小屋">
-<meta property="og:description" content="第一次打 hdu，记录一下写题过程喵。">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-07-20T13:50:00.000Z">
-<meta property="article:modified_time" content="2023-09-18T05:38:17.723Z">
-<meta property="article:author" content="Enucai">
-<meta property="article:tag" content="游记">
-<meta name="twitter:card" content="summary">
-
-<link rel="canonical" href="http://enucai.github.io/2022/07/20/hdu2022/">
-
-
-<script id="page-configurations">
-  // https://hexo.io/docs/variables.html
-  CONFIG.page = {
-    sidebar: "",
-    isHome : false,
-    isPost : true,
-    lang   : 'zh-CN'
-  };
-</script>
-
-  <title>杭电多校2022 | Enucaiの小屋</title>
-  
-
-
-
-
-
-
-  <noscript>
-  <style>
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-header { opacity: initial; }
-
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
-
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
-  </style>
-</noscript>
-
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --></head>
-<body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
-    <div class="headband"></div>
-
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏">
-      <span class="toggle-line toggle-line-first"></span>
-      <span class="toggle-line toggle-line-middle"></span>
-      <span class="toggle-line toggle-line-last"></span>
-    </div>
+<body style="background-image: url('images/background-image.jpeg'); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
+  <div class="ui-col">
+    <div id="dark-mode" onclick="dark_mode()">🌓</div>
+    <div class="ui-header ui-shadow" style="transition: all 0.3s ease; padding: 20px; background: var(--header-bgcol); z-index: 10; height: 60px; width: 100%;">
+      <div class="ui-row ui-space-between">
+  <div>
+    <a href="/" style="color: var(--header-col);">Enucaiの小屋</a>
   </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Enucaiの小屋</h1>
-      <span class="logo-line-after"><i></i></span>
-    </a>
-      <p class="site-subtitle" itemprop="description">进屋坐坐咩，进来的就别走诺</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
-    </div>
-  </div>
-</div>
-
-
-
-
-<nav class="site-nav">
-  <ul id="menu" class="menu">
-        <li class="menu-item menu-item-home">
-
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
-
-  </li>
-        <li class="menu-item menu-item-about">
-
-    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
-
-  </li>
-        <li class="menu-item menu-item-tags">
-
-    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
-
-  </li>
-        <li class="menu-item menu-item-archives">
-
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
-
-  </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
-  </ul>
-</nav>
-
-
-
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
-</div>
-
-    </div>
-  </div>
-
-</div>
-    </header>
-
+  <div class="ui-row">
     
-
-  <a href="https://github.com/enucai" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
-
-
-    <main class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          
-
-          <div class="content post posts-expand">
-            
-
+    <div class="ui-row-space"></div>
     
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://enucai.github.io/2022/07/20/hdu2022/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Enucai">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Enucaiの小屋">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          杭电多校2022
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-07-20 21:50:00" itemprop="dateCreated datePublished" datetime="2022-07-20T21:50:00+08:00">2022-07-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-18 13:38:17" itemprop="dateModified" datetime="2023-09-18T13:38:17+08:00">2023-09-18</time>
-              </span>
-
+      <div class="ui dropdown scrolling">
+        <div style="color: var(--title-col);">Friends<i class="dropdown icon"></i></div>
+        <div class="menu" style="width: max-content;">
           
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
-            <div class="post-description">第一次打 hdu，记录一下写题过程喵。</div>
-
+            <a class="item" target="_blank" rel="noopener" href="https://cnblogs.com/ShaoJia/" style="min-width: max-content; text-align: right; display: flex;">
+              
+                <img class="image" src="https://cdn.luogu.com.cn/upload/usericon/101868.png">
+              
+              <div style="flex: 1;"></div>
+              ShaoJia
+            </a>
+          
+            <a class="item" target="_blank" rel="noopener" href="https://ftt2333.github.io/" style="min-width: max-content; text-align: right; display: flex;">
+              
+                <img class="image" src="https://cdn.luogu.com.cn/upload/usericon/34225.png">
+              
+              <div style="flex: 1;"></div>
+              ftt2333
+            </a>
+          
+            <a class="item" target="_blank" rel="noopener" href="https://cmk666.github.io/" style="min-width: max-content; text-align: right; display: flex;">
+              
+                <img class="image" src="https://cdn.luogu.com.cn/upload/usericon/127949.png">
+              
+              <div style="flex: 1;"></div>
+              cmk666
+            </a>
+          
+            <a class="item" target="_blank" rel="noopener" href="https://cyb1010.github.io/" style="min-width: max-content; text-align: right; display: flex;">
+              
+                <img class="image" src="https://cdn.luogu.com.cn/upload/usericon/333119.png">
+              
+              <div style="flex: 1;"></div>
+              cyb1010
+            </a>
+          
+            <a class="item" target="_blank" rel="noopener" href="https://red-black-tree.github.io/" style="min-width: max-content; text-align: right; display: flex;">
+              
+                <img class="image" src="https://cdn.luogu.com.cn/upload/usericon/173951.png">
+              
+              <div style="flex: 1;"></div>
+              rb_tree
+            </a>
+          
         </div>
-      </header>
+      </div>
+    
+    <div class="ui-row-space"></div>
+    
+      <a href="/archives/" style="color: var(--header-col); margin: 2px;">
+        Archives
+      </a>
+    
+    <div class="ui-row-space"></div>
+    
+      <a href="/tags/" style="color: var(--header-col); margin: 2px;">
+        Tags
+      </a>
+    
+    <div class="ui-row-space"></div>
+    
+      <a href="/about/" style="color: var(--header-col); margin: 2px;">
+        About
+      </a>
+    
+  </div>
+</div>
+    </div>
+    <div class="ui-col-space-big"></div>
+    <div class="ui-col" style="height: max-content;">
+      <div class="ui-content" id="page-content">
+        <div class="ui-max-width ui-card ui-shadow">
+  <div>
+    <div class="ui-padding ui-col">
+<h1>杭电多校2022</h1>
+<p>创建于 2022-07-20</p>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+<p>
+  Tags:
+  
+  <a href="/tags/游记/">游记</a>
+  
+</p>
 
-      
-        <p><a
-target="_blank" rel="noopener" href="https://www.cnblogs.com/zhangshaojia/p/16503449.html">ShaoJia的游记</a></p>
-<p><del>其实没有游，都在ez机房。</del></p>
+
+</div>
+  </div>
+  <div class="ui-padding">
+    <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhangshaojia/p/16503449.html">ShaoJia的游记</a></p>
+<p><s>其实没有游，都在ez机房。</s></p>
 <p>人生第二次打 ACM（第一次算是 THUPC 吧）。</p>
-<h1 id="day1">Day1</h1>
+<h1>Day1</h1>
 <p>中午去面馆吃面，会到二中已经 11:55 ，跑去机房就开始了。</p>
-<p>一下就开了 1011 签到题，结果误以为红色是 WA，想了好久那里挂了，结果
-10 分钟后有人告诉我我过了。/qd</p>
-<p>全场就做了 1011 和 1012 两道题，成为全队最卷选手。总之把 Shaojia 和
-Cxny 带飞了。</p>
-<p>中途帮 Shaojia 调了 1007，最后竟然是因为没加 <code>inline</code>
-而爆栈了。/qd</p>
+<p>一下就开了 1011 签到题，结果误以为红色是 WA，想了好久那里挂了，结果 10 分钟后有人告诉我我过了。/qd</p>
+<p>全场就做了 1011 和 1012 两道题，成为全队最卷选手。总之把 Shaojia 和 Cxny 带飞了。</p>
+<p>中途帮 Shaojia 调了 1007，最后竟然是因为没加 <code>inline</code> 而爆栈了。/qd</p>
 <p>最后在死磕 1001，一道 KMP 毒瘤题，WA 了两发无果。</p>
 <p>Solved 6 problems，Rank 79。</p>
-<h1 id="day2">Day2</h1>
+<h1>Day2</h1>
 <p>吸取 Day1 的教训，早点出去吃饭，顺便换了一家快餐店。</p>
-<p>到场离开始还有几分钟，和 Shaojia 打了一场 Generals
-2V2，成功偷家，ShaoJia <a
-target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1rA411g7q8/">太逊了</a>。</p>
+<p>到场离开始还有几分钟，和 Shaojia 打了一场 Generals 2V2，成功偷家，ShaoJia <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1rA411g7q8/">太逊了</a>。</p>
 <p>继续倒序开题，1012 签到题，但 <code>INF</code> 没开够挂了一发。</p>
 <p>然后看 1007，题目看了半个多小时，最后 5min 写完代码切掉了。</p>
-<p>1011
-线段树，但第一次写假了，还写得很繁。最后只能再写一次，过的时候已经 14:22
-了。</p>
-<p>1005 又是线段树，死磕 Dp 式最后和 Shaojia
-研究出来了，但发现前面处理区间写挂了。</p>
-<p>最后改了半小时还是 WA。贡献 3 题结束。最后半小时 Shaojia 和 Cxny 开始
-Generals，本巨佬还在调题（驱蚊器）。</p>
+<p>1011 线段树，但第一次写假了，还写得很繁。最后只能再写一次，过的时候已经 14:22 了。</p>
+<p>1005 又是线段树，死磕 Dp 式最后和 Shaojia 研究出来了，但发现前面处理区间写挂了。</p>
+<p>最后改了半小时还是 WA。贡献 3 题结束。最后半小时 Shaojia 和 Cxny 开始 Generals，本巨佬还在调题（驱蚊器）。</p>
 <p>Solved 8 problems，Rank 56。</p>
-<h1 id="day3">Day3</h1>
+<h1>Day3</h1>
 <p>Shaojia 没来，没法吊打他了。</p>
-<p>开场傻乎乎一题都不会，Cxny 把 2 道签到题给切了。我过了好久才把 1012
-这道爪巴 Dp 给过了。</p>
-<p>然后看
-1011，第一反应曼哈顿距离转切比雪夫距离，然后分四个方向讨论，前后缀 <span
-class="math inline">\(x\)</span> 与 <span
-class="math inline">\(w\)</span> 最小最大值即可。</p>
-<p>于是开始写，但发现很难写，才写四分之一 Daniel
-就过了，问了以下发现自己是傻逼，并不用转切比雪夫距离，去掉冗余状态直接二分即可，于是过了。</p>
-<p>1002
-也是萌萌题，理解题意理解错了好多次，最后才知道每个技能只能用一次，直接
-二分 + 状压 Dp 即可，很快就写完了。</p>
-<p>1001 Daniel 柿子推错了，正解好像是 cdq 分治 + 多项式（FFT）优化
-Dp，不在自己能力范围之内（虽然算法都会），没切正常。</p>
-<p>1008 三维计算几何，一开始把 plane(平面)
-理解成了飞机，笑了好久。当然计算几何还是算了（尽管过了一车人）。</p>
-<p>今天一共就过了 5 道签到题，自己做了 3 道（当然感谢 Cxny
-的翻译<strong>与罚时</strong>），没有 Shaojia 的日子真舒服，abandon
-后打了好久的 Generals。</p>
+<p>开场傻乎乎一题都不会，Cxny 把 2 道签到题给切了。我过了好久才把 1012 这道爪巴 Dp 给过了。</p>
+<p>然后看 1011，第一反应曼哈顿距离转切比雪夫距离，然后分四个方向讨论，前后缀 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">x</span></span></span></span> 与 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span></span></span></span> 最小最大值即可。</p>
+<p>于是开始写，但发现很难写，才写四分之一 Daniel 就过了，问了以下发现自己是傻逼，并不用转切比雪夫距离，去掉冗余状态直接二分即可，于是过了。</p>
+<p>1002 也是萌萌题，理解题意理解错了好多次，最后才知道每个技能只能用一次，直接 二分 + 状压 Dp 即可，很快就写完了。</p>
+<p>1001 Daniel 柿子推错了，正解好像是 cdq 分治 + 多项式（FFT）优化 Dp，不在自己能力范围之内（虽然算法都会），没切正常。</p>
+<p>1008 三维计算几何，一开始把 plane(平面) 理解成了飞机，笑了好久。当然计算几何还是算了（尽管过了一车人）。</p>
+<p>今天一共就过了 5 道签到题，自己做了 3 道（当然感谢 Cxny 的翻译<strong>与罚时</strong>），没有 Shaojia 的日子真舒服，abandon 后打了好久的 Generals。</p>
 <p>Solved 5 problems，Rank 143。</p>
-<h1 id="day4">Day4</h1>
+<h1>Day4</h1>
 <p>Shaojia 仍然没来，不过今天在家里打，不用担心吃饭的问题。</p>
-<p>一开始选了几道题都没咋仔细看题面，然后看 1004
-一车人过了，于是去看题，手玩几组发现这不就全是 <code>NO</code>
-吗，然后又看时限给了 8000ms，不敢交。</p>
+<p>一开始选了几道题都没咋仔细看题面，然后看 1004 一车人过了，于是去看题，手玩几组发现这不就全是 <code>NO</code> 吗，然后又看时限给了 8000ms，不敢交。</p>
 <p>过了好久才去试了试，然后过了，出题人你母亲时限干啥的。</p>
-<p>然后 1006，非常的简单，比 1004 还简单，但没判一下就上 <span
-class="math inline">\(200\)</span> 的情况，吃了一发罚时。</p>
+<p>然后 1006，非常的简单，比 1004 还简单，但没判一下就上 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>200</mn></mrow><annotation encoding="application/x-tex">200</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">0</span><span class="mord">0</span></span></span></span> 的情况，吃了一发罚时。</p>
 <p>随后去看 1007，发现又是非常萌萌的题，虽然但是，还是吃了一发罚时。</p>
-<p>随后 Cxny 把 1001 切了，是一道记忆化搜索跑区间 Dp 的题，与 CSP-S2021
-的 t2 有些类似。</p>
-<p>然后发现 1011
-过的人也挺多。虽然不会证，但奶了一口直接线性基，然后过了 /qd。</p>
-<p>1002 则是罚时聚集地，我和 Cxny 一起写，一遍最短路再一遍最长路。然后我
-WA 了，Cxny TLE 了，看了看写法，我的最长路是 topo 序 Dp 的，Cxny 直接
-dij 了。于是我明白了会有 <span class="math inline">\(0\)</span>
-环，然后加了个 tarjan 缩点就过了。</p>
-<p>1005 过的人很多，但我看了一眼不会，然后去看
-1003。一眼就看出对前缀和差分约束。然后写挂了。查了半天发现差分约束返回无解时队列里会有东西，下一次开始又没清空
-/qd。改了下过了。</p>
-<p>然后颓了一会儿。再看 1005
-发现两层合并就是矩阵乘法，而点数又很少，一口奶定是用矩阵做的。然后是个双指针类似，但矩阵除法需要求逆，步数又会很大，又不能取模，于是寄了。</p>
-<p>然后就开始写线段树，每次线段树查询区间乘积。正确的，但是多了一只
-<span class="math inline">\(\log\)</span> 被卡了。</p>
-<p>最后才想到能在用一个指针记录一下现在处理到的位置，然后对这个 <span
-class="math inline">\(l\)</span>
-求基于这个位置的后缀积，复杂度与双指针相同（妙啊），于是最后半小时冲过了。</p>
+<p>随后 Cxny 把 1001 切了，是一道记忆化搜索跑区间 Dp 的题，与 CSP-S2021 的 t2 有些类似。</p>
+<p>然后发现 1011 过的人也挺多。虽然不会证，但奶了一口直接线性基，然后过了 /qd。</p>
+<p>1002 则是罚时聚集地，我和 Cxny 一起写，一遍最短路再一遍最长路。然后我 WA 了，Cxny TLE 了，看了看写法，我的最长路是 topo 序 Dp 的，Cxny 直接 dij 了。于是我明白了会有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 环，然后加了个 tarjan 缩点就过了。</p>
+<p>1005 过的人很多，但我看了一眼不会，然后去看 1003。一眼就看出对前缀和差分约束。然后写挂了。查了半天发现差分约束返回无解时队列里会有东西，下一次开始又没清空 /qd。改了下过了。</p>
+<p>然后颓了一会儿。再看 1005 发现两层合并就是矩阵乘法，而点数又很少，一口奶定是用矩阵做的。然后是个双指针类似，但矩阵除法需要求逆，步数又会很大，又不能取模，于是寄了。</p>
+<p>然后就开始写线段树，每次线段树查询区间乘积。正确的，但是多了一只 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>log</mi><mo>⁡</mo></mrow><annotation encoding="application/x-tex">\log</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span></span></span></span> 被卡了。</p>
+<p>最后才想到能在用一个指针记录一下现在处理到的位置，然后对这个 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>l</mi></mrow><annotation encoding="application/x-tex">l</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span></span></span></span> 求基于这个位置的后缀积，复杂度与双指针相同（妙啊），于是最后半小时冲过了。</p>
 <p>今天这场写了 7 题，手感还是不错的 doge。</p>
 <p>Solved 8 problems，Rank 65。</p>
-<h1 id="day5">Day5</h1>
+<h1>Day5</h1>
 <p>Shaojia 回归，但是今天的剧情加了这个傻逼怎么会这样的呢？</p>
-<p>开场 Shaojia 切了 1002，我看了 1012。1012
-手写一个堆即可，但我蜜汁写挂了。</p>
+<p>开场 Shaojia 切了 1002，我看了 1012。1012 手写一个堆即可，但我蜜汁写挂了。</p>
 <p>然后愣了半天发现节点更新写错了，改了就过了。</p>
-<p>然后我和 Cxny 看 1010。又是一道博弈论，英文太差，完全看不懂题。在
-Cxny 的技术支持下，我发现答案全是
-<code>Win!</code>，即先手询问最大的正确信息，后手必输。</p>
-<p>但是 WA 了。愣了半天发现 <span class="math inline">\(x\ge
-1\)</span>。改了就过了，空吃 3 发罚时。</p>
-<p>1007 的柿子我和 Shaojia 推了半天无果，OEIS 还是无果，Cxny OEIS
-了一下就出来了。然后他把柿子给我，我写了一个 NTT
-加速转移就过了。很激动，第一次做多项式题就过了。</p>
-<p>于是去看 1002，证了一下发现这是个积性函数，可以直接 Min_25
-筛。但是以前没写过，怎么办呢？贺板子。</p>
+<p>然后我和 Cxny 看 1010。又是一道博弈论，英文太差，完全看不懂题。在 Cxny 的技术支持下，我发现答案全是 <code>Win!</code>，即先手询问最大的正确信息，后手必输。</p>
+<p>但是 WA 了。愣了半天发现 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">x\ge 1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。改了就过了，空吃 3 发罚时。</p>
+<p>1007 的柿子我和 Shaojia 推了半天无果，OEIS 还是无果，Cxny OEIS 了一下就出来了。然后他把柿子给我，我写了一个 NTT 加速转移就过了。很激动，第一次做多项式题就过了。</p>
+<p>于是去看 1002，证了一下发现这是个积性函数，可以直接 Min_25 筛。但是以前没写过，怎么办呢？贺板子。</p>
 <p>先贺了 OI-wiki 的板子，调了半天结果 TLE 了，十分愤怒，直接弃题。</p>
-<p>然后去看 1006，想了好久发现是一个 dp，写了一下 WA
-了，看了一下发现数组清空写错了，改了下就过了。</p>
-<p>然后又是 1002，去 loj 上找跑地最快的板子，改到结束还是
-TLE，十分愤怒。</p>
+<p>然后去看 1006，想了好久发现是一个 dp，写了一下 WA 了，看了一下发现数组清空写错了，改了下就过了。</p>
+<p>然后又是 1002，去 loj 上找跑地最快的板子，改到结束还是 TLE，十分愤怒。</p>
 <p>Shaojia 状态不佳啊，是不是没睡够呢，还是本来就这么菜。</p>
 <p>Solved 5 problems，Rank 92。</p>
-<h1 id="day6">Day6</h1>
-<p><del>我发现我每次开场总不能先蒙到水题（盲狙一直很不准</del></p>
+<h1>Day6</h1>
+<p><s>我发现我每次开场总不能先蒙到水题（盲狙一直很不准</s></p>
 <p>赛前吸收了肯爷爷的祝福，神清气爽。</p>
-<p>开场 Shaojia 直接爆切 1006 和 1009，排名直接 rank
-8。我被震撼到了，膜膜膜。</p>
+<p>开场 Shaojia 直接爆切 1006 和 1009，排名直接 rank 8。我被震撼到了，膜膜膜。</p>
 <p>我看 1012，看着一个一个队过了，自己一片混乱，感觉要寄。</p>
-<p>然后 Shaojia 让我看
-1008。手玩了一会儿发现根据二进制可以推出神秘的规律（不知道叫啥，且称周期性吧）。</p>
-<p>然后和 Shaojia
-讨论了一下，打了个暴力发现是正确的，于是两人开始一起码。</p>
-<p>码完发现样例都过不了，非常疑惑。Shaojia 一下就看出了问题，改了 1min
-就过了，不愧是 Shaojia。</p>
-<p>然后 1010
-平面图转对偶图，对偶图上的最小生成树等于原图上最大生成树中没有被选的边，并查集即可，很水，1A（终于
-A 题了）。</p>
-<p>Cxny 很快就把 1012 给过了，代码很短，<del>我们都说 Cxny
-在演</del>。</p>
+<p>然后 Shaojia 让我看 1008。手玩了一会儿发现根据二进制可以推出神秘的规律（不知道叫啥，且称周期性吧）。</p>
+<p>然后和 Shaojia 讨论了一下，打了个暴力发现是正确的，于是两人开始一起码。</p>
+<p>码完发现样例都过不了，非常疑惑。Shaojia 一下就看出了问题，改了 1min 就过了，不愧是 Shaojia。</p>
+<p>然后 1010 平面图转对偶图，对偶图上的最小生成树等于原图上最大生成树中没有被选的边，并查集即可，很水，1A（终于 A 题了）。</p>
+<p>Cxny 很快就把 1012 给过了，代码很短，<s>我们都说 Cxny 在演</s>。</p>
 <p>接下来 Shaojia 把 1007 自己的见解告诉我，我想了想，Shaojia 开搞。</p>
-<p>大概是一道同余原根的题目，Shaojia 想想想推推推发现有 BSGS + exgcd
-的算法，虽然能够，但是时间有点卡。</p>
+<p>大概是一道同余原根的题目，Shaojia 想想想推推推发现有 BSGS + exgcd 的算法，虽然能够，但是时间有点卡。</p>
 <p>Shaojia 说他人傻常数大，太逊了,但我还是怂恿他开写。</p>
-<p><del>随后我作弊看了 cxy 他们的代码，发现直接逆元 + unordered_map
-过，时间复杂度飞快，</del>Shaojia 非常尴尬，我们都嘲笑他 OvO。</p>
+<p>~~随后我作弊看了 cxy 他们的代码，发现直接逆元 + unordered_map 过，时间复杂度飞快，~~Shaojia 非常尴尬，我们都嘲笑他 OvO。</p>
 <p>随后 Shaojia 就过了 1007。</p>
-<p>我开始和 Cxny 讨论 1011，Shaojia 切完后也参与套路。我 oeis，被 wxw
-看见了，他说“他们在 O 一道题”，非常尴尬。</p>
-<p><del>最后绷不住，直接看 wxw 队的代码，Shaojia 直接怂恿我抄，过不了
-TLE。</del></p>
-<p>回头检查一下发现他们算次是 <span class="math inline">\(10^9\)</span>
-级别的，本因过不了，但是他们就蜜汁过了。</p>
-<p>wsyear 改了一下，从枚举因数到倍数 <span
-class="math inline">\(O(n\sqrt n\log n)\rightarrow O(n\log^2
-n)\)</span>，过了。</p>
+<p>我开始和 Cxny 讨论 1011，Shaojia 切完后也参与套路。我 oeis，被 wxw 看见了，他说“他们在 O 一道题”，非常尴尬。</p>
+<p><s>最后绷不住，直接看 wxw 队的代码，Shaojia 直接怂恿我抄，过不了 TLE。</s></p>
+<p>回头检查一下发现他们算次是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup></mrow><annotation encoding="application/x-tex">10^9</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span> 级别的，本因过不了，但是他们就蜜汁过了。</p>
+<p>wsyear 改了一下，从枚举因数到倍数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><msqrt><mi>n</mi></msqrt><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo><mo>→</mo><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><msup><mo><mi>log</mi><mo>⁡</mo></mo><mn>2</mn></msup><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n\sqrt n\log n)\rightarrow O(n\log^2 n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.05028em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8002800000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="padding-left:0.833em;">n</span></span><span style="top:-2.76028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.23972em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.148448em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8984479999999999em;"><span style="top:-3.1473400000000002em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span>，过了。</p>
 <p>此后又把 1002 经过几次罚时调参调过了，之前就听到 xay 说他在调参。</p>
 <p>最后 15min 集体颓废，FFA 了 3 把，第二把碰到了 Daniel777。</p>
-<p><del>Cxny 抱怨说为啥你俩讨论不带我。</del></p>
-<p>最后，Shaojia：4 题，我：3 题，cxny：1 题。<del>Cxny
-太演了。</del></p>
+<p><s>Cxny 抱怨说为啥你俩讨论不带我。</s></p>
+<p>最后，Shaojia：4 题，我：3 题，cxny：1 题。<s>Cxny 太演了。</s></p>
 <p>Solved 8 problems，Rank 29。</p>
 <p>总榜排名 Rank 50，非常爽。</p>
-<h1 id="day7">Day7</h1>
+<h1>Day7</h1>
 <p>zhy 来了，于是我们把 zhy 一起请了过来。</p>
-<p>开场我准备倒开，发现一道不会。过了一会儿有队过了
-1008，于是前去观赏，一道很不 naive 的博弈论，过了一会儿写完提交，发现
-zhy 已经 A 了，非常尴尬。</p>
+<p>开场我准备倒开，发现一道不会。过了一会儿有队过了 1008，于是前去观赏，一道很不 naive 的博弈论，过了一会儿写完提交，发现 zhy 已经 A 了，非常尴尬。</p>
 <p>为了防止再出现多名队员重复看题的情况，我建了个 QQ 群。</p>
-<p>随后 Shaojia 写完了 1004，但是没有过，WA 了 2
-发。他让我调，我也没看出来，后来还是他自己调过了，实在太强。</p>
-<p>然后我开始停滞，一题不会，Shaojia 写 1003 树形
-dp。写完之后没有过，TLE。让我一起调。</p>
-<p>我们都认为是 IO 问题，我还减少了取模次数，用了 buff 的 Fast
-IO，还是蜜汁 TLE。</p>
-<p>于是我开始写数据生成，本地跑了一下，发现真的特别慢。然后发现一个
-<span class="math inline">\(tot\)</span> 写成了 <span
-class="math inline">\(n\)</span>，于是过了。</p>
+<p>随后 Shaojia 写完了 1004，但是没有过，WA 了 2 发。他让我调，我也没看出来，后来还是他自己调过了，实在太强。</p>
+<p>然后我开始停滞，一题不会，Shaojia 写 1003 树形 dp。写完之后没有过，TLE。让我一起调。</p>
+<p>我们都认为是 IO 问题，我还减少了取模次数，用了 buff 的 Fast IO，还是蜜汁 TLE。</p>
+<p>于是我开始写数据生成，本地跑了一下，发现真的特别慢。然后发现一个 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mi>o</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">tot</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathnormal">t</span><span class="mord mathnormal">o</span><span class="mord mathnormal">t</span></span></span></span> 写成了 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span>，于是过了。</p>
 <p>zhy 说只要无视罚时他就能切 1001，我说罚时不重要，于是他开切。</p>
-<p>Cxny 从半小时前说所有人都别看
-1009，给他机会切题，到如今说他寄了，开始摆烂，真是太演了。</p>
-<p>我和 Shaojia 开始想 1006，一道稍加（绍嘉）改变的数位
-dp。很显然的统计每种数个数，柿子也不难推，于是我催促 Shaojia
-开始写，他说他有 <span class="math inline">\(16\)</span>
-的常数，我说没事。</p>
-<p>过了好久写完，有过了好久过样例，中间还有 UB。交了还是
-WA，我写了个对拍，大数据没有问题。</p>
-<p>后来才发现 <span class="math inline">\(k=0\)</span>
-的时候会错，改了一下终于过了，很开心的 2 发罚时。</p>
-<p>Shaojia: &gt; 正当我刚刚说的排查掉头发时，cxny 开始和同桌的 zqs 打
-florr，还时不时戳我让我看游戏局面，当时我非常恼火。</p>
-<p>最后我看 1002，发现每个三角形需要恰好选一个，又没有环，做一遍 dp
-即可，第一遍用了 map TLE，改成 unordered_map 就过了。</p>
-<p>随后 zhy 把全场不到 20 人过的 1001 给切了，写个 8 个
-binary_search，太强了。</p>
+<p>Cxny 从半小时前说所有人都别看 1009，给他机会切题，到如今说他寄了，开始摆烂，真是太演了。</p>
+<p>我和 Shaojia 开始想 1006，一道稍加（绍嘉）改变的数位 dp。很显然的统计每种数个数，柿子也不难推，于是我催促 Shaojia 开始写，他说他有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>16</mn></mrow><annotation encoding="application/x-tex">16</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">6</span></span></span></span> 的常数，我说没事。</p>
+<p>过了好久写完，有过了好久过样例，中间还有 UB。交了还是 WA，我写了个对拍，大数据没有问题。</p>
+<p>后来才发现 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">k=0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 的时候会错，改了一下终于过了，很开心的 2 发罚时。</p>
+<p>Shaojia:</p>
+<blockquote>
+<p>正当我刚刚说的排查掉头发时，cxny 开始和同桌的 zqs 打 florr，还时不时戳我让我看游戏局面，当时我非常恼火。</p>
+</blockquote>
+<p>最后我看 1002，发现每个三角形需要恰好选一个，又没有环，做一遍 dp 即可，第一遍用了 map TLE，改成 unordered_map 就过了。</p>
+<p>随后 zhy 把全场不到 20 人过的 1001 给切了，写个 8 个 binary_search，太强了。</p>
 <p>（所以 Cxny 写了歌姬吧）</p>
 <p>Solved 6 problems，Rank 86。</p>
 <p>总排名还上升到了 Rank 49，非常吃鲸。</p>
-<h1 id="day8">Day8</h1>
-<p>开场先写了 3 道签到题（1004 1001 1008），非常的爽，抢人头，一道树形
-dp 第一遍还推假了，非常傻逼。</p>
+<h1>Day8</h1>
+<p>开场先写了 3 道签到题（1004 1001 1008），非常的爽，抢人头，一道树形 dp 第一遍还推假了，非常傻逼。</p>
 <p>因此 Cxny 再次被迫成为演员。</p>
-<p>Shaojia 同时把 1011
-整除分块切了，非常强，但是赛后发现这题暴力就能过，<span
-class="math inline">\(10^7\)</span> 级别运算量。</p>
-<p>然后 Cxny 非常厉害地想出了 1007 的 <span
-class="math inline">\(O(n\sqrt n)\)</span>
-解法，但是没有卡过去，我花了好些时间帮 Cxny 卡常，还是 TLE。随后 Cxny
-把值域阀调小了，终于过了，可惜吃了 8 发罚时。</p>
-<p>此时 Shaojia 在写 1005，我在看 1002。中途 Shaojia 的 1005 WA
-了，还问我她有没有想错，我觉得是对的。然后 Shaojia
-对拍了好久，最后还是我交过的（事实上 Shaojia
-拍着去上厕所了，让后我看没问题就拿她电脑交了。</p>
+<p>Shaojia 同时把 1011 整除分块切了，非常强，但是赛后发现这题暴力就能过，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><msup><mn>0</mn><mn>7</mn></msup></mrow><annotation encoding="application/x-tex">10^7</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">7</span></span></span></span></span></span></span></span></span></span></span> 级别运算量。</p>
+<p>然后 Cxny 非常厉害地想出了 1007 的 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><msqrt><mi>n</mi></msqrt><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n\sqrt n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.05028em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8002800000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="padding-left:0.833em;">n</span></span><span style="top:-2.76028em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.23972em;"><span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 解法，但是没有卡过去，我花了好些时间帮 Cxny 卡常，还是 TLE。随后 Cxny 把值域阀调小了，终于过了，可惜吃了 8 发罚时。</p>
+<p>此时 Shaojia 在写 1005，我在看 1002。中途 Shaojia 的 1005 WA 了，还问我她有没有想错，我觉得是对的。然后 Shaojia 对拍了好久，最后还是我交过的（事实上 Shaojia 拍着去上厕所了，让后我看没问题就拿她电脑交了。</p>
 <p>然后我把 1002 过了，听 xsc 说他们也会了，但好像没调出来？</p>
-<p>然后我们去上课，Shaojia 在楼上继续想题 1010，他说面积与 <span
-class="math inline">\(t\)</span>
-成二次函数关系，然后就很简单了。于是我，Shaojia 和 zhy 一起写
-1010，但是我贺得板子是错的，贺了两次都是错的，Shaojia 没开
-<code>__int128</code>，最终 zhy 第一个过，并在 16:59 帮 Shaojia
-调过了，实在是太强辣！</p>
+<p>然后我们去上课，Shaojia 在楼上继续想题 1010，他说面积与 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathnormal">t</span></span></span></span> 成二次函数关系，然后就很简单了。于是我，Shaojia 和 zhy 一起写 1010，但是我贺得板子是错的，贺了两次都是错的，Shaojia 没开 <code>__int128</code>，最终 zhy 第一个过，并在 16:59 帮 Shaojia 调过了，实在是太强辣！</p>
 <p>最终我无耻地抢到了 4 道题，Shaojia 2 道，Cxny 1 道，zhy 1 道。</p>
 <p>Solved 8 problems，Rank 50。</p>
 <p>总排名 Rank 45，Shaojia 和 zhy 非常强。</p>
-<h1 id="day9">Day9</h1>
+<h1>Day9</h1>
 <p>现在已经是几个月以后了，记不太清了，大致讲讲就好。</p>
-<p>开场先速切两道签到题，然后开始坐牢，和 Shaojia 一起想
-1008，想到了容斥套容斥。</p>
-<p>结果 Shaojia
-写完锅了，才发现外层容斥有问题。于是想直接内层容斥，我算了一下发现复杂度并不会爆。</p>
-<p>于是改 1008，Shaojia 去写 1001，他所是二进制翻转 +
-排序，非常强大。</p>
-<p>Shaojia 又把 1006 贺过了，Cxny 又非常强大的把 1003 过了。</p>
+<p>开场先速切两道签到题，然后开始坐牢，和 Shaojia 一起想 1008，想到了容斥套容斥。</p>
+<p>结果 Shaojia 写完锅了，才发现外层容斥有问题。于是想直接内层容斥，我算了一下发现复杂度并不会爆。</p>
+<p>于是改 1008，Shaojia 去写 1001，他所是二进制翻转 + 排序，非常强大。</p>
+<p>Shaojia 又把 1006 贺过了，Cxny  又非常强大的把 1003 过了。</p>
 <p>Solved 6 problems，Rank 51。</p>
-<h1 id="day10">Day10</h1>
+<h1>Day10</h1>
 <p>最后一场了，开场还是签到，我 1007，Cxny 1003。</p>
 <p>让后 xsc 发现 1001 是原题，我写了一下，直接 dinic 速过。</p>
 <p>然后我又去把 1009 过了，非常愉悦。</p>
-<p>Shaojia 说这段时间他都在和 zhy 讨论
-1004，发现难推，写了一个暴力，然后连猜两个结论，第一个结论证出来后他直接开写，过了。</p>
+<p>Shaojia 说这段时间他都在和 zhy 讨论 1004，发现难推，写了一个暴力，然后连猜两个结论，第一个结论证出来后他直接开写，过了。</p>
 <p>1 hour 出头过 5 题，直接 rank11，非常震撼，甚至 ez rank1 了。</p>
-<p>然后我们推 1002，Shaojia 推柿子，我写，是一个 容斥 + 矩阵快速幂优化
-dp。但是交了几发都没过。</p>
-<p>最后发现是 Shaojia 边界的容斥推错了，多了一个 <span
-class="math inline">\(1\)</span>。随后便过了。</p>
-<p>然后一起想 1008，有 LCT 启发式合并 树剖
-倍增四种写法，然后我写了倍增过了。常数比 wdssean 的树剖大不少。</p>
+<p>然后我们推 1002，Shaojia 推柿子，我写，是一个 容斥 + 矩阵快速幂优化 dp。但是交了几发都没过。</p>
+<p>最后发现是 Shaojia 边界的容斥推错了，多了一个 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。随后便过了。</p>
+<p>然后一起想 1008，有 LCT 启发式合并 树剖 倍增四种写法，然后我写了倍增过了。常数比 wdssean 的树剖大不少。</p>
 <p>Solved 7 problems，Rank 41。</p>
-<h1 id="end">End</h1>
+<h1>End</h1>
 <p>终于结束了，10 场连打真的很累，总分排名 Rank 46，还是比较满意的。</p>
 
-    </div>
-
-    
-    
-    
-
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E6%B8%B8%E8%AE%B0/" rel="tag"># 游记</a>
-          </div>
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item"></div>
-      <div class="post-nav-item">
-    <a href="/2022/09/18/csp2022/" rel="next" title="CSP2022">
-      CSP2022 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
+    <div id="comment" style="margin: auto;"></div>
 
 
 
-          </div>
-          
 
-<script>
-  window.addEventListener('tabs:register', () => {
-    let { activeClass } = CONFIG.comments;
-    if (CONFIG.comments.storage) {
-      activeClass = localStorage.getItem('comments_active') || activeClass;
-    }
-    if (activeClass) {
-      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
-      if (activeTab) {
-        activeTab.click();
-      }
-    }
-  });
-  if (CONFIG.comments.storage) {
-    window.addEventListener('tabs:click', event => {
-      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
-      let commentClass = event.target.classList[1];
-      localStorage.setItem('comments_active', commentClass);
-    });
-  }
-</script>
 
-        </div>
-          
-  
-  <div class="toggle sidebar-toggle">
-    <span class="toggle-line toggle-line-first"></span>
-    <span class="toggle-line toggle-line-middle"></span>
-    <span class="toggle-line toggle-line-last"></span>
+
+
+
   </div>
-
-  <aside class="sidebar">
-    <div class="sidebar-inner">
-
-      <ul class="sidebar-nav motion-element">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <!--noindex-->
-      <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#day1"><span class="nav-number">1.</span> <span class="nav-text">Day1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#day2"><span class="nav-number">2.</span> <span class="nav-text">Day2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#day3"><span class="nav-number">3.</span> <span class="nav-text">Day3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#day4"><span class="nav-number">4.</span> <span class="nav-text">Day4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#day5"><span class="nav-number">5.</span> <span class="nav-text">Day5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#day6"><span class="nav-number">6.</span> <span class="nav-text">Day6</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#day7"><span class="nav-number">7.</span> <span class="nav-text">Day7</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#day8"><span class="nav-number">8.</span> <span class="nav-text">Day8</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#day9"><span class="nav-number">9.</span> <span class="nav-text">Day9</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#day10"><span class="nav-number">10.</span> <span class="nav-text">Day10</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#end"><span class="nav-number">11.</span> <span class="nav-text">End</span></a></li></ol></div>
-      </div>
-      <!--/noindex-->
-
-      <div class="site-overview-wrap sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Enucai"
-      src="/images/avatar.jpeg">
-  <p class="site-author-name" itemprop="name">Enucai</p>
-  <div class="site-description" itemprop="description"></div>
 </div>
-<div class="site-state-wrap motion-element">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-          <a href="/archives/">
-        
-          <span class="site-state-item-count">12</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
       </div>
-      <div class="site-state-item site-state-tags">
-            <a href="/tags/">
-          
-        <span class="site-state-item-count">5</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
+      <div class="ui-col-space-mid"></div>
+      <div>
+        <div class="ui-col">
+  <p style="color: var(--footer-col); padding: 20px 30px;">
+    Powered by <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo</a>,
+    theme by <a target="_blank" rel="noopener" href="https://github.com/ftt2333/hexo-theme-facter">Facter</a>
+  </p>
 </div>
-  <div class="links-of-author motion-element">
-      <span class="links-of-author-item">
-        <a href="https://github.com/enucai" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;enucai" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:3425993912@qq.com" title="E-Mail → mailto:3425993912@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://plus.google.com/wsyear" title="Google → https:&#x2F;&#x2F;plus.google.com&#x2F;wsyear" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://twitter.com/enucai" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;enucai" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://youtube.com/wsyear13" title="YouTube → https:&#x2F;&#x2F;youtube.com&#x2F;wsyear13" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i></a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://instagram.com/enucai" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;enucai" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i></a>
-      </span>
-  </div>
-
-
-  <div class="links-of-blogroll motion-element">
-    <div class="links-of-blogroll-title">
-      <i class="fa fa-fw fa-link"></i>
-      Links
+      </div>
+      <div class="ui-col-space-mid"></div>
     </div>
-    <ul class="links-of-blogroll-list">
-        <li class="links-of-blogroll-item">
-          <a href="https://cnblogs.com/shaojia" title="https:&#x2F;&#x2F;cnblogs.com&#x2F;shaojia" rel="noopener" target="_blank">ShaoJia</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://cmk666.github.io/" title="https:&#x2F;&#x2F;cmk666.github.io" rel="noopener" target="_blank">cmk666</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://ftt2333.github.io/" title="https:&#x2F;&#x2F;ftt2333.github.io" rel="noopener" target="_blank">ftt2333</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://cyb1010.github.io/" title="https:&#x2F;&#x2F;cyb1010.github.io" rel="noopener" target="_blank">cyb1010</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://red-black-tree.github.io/" title="https:&#x2F;&#x2F;red-black-tree.github.io" rel="noopener" target="_blank">rb_tree</a>
-        </li>
-    </ul>
   </div>
-
-      </div>
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          <span>0%</span>
-        </div>
-
-    </div>
-  </aside>
-  <div id="sidebar-dimmer"></div>
-
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="footer-inner">
-        
-
-        
-
-<div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2023</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Enucai</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-  </div>
-
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
-
-
-
-
-
-
-
-
-      </div>
-    </footer>
-  </div>
-
-  
-  <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
-
-
-<script src="/js/schemes/pisces.js"></script>
-
-
-<script src="/js/next-boot.js"></script>
-
-
-
-
-  
-
-
-
-
-  
-<script src="/js/local-search.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-          load: ['[tex]/mhchem'],
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-          packages: {'[+]': ['mhchem']},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
-
-  
-
-  
-  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
-  
+  <script>
+    $(document).pjax('a[target!=_blank]', '#page-content', {fragment: '#page-content'});
+  </script>
 </body>
+
 </html>
