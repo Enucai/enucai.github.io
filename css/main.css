@@ -231,6 +231,84 @@ body {
   z-index: 114514;
 }
 
+#avatar {
+  transition: all 1s ease;
+  font-size: 20px;
+  background: var(--dark-mode-bgcol);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  left: 32px;
+  top: 92px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  z-index: 10;
+  opacity: 0.5;
+}
+
+#avatar:hover {
+  border-radius: 20%;
+  width: 220px;
+  height: 220px;
+  transform: rotate(720deg);
+  opacity: 3;
+}
+
+#sidebar {
+  transition: all 1s ease;
+  transition-delay: 0.4s;
+  height: 100%;
+  left: 0px;
+  width: 0px;
+  position: fixed;
+  opacity: 0.5;
+  z-index: 5;
+  color: rgba(0, 0, 0, 0);
+}
+
+#sidebar:hover {
+  width: 270px;
+  background-color: var(--card-bgcol);
+  opacity: 0.8;
+  z-index: 1919810;
+  color: var(--font-col);
+}
+
+#sa {
+  transition: all 0.5s ease;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+#sa:hover {
+  width: 220px;
+  height: 220px;
+  transform: rotate(360deg);
+  border-radius: 20%;
+}
+
+.orz {
+  transition: all 0.3s ease;
+  font-size: 20px;
+  background: rgba(0, 0, 0, 0)
+  width: 55px;
+  height: 55px;
+  position: fixed;
+  right: 32px;
+  left: unset;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  z-index: 114514;
+}
+
 .ui.dropdown > .menu {
   border-radius: 0;
 }
