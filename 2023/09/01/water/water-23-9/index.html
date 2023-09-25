@@ -20,7 +20,7 @@
   <div class="ui-col">
     <div id="sidebar">
       <div style="top: 92px; left: 23px; position: fixed;">
-        <image id="sa" src="/images/avatar.jpeg">
+        <image id="sa" src="https://z1.ax1x.com/2023/09/22/pPoVbEq.jpg">
       </div>
       <div style="top: 110px; left: 140px; position: fixed; font-size: 25px; z-index: -5;">
         Enucai
@@ -435,6 +435,28 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 <p>算出选择每个点后能覆盖到的最上面的点，随后从下往上贪心选择。</p>
 <h3>CodeForces-1059D</h3>
 <p>二分答案后算出对于所有点合法区间的交，容易 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 进行 check。</p>
+<h3>Luogu-P3260</h3>
+<p>结论：物理可达即光路可达。最小割 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo></mrow><annotation encoding="application/x-tex">=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span> 最大流，给有交的原件间连边跑最大流。</p>
+<h3>Luogu-P5504</h3>
+<p>操作的左右端点种类一定相同，列出暴力转移 dp 后可以对于每一种颜色开李超树来优化 dp。</p>
+<h3>CodeForces-1452G</h3>
+<p>如果 Alice 不动，到每个点的时间可以 bfs 求出。为每个点找出 Alice 的最终点可以点分治。</p>
+<h3>CodeForces-576E</h3>
+<p>线段树分治，更新边颜色的操作可以在分治到线段树叶子节点时加入。</p>
+<h3>Luogu-P5381</h3>
+<p>每个函数都是凸的，因此所有函数的和也是凸的，直接用 bit 维护每个点的函数值，询问时可以三分。</p>
+<h3>Luogu-P9655</h3>
+<p>从下往上做，维护每个点子树内到每个点的括号序列每个值的个数，合并时可以 dsu on tree 并打标记。</p>
+<h3>Luogu-P9654</h3>
+<p>连续操作的长度不会超过 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span>，直接 dp 即可，构造需要暴力分讨。</p>
+<h3>Luogu-P4340</h3>
+<p>第一个非乘法即以后的都会被抵消，只要考虑第一段连乘的贡献即可，容易使用线段树维护。</p>
+<h3>CodeForces-1172C2</h3>
+<p>考虑 dp，设 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{i,j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span> 表示点了 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span> 个 upvote，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span></span></span></span> 个 downvote 的概率，答案容易算出。</p>
+<h3>CodeForces-689D</h3>
+<p>枚举左端点，前者递增，后者递减，可以直接二分出两者相等的区间。</p>
+<h3>AtCoder-ABC077D</h3>
+<p>在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext> </mtext><mo lspace="0.22em" rspace="0.22em"><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi></mrow></mo><mtext> </mtext><mi>k</mi></mrow><annotation encoding="application/x-tex">\bmod k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mspace" style="margin-right:0.05555555555555555em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">o</span><span class="mord mathrm">d</span></span></span><span class="mspace" style="margin-right:0.05555555555555555em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> 意义下建图跑最短路，建边是容易的。</p>
 
     <div id="comment" style="margin: auto;"></div>
 
