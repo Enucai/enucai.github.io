@@ -457,6 +457,36 @@ M834 80h400000v40h-400000z'/></svg></span></span></span><span class="vlist-s">�
 <p>枚举左端点，前者递增，后者递减，可以直接二分出两者相等的区间。</p>
 <h3>AtCoder-ABC077D</h3>
 <p>在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext> </mtext><mo lspace="0.22em" rspace="0.22em"><mrow><mi mathvariant="normal">m</mi><mi mathvariant="normal">o</mi><mi mathvariant="normal">d</mi></mrow></mo><mtext> </mtext><mi>k</mi></mrow><annotation encoding="application/x-tex">\bmod k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mspace" style="margin-right:0.05555555555555555em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">m</span><span class="mord mathrm">o</span><span class="mord mathrm">d</span></span></span><span class="mspace" style="margin-right:0.05555555555555555em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> 意义下建图跑最短路，建边是容易的。</p>
+<h3>CodeForces-482C</h3>
+<p>统计出每个状态下有多少个串是无法确定的，随后将猜的位置集合状压 dp，记录所有串的期望之和。</p>
+<h3>CodeForces-482D</h3>
+<p>直接 dp，考虑子树内选择了奇数个还是偶数个节点染色，dp 时容斥掉算重的方案。</p>
+<h3>CodeForces-1799G</h3>
+<p>直接容斥，列出容斥的式子后，发现可以先对每组内做类似背包的 dp，再对组间做类似背包的 dp 即可。</p>
+<h3>CodeForces-1313E</h3>
+<p>先通过 exkmp 求出 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo separator="true">,</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a,b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">b</span></span></span></span> 的前后缀与 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi></mrow><annotation encoding="application/x-tex">s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">s</span></span></span></span> 的 LCP，随后容斥掉无交的区间，可以双指针扫描。</p>
+<h3>CodeForces-266E</h3>
+<p>直接线段树维护区间答案，合并时可以直接二项式定理 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><msup><mi>k</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(k^2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span> 转移。</p>
+<h3>CodeForces-601E</h3>
+<p>线段树分治，层间转移时进行背包。</p>
+<h3>CodeForces-813F</h3>
+<p>线段树分治板子。</p>
+<h3>Luogu-P5382</h3>
+<p>容易证明最有情况下只有一个起始点，不然可以选较大的一个。求出传递闭包后直接枚举，传递闭包可以 bitset 优化。</p>
+<h3>Luogu-P6344</h3>
+<p>将所有的数二进制反转，发现转化为二维数点，直接扫描线。</p>
+<h3>Luogu-P5443</h3>
+<p>根号重构，对于一个块内的询问按照重量排序，随后对于边按称重量扫描线，用并查集维护连通块状态。</p>
+<h3>Luogu-P6246</h3>
+<p>首先可以 wqs 二分，cost 满足四边形不等式，具有决策单调性，可以直接二分单调队列进行转移。</p>
+<h3>CodeForces-1163F</h3>
+<p>转移时，根据改变的边是否在直径上与边权大小变化讨论，直径上边长的做法同 玛丽卡。</p>
+<h3>CodeForces-713D</h3>
+<p>首先二分求出每一个左上角的最大全 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 正方形边长，询问时也可以二分，查询矩形 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>max</mi><mo>⁡</mo></mrow><annotation encoding="application/x-tex">\max</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mop">max</span></span></span></span> 可以二维 st 表。</p>
+<h3>CodeForces-958E2</h3>
+<p>考虑 wqs 二分，直接进行 dp，dp 时需要记录上一个位置是否选择。</p>
+<h3>Luogu-P3620</h3>
+<p>同上一题 CodeForces-958E2。</p>
 
     <div id="comment" style="margin: auto;"></div>
 
