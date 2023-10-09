@@ -202,11 +202,11 @@ $(() => {
   <div class="ui-full-width ui-card ui-shadow">
     <div class="ui-row ui-space-between ui-padding">
       <div>
-        <h3>合肥水战</h3>
-        创建于2023-09-25
+        <h3>逆天记录 - 4</h3>
+        创建于2023-10-09
       </div>
       <div>
-        <a href="/2023/09/25/flower/flower-230925/" style="padding: 10px;">
+        <a href="/2023/10/09/day/day-4/" style="padding: 10px;">
           MORE...
         </a>
       </div>
@@ -214,8 +214,48 @@ $(() => {
     
     <div class="ui-col-line"></div>
     <div class="ui-padding">
-      <p>听说某个姓日的国家合肥水战又要开始了，看看这次是哪个国家能赢。</p>
-
+      <h2>CF1882E2 Two Permutations (Hard Version)</h2>
+<p>好题啊，E1 的构造已经让我想了好久了，E2 的第一步转化真的很妙！</p>
+<p>需要最优化，首先考虑 dp，但是发现 dp 状态难以定义，所以需要对操作进行一些转化。</p>
+<p>考虑在排列的开头加一个 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，标记整个排列的开头位置。当对位置 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">x</span></span></span></span> 进行一次操作时，等价于将位置 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">x</span></span></span></span> 与 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 的位置进行交换。</p>
+<p>操作完后，整个序列就是从 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 开始往后的数循环构成的排列，这样我们就完成了 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord">1</span><span class="mclose">)</span></span></span></span> 的交换操作，而且交换两个元素也比原题意的神笔操作正常一些。</p>
+<p>由于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo separator="true">,</mo><mi>m</mi><mo>≤</mo><mn>2500</mn></mrow><annotation encoding="application/x-tex">n,m\le 2500</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8304100000000001em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">n</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">m</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">5</span><span class="mord">0</span><span class="mord">0</span></span></span></span>，所以考虑枚举两个排列最后的形态（即 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 的位置），随后对于每一种最终状态。</p>
+<p>对于一种对应的状态，对应点之间连边后，最少步数是去除所有一元环后，所有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 不在的环的步数是环长 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">+</span><span class="mord">1</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 所在的环的步数是环长 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span>。而如果要多一些步数去拟合另一个排列，可以操作 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 次。</p>
+<p>将所有结束状态分为奇偶两类，对应的取 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>min</mi><mo>⁡</mo></mrow><annotation encoding="application/x-tex">\min</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66786em;vertical-align:0em;"></span><span class="mop">min</span></span></span></span> 即可，构造方案是容易的。</p>
+<p>感觉最为逆天的地方还是在于第一步加入一个 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 的转化，后面的做法还是较为套路的。</p>
+<h2>CF1879F Last Man Standing</h2>
+    </div>
+    
+  </div>
+  
+  <div class="ui-col-space-big"></div>
+  
+  
+  <div class="ui-full-width ui-card ui-shadow">
+    <div class="ui-row ui-space-between ui-padding">
+      <div>
+        <h3>水题乱做 - 2023 - 10</h3>
+        创建于2023-10-01
+      </div>
+      <div>
+        <a href="/2023/10/01/water/water-23-10/" style="padding: 10px;">
+          MORE...
+        </a>
+      </div>
+    </div>
+    
+    <div class="ui-col-line"></div>
+    <div class="ui-padding">
+      <p>10 月了，是不是马上要 NOIp 了，是不是马上要省选了 /fad。</p>
+<h3>CodeForces-1007C</h3>
+<p>转化为找平面上的一个点，对于两维同时倍增，如果都不在对应区间，则同时缩小步长。</p>
+<h3>CodeForces-995F</h3>
+<p>容易进行朴素 dp，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>u</mi><mo separator="true">,</mo><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">f_{u,i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.10764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">u</span><span class="mpunct mtight">,</span><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span> 表示 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi></mrow><annotation encoding="application/x-tex">u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">u</span></span></span></span> 子树，根 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo><mi>i</mi></mrow><annotation encoding="application/x-tex">\le i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathnormal">i</span></span></span></span> 的方案，发现转移就是点积和前缀和，所以多项式度数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">\le n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span>，直接插值即可。</p>
+<h3>Luogu-P7554</h3>
+<p>对于询问进行二分，check 是查询区间某个区间内的值个数可以主席树维护。</p>
+<h3>CodeForces-788E</h3>
+<p>发现 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">p_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mn>5</mn></msub></mrow><annotation encoding="application/x-tex">p_5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 根本不重要，可以直接移到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">p_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mn>3</mn></msub></mrow><annotation encoding="application/x-tex">p_3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal">p</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 上，对于每个值域开线段树维护。</p>
+<h3>CodeForces-724E</h3>
     </div>
     
   </div>
@@ -316,7 +356,7 @@ $(() => {
   <div class="ui-full-width ui-card ui-shadow">
     <div class="ui-row ui-space-between ui-padding">
       <div>
-        <h3>逆天记录-3</h3>
+        <h3>逆天记录 - 3</h3>
         创建于2023-09-14
       </div>
       <div>
@@ -348,7 +388,7 @@ $(() => {
   <div class="ui-full-width ui-card ui-shadow">
     <div class="ui-row ui-space-between ui-padding">
       <div>
-        <h3>水题乱做 - 1</h3>
+        <h3>水题乱做 - 2023 - 9</h3>
         创建于2023-09-01
       </div>
       <div>
@@ -360,7 +400,8 @@ $(() => {
     
     <div class="ui-col-line"></div>
     <div class="ui-padding">
-      <h3>CodeForces-1864G</h3>
+      <p>哎，9 月了，还在这里摆，忍不了了！</p>
+<h3>CodeForces-1864G</h3>
 <p>观察一下性质，然后直接数数，最后是一些阶乘的乘积。</p>
 <h3>Luogu-P5631</h3>
 <p>按照边权线段树分治，用并查集维护连通性。</p>
@@ -369,7 +410,6 @@ $(() => {
 <h3>CodeForces-1354G</h3>
 <p>先通过随机寻找一个石头，再通过倍增和二分来寻找第一个礼物的位置。</p>
 <h3>CodeForces-838C</h3>
-<p>观察先手必胜的字符串特征，随后随便状压 dp 即可。</p>
     </div>
     
   </div>
@@ -380,7 +420,7 @@ $(() => {
   <div class="ui-full-width ui-card ui-shadow">
     <div class="ui-row ui-space-between ui-padding">
       <div>
-        <h3>逆天记录-2</h3>
+        <h3>逆天记录 - 2</h3>
         创建于2023-08-10
       </div>
       <div>
@@ -414,7 +454,7 @@ f_{i,j}\to f_{i+1,j|s_{i+1}}\times (2^{c_{i+1}}-1)
   <div class="ui-full-width ui-card ui-shadow">
     <div class="ui-row ui-space-between ui-padding">
       <div>
-        <h3>逆天记录-1</h3>
+        <h3>逆天记录 - 1</h3>
         创建于2023-07-11
       </div>
       <div>
@@ -453,7 +493,7 @@ f_{i,j}\to f_{i+1,j|s_{i+1}}\times (2^{c_{i+1}}-1)
   <div class="ui-full-width ui-card ui-shadow">
     <div class="ui-row ui-space-between ui-padding">
       <div>
-        <h3>PKUSC2023</h3>
+        <h3>PKUSC 2023</h3>
         创建于2023-05-07
       </div>
       <div>
@@ -475,38 +515,6 @@ f_{i,j}\to f_{i+1,j|s_{i+1}}\times (2^{c_{i+1}}-1)
 <p>下午正式比赛，先开 T1，感觉不难，稍微想了一下就会了，写了 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(n\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 的倍增哈希被卡成了 91，改成二分就过了，大概 1h。</p>
 <p>开 T2，不太会，写了状压 23pts。然后开 T3，也不会，写了暴力 dp 32pts。</p>
 <p>开始疯狂思考，浪费了 1h+，直到最后 40min 才发现 T3 有 ddp 的部分分，赶紧开冲。</p>
-    </div>
-    
-  </div>
-  
-  <div class="ui-col-space-big"></div>
-  
-  
-  <div class="ui-full-width ui-card ui-shadow">
-    <div class="ui-row ui-space-between ui-padding">
-      <div>
-        <h3>联合省选2023</h3>
-        创建于2023-04-01
-      </div>
-      <div>
-        <a href="/2023/04/01/travels/pe2023/" style="padding: 10px;">
-          MORE...
-        </a>
-      </div>
-    </div>
-    
-    <div class="ui-col-line"></div>
-    <div class="ui-padding">
-      <h2>Day -1</h2>
-<p>学校请假，上午去机房 goose goose duck，好爽。</p>
-<p>下午去试机，车费好贵 /fn/fn/fn。</p>
-<p>键盘手感好评，居然和我用的完全一样。</p>
-<p>晚上不知道在干啥。</p>
-<h2>Day 1</h2>
-<p>早起，有点没睡醒。</p>
-<p>车上背了一下 pb_ds 的单词，相信是用不上的。</p>
-<p>开考 20 min 先把 T1 写了，然后开始坐牢。</p>
-<p>T2 是数数，感觉不太会，于是先开 T3，发现 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mo stretchy="false">(</mo><mi>n</mi><mi>q</mi><msup><mo><mi>log</mi><mo>⁡</mo></mo><mn>2</mn></msup><mi>n</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">O(nq\log^2 n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.148448em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.03588em;">q</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8984479999999999em;"><span style="top:-3.1473400000000002em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">n</span><span class="mclose">)</span></span></span></span> 有点傻逼，写了一下。</p>
     </div>
     
   </div>
