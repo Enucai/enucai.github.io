@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="NetSpeed1">
+
+
+
+    <meta name="description" content="Blog">
+
+
+
+<title>OI 生涯回忆录 | Netspeed1</title>
+
+
+
+    <link rel="icon" href="/images/icon-round.jpg">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+    
+
+
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const pagebody = document.getElementsByTagName('body')[0]
+
+            function setTheme(status) {
+
+                if (status === 'dark') {
+                    window.sessionStorage.theme = 'dark'
+                    pagebody.classList.add('dark-theme');
+
+                } else if (status === 'light') {
+                    window.sessionStorage.theme = 'light'
+                    pagebody.classList.remove('dark-theme');
+                }
+            };
+
+            setTheme(window.sessionStorage.theme)
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">NetSpeed1</a></div>
+            <div class="menu navbar-right">
+                
+                <a class="menu-item" href="/archives">Posts</a>
+                
+                <a class="menu-item" href="/category">Categories</a>
+                
+                <a class="menu-item" href="/tag">Tags</a>
+                
+                <a class="menu-item" href="/about">About</a>
+                
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">NetSpeed1</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">
+                    <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M4.5 17.27q-.213 0-.356-.145T4 16.768t.144-.356t.356-.143h15q.213 0 .356.144q.144.144.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.144T4 11.999t.144-.356t.356-.143h15q.213 0 .356.144t.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.143Q4 7.443 4 7.23t.144-.356t.356-.143h15q.213 0 .356.144T20 7.23t-.144.356t-.356.144z"/></svg>
+                    <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Symbols Light by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="m12 12.708l-5.246 5.246q-.14.14-.344.15t-.364-.15t-.16-.354t.16-.354L11.292 12L6.046 6.754q-.14-.14-.15-.344t.15-.364t.354-.16t.354.16L12 11.292l5.246-5.246q.14-.14.345-.15q.203-.01.363.15t.16.354t-.16.354L12.708 12l5.246 5.246q.14.14.15.345q.01.203-.15.363t-.354.16t-.354-.16z"/></svg>
+                </div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                <a class="menu-item" href="/archives">Posts</a>
+                
+                <a class="menu-item" href="/category">Categories</a>
+                
+                <a class="menu-item" href="/tag">Tags</a>
+                
+                <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.classList.contains("active")) {
+            toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        } else {
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">OI 生涯回忆录</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">NetSpeed1</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">November 13, 2025&nbsp;&nbsp;0:00:00</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/algorithm-competition/">algorithm competition</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>回望来路，我与信息学竞赛的第一次相遇，已是六年前的事了。六年光阴，恍若一场漫长而又炽热的旅程——无数个清晨与深夜，无数次屏幕前的敲键如雨，交织成了我青春最独特的印记。</p>
+<p>在那一场又一场比赛中，我尝过成功的喜悦，也经历过失落的低谷。如今，站在十八岁的门槛前，我提笔写下这些文字，既是向过去那段不舍昼夜的岁月致敬，也是送给自己的一份成年礼——一份属于那位不肯放弃、仍怀梦想的少年。</p>
+<div style="text-align: right;">于北京大学燕园 46 楼</div>
+<div style="text-align: right;">2025 年 10 月 18 日</div>
+
+<h2 id="邂逅"><a href="#邂逅" class="headerlink" title="邂逅"></a>邂逅</h2><p>五年级刚开学那会儿，父亲找到了一家名为 [A] 的编程机构。听说学习编程对小升初有帮助，他问我是否愿意试试。我那时对一切新鲜事物都充满好奇，于是点头答应了这次尝试。自此，每逢周末，我都会背着电脑前往那间机房，开始了每周一节的编程课。那便是我与信息学竞赛的初次邂逅。</p>
+<p>起初，我几乎不懂编程语言为何能用计算机运行，也看不懂每一行代码背后隐藏的逻辑。我唯一能做的，只是机械地模仿老师的代码范例。为了应付机构的测试，我甚至把所有代码都打印出来，一行行背诵。那时的我，既笨拙又认真。</p>
+<p>一年之后，我终于对 C++ 有了模糊的理解，能够独立编写一些简单的程序。满怀着初学者的兴奋，我报名参加了六年级的 CSP 初赛。可现实并不温柔——那是我第一次失败，止步于初赛。但彼时的我并未太过焦虑，毕竟那时的编程仍只是一个兴趣，而非人生的“主修课”。我还曾参加过一场 zju 举办的大学生程序设计竞赛个人赛网络赛，结果自然不出所料——零题通过。</p>
+<p>转眼到了小升初的时刻。那一年，杭州第一次实行“摇号”入学制度，我同时报名了 HFLS 和建兰中学的摇号，却都未能如愿。可也许正是那两次“未中签”的遗憾，让我走上了另一条注定漫长而充满激情的路——信息学竞赛。</p>
+<p>就这样，我对信息学竞赛怀着一份既好奇又迷茫的心情，踏入了初中的校门，也踏上了我真正的信息学旅程的起点。</p>
+<h2 id="起点"><a href="#起点" class="headerlink" title="起点"></a>起点</h2><p>正当我犹豫是否要在初中继续学习信息学竞赛时——毕竟那时我的文化课成绩也不错，走传统路线似乎更稳妥——命运让我遇见了两位意义非凡的同伴：F 和 D。</p>
+<p>我们在初中第一次分班考试中被分入了同一个班级。彼此熟悉后，我意外发现他们也都在学习信息学竞赛，更巧的是，我们三人的学号竟然是连续的。有了并肩前行的朋友，学习的孤独感便悄然消散。三位家长也因此更加坚定地决定：既然有了同行者，那就一起走下去。</p>
+<p>从那一刻起，我真正踏上了属于自己的信息学竞赛旅程。</p>
+<p>初中刚开学的那几个月，我们只是零散地利用信息课和晚上的空闲时间自学算法。没过多久，CSP 便到来了。幸运的是，我通过了 CSP-J 组的初赛。为了备战复赛，我做出了一个前所未有的决定——停课专心准备。那是我学生时代第一次请假，甚至连病假都未曾请过。如今回望，那一纸请假条背后，是年少的我第一次学会了“为热爱承担代价”。</p>
+<p>我至今仍清晰地记得，初一的一堂美术课上，老师让我们在时间轴上写下三年初中的目标。那时的我毫不犹豫地写下：</p>
+<blockquote>
+<p>初一，CSP-J 一等奖；初二，CSP-S 二等奖；初三，CSP-S 一等奖。</p>
+</blockquote>
+<p>那一刻，信念的种子已悄然埋下。</p>
+<p>我、F 和 D 一起报名了机构 [B] 的培训班，也认识到了新的同学 Z。小班授课的模式让我们能与老师有更多交流，我开始真正听懂算法背后的思维，也逐渐感受到自己在成长。那段时间，是我信息学水平的第一次飞跃。我也第一次接触到了 Codeforces 这个在线的算法竞赛网站。但当时的我水平有限，每次比赛几乎只能写出签到题。沮丧是难免的，可我告诉自己：这只是开始，你的路还很长。</p>
+<p>功夫不负有心人。一个月后，在 CSP-J 复赛的考场上，我以 255 分的成绩拿下了一等奖。那一刻，我实现了在美术课上写下的第一个目标，也成为当年杭州为数不多的初一一等奖获得者。从那时起，我第一次由衷地相信自己真的拥有在信息学竞赛中走得更远的可能。</p>
+<h2 id="低谷"><a href="#低谷" class="headerlink" title="低谷"></a>低谷</h2><p>CSP 比赛结束后，我在机构 [B] 开始学习提高组的算法知识。时间过得飞快，还未等我真正消化完那些新概念、新算法，下一年的 CSP 又悄然临近。凭借一年的积累，我的水平确实稳步提升，不出意料地通过了 J 组与 S 组的初赛。</p>
+<p>那一年，J 组的考试安排在上午，S 组在下午。走进考场时，我心想：上午的 J 组应该不成问题，可以轻松拿下高分，把主要精力留给下午更具挑战性的 S 组。</p>
+<p>然而，意外总在你最放松时发生。</p>
+<p>那年 J 组的试题中有一道“网络排序”，题目需要繁琐的分类讨论，而那时的我代码功底尚浅，一道题调了许久，仍然在一个样例上无法通过；另一道“小熊的果篮”，我也迟迟没有头绪。</p>
+<p>那是我第一次在考场上真正陷入困境。</p>
+<p>年少的我没有太多比赛经验，心态很快开始崩溃——焦虑一点点蔓延，手指变得僵硬，思绪也变得混乱。等我终于回过神时，时间已尽。</p>
+<p>比去年的成绩更糟。</p>
+<p>午休时，我几乎吃不下饭，整个人陷在失落里。下午的 S 组比赛，我也没能调整好状态，最终的表现平平。</p>
+<p>几周后查分，我在 J 组和 S 组都只拿到二等奖。我问起 F 和 D 的成绩——他们都拿到了 S 组一等奖，F 的分数甚至比我的两倍还高。</p>
+<p>那之后的几个夜晚，我几乎彻夜难眠。我开始怀疑自己是否真的适合这条路。那些曾与我并肩的同学，如今一个个将我远远甩在身后。</p>
+<p>我第一次深切地体会到，原来热爱，也会让人痛苦……</p>
+<h2 id="机遇"><a href="#机遇" class="headerlink" title="机遇"></a>机遇</h2><p>转机，出现在初二升初三的那个暑假。</p>
+<p>那年暑假，父亲为了帮我备战新一年的 CSP，四处打听训练资源。幸运的是，他联系上了 hez 的信息学教练——李老师。就这样，我开始参加李老师的算法班。起初，我只是在大班课的机房学习；没多久，Z 邀请我一同加入小机房的训练。</p>
+<p>那天走进小机房时，我第一次见到了那些曾经只能在排行榜上仰望、在传说中听到名字的 hez 学长们。那一刻，我感到自己仿佛跨进了一个更高的世界。</p>
+<p>那个暑假，是我第一次经历如此高强度的训练。几乎每天都有一场模拟赛。对当时的我来说，那些题目太难了——我常常花一整个上午，也难以写出学长们几分钟就能“秒掉”的题。榜单上，我的名字几乎总在最底端。可我没有退缩，因为我知道：正是在一次次被碾压的过程中，人才能真正成长。</p>
+<p>一个暑假下来，我在算法与心态上都变得坚韧了许多。初三的 CSP 临近，李老师建议我放弃 J 组，只报名 S 组，以免重蹈去年的覆辙。那一年，我终于如愿拿下了 CSP-S 一等奖。至此，初一那堂美术课上写下的三年目标，全部实现。</p>
+<p>但那时的我，早已不再满足于“完成目标”——我开始渴望，走得更远。</p>
+<p>整个初三，我几乎脱产训练。除了中考前的几个月，几乎所有时间都在 hez 与高中学长们一同刷题、打模拟赛，也认识了学长 S，C，5。那一年，我经历了无数场高强度训练，也第一次接触了 WC、APIO 这样规模宏大的比赛。我深知，自己的每一次坚持，都在让未来的自己变得更强。</p>
+<p>那一年最重要的比赛，是浙江省选。浙江省给 CSP-S 成绩优异的初中生提供了“体验参赛”的机会。为了争取这次资格，我拼尽全力，把能拿的分都拿到手。最终虽然没能接近队线，但这次经历让我第一次真切感受到——那是我想去的地方。</p>
+<p>说到这里，还有一段小插曲。中考前，我在分配生大会上以一名之差失去了 hez 的保送资格；中考成绩公布时，我又以一分之差与 hez 本部擦肩而过。我原本有两次机会去 XJ，但我最终还是选择了 hez 首创。</p>
+<p>因为那时的我，心中已不再犹豫——我已决定，无论前路多难，都要在信息学竞赛这条路上走下去。</p>
+<h2 id="惊喜"><a href="#惊喜" class="headerlink" title="惊喜"></a>惊喜</h2><p>经过初三一年的高强度训练，我自认我水平已经有了很大的提升。很顺利的，我在高一继续拿下了 CSP-S 的一等奖。</p>
+<p>很快，我迎来了信息学竞赛生涯的第一场关键比赛——高一 NOIP。这场比赛直接决定省队选拔成绩，也意味着与 NOI 的参赛资格息息相关。</p>
+<p>考试开始不久，我顺利解决了“词典”和“三值逻辑”两道题。然而，第三题“双序列拓展”让我陷入了困境。我花了好久编出一个多项式复杂度的做法，并且可以用数据结构优化到 $O(n\log n)$ 的复杂度，但无论如何我都想不到线性的解法。眼看着时间一点点流逝，焦虑开始涌上心头。秉持着“最大化得分”的目的，我开始拼起了部分分。在第四题“天天爱打卡”中，我也没有过多思考就分析起了每个部分分的解法。</p>
+<p>考场上估分时，我预计自己能拿下 347 分——在往年 NOIP 中，这已算是一个有竞争力的成绩。我原本心怀满意，却在询问同学成绩时被现实震撼：D、S、C、5 全部满分。一年的省队只有 16 个人，排行榜上第 16 名的成绩已经接近满分了。也就是说如果我想进入省队，就必须在省选翻盘 50 多分。</p>
+<p>接下来的几个月，我投入更高强度的训练。除了完成学校模拟赛，我还四处搜寻各种模拟赛题目，一遍又一遍刷题，只为不让高一一年的努力付诸东流。</p>
+<p>三月的春风吹在脸上，但我无暇享受，省选的压力像一块巨石，将我心中四处漂浮的思绪牢牢压住。</p>
+<p>省选 Day1 的考场上，“季风”是一道很简单的题，我也很顺利的通过。第二题是“魔法手杖”，经过长时间的思考，我成功编出了正确的做法，我急于开始实现，但是怎么都无法通过，在调试过程中我甚至一度忘记了有一步的思路是什么。比赛只剩一个小时时我还是没能通过样例。我开始变得慌乱，想着——如果没能通过这一题，这一年就“赛季报销”了，我是否不该这么激进，而是赶紧去拼各种部分分？</p>
+<p>但面对距离队线 50 分的差距，我别无选择——All in。幸运女神似乎眷顾了我，我很快修改了各处错误，成功通过样例。拼上第三题的部分分，Day1 终于稳定下来，我松了一口气。</p>
+<p>Day2 的比赛更具挑战。第一题“迷宫守卫”难度不小，我很快想到做法，但实现细节繁杂。我又遇到了与 Day1 相同的问题——调了很久都无法通过样例。我不断对拍修改，却一直过不去对拍。心中那句“赛季报销”的念头再次出现，但我告诉自己：“不过 T1 过啥题”。神奇的是，我又一次得到了幸运之神的眷顾，在比赛最后一个半小时成功调过了样例。拼上后两题的部分分之后，比赛便结束了。</p>
+<p>几周后，成绩公布——惊喜降临：凭借 D1T2 和 D2T1 的关键得分，我总分成功进入前 16 名，顺利进入省队。</p>
+<p>那一刻，我感到不可思议，仿佛整个世界都为我闪烁。我甚至开始幻想，进入集训队后，未来的大学生活会是什么样子……</p>
+<h2 id="打击"><a href="#打击" class="headerlink" title="打击"></a>打击</h2><p>高一的 NOI 很快就来了，这也许是我当时距离清北最近的一次机会。但这是一段我至今难以回首的经历。</p>
+<p>这一年的 NOI 在重庆育才中学举办。CQYC 作为 hez 的友校，我们提前半个月抵达重庆参加集训。然而，重庆的饮食与浙江大不相同，学校食堂几乎所有菜都带着浓烈的辣味。我难以适应，连续几天身体状况都不佳。</p>
+<p>在重庆集训期间，我连续几场模拟赛都发挥不佳，甚至在以往能轻松解决的签到题上也频频卡壳。几天后的 UNR，我的表现依旧平平。这让我开始怀疑自己的能力，也对状态产生了不小的担忧。</p>
+<p>报道当天，问题进一步加剧。也许是干燥的气候，再加上连续几天特殊的饮食，我开始频繁流鼻血，而且难以止住。每一次鼻血都让我的身体和精神愈发疲惫，思绪难以集中。Day1 的比赛中，我只能小心翼翼、一点点“苟分”，最终仍未能达到队线水平。</p>
+<p>社会活动日，我们被带到三峡博物馆参观。炎热的天气让原本脆弱的身体更加吃不消。Day2 前夜，我再次被鼻血惊醒，血流不止，自此彻夜难眠，在床上翻来覆去，直到天明。</p>
+<p>Day2 的比赛依旧不顺。第一题“分数”就让我卡住，观察了很久仍未找到规律。在第二题“登山”中，我编出了对的做法，但是因为该做法实现过于繁琐再加上不佳的身体状况，最终成绩自然不理想。</p>
+<p>就这样，高一的 NOI 结束了——我只获得银牌，名列约一百名，距离集训队还有不小差距。</p>
+<p>那一段时间，我花了很久才从失败的阴影中走出来，恢复正常训练。我明白，从这一刻起，我只剩下最后一次机会。接下来的一年，我不能有任何闪失，每一次尝试都必须尽全力。</p>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>NetSpeed1</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://enucai.github.io/2025/11/13/OI-memory/">https://enucai.github.io/2025/11/13/OI-memory/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/memory/"># memory</a>
+                    
+                        <a href="/tags/OI/"># OI</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2025/10/14/stock-2510/">实盘记录 October 25</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© NetSpeed1 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
