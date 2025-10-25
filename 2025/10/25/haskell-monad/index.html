@@ -15,7 +15,7 @@
 
 
 
-<title>我的算法竞赛题目 | Netspeed1</title>
+<title>Haskell 中的 Monad | Netspeed1</title>
 
 
 
@@ -173,11 +173,76 @@
                 <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">我的算法竞赛题目</h1>
+            <h1 class="post-title">Haskell 中的 Monad</h1>
             
                 <div class="post-meta">
                     
@@ -186,14 +251,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">October 10, 2025&nbsp;&nbsp;21:52:33</a>
+                        Date: <a href="#">October 25, 2025&nbsp;&nbsp;12:00:20</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/algorithm-competition/">algorithm competition</a>
+                                <a href="/categories/EECS-courses/">EECS courses</a>
                             
                         </span>
                     
@@ -202,21 +267,30 @@
         </header>
 
         <div class="post-content">
-            <ul>
-<li><p>Codeforces Global Round 28 B. Kevin and Permutation<br><a target="_blank" rel="noopener" href="https://codeforces.com/contest/2048/problem/B">https://codeforces.com/contest/2048/problem/B</a></p>
-</li>
-<li><p>Codeforces Global Round 28 F. Kevin and Math Class<br><a target="_blank" rel="noopener" href="https://codeforces.com/contest/2048/problem/F">https://codeforces.com/contest/2048/problem/F</a></p>
-</li>
-<li><p>2025 Multi-University Training Contest 10 G. Message Spreading<br><a target="_blank" rel="noopener" href="https://acm.hdu.edu.cn/showproblem.php?pid=8093">https://acm.hdu.edu.cn/showproblem.php?pid=8093</a></p>
-</li>
-<li><p>2025 Multi-University Training Contest 10 L. Counting Colorful Sequence<br><a target="_blank" rel="noopener" href="https://acm.hdu.edu.cn/showproblem.php?pid=8098">https://acm.hdu.edu.cn/showproblem.php?pid=8098</a></p>
-</li>
-<li><p>Pan African Informatics Olympiad 2025 Day 1 D. XOR Multiset<br><a target="_blank" rel="noopener" href="https://qoj.ac/contest/2525/problem/14517">https://qoj.ac/contest/2525/problem/14517</a></p>
-</li>
-<li><p>Secret Source 登山计划<br><a target="_blank" rel="noopener" href="https://zhengruioi.com/problem/3387">https://zhengruioi.com/problem/3387</a></p>
-</li>
-</ul>
+            <p>Haskll 的 Monad 其实是针对一个 type constructor 的定义。</p>
+<p>所谓 type constructor，就是类型构造器，他接收一个或若干个类型，产生一个新的类型。例如 <code>Maybe a</code>，其中 <code>a</code> 是一个 type，而 <code>Maybe</code> 就是一个 type constructor。又如 <code>[a]</code>，其中的 <code>[]</code> 即为一个 type constructor，传入一个类型 <code>a</code>，会构造一个 <code>a</code> 的列表的 type。</p>
+<p>我们可以大致认为一个 type constructor 就是一个盒子，他就是把一个 <code>a</code> 类型的值给装进了一个盒子里。虽然这种比喻有些时候并不完全恰当。</p>
+<h2 id="Functor"><a href="#Functor" class="headerlink" title="Functor"></a>Functor</h2><p>Monad 体系内最先被定义的是 Functor。考虑函数 <code>map</code>，它的类型是 <code>map :: (a -&gt; b) -&gt; [a] -&gt; [b]</code>，即给 <code>[a]</code> 内的每个元素都作用上 <code>a -&gt; b</code> 的函数。但是该定义只对 list 这个 type constructor 有效。我们希望将这个函数普适到其他的 type constructor。</p>
+<p>而所有能被作用这样类似 <code>map</code> 函数的 type constructor，我们统一定义其为 Functor class。</p>
+<p>Functor 这个 class 的定义如下：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="type">Functor</span> f <span class="keyword">where</span></span></span><br><span class="line">  fmap        :: (a -&gt; b) -&gt; f a -&gt; f b</span><br><span class="line">  (&lt;$)        :: a -&gt; f b -&gt; f a</span><br><span class="line">  (&lt;$)        =  fmap . const</span><br></pre></td></tr></table></figure>
 
+<p>其中后面两行其实是对 <code>fmap</code> 进行符号化的定义，本质定义只有第二行，即我们只需要对于这个 type constructor 定义一个 <code>fmap</code> 函数。函数的作用就是给定一个 <code>a -&gt; b</code> 的函数，然后再给一个用 <code>f</code> 包裹住 <code>a</code> 的类型，要将盒子里的每个元素都做用一下 <code>a -&gt; b</code> 的函数，最后得到一个用 <code>f</code> 包裹住 <code>b</code> 的结果。</p>
+<p>如果我们把 <code>f</code> 当作是 <code>[]</code> 这个 constructor，那么就很容易这是在干什么了。定义 <code>[]</code> 的 Functor 可以写作：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">instance</span> <span class="type">Functor</span> [] <span class="keyword">where</span></span></span><br><span class="line">  fmap = map</span><br></pre></td></tr></table></figure>
+
+<p>因为对于 list 来说，<code>fmap</code> 就是 <code>map</code>。</p>
+<p>我们再来看 <code>Maybe</code> 这个 type constructor 的 Functor 应该怎么写：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">instance</span> <span class="type">Functor</span> <span class="type">Maybe</span> <span class="keyword">where</span></span></span><br><span class="line">  fmap _ <span class="type">Nothing</span> = <span class="type">Nothing</span></span><br><span class="line">  fmap f (<span class="type">Just</span> x) = <span class="type">Just</span> $ f x</span><br></pre></td></tr></table></figure>
+
+<p>还有 <code>IO</code> 的 Functor：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">instance</span> <span class="type">Functor</span> <span class="type">IO</span> <span class="keyword">where</span></span></span><br><span class="line">  fmap f mx = <span class="keyword">do</span></span><br><span class="line">    x &lt;- mx</span><br><span class="line">    return $ f x</span><br></pre></td></tr></table></figure>
+
+<p>然后 Prelude 中还对 Functor 定义了一个运算符：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(&lt;$&gt;) :: <span class="type">Functor</span> f =&gt; (a -&gt; b) -&gt; f a -&gt; f b</span><br><span class="line">(&lt;$&gt;) = fmap</span><br></pre></td></tr></table></figure>
+
+<p>就是我们可以用 <code>&lt;$&gt;</code> 这个中缀来代替 fmap，这个的作用在下面会有体现。</p>
+<h2 id="Applicative"><a href="#Applicative" class="headerlink" title="Applicative"></a>Applicative</h2>
         </div>
 
         
@@ -230,7 +304,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://enucai.github.io/2025/10/10/authored-problem/">https://enucai.github.io/2025/10/10/authored-problem/</a></span>
+                        <span><a href="https://enucai.github.io/2025/10/25/haskell-monad/">https://enucai.github.io/2025/10/25/haskell-monad/</a></span>
                     </p>
                 
                 
@@ -249,11 +323,9 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/XCPC/"># XCPC</a>
+                        <a href="/tags/haskell/"># haskell</a>
                     
-                        <a href="/tags/publish/"># publish</a>
-                    
-                        <a href="/tags/olympiad-in-informatics/"># olympiad in informatics</a>
+                        <a href="/tags/functional-programming/"># functional programming</a>
                     
                         
                 </span>
@@ -266,8 +338,10 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2025/10/25/haskell-monad/">Haskell 中的 Monad</a>
+                <a class="prev" rel="prev" href="/2025/11/13/OI-memory/">OI 生涯回忆录</a>
             
+            
+            <a class="next" rel="next" href="/2025/10/10/authored-problem/">我的算法竞赛题目</a>
             
         </section>
 
