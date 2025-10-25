@@ -273,7 +273,7 @@
 <h2 id="Functor"><a href="#Functor" class="headerlink" title="Functor"></a>Functor</h2><p>Monad 体系内最先被定义的是 Functor。考虑函数 <code>map</code>，它的类型是 <code>map :: (a -&gt; b) -&gt; [a] -&gt; [b]</code>，即给 <code>[a]</code> 内的每个元素都作用上 <code>a -&gt; b</code> 的函数。但是该定义只对 list 这个 type constructor 有效。我们希望将这个函数普适到其他的 type constructor。</p>
 <p>而所有能被作用这样类似 <code>map</code> 函数的 type constructor，我们统一定义其为 Functor class。</p>
 <p>Functor 这个 class 的定义如下：</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="type">Functor</span> f <span class="keyword">where</span></span></span><br><span class="line">  fmap        :: (a -&gt; b) -&gt; f a -&gt; f b</span><br><span class="line">  (&lt;$)        :: a -&gt; f b -&gt; f a</span><br><span class="line">  (&lt;$)        =  fmap . const</span><br></pre></td></tr></table></figure>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="type">Functor</span> f <span class="keyword">where</span></span></span><br><span class="line">  fmap :: (a -&gt; b) -&gt; f a -&gt; f b</span><br><span class="line">  (&lt;$) :: a -&gt; f b -&gt; f a</span><br><span class="line">  (&lt;$) = fmap . const</span><br></pre></td></tr></table></figure>
 
 <p>其中后面两行其实是对 <code>fmap</code> 进行符号化的定义，本质定义只有第二行，即我们只需要对于这个 type constructor 定义一个 <code>fmap</code> 函数。函数的作用就是给定一个 <code>a -&gt; b</code> 的函数，然后再给一个用 <code>f</code> 包裹住 <code>a</code> 的类型，要将盒子里的每个元素都做用一下 <code>a -&gt; b</code> 的函数，最后得到一个用 <code>f</code> 包裹住 <code>b</code> 的结果。</p>
 <p>如果我们把 <code>f</code> 当作是 <code>[]</code> 这个 constructor，那么就很容易这是在干什么了。定义 <code>[]</code> 的 Functor 可以写作：</p>
@@ -295,7 +295,7 @@
 
 <p>它定义了两个函数：<code>pure</code> 和 <code>&lt;*&gt;</code>。其中 <code>&lt;*&gt;</code> 就是上面所说的，给定一个用 <code>f</code> 包裹的 <code>a -&gt; b</code> 函数，再给定一个用 <code>f</code> 包裹的 <code>a</code>，返回一个 <code>f</code> 包裹的 <code>b</code>。</p>
 <p>而 <code>pure</code> 则是一个用于构造单位量的函数，给定一个 <code>a</code> 类型的变量，返回他用 <code>f</code> 包裹后的结果。</p>
-<p>我们还是以 <code>Maybe</code> 为例来看一下如何将它变成 Applicative 的实例：</p>
+<p>我们还是以 <code>Maybe</code> 为例来看一下如何将它变成 Applicative 的实作：</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">instance</span> <span class="type">Applicative</span> <span class="type">Maybe</span> <span class="keyword">where</span></span></span><br><span class="line">  pure = <span class="type">Just</span></span><br><span class="line">  <span class="type">Nothing</span> &lt;*&gt; _ = <span class="type">Nothing</span></span><br><span class="line">  (<span class="type">Just</span> f) &lt;*&gt; mx = g &lt;$&gt; mx</span><br></pre></td></tr></table></figure>
 
 <p>首先考虑 <code>pure</code>，显然就是直接装进 <code>Just</code> 即可。然后是 <code>&lt;*&gt;</code>，传入的第一个值就是一个 <code>Maybe</code> 包裹的 <code>a -&gt; b</code> 的函数，那么如果这个函数是 <code>Nothing</code>，结果必然是 <code>Nothing</code>，否则直接将 <code>a -&gt; b</code> 的函数取出，使用 Functor 中的 <code>fmap</code> 进行作用即可。</p>
@@ -310,7 +310,7 @@
 
 <p>前两个示例很容易理解，第三个示例可以认为是从左往右逐个运算，第一部分是一个 <code>(&lt;*&gt;) :: f (Int -&gt; Int -&gt; Int) -&gt; f Int -&gt; f (Int -&gt; Int)</code>，然后变成了 <code>[(*1),(*2),(*3)]</code>，再作用到最后一个 list 上，得到答案。</p>
 <p>然后还有 IO 类型的 Applicative：</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">instance</span> <span class="type">Applicative</span> <span class="type">IO</span> <span class="keyword">where</span></span></span><br><span class="line">	pure = return</span><br><span class="line">	mg &lt;*&gt; mx = <span class="keyword">do</span> &#123;g &lt;- mg; x &lt;- mx; return (g x)&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">instance</span> <span class="type">Applicative</span> <span class="type">IO</span> <span class="keyword">where</span></span></span><br><span class="line">  pure = return</span><br><span class="line">  mg &lt;*&gt; mx = <span class="keyword">do</span> &#123;g &lt;- mg; x &lt;- mx; return (g x)&#125;</span><br></pre></td></tr></table></figure>
 
 <p>一个示例是：</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">getChars</span> :: <span class="type">Int</span> -&gt; <span class="type">IO</span> <span class="type">String</span></span><br><span class="line"><span class="title">getChars</span> <span class="number">0</span> = return []</span><br><span class="line"><span class="title">getChars</span> n = pure (:) &lt;*&gt; getChar &lt;*&gt; getChars (n - <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
@@ -328,7 +328,130 @@
 <p>而对于 <code>IO</code> 类型，我们也可以把上面写的 <code>getChars</code> 写成 <code>sequenceA</code> 的形式：</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">getChars</span> :: <span class="type">Int</span> -&gt; <span class="type">IO</span> <span class="type">String</span></span><br><span class="line"><span class="title">getChars</span> n = sequenceA [replicate n getChar]</span><br></pre></td></tr></table></figure>
 
-<h2 id="Monad"><a href="#Monad" class="headerlink" title="Monad"></a>Monad</h2>
+<h2 id="Monad"><a href="#Monad" class="headerlink" title="Monad"></a>Monad</h2><p>之前说的 Applicative 是 Functor 的扩展版本，那么再扩展一下就有了 Monad。Monad 主要定义的函数是 <code>(&gt;&gt;=)</code>，他的类型是 <code>(&gt;&gt;=) :: (m a) -&gt; (a -&gt; m b) -&gt; (m b)</code>。这里把 type constructor 从字母 <code>f</code> 变成了 <code>m</code> 也体现了这一 type constructor 的 Monad 属性。也就是我们有一个 <code>a</code> 到 <code>m b</code> 的函数，要把它作用到 <code>m a</code> 内装着的元素里，得到 <code>m b</code>。这么定义有什么作用我们等会儿再来说。</p>
+<p>先来看一下 Monad 的形式化定义：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="type">Applicative</span> m =&gt; <span class="type">Monad</span> m <span class="keyword">where</span></span></span><br><span class="line">  return :: a -&gt; m a</span><br><span class="line">  return = pure</span><br><span class="line">  (&gt;&gt;=) :: m a -&gt; (a -&gt; m b) -&gt; m b</span><br><span class="line">  (&gt;&gt;) :: m a -&gt; m b -&gt; m b</span><br><span class="line">  m &gt;&gt; k = m &gt;&gt;= \_ -&gt; k</span><br></pre></td></tr></table></figure>
+
+<p>可以看到定义中有三个函数：<code>return</code>，<code>(&gt;&gt;=)</code> 和 <code>(&gt;&gt;)</code>。首先看 <code>return</code>，它的作用是给定一个元素，返回只包含他的对应 type 的单位量。发现其作用就是 Applicative 中的 <code>pure</code>，而 Monad 就是由 Applicative 拓展而来的，因此直接使用 <code>return = pure</code> 来定义即可。</p>
+<p>然后再看 <code>(&gt;&gt;=)</code>，这个函数也是 Monad 的关键，可以读作 bind。它的类型和作用在上面已经介绍了。然后看 <code>(&gt;&gt;)</code>，他给定了一个 <code>m a</code> 和一个 <code>m b</code>，然后只返回 <code>m b</code>，方式是将 <code>m a</code> bind 到一个无论传入何值，都直接返回给定的 <code>m b</code> 的函数上。</p>
+<p>注意到 <code>return</code> 是从 Applicative 的 <code>pure</code> 引入的，<code>(&gt;&gt;)</code> 又是根据 <code>(&gt;&gt;=)</code> 定义好的，因此如果我么希望实作一个 type constructor，其实只需要定义他的 <code>(&gt;&gt;=)</code> 函数即可。</p>
+<p>还是先来看一下 <code>Maybe</code> 的 Monad 应该如何定义：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">instance</span> <span class="type">Monad</span> <span class="type">Maybe</span> <span class="keyword">where</span></span></span><br><span class="line">  <span class="type">Nothing</span> &gt;&gt;= _ = <span class="type">Nothing</span></span><br><span class="line">  (<span class="type">Just</span> x) &gt;&gt;= f = f x</span><br></pre></td></tr></table></figure>
+
+<p>这个定义是显然的，如果 <code>m a</code> 是 <code>Nothing</code> 那么返回值就是 <code>Nothing</code>，否则把 <code>m a</code> 里面的值取出来，作用一下 <code>f</code> 即可。来看几个例子：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; <span class="type">Just</span> <span class="number">9</span> &gt;&gt;= \x -&gt; return (x * <span class="number">10</span>)</span><br><span class="line"><span class="type">Just</span> <span class="number">90</span></span><br><span class="line"><span class="title">ghci</span>&gt; <span class="type">Nothing</span> &gt;&gt;= \x -&gt; return (x * <span class="number">10</span>)</span><br><span class="line"><span class="type">Nothing</span></span><br></pre></td></tr></table></figure>
+
+<p>然后来看 list 的 Monad 定义：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">instance</span> <span class="type">Monad</span> [] <span class="keyword">where</span></span></span><br><span class="line">  xs &gt;&gt;= f = [y | x &lt;- xs, y &lt;- f x]</span><br></pre></td></tr></table></figure>
+
+<p>其实就是把 <code>m a</code> 里的每个元素取出来，作用一下 <code>f</code> 能够得到一个 <code>m b</code>，然后再把 <code>m b</code> 里的元素全部取出来造成一个 list。因此 list 的 Monad 定义也可以写作：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">instance</span> <span class="type">Monad</span> [] <span class="keyword">where</span></span></span><br><span class="line">  xs &gt;&gt;= f = cancat . (map f xs)</span><br></pre></td></tr></table></figure>
+
+<p>同样也可以看一些例子：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] &gt;&gt;= \x -&gt; return (<span class="number">4</span> * x)</span><br><span class="line">[<span class="number">4</span>,<span class="number">8</span>,<span class="number">12</span>]</span><br><span class="line"><span class="title">ghci</span>&gt; [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] &gt;&gt;= \x -&gt; (replicate <span class="number">4</span> x)</span><br><span class="line">[<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">3</span>]</span><br><span class="line"><span class="title">ghci</span>&gt; [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] &gt;&gt;= \n -&gt; [<span class="string">&#x27;a&#x27;</span>,<span class="string">&#x27;b&#x27;</span>,<span class="string">&#x27;c&#x27;</span>] &gt;&gt;= \ch -&gt; return (n, ch)</span><br><span class="line">[(<span class="number">1</span>,<span class="string">&#x27;a&#x27;</span>),(<span class="number">1</span>,<span class="string">&#x27;b&#x27;</span>),(<span class="number">1</span>,<span class="string">&#x27;c&#x27;</span>),(<span class="number">2</span>,<span class="string">&#x27;a&#x27;</span>),(<span class="number">2</span>,<span class="string">&#x27;b&#x27;</span>),(<span class="number">2</span>,<span class="string">&#x27;c&#x27;</span>),(<span class="number">3</span>,<span class="string">&#x27;a&#x27;</span>),(<span class="number">3</span>,<span class="string">&#x27;b&#x27;</span>),(<span class="number">3</span>,<span class="string">&#x27;c&#x27;</span>)]</span><br></pre></td></tr></table></figure>
+
+<h3 id="Monad-的链式结构"><a href="#Monad-的链式结构" class="headerlink" title="Monad 的链式结构"></a>Monad 的链式结构</h3><p>Monad 的函数写作 <code>(&gt;&gt;=)</code> 和 <code>(&gt;&gt;)</code>，这可以在写代码时写出一个链式的结构。比如考虑下面这个问题：</p>
+<blockquote>
+<p>皮尔斯决定要辞掉他的工作改行试着走钢索。他对走钢索蛮在行的，不过仍有个小问题。就是鸟会停在他拿的平衡竿上。他们会飞过来停一小会儿，然后再飞走。这样的情况在两边的鸟的数量一样时并不是个太大的问题。但有时候，所有的鸟都会想要停在同一边，皮尔斯就失去了平衡，就会让他从钢索上掉下去。</p>
+<p>我们这边假设两边的鸟差异在三个之内的时候，皮尔斯仍能保持平衡。所以如果是右边有一只，左边有四只的话，那还撑得住。但如果左边有五只，那就会失去平衡。</p>
+<p>我们要写个程序来仿真整个情况。我们想看看皮尔斯究竟在好几只鸟来来去去后是否还能撑住。</p>
+</blockquote>
+<p>那么我们先来定义一个 <code>type</code> 表示杆子的状态：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">type</span> <span class="type">Birds</span> = <span class="type">Int</span></span></span><br><span class="line"><span class="class"><span class="keyword">type</span> <span class="type">Pole</span> = (<span class="type">Birds</span>, <span class="type">Birds</span>)</span></span><br></pre></td></tr></table></figure>
+
+<p>然后我们就可以用 <code>Maybe Pole</code> 来表示当前状态：若为 <code>Nothing</code> 则表示已经失去平衡，否则表示两边各有多少鸟。可以写出如下两个函数来表示在杆子上停鸟的过程：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">landLeft</span> :: <span class="type">Birds</span> -&gt; <span class="type">Pole</span> -&gt; <span class="type">Maybe</span> <span class="type">Pole</span></span><br><span class="line"><span class="title">landLeft</span> n (left, right)</span><br><span class="line">  | abs((left + n) - right) &lt; <span class="number">4</span> = <span class="type">Just</span> (left + n, right)</span><br><span class="line">  | otherwise                   = <span class="type">Nothing</span></span><br><span class="line">  </span><br><span class="line"><span class="title">landRight</span> :: <span class="type">Birds</span> -&gt; <span class="type">Pole</span> -&gt; <span class="type">Maybe</span> <span class="type">Pole</span></span><br><span class="line"><span class="title">landRight</span> n (left, right)</span><br><span class="line">  | abs(left - (right + n)) &lt; <span class="number">4</span> = <span class="type">Just</span> (left, right + n)</span><br><span class="line">  | otherwise                   = <span class="type">Nothing</span></span><br></pre></td></tr></table></figure>
+
+<p>那么如果我们先往 <code>landLeft</code> 里面穿一个参数 <code>n</code>，即 <code>landLeft n</code>，这就是一个 <code>Pole -&gt; Maybe Pole</code> 的函数，符合 Monad 的要求。因此，一个过程就可以被表示为：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; return (<span class="number">0</span>, <span class="number">0</span>) &gt;&gt;= landRight <span class="number">2</span> &gt;&gt;= landLeft <span class="number">3</span> &gt;&gt;= landRight <span class="number">2</span></span><br><span class="line"><span class="type">Just</span> (<span class="number">4</span>,<span class="number">3</span>)</span><br><span class="line"><span class="title">ghci</span>&gt; return (<span class="number">0</span>, <span class="number">0</span>) &gt;&gt;= landRight <span class="number">2</span> &gt;&gt;= landLeft <span class="number">6</span> &gt;&gt;= landRight <span class="number">2</span></span><br><span class="line"><span class="type">Nothing</span></span><br></pre></td></tr></table></figure>
+
+<p>如果中途还有一个状态直接导致不合法，那么就可以用 <code>(&gt;&gt;)</code> 函数来表示：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; return (<span class="number">0</span>, <span class="number">0</span>) &gt;&gt;= landRight <span class="number">2</span> &gt;&gt;= landLeft <span class="number">3</span> &gt;&gt; <span class="type">Nothing</span> &gt;&gt;= landRight <span class="number">2</span></span><br><span class="line"><span class="type">Nothing</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Monad-的-Do-表示法"><a href="#Monad-的-Do-表示法" class="headerlink" title="Monad 的 Do 表示法"></a>Monad 的 Do 表示法</h3><p>有些时候我们定义一个函数，可能需要在 lambda 内套用 <code>(&gt;&gt;=)</code>，比如：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; <span class="type">Just</span> <span class="number">3</span> &gt;&gt;= (\x -&gt; <span class="type">Just</span> <span class="string">&quot;!&quot;</span> &gt;&gt;= (\y -&gt; <span class="type">Just</span> (show x ++ y)))  </span><br><span class="line"><span class="type">Just</span> <span class="string">&quot;3!&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>这时候写成一层套一层的结构就会很丑，因此 Haskell 还支持了 Do 表达式。我们把上面那句话分行写：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">foo</span> :: <span class="type">Maybe</span> <span class="type">String</span></span><br><span class="line"><span class="title">foo</span> = <span class="type">Just</span> <span class="number">3</span>   &gt;&gt;= (\x -&gt;</span><br><span class="line">      <span class="type">Just</span> <span class="string">&quot;!&quot;</span> &gt;&gt;= (\y -&gt;</span><br><span class="line">      <span class="type">Just</span> (show x ++ y)))</span><br></pre></td></tr></table></figure>
+
+<p>那么 Do 表达式的用处就是让他变得好看，可以写作：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">foo</span> :: <span class="type">Maybe</span> <span class="type">String</span></span><br><span class="line"><span class="title">foo</span> = <span class="keyword">do</span></span><br><span class="line">    x &lt;- <span class="type">Just</span> <span class="number">3</span></span><br><span class="line">    y &lt;- <span class="type">Just</span> <span class="string">&quot;!&quot;</span></span><br><span class="line">    <span class="type">Just</span> (show x ++ y)</span><br></pre></td></tr></table></figure>
+
+<p>同样的，上一段中所写的链式结构：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; return (<span class="number">0</span>, <span class="number">0</span>) &gt;&gt;= landRight <span class="number">2</span> &gt;&gt;= landLeft <span class="number">3</span> &gt;&gt;= landRight <span class="number">2</span></span><br><span class="line"><span class="type">Just</span> (<span class="number">4</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<p>也可以被写作 Do 表达式：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">routine</span> :: <span class="type">Maybe</span> <span class="type">Pole</span></span><br><span class="line"><span class="title">routine</span> = <span class="keyword">do</span></span><br><span class="line">        start &lt;- return (<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">        first &lt;- landRight <span class="number">2</span> start</span><br><span class="line">        second &lt;- landLeft <span class="number">3</span> first</span><br><span class="line">        landRight <span class="number">2</span> second</span><br></pre></td></tr></table></figure>
+
+<p>运行就有：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">ghci</span>&gt; routine</span><br><span class="line"><span class="type">Just</span> (<span class="number">4</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<p>所以 Do 的本质其实是一个语法糖，但是却让 Haskell 这个函数式的编程语言有了命令式的感觉。</p>
+<h2 id="Laws"><a href="#Laws" class="headerlink" title="Laws"></a>Laws</h2><p>还有一部分内容是有关 Functor，Applicative 和 Monad 的 Laws，所有定义这三种 type class 的函数都必须满足其对应的 Laws。</p>
+<p>这一部分有一些范畴论的内容，下面的解释不一定完全正确。</p>
+<h3 id="Functor-Laws"><a href="#Functor-Laws" class="headerlink" title="Functor Laws"></a>Functor Laws</h3><p>任何一个 Functor 的实例，都必须满足如下两个性质：</p>
+<ol>
+<li><code>fmap id === id</code></li>
+<li><code>fmap (f . g) === fmap f . fmap g</code></li>
+</ol>
+<h3 id="Applicative-Laws"><a href="#Applicative-Laws" class="headerlink" title="Applicative Laws"></a>Applicative Laws</h3><p>任何一个 Applicative Functor 的实例，都必须满足如下性质（标注内容是对应的类型分析）：</p>
+<ol>
+<li><p><code>pure id &lt;*&gt; x === x</code></p>
+<ul>
+<li>若 <code>id :: a -&gt; a</code>，则 <code>x :: f a</code></li>
+</ul>
+</li>
+<li><p><code>pure (g x) === pure g &lt;*&gt; pure x</code></p>
+<ul>
+<li>若 <code>x :: a</code>，则 <code>g :: a -&gt; b</code>，<code>pure (g x) :: f b</code></li>
+</ul>
+</li>
+<li><p><code>x &lt;*&gt; pure y === pure (\g -&gt; g y) &lt;*&gt; x</code></p>
+<ul>
+<li>若 <code>y :: a</code>，则 <code>x :: f (a -&gt; b)</code>，<code>pure (\g g -&gt; y) :: f ((a -&gt; b) -&gt; b)</code></li>
+</ul>
+</li>
+<li><p><code>x &lt;*&gt; (y &lt;*&gt; z) === (pure (.) &lt;*&gt; x &lt;*&gt; y) &lt;*&gt; z</code></p>
+<ul>
+<li>若 <code>z :: f a</code>，则 <code>y :: f (a -&gt; b)</code>，<code>x :: f(b -&gt; c)</code>，</li>
+<li>且 <code>pure (.) &lt;*&gt; x &lt;*&gt; y :: f (a -&gt; c)</code></li>
+</ul>
+</li>
+</ol>
+<p>其实后两条就是类似交换律和结合律。</p>
+<h3 id="Monad-Laws"><a href="#Monad-Laws" class="headerlink" title="Monad Laws"></a>Monad Laws</h3><p>任何一个 Monad 的实例，都必须满足如下性质：</p>
+<ol>
+<li><p>Left identity（左单位律）</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- :: m a       :: a -&gt; m b</span></span><br><span class="line"><span class="comment">-- ↓↓↓↓↓↓↓↓     ↓</span></span><br><span class="line">   return x &gt;&gt;= h  ===  h x</span><br><span class="line"><span class="comment">--                      ↑↑↑</span></span><br><span class="line"><span class="comment">--                      :: m b</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Right identity（右单位律）</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- :: m a :: a -&gt; m a</span></span><br><span class="line"><span class="comment">-- ↓↓     ↓↓↓↓↓↓</span></span><br><span class="line">   mx &gt;&gt;= return  ===  mx</span><br><span class="line"><span class="comment">--                     ↑↑</span></span><br><span class="line"><span class="comment">--                     :: m a</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Associativity（结合律）</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--  :: m a</span></span><br><span class="line"><span class="comment">--  ┊┊     :: a -&gt; m b</span></span><br><span class="line"><span class="comment">--  ┊┊     ┊      :: b -&gt; m c      :: a :: m c</span></span><br><span class="line"><span class="comment">--  ↓↓     ↓      ↓                ↓    ↓↓↓↓↓↓↓↓↓</span></span><br><span class="line">   (mx &gt;&gt;= g) &gt;&gt;= h  ===  mx &gt;&gt;= (\x -&gt; g x &gt;&gt;= h)</span><br><span class="line"><span class="comment">--  ↑↑↑↑↑↑↑↑                      ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑</span></span><br><span class="line"><span class="comment">--  :: m b                        :: a -&gt; m c</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>至于为什么叫做这三个，可以用如下方式来解释：Haskell 的 <code>Control.Monad</code> 模块中按照如下方式定义了运算符 <code>&gt;==&gt;</code>：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- The monad-composition operator</span></span><br><span class="line"><span class="comment">-- defined in Control.Monad</span></span><br><span class="line">(&gt;=&gt;) :: <span class="type">Monad</span> m =&gt; (a -&gt; m b) -&gt; (b -&gt; m c) -&gt; (a -&gt; m c)</span><br><span class="line"></span><br><span class="line"><span class="comment">--          :: a :: m b  :: b -&gt; m c</span></span><br><span class="line"><span class="comment">--          ↓    ↓↓↓     ↓</span></span><br><span class="line"><span class="title">f</span> &gt;=&gt; g  = \x -&gt; f x &gt;&gt;= g</span><br><span class="line"><span class="comment">--               ↑↑↑↑↑↑↑↑↑</span></span><br><span class="line"><span class="comment">--               :: m c</span></span><br></pre></td></tr></table></figure>
+
+<p>简单来说就是把两个函数合并到一个函数上。那么我们可以对三个 Law 分别做一些变换：</p>
+<ol>
+<li><p>Left identity</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">              return x &gt;&gt;= h      ===  h x</span><br><span class="line">&lt;==&gt;         (return x &gt;&gt;= h)     ===  h x</span><br><span class="line">&lt;==&gt;  (\y -&gt; (return y &gt;&gt;= h)) x  ===  h x</span><br><span class="line">&lt;==&gt;  (       return   &gt;=&gt; h ) x  ===  h x</span><br><span class="line">&lt;==&gt;  (       return   &gt;=&gt; h )    ===  h</span><br><span class="line">&lt;==&gt;          return   &gt;=&gt; h      ===  h</span><br></pre></td></tr></table></figure>
+
+<p>其实就是在说 <code>return</code> 是 <code>&gt;==&gt;</code> 的左单位元。</p>
+</li>
+<li><p>Right identity</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">            mx  &gt;&gt;= return     ===  mx</span><br><span class="line">&lt;==&gt;        f x &gt;&gt;= return     ===  f x</span><br><span class="line">&lt;==&gt; (\y -&gt; f y &gt;&gt;= return) x  ===  f x</span><br><span class="line">&lt;==&gt; (      f   &gt;=&gt; return) x  ===  f x</span><br><span class="line">&lt;==&gt; (      f   &gt;=&gt; return)    ===  f</span><br><span class="line">&lt;==&gt;        f   &gt;=&gt; return     ===  f</span><br></pre></td></tr></table></figure>
+
+<p>其实就是在说 <code>return</code> 是 <code>&gt;==&gt;</code> 的右单位元。</p>
+</li>
+<li><p>Associativity</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">            (      my  &gt;&gt;= g)   &gt;&gt;= h    ===        my  &gt;&gt;= (\y -&gt; g y &gt;&gt;= h)</span><br><span class="line">&lt;==&gt;        (      f x &gt;&gt;= g)   &gt;&gt;= h    ===        f x &gt;&gt;= (\y -&gt; g y &gt;&gt;= h)</span><br><span class="line">&lt;==&gt;        (      f x &gt;&gt;= g)   &gt;&gt;= h    ===        f x &gt;&gt;= (      g   &gt;=&gt; h)</span><br><span class="line">&lt;==&gt;        (\u -&gt; f u &gt;&gt;= g) x &gt;&gt;= h    ===        f x &gt;&gt;= (      g   &gt;=&gt; h)</span><br><span class="line">&lt;==&gt;        (      f   &gt;=&gt; g) x &gt;&gt;= h    ===        f x &gt;&gt;= (      g   &gt;=&gt; h)</span><br><span class="line">&lt;==&gt; (\u -&gt; (      f   &gt;=&gt; g) u &gt;&gt;= h) x === (\u -&gt; f u &gt;&gt;= (      g   &gt;=&gt; h)) x</span><br><span class="line">&lt;==&gt; (\u -&gt; (      f   &gt;=&gt; g) u &gt;&gt;= h)   === (\u -&gt; f u &gt;&gt;= (      g   &gt;=&gt; h))</span><br><span class="line">&lt;==&gt; (      (      f   &gt;=&gt; g)   &gt;=&gt; h)   === (      f   &gt;=&gt; (      g   &gt;=&gt; h))</span><br></pre></td></tr></table></figure>
+
+<p>其实就是在说 <code>&gt;==&gt;</code> 满足结合律。</p>
+</li>
+</ol>
+<h2 id="几种类型的-Monad"><a href="#几种类型的-Monad" class="headerlink" title="几种类型的 Monad"></a>几种类型的 Monad</h2>
         </div>
 
         
