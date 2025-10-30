@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="NetSpeed1">
+
+
+
+    <meta name="description" content="Blog">
+
+
+
+<title>数学分析（I）期中复习 | Netspeed1</title>
+
+
+
+    <link rel="icon" href="/images/icon-round.jpg">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+    
+
+
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const pagebody = document.getElementsByTagName('body')[0]
+
+            function setTheme(status) {
+
+                if (status === 'dark') {
+                    window.sessionStorage.theme = 'dark'
+                    pagebody.classList.add('dark-theme');
+
+                } else if (status === 'light') {
+                    window.sessionStorage.theme = 'light'
+                    pagebody.classList.remove('dark-theme');
+                }
+            };
+
+            setTheme(window.sessionStorage.theme)
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">NetSpeed1</a></div>
+            <div class="menu navbar-right">
+                
+                <a class="menu-item" href="/archives">Posts</a>
+                
+                <a class="menu-item" href="/category">Categories</a>
+                
+                <a class="menu-item" href="/tag">Tags</a>
+                
+                <a class="menu-item" href="/about">About</a>
+                
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">NetSpeed1</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">
+                    <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M4.5 17.27q-.213 0-.356-.145T4 16.768t.144-.356t.356-.143h15q.213 0 .356.144q.144.144.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.144T4 11.999t.144-.356t.356-.143h15q.213 0 .356.144t.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.143Q4 7.443 4 7.23t.144-.356t.356-.143h15q.213 0 .356.144T20 7.23t-.144.356t-.356.144z"/></svg>
+                    <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Symbols Light by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="m12 12.708l-5.246 5.246q-.14.14-.344.15t-.364-.15t-.16-.354t.16-.354L11.292 12L6.046 6.754q-.14-.14-.15-.344t.15-.364t.354-.16t.354.16L12 11.292l5.246-5.246q.14-.14.345-.15q.203-.01.363.15t.16.354t-.16.354L12.708 12l5.246 5.246q.14.14.15.345q.01.203-.15.363t-.354.16t-.354-.16z"/></svg>
+                </div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                <a class="menu-item" href="/archives">Posts</a>
+                
+                <a class="menu-item" href="/category">Categories</a>
+                
+                <a class="menu-item" href="/tag">Tags</a>
+                
+                <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.classList.contains("active")) {
+            toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        } else {
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">数学分析（I）期中复习</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">NetSpeed1</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">October 30, 2025&nbsp;&nbsp;13:15:45</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/MS-course/">MS course</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><p>以下内容均为笔者自己的作答，不保证正确性。</p>
+<h3 id="习题-1（P16）"><a href="#习题-1（P16）" class="headerlink" title="习题 1（P16）"></a>习题 1（P16）</h3><ol>
+<li><p>设 $a_0, a_1, \cdots, a_n$ 为复常数，且对任何 $x \in \mathbb{R}$ 成立 $a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0 &#x3D; 0$。证明：$a_0 &#x3D; a_1 &#x3D; \cdots &#x3D; a_n &#x3D; 0$。</p>
+<p>证：根据唯一分解定理，若存在 $a_n\not&#x3D;0$，取 $p&#x3D;\max{x:a_x\not&#x3D;0}$，则最多只有 $p$ 个 $x$ 满足 $f(x)&#x3D;0$，与 $\forall x\in\R$ 矛盾。$\Box$</p>
+</li>
+<li><p>设 $P$ 为首项系数不为零的 $n$ 次复系数多项式，$x_1$ 是它的一个零点。证明：存在首项系数不为零的 $n - 1$ 次多项式 $Q$ 使得<br>$$<br>P(x) &#x3D; (x - x_1) Q(x).<br>$$</p>
+<p>证：设 $R&#x3D;P\bmod (x-x_1)$，由于 $x-x_1$ 最高次项次数为 $1$，因此 $R\in \C$。</p>
+<p>反设 $R\not&#x3D;0$，由于 $P(x)&#x3D;(x-x_1)D(x)+R$，则 $P(x_1)&#x3D;R\not&#x3D;0$，矛盾。$\Box$</p>
+</li>
+<li><p>设 $a_0, a_1, \cdots, a_n$ 为复常数，$a_n \neq 0$。证明：多项式<br>$$<br>P(x) &#x3D; a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0<br>$$<br>至多有 $n$ 个复零点（含重数）。</p>
+<p>证：反设该多项式 $P(x)$ 有多于 $n$ 个复零点 $x_1,x_2,\ldots$，取前 $n+1$ 个复零点，则 $P(x)$ 应为 $(x-x_1),\ldots,(x-x_{n+1})$ 的倍数，因此 $P(x)$ 至少是 $\prod_{k&#x3D;1}^{n+1}(x-x_k)$ 的倍数，最高次项次数应 $&gt;n$，矛盾。$\Box$</p>
+</li>
+<li><p>证明：Viete定理：设 $a_n \neq 0, x_1, x_2, \cdots, x_n$ 为<br>$$<br>P(x) &#x3D; a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0<br>$$<br>的 $n$ 个复零点（含重根），则对于 $1 \leq k \leq n$，成立<br>$$<br>\sum_{1 \leq m_1 &lt; m_2 &lt; \cdots &lt; m_k \leq n} \prod_{j&#x3D;1}^k x_{m_j} &#x3D; (-1)^k \frac{a_{n-k}}{a_n}.<br>$$</p>
+<p>证：由唯一分解定理可知：<br>$$<br>\begin{aligned}<br>P(x)&#x3D;&amp;a_n(x-x_1)(x-x_2)\cdots(x-x_n)\<br>&#x3D;&amp;a_n\sum_{1\le m_1&lt;m_2&lt;\cdots&lt;m_k\le n}x^{n-k}(-1)^k\prod_{j&#x3D;1}^kx_{m_j}<br>\end{aligned}<br>$$<br>对应系数可知：<br>$$<br>a_{n-k}&#x3D;a_n\sum_{1\le m_1&lt;m_2&lt;\cdots&lt;m_k\le n}(-1)^k\prod_{j&#x3D;1}^kx_{m_j}\<br>\sum_{1 \leq m_1 &lt; m_2 &lt; \cdots &lt; m_k \leq n} \prod_{j&#x3D;1}^k x_{m_j} &#x3D; (-1)^k \frac{a_{n-k}}{a_n}<br>$$<br>结论得证。$\Box$</p>
+</li>
+<li><p>试构造区间 $(0, 1)$ 映到 $[0, 1]$ 的一个双射。</p>
+<p>解：构造从 $(0,1)$ 到 $[0,1]$ 的映射 $f$：<br>$$<br>f(x)&#x3D;\begin{cases}<br>0&amp;x&#x3D;\frac{1}{2}\<br>1&amp;x&#x3D;\frac{1}{3}\<br>\frac{1}{n-2}&amp;x&#x3D;\frac{1}{n},n\in \Z,n\ge 4\<br>x&amp;otherwise<br>\end{cases}<br>$$<br>不难验证 $f$ 是一个双射。</p>
+</li>
+<li><p>说明映射 $T: \mathbb{Q} \to \mathbb{Z}$,<br>$$<br>T(q) &#x3D;<br>\begin{cases}<br>(m+n)^2 + n, &amp; q &#x3D; \frac{n}{m}, \quad m, n \text{为既约正整数}, \<br>0, &amp; q &#x3D; 0, \<br>-(m+n)^2 - n, &amp; q &#x3D; -\frac{n}{m}, \quad m, n \text{为既约正整数}<br>\end{cases}<br>$$<br>为有理数集到整数集的单射。</p>
+<p>证：即证 $\forall x,y\in \Q$，$x\not&#x3D;y$，都有 $T(x)\not&#x3D;T(y)$。</p>
+<p>若 $x&gt;0$，则 $T(x)&gt;0$；若 $x&#x3D;0$，则 $T(x)&#x3D;0$；若 $x&lt;0$，则 $T(x)&lt;0$。因此若 $x,y$ 与 $0$ 的大小关系不同，则显然有 $T(x)\not&#x3D;T(y)$。</p>
+<p>否则不妨设 $x,y&gt;0$，令 $x&#x3D;\frac{p}{q},y&#x3D;\frac{n}{m}$，则 $T(x)&#x3D;(p+q)^2+p,T(y)&#x3D;(n+m)^2+n$。</p>
+<p>令 $r&#x3D;p+q,s&#x3D;n+m$，若 $r\not&#x3D;s$，则 $T(x)\in[r^2,r^2+r]\subset [r^2,(r+1)^2-1]$，$T(y)\in [s^2,s^2+s]\subset [s^2,(s+1)^2-1]$，显然 $T(x)\cap T(y)&#x3D;\varnothing$，故只需考虑 $r&#x3D;s$。</p>
+<p>则 $T(x)-T(y)&#x3D;s^2+p-t^2-n&#x3D;p-n$，由 $x\not&#x3D;y$ 可知 $p\not&#x3D;n$，因此 $T(x)\not&#x3D;T(y)$。</p>
+<p>故 $T:\Q\to \Z$ 是单射。</p>
+</li>
+<li><p>证明：代数数集是可列集。</p>
+<p>对于任意一个代数数 $x$，</p>
+</li>
+</ol>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>NetSpeed1</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://enucai.github.io/2025/10/30/mathematical-analysis-1-midterm/">https://enucai.github.io/2025/10/30/mathematical-analysis-1-midterm/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/review/"># review</a>
+                    
+                        <a href="/tags/mathematical-analysis/"># mathematical-analysis</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2025/11/13/oi-memoirs/">OI 生涯回忆录</a>
+            
+            
+            <a class="next" rel="next" href="/2025/10/25/haskell-monad/">Haskell 中的 Monad</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© NetSpeed1 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
