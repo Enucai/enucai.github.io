@@ -268,35 +268,182 @@
 
         <div class="post-content">
             <h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><p>以下内容均为笔者自己的作答，不保证正确性。</p>
-<h3 id="习题-1（P16）"><a href="#习题-1（P16）" class="headerlink" title="习题 1（P16）"></a>习题 1（P16）</h3><ol>
-<li><p>设 $a_0, a_1, \cdots, a_n$ 为复常数，且对任何 $x \in \mathbb{R}$ 成立 $a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0 &#x3D; 0$。证明：$a_0 &#x3D; a_1 &#x3D; \cdots &#x3D; a_n &#x3D; 0$。</p>
-<p>证：根据唯一分解定理，若存在 $a_n\not&#x3D;0$，取 $p&#x3D;\max{x:a_x\not&#x3D;0}$，则最多只有 $p$ 个 $x$ 满足 $f(x)&#x3D;0$，与 $\forall x\in\R$ 矛盾。$\Box$</p>
-</li>
-<li><p>设 $P$ 为首项系数不为零的 $n$ 次复系数多项式，$x_1$ 是它的一个零点。证明：存在首项系数不为零的 $n - 1$ 次多项式 $Q$ 使得<br>$$<br>P(x) &#x3D; (x - x_1) Q(x).<br>$$</p>
-<p>证：设 $R&#x3D;P\bmod (x-x_1)$，由于 $x-x_1$ 最高次项次数为 $1$，因此 $R\in \C$。</p>
+<h3 id="习题-1（P16）"><a href="#习题-1（P16）" class="headerlink" title="习题 1（P16）"></a>习题 1（P16）</h3><p><strong>题 1</strong>. 设 $a_0, a_1, \cdots, a_n$ 为复常数，且对任何 $y \in \mathbb{R}$ 成立 $a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0 &#x3D; 0$。证明：$a_0 &#x3D; a_1 &#x3D; \cdots &#x3D; a_n &#x3D; 0$。</p>
+<p>证：根据唯一分解定理，若存在 $a_n\not&#x3D;0$，取 $p&#x3D;\max\{x:a_x\not&#x3D;0\}$，则最多只有 $p$ 个 $x$ 满足 $f(x)&#x3D;0$，与 $\forall x\in\mathbb{R}$ 矛盾。$\Box$</p>
+<p><strong>题 2</strong>. 设 $P$ 为首项系数不为零的 $n$ 次复系数多项式，$x_1$ 是它的一个零点。证明：存在首项系数不为零的 $n - 1$ 次多项式 $Q$ 使得</p>
+<p>$$<br>P(x) &#x3D; (x - x_1) Q(x).<br>$$</p>
+<p>证：设 $R&#x3D;P\bmod (x-x_1)$，由于 $x-x_1$ 最高次项次数为 $1$，因此 $R\in \mathbb{C}$。</p>
 <p>反设 $R\not&#x3D;0$，由于 $P(x)&#x3D;(x-x_1)D(x)+R$，则 $P(x_1)&#x3D;R\not&#x3D;0$，矛盾。$\Box$</p>
-</li>
-<li><p>设 $a_0, a_1, \cdots, a_n$ 为复常数，$a_n \neq 0$。证明：多项式<br>$$<br>P(x) &#x3D; a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0<br>$$<br>至多有 $n$ 个复零点（含重数）。</p>
+<p><strong>题 3</strong>. 设 $a_0, a_1, \cdots, a_n$ 为复常数，$a_n \neq 0$。证明：多项式</p>
+<p>$$<br>P(x) &#x3D; a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0<br>$$</p>
+<p>至多有 $n$ 个复零点（含重数）。</p>
 <p>证：反设该多项式 $P(x)$ 有多于 $n$ 个复零点 $x_1,x_2,\ldots$，取前 $n+1$ 个复零点，则 $P(x)$ 应为 $(x-x_1),\ldots,(x-x_{n+1})$ 的倍数，因此 $P(x)$ 至少是 $\prod_{k&#x3D;1}^{n+1}(x-x_k)$ 的倍数，最高次项次数应 $&gt;n$，矛盾。$\Box$</p>
-</li>
-<li><p>证明：Viete定理：设 $a_n \neq 0, x_1, x_2, \cdots, x_n$ 为<br>$$<br>P(x) &#x3D; a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0<br>$$<br>的 $n$ 个复零点（含重根），则对于 $1 \leq k \leq n$，成立<br>$$<br>\sum_{1 \leq m_1 &lt; m_2 &lt; \cdots &lt; m_k \leq n} \prod_{j&#x3D;1}^k x_{m_j} &#x3D; (-1)^k \frac{a_{n-k}}{a_n}.<br>$$</p>
-<p>证：由唯一分解定理可知：<br>$$<br>\begin{aligned}<br>P(x)&#x3D;&amp;a_n(x-x_1)(x-x_2)\cdots(x-x_n)\<br>&#x3D;&amp;a_n\sum_{1\le m_1&lt;m_2&lt;\cdots&lt;m_k\le n}x^{n-k}(-1)^k\prod_{j&#x3D;1}^kx_{m_j}<br>\end{aligned}<br>$$<br>对应系数可知：<br>$$<br>a_{n-k}&#x3D;a_n\sum_{1\le m_1&lt;m_2&lt;\cdots&lt;m_k\le n}(-1)^k\prod_{j&#x3D;1}^kx_{m_j}\<br>\sum_{1 \leq m_1 &lt; m_2 &lt; \cdots &lt; m_k \leq n} \prod_{j&#x3D;1}^k x_{m_j} &#x3D; (-1)^k \frac{a_{n-k}}{a_n}<br>$$<br>结论得证。$\Box$</p>
-</li>
-<li><p>试构造区间 $(0, 1)$ 映到 $[0, 1]$ 的一个双射。</p>
-<p>解：构造从 $(0,1)$ 到 $[0,1]$ 的映射 $f$：<br>$$<br>f(x)&#x3D;\begin{cases}<br>0&amp;x&#x3D;\frac{1}{2}\<br>1&amp;x&#x3D;\frac{1}{3}\<br>\frac{1}{n-2}&amp;x&#x3D;\frac{1}{n},n\in \Z,n\ge 4\<br>x&amp;otherwise<br>\end{cases}<br>$$<br>不难验证 $f$ 是一个双射。</p>
-</li>
-<li><p>说明映射 $T: \mathbb{Q} \to \mathbb{Z}$,<br>$$<br>T(q) &#x3D;<br>\begin{cases}<br>(m+n)^2 + n, &amp; q &#x3D; \frac{n}{m}, \quad m, n \text{为既约正整数}, \<br>0, &amp; q &#x3D; 0, \<br>-(m+n)^2 - n, &amp; q &#x3D; -\frac{n}{m}, \quad m, n \text{为既约正整数}<br>\end{cases}<br>$$<br>为有理数集到整数集的单射。</p>
-<p>证：即证 $\forall x,y\in \Q$，$x\not&#x3D;y$，都有 $T(x)\not&#x3D;T(y)$。</p>
+<p><strong>题 4</strong>. 证明：Viete定理：设 $a_n \neq 0, x_1, x_2, \cdots, x_n$ 为</p>
+<p>$$<br>P(x) &#x3D; a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0<br>$$</p>
+<p>的 $n$ 个复零点（含重根），则对于 $1 \leq k \leq n$</p>
+<p>$$<br>\sum_{1 \leq m_1 &lt; m_2 &lt; \cdots &lt; m_k \leq n} \prod_{j&#x3D;1}^k x_{m_j} &#x3D; (-1)^k \frac{a_{n-k}}{a_n}.<br>$$</p>
+<p>证：由唯一分解定理可知：</p>
+<p>$$<br>\begin{aligned}<br>P(x)&amp;&#x3D;a_n(x-x_1)(x-x_2)\cdots(x-x_n) \cr<br>&amp;&#x3D;a_n\sum_{1\le m_1&lt;m_2&lt;\cdots&lt;m_k\le n}x^{n-k}(-1)^k\prod_{j&#x3D;1}^kx_{m_j}<br>\end{aligned}<br>$$</p>
+<p>对应系数可知：</p>
+<p>$$<br>\begin{aligned}<br>a_{n-k}&amp;&#x3D;a_n\sum_{1\le m_1&lt;m_2&lt;\cdots&lt;m_k\le n}(-1)^k\prod_{j&#x3D;1}^kx_{m_j} \cr<br>\sum_{1 \leq m_1 &lt; m_2 &lt; \cdots &lt; m_k \leq n} \prod_{j&#x3D;1}^k x_{m_j} &amp;&#x3D; (-1)^k \frac{a_{n-k}}{a_n}<br>\end{aligned}<br>$$</p>
+<p>结论得证。$\Box$</p>
+<p><strong>题 5</strong>. 试构造区间 $(0, 1)$ 映到 $[0, 1]$ 的一个双射。</p>
+<p>解：构造从 $(0,1)$ 到 $[0,1]$ 的映射 $f$：</p>
+<p>$$<br>f(x)&#x3D;\begin{cases}<br>0&amp;x&#x3D;\frac{1}{2}\cr<br>1&amp;x&#x3D;\frac{1}{3}\cr<br>\frac{1}{n-2}&amp;x&#x3D;\frac{1}{n},n\in \mathbb{Z},n\ge 4\cr<br>x&amp;otherwise<br>\end{cases}<br>$$</p>
+<p>不难验证 $f$ 是一个双射。</p>
+<p><strong>题 6</strong>. 说明映射 $T: \mathbb{Q} \to \mathbb{Z}$,</p>
+<p>$$<br>T(q) &#x3D;<br>\begin{cases}<br>(m+n)^2 + n, &amp; q &#x3D; \frac{n}{m}, \quad m, n \text{为既约正整数}, \cr<br>0, &amp; q &#x3D; 0, \cr<br>-(m+n)^2 - n, &amp; q &#x3D; -\frac{n}{m}, \quad m, n \text{为既约正整数}<br>\end{cases}<br>$$</p>
+<p>为有理数集到整数集的单射。</p>
+<p>证：即证 $\forall x,y\in \mathbb{Q}$，$x\not&#x3D;y$，都有 $T(x)\not&#x3D;T(y)$。</p>
 <p>若 $x&gt;0$，则 $T(x)&gt;0$；若 $x&#x3D;0$，则 $T(x)&#x3D;0$；若 $x&lt;0$，则 $T(x)&lt;0$。因此若 $x,y$ 与 $0$ 的大小关系不同，则显然有 $T(x)\not&#x3D;T(y)$。</p>
 <p>否则不妨设 $x,y&gt;0$，令 $x&#x3D;\frac{p}{q},y&#x3D;\frac{n}{m}$，则 $T(x)&#x3D;(p+q)^2+p,T(y)&#x3D;(n+m)^2+n$。</p>
-<p>令 $r&#x3D;p+q,s&#x3D;n+m$，若 $r\not&#x3D;s$，则 $T(x)\in[r^2,r^2+r]\subset [r^2,(r+1)^2-1]$，$T(y)\in [s^2,s^2+s]\subset [s^2,(s+1)^2-1]$，显然 $T(x)\cap T(y)&#x3D;\varnothing$，故只需考虑 $r&#x3D;s$。</p>
+<p>令 $r&#x3D;p+q,s&#x3D;n+m$，若 $r\not&#x3D;s$，则 $T(x)\subset [r^2,(r+1)^2-1]$，$T(y)\subset [s^2,(s+1)^2-1]$，显然 $T(x)\cap T(y)&#x3D;\varnothing$，故只需考虑 $r&#x3D;s$。</p>
 <p>则 $T(x)-T(y)&#x3D;s^2+p-t^2-n&#x3D;p-n$，由 $x\not&#x3D;y$ 可知 $p\not&#x3D;n$，因此 $T(x)\not&#x3D;T(y)$。</p>
-<p>故 $T:\Q\to \Z$ 是单射。</p>
+<p>故 $T:\mathbb{Q}\to \mathbb{Z}$ 是单射。</p>
+<p><strong>题 7</strong>. 证明：代数数集是可列集。</p>
+<p>证：对于任意一个代数数 $x$，均可被表示为一个有限次数整系数多项式的零点。对于所有的 $n$ 度整系数多项式 $P(x)$，由于 $\mathbb{Z}$ 可数，因此 $\mathbb{Z}^n$ 可数。对于一个 $n$ 度整系数多项式 $P(x)$，其所有零点至多可数，可数个可数集的并可数，因此对于一个 $n$，所有 $n$ 度整系数多项式的零点可数。</p>
+<p>又由于度数 $n\in \mathbb{Z}$，因此所有这样的多项式的零点的并可数，而其恰好是代数数集。故代数数集可数。$\Box$</p>
+<p><strong>题 8</strong>. 证明：存在常数 $A &gt; 0$ 使得对于任何整数 $q$ 和正整数 $p$, 成立</p>
+<p>$$<br>\left| \sqrt{3} + \sqrt{2} - \frac{q}{p} \right| &gt; \frac{A}{p^4}.<br>$$</p>
+<p>证：尝试构造一个 $x&#x3D;\sqrt 2+\sqrt 3$ 时 $f(x)&#x3D;0$ 的整系数多项式 $f$：</p>
+<p>$$<br>\begin{aligned}<br>(x-\sqrt 2)&amp;&#x3D;\sqrt 3\cr<br>x^2-2\sqrt 2x+2&amp;&#x3D;3\cr<br>x^2-1&amp;&#x3D;2\sqrt 2x\cr<br>x^4-2x^2+1&amp;&#x3D;8x^2\cr<br>x^4-10x^2+1&amp;&#x3D;0<br>\end{aligned}<br>$$</p>
+<p>故 $\sqrt 2+\sqrt 3$ 是四次整系数多项式 $f(x)&#x3D;x^4-10x^2+1$ 的零点。由 Liouville 定理可知，必存在常数 $A&gt;0$，使得对于任意整数 $q$ 和正整数 $p$，成立：</p>
+<p>$$<br>\left| \sqrt 2+\sqrt 3-\frac{q}{p}&gt;\frac{A}{p^4} \right|<br>$$</p>
+<p>$\Box$</p>
+<p><strong>题 9</strong>. 证明</p>
+<p>$$<br>\left\{ \sum_{k&#x3D;1}^{\infty} \frac{n_k}{10^{k!}} \mid n_k &#x3D; 1, 2, \cdots, 9 \right\}<br>$$</p>
+<p>的势是 $\aleph$, 其元均为 Liouville 数。</p>
+<p>证：令上述集合为 $S$，则对于任意 $x\in S$，$x$ 均可由 $n_1,n_2,\cdots$ 表示，其中 $n_k\in {1,2,\cdots,9}$。且对于任意两个不同的 ${n_k}$ 序列，其代表的两个数只差至少是：</p>
+<p>$$<br>\frac{1}{10^{k!}}-\sum_{j&#x3D;k+1}^{+\infty}\frac{9}{10^{j!}}&gt;0<br>$$</p>
+<p>故 $\#(S)&#x3D;9^{\aleph_0}&#x3D;\aleph$。</p>
+<p>接下来证明 $\forall x\in S$，$x$ 是 Liouville 数。对于给定的 $n$，对于任意 $m&gt;n$，取 $p&#x3D;10^{m!}$，$q&#x3D;\sum_{k&#x3D;1}^m(n_k)10^{m!-k!}$，则有 $|\frac{q}{p}-x|\le \sum_{k&#x3D;m+1}^{\infty}n_k 10^{-k!}&lt;\frac{1}{p}$。</p>
+<p>故 $\forall x\in S$，$x$ 是 Liouville 数。$\Box$</p>
+<p>*<strong>题 11</strong>. 设 $P, Q$ 分别是 $m, n$ 阶首项系数为 1 的有理系数多项式：</p>
+<p>$$<br>P(x) &#x3D; \prod_{k&#x3D;1}^{m} (x - x_k), \quad Q(x) &#x3D; \prod_{k&#x3D;1}^{n} (x - y_k).<br>$$</p>
+<p>证明：<br>(1) 多项式 $R(x) :&#x3D; \prod_{k&#x3D;1}^{m} \prod_{j&#x3D;1}^{n} (x - x_k - y_j)$ 是有理系数多项式；<br>(2) 多项式 $S(x) :&#x3D; \prod_{k&#x3D;1}^{m} \prod_{j&#x3D;1}^{n} (x - x_k y_j)$ 是有理系数多项式。</p>
+<p><strong>题 12</strong>. 证明 Liouville 定理 1.4.9。</p>
+<p>证：Liouville 定理即设 $n\ge 2$，无理数 $x$ 是某个 $n$ 次整系数多项式的零点，则存在常数 $A&gt;0$，使得 对于任何整数 $q$ 和正整数 $p$，都有 $|x-\frac{q}{p}|&lt;\frac{A}{p^n}$。</p>
+<p>设 $x$ 在 $\mathbb{Z}$ 上的极小多项式是 $P(x)&#x3D;a_mx^m+a_{m-1}x^{m-1}+\ldots+a_0$，其中 $a_0,\ldots,a_m\in \mathbb{Z}$，$a_m\not&#x3D;0$，$m\le n$。由 $P$ 是无理数 $x$ 的极小多项式可知 $P$ 无有理根。</p>
+<p>故 $P(\frac{q}{p})\not&#x3D;0$，而 $P(\frac{q}{p})$ 可以被表示为 $\frac{c}{p^m}$（$c\in \mathbb{Z}$），故 $|P(\frac{q}{p})|\ge \frac{1}{p^m}$。</p>
+<ul>
+<li><p>若 $|x-\frac{q}{p}|&gt;\frac{|x|}{2}$，则有 $|x-\frac{q}{p}|&gt;\frac{|x|}{2}\frac{1}{p^m}$。</p>
 </li>
-<li><p>证明：代数数集是可列集。</p>
-<p>对于任意一个代数数 $x$，</p>
+<li><p>若 $|x-\frac{q}{p}|&lt;\frac{|x|}{2}$，则有：</p>
+<p>$$<br>\begin{aligned}<br>\frac{1}{p^n}&amp;\le |P(\frac{q}{p})|&#x3D;|P(x)-P(\frac{q}{p})|\cr<br>&amp;&#x3D;|a_m((\frac{q}{p})^{m-1}+\cdots+x^{m-1})+\cdots+a_1|\cdot|x-\frac{q}{p}|\cr<br>&amp;\le (m|a_m|(\frac{3}{2}|x|)^{m-1}+\ldots+|a_1|)|x-\frac{q}{p}|\cr<br>&amp;\implies |x-\frac{q}{p}|\ge (\sum_{i&#x3D;1}^m i|a_i|(\frac{3}{2}|x|)^{m-1})^{-1}\frac{1}{p^n}<br>\end{aligned}<br>$$</p>
+<p>故取 $A&#x3D;\min\{\frac{|x|}{2},(\sum_{i&#x3D;1}^m i|a_i|(\frac{3}{2}|x|)^{m-1})^{-1}\}$ 即可。$\Box$</p>
 </li>
-</ol>
+</ul>
+<p>*<strong>题 13</strong>. 证明：一个复数是代数数当且仅当它的实部和虚部都是代数数。</p>
+<h3 id="习题-2（P39）"><a href="#习题-2（P39）" class="headerlink" title="习题 2（P39）"></a>习题 2（P39）</h3><p><strong>题 1</strong>. 证明：对任何整数 $p \ge 2$，$p$ 进制下的有限小数和无限循环小数的全体是所有有理数。</p>
+<p>证：不妨只讨论 $(0,1)$ 之间的有限小数和无限循环小数。</p>
+<p>若 $x\in \mathbb{Q}\cap (0,1)$，则 $x$ 必可以被表示为 $x&#x3D;\frac{t}{p^k(p^l-1)}$，$k\in \mathbb{N}*$，$t,l\in \mathbb{N}$。故有限小数和无限循环小数必为有理数。</p>
+<p>对于任意有理数 $\frac{n}{m}$，同样均可被表示为 $\frac{t}{p^k(p^l-1)}$，因此是有限小数或无限循环小数。$\Box$</p>
+<p><strong>题 4</strong>. 证明无理数在实数集中的稠密性：对任何 $x \in \mathbb{R}$，以及 $\varepsilon &gt; 0$，存在无理数 $y$ 使得 $|y - x| &lt; \varepsilon$。</p>
+<p>证：由有理数的稠密性，$\forall x\in \mathbb{R}$，$\forall \varepsilon&gt;0$，$\exists q$，$\text{s.t.}|q-x|&lt;\frac{\varepsilon}{2}$。</p>
+<p>由阿基米德倍越定理，必存在 $n\in \mathbb{Z}$，$\text{s.t.} n&gt;\frac{\sqrt 2}{\varepsilon}$，即 $\frac{\sqrt 2}{n}&lt;\frac{\epsilon}{2}$。</p>
+<p>取 $y&#x3D;q+\frac{\sqrt 2}{n}$，必有 $|y-x|&lt;|y-q|+|q-x|&lt;\varepsilon$。$\Box$</p>
+<p><strong>题 5</strong>. 设 $a &gt; 0$，而 $n$ 为正整数。证明：$\min \{a, 1\} \leq a^{\frac{1}{n}} \leq \max \{a, 1\}$。</p>
+<p>证：若 $0&lt;a&lt;1$，则原命题等价于 $a\le a^{\frac{1}{n}}\le 1\Longleftarrow \ln a\le \frac{1}{n}\ln a\le 0$，由于 $\ln a&lt;0$，条件显然成立。</p>
+<p>若 $a\ge 1$，则原命题等价于 $1\le a^{\frac{1}{n}}\le a\Longleftarrow 0\le \frac{1}{n}\ln a\le \ln a$，由于 $\ln a\ge 0$，条件显然成立。$\Box$</p>
+<p><strong>题 6</strong>. 设 $n \geq 2$，$\alpha_1, \alpha_2, \cdots, \alpha_n \geq 0$，满足 $\alpha_1 + \alpha_2 + \cdots + \alpha_n &#x3D; 1$。证明：对于 $x_1, x_2, \cdots, x_n &gt; 0$，有 $x_1^{\alpha_1} x_2^{\alpha_2} \cdots x_n^{\alpha_n} \leq \alpha_1 x_1 + \alpha_2 x_2 + \cdots + \alpha_n x_n$。</p>
+<p>考虑构造有理权重 $\frac{a_1}{N},\frac{a_2}{N},\cdots,\frac{a_n}{N}$，其中 $N&#x3D;\sum_{k&#x3D;1}^n a_k$，$a_k\in \mathbb{Z}$。首先证明该不等式在有理权重下成立：</p>
+<p>构造序列 $b$ 由 $a_1$ 个 $x_1$，$a_2$ 个 $x_2$，$\ldots$，$a_n$ 个 $x_n$ 构成，则上述不等式等价于在 $b$ 上的算数-几何平均不等式，显然有 $x_1^{a_1&#x2F;N}x_2^{a_2&#x2F;N}\cdots x_n^{a_n&#x2F;N}\le (a_1&#x2F;N)x_1+(a_2&#x2F;N)x_2+\cdot+(a_n&#x2F;N)x_n$。</p>
+<p>考虑构造一列有理权重趋近于 $\alpha_1,\alpha_2,\cdots,\alpha_n$，由函数的连续性，则左右两边分别趋近于 $x_1^{\alpha_1} x_2^{\alpha_2} \cdots x_n^{\alpha_n}$ 与 $\alpha_1 x_1 + \alpha_2 x_2 + \cdots + \alpha_n x_n$，故原命题成立。$\Box$</p>
+<p>*<strong>题 7</strong>. 证明定理 2.4.4。</p>
+<p><strong>题 8</strong>. 设 $I$ 是一个非空指标集，对 $I$ 中每一个元 $\alpha$，都对应两个实数 $x_{\alpha}$ 以及 $y_{\alpha}$。我们习惯将 $\sup \{x_{\alpha} \mid \alpha \in I\}$ 和 $\inf \{x_{\alpha} \mid \alpha \in I\}$ 写成 $\sup_{\alpha \in I} x_{\alpha}$ 和 $\inf_{\alpha \in I} x_{\alpha}$。证明：在广义实数系中，</p>
+<p>(1) $\inf_{\alpha \in I} (-x_{\alpha}) &#x3D; -\sup_{\alpha \in I} x_{\alpha}$;</p>
+<p>(2) 对以下所列的每一个不等式：</p>
+<p>$$<br>\inf_{\alpha \in I} x_{\alpha} + \inf_{\alpha \in I} y_{\alpha} \leq \inf_{\alpha \in I} (x_{\alpha} + y_{\alpha}) \leq \sup_{\alpha \in I} x_{\alpha} + \inf_{\alpha \in I} y_{\alpha} \leq \sup_{\alpha \in I} (x_{\alpha} + y_{\alpha}) \leq \sup_{\alpha \in I} x_{\alpha} + \sup_{\alpha \in I} y_{\alpha},<br>$$</p>
+<p>若其两端在广义实数系中都有意义，则该不等式成立；</p>
+<p>(3) 若 $x_{\alpha} &gt; 0 (\forall \alpha \in I)$，并在此种情形规定 $\frac{1}{0} &#x3D; +\infty$，我们有</p>
+<p>$$<br>\sup_{\alpha \in I} \frac{1}{x_{\alpha}} &#x3D; \frac{1}{\inf_{\alpha \in I} x_{\alpha}};<br>$$</p>
+<p>(4) 设 $x_{\alpha} &gt; 0, y_{\alpha} &gt; 0 (\forall \alpha \in I)$。对以下所列的每一个不等式：</p>
+<p>$$<br>\inf_{\alpha \in I} x_{\alpha} \inf_{\alpha \in I} y_{\alpha} \leq \inf_{\alpha \in I} (x_{\alpha} y_{\alpha}) \leq \sup_{\alpha \in I} x_{\alpha} \inf_{\alpha \in I} y_{\alpha} \leq \sup_{\alpha \in I} (x_{\alpha} y_{\alpha}) \leq \sup_{\alpha \in I} x_{\alpha} \sup_{\alpha \in I} y_{\alpha},<br>$$</p>
+<p>若其两端在广义实数系中都有意义，则该不等式成立。</p>
+<p>(1) 证：首先证明 $-\sup_{\alpha \in I} x_{\alpha}$ 是集合 $\{-x_{\alpha}\mid \alpha \in I\}$ 的下界：$\forall \alpha\in I$，$x_{\alpha}\le \sup_{\alpha \in I}$，故 $-x_{\alpha}\ge -\sup_{\alpha \in I}$，即$-\sup_{\alpha \in I} x_{\alpha}$ 是集合 $\{-x_{\alpha}\mid \alpha \in I\}$ 的下界。</p>
+<p>而 $\forall p &gt; -\sup_{\alpha \in I} x_{\alpha}$，也有 $-p &lt; \sup_{\alpha \in I} x_{\alpha}$，而 $-p$ 不是集合 $\{x_{\alpha}\mid \alpha \in I\}$ 的上界，因此必存在 $d\in I$，$\text{s.t.} x_d&gt;-p$，即 $-x_d&lt;p$。因此 $p$ 也不是集合 $\{-x_{\alpha}\mid \alpha \in I\}$ 的下界。</p>
+<p>因此 $\inf_{\alpha \in I} (-x_{\alpha}) &#x3D; -\sup_{\alpha \in I} x_{\alpha}$。$\Box$</p>
+<p>(2) 证：先证 $\inf_{\alpha \in I} x_{\alpha} + \inf_{\alpha \in I} y_{\alpha} \leq \inf_{\alpha \in I} (x_{\alpha} + y_{\alpha})$，即 $\inf_{\alpha \in I} x_{\alpha} + \inf_{\alpha \in I} y_{\alpha}$ 是集合 $\{x_{\alpha}+y_{alpha}\mid \alpha\in I\}$ 的下届。$\forall \alpha \in I$，$x_{\alpha}\ge \inf_{\alpha \in I} x_{\alpha}$，$y_{\alpha}\ge \inf_{\alpha \in I} y_{\alpha}$，因此 $\forall \alpha \in I$，$x_{\alpha}+y_{\alpha}\ge \inf_{\alpha \in I} x_{\alpha} + \inf_{\alpha \in I} y_{\alpha}$。</p>
+<p>同理有 $\sup_{\alpha \in I} (x_{\alpha} + y_{\alpha}) \leq \sup_{\alpha \in I} x_{\alpha} + \sup_{\alpha \in I} y_{\alpha}$。</p>
+<p>再证 $\inf_{\alpha \in I} (x_{\alpha} + y_{\alpha}) \leq \sup_{\alpha \in I} x_{\alpha} + \inf_{\alpha \in I} y_{\alpha}$，即证集合 $\{x_{\alpha} + y_{\alpha}\mid \alpha\in I\}$ 的所有下界都 $\le \sup_{\alpha \in I} x_{\alpha} + \inf_{\alpha \in I} y_{\alpha}$。反设存在 $\{x_{\alpha} + y_{\alpha}\mid \alpha\in I\}$ 的下界 $l &gt; \sup_{\alpha \in I} x_{\alpha} + \inf_{\alpha \in I} y_{\alpha}+\varepsilon$，由确界性质，必存在 $p\in I$，$\text{s.t.} y_{p}&lt;\inf_{\alpha \in I} y_{\alpha}+\varepsilon$，而 $x_p\le \sup_{\alpha \in I} x_{\alpha}$，故 $x_p+y_p&lt;\sup_{\alpha \in I} x_{\alpha} + \inf_{\alpha \in I} y_{\alpha}+\varepsilon&lt;l$，矛盾。故一定有 $\inf_{\alpha \in I} (x_{\alpha} + y_{\alpha}) \leq \sup_{\alpha \in I} x_{\alpha} + \inf_{\alpha \in I} y_{\alpha}$。</p>
+<p>同理有 $\sup_{\alpha \in I} x_{\alpha} \inf_{\alpha \in I} y_{\alpha} \leq \sup_{\alpha \in I} (x_{\alpha} y_{\alpha})$。$\Box$</p>
+<p>(3)(4) 类似于 (1)(2)，此处略。</p>
+<h3 id="习题-3-1（P53）"><a href="#习题-3-1（P53）" class="headerlink" title="习题 3.1（P53）"></a>习题 3.1（P53）</h3><p><strong>题1</strong>. 用定义证明 $$ \lim_{n \to +\infty} \frac{3n^3 + 4n^2 - 100}{2n^3 - 9n - 11} &#x3D; \frac{3}{2} $$</p>
+<p>证：$\forall \varepsilon&gt;0$，$\exists N&#x3D;\max(10^6,\lfloor\frac{6}{\varepsilon}\rfloor)$，$\text{s.t.}\forall n&gt;N$，有：</p>
+<p>$$<br>\begin{aligned}<br>|\frac{3n^3+4n^2-100}{2n^3-9n-11}-\frac{3}{2}|&amp;&#x3D;|\frac{6n^3+8n^2-200-6n^3+27n+33}{4n^3-18n-22}|\cr<br>&amp;&#x3D;|\frac{8n^2+27n-167}{4n^3-18n-22}|\le \frac{8n^2+32n}{4n^3-20n}\cr<br>&amp;&#x3D;\frac{2n^2+8n}{n^3-5n}\le \frac{3n^2}{\frac{1}{2}n^3}&#x3D;\frac{6}{n}&lt;\varepsilon<br>\end{aligned}<br>$$</p>
+<p>故 $\lim_{n \to +\infty} \frac{3n^3 + 4n^2 - 100}{2n^3 - 9n - 11} &#x3D; \frac{3}{2}$。$\Box$</p>
+<p><strong>题2</strong>. 用定义证明 $$ \lim_{n \to +\infty} \lg \left( 1 + \frac{1}{n} \right) &#x3D; 0 $$</p>
+<p>证：$\forall \varepsilon&gt;0$，$\exists N&#x3D;\lfloor\frac{1}{e^{\varepsilon}-1}\rfloor$，$\text{s.t.}\forall n&gt;N$，有：</p>
+<p>$$<br>1+\frac{1}{n}&lt;e^{\varepsilon}\implies \ln(1+\frac{1}{n})&lt;\varepsilon<br>$$</p>
+<p>故 $\lim_{n \to +\infty} \lg \left( 1 + \frac{1}{n} \right) &#x3D; 0$。$\Box$</p>
+<p><strong>题3</strong>. 证明：$$ \lim_{n \to +\infty} a_n &#x3D; 0 $$ 的充要条件是存在单调下降且无正下界的正数列 $\{\omega_n\}$ 使得 $\forall n \geq 1$ 有 $|a_n| \leq \omega_n$。</p>
+<p>证：先证充分性 $\Longleftarrow$。首先有 $|a_n|\ge 0$，故 $\omega_n\ge 0$。由 $\{\omega_n\}$ 单调下降有下界可知 $\{\omega_n\}$ 极限存在，又有无正下界可知 $\lim_{n\to +\infty} \omega_n&#x3D;0$。即 $\forall \varepsilon&gt;0$，$\exists N&gt;0$，$\text{s.t.} \forall n&gt;N,\omega_n\le \varepsilon$，因此也有 $\forall n&gt;N,|a_n|\le \omega_n\le \varepsilon$，故 $\lim_{n\to +\infty}a_n&#x3D;0$。</p>
+<p>再证必要性 $\implies$。对于一个 $n\in \mathbb{N}$，取 $\omega_n&#x3D;\max\{\frac{1}{n},\min_{k&#x3D;1}^{n}|a_k|\}$，显然 $\{\omega_n\}$ 单调下降，且 $\omega_n\ge\frac{1}{n}&gt;0$。由 $\lim_{n\to +\infty} a_n&#x3D;0$ 可知 $\forall \varepsilon&gt;0$，$\exists N_{\varepsilon}&gt;0$，$\text{s.t.}\forall n&gt;N_{\varepsilon}$，$|a_n|&lt;\varepsilon$，因此也有 $\forall n&gt;N_{\varepsilon},\omega_n&lt;\varepsilon$。即 $\forall \varepsilon&gt;0$，取 $n&#x3D;\max\{\lfloor\frac{1}{\varepsilon}\rfloor+1,N_{\varepsilon}\}$，必有 $\omega_n&lt;\varepsilon$。即 $\{\omega_n\}$ 无正下界。$\Box$</p>
+<p><strong>题4</strong>. 计算极限 $$ \lim_{n \to +\infty} \frac{2\sqrt[n]{n} + \sqrt[n]{100}}{3\sqrt[n]{n} - 1} $$</p>
+<p>解：</p>
+<p>$$<br>\begin{aligned}<br>&amp;\frac{2}{3}&#x3D;\lim_{n\to +\infty}\frac{2\sqrt[n]{n}}{3\sqrt[n]{n}}\le<br>\lim_{n \to +\infty} \frac{2\sqrt[n]{n} + \sqrt[n]{100}}{3\sqrt[n]{n} - 1}<br>\le \lim_{n\to +\infty}\frac{2\sqrt[n]{n}+100}{3\sqrt[n]{n}-1}&#x3D;\frac{2}{3}\cr<br>&amp;\implies\lim_{n \to +\infty} \frac{2\sqrt[n]{n} + \sqrt[n]{100}}{3\sqrt[n]{n} - 1}&#x3D;\frac{2}{3}.<br>\end{aligned}<br>$$</p>
+<p><strong>题5</strong>. 计算极限 $$ \lim_{n \to +\infty} \left( \frac{3\lg^3 n + 2\lg n + 1}{2\lg^2 n + \lg n} - \frac{6\lg^3 n + 5\lg^2 n + 3\lg n + 1}{4\lg^2 n - \lg n + 2} \right) $$</p>
+<p>解：令 $m&#x3D;\lg n$，则：</p>
+<p>$$<br>\begin{aligned}<br>I&amp;&#x3D;\lim_{m\to +\infty} \left( \frac{3m^3 + 2m + 1}{2m^2 + m} - \frac{6m^3 + 5m^2 + 3m + 1}{4m^2 - m + 2} \right)\cr<br>I&amp;\ge \lim_{m\to +\infty} \left( \frac{3m^3}{2m^2 + m} - \frac{6m^3 + 5m^2 + 3m + 1}{4m^2 - 2m} \right)\cr<br>&amp;&#x3D;\lim_{m\to +\infty} \left( \frac{6m^3-6m^3 - 5m^2 - 3m - 1}{4m^2 - 2m} \right)&#x3D;-\frac{5}{4}\cr<br>I&amp;\le \lim_{m\to +\infty} \left( \frac{3m^3 + 2m + 1}{2m^2} - \frac{6m^3 + 5m^2 + 3m + 1}{4m^2} \right)\cr<br>&amp;&#x3D;\lim_{m\to +\infty} \left( \frac{6m^3+4m+2-6m^3 - 5m^2 - 3m - 1}{4m^2} \right)&#x3D;-\frac{5}{4}\cr<br>&amp;\implies I&#x3D;-\frac{5}{4}<br>\end{aligned}<br>$$</p>
+<p><strong>题6</strong>. 计算极限 $$ \lim_{n \to +\infty} \left( \left( 1 + \frac{1}{n} \right)^n + \left( 2 + \frac{3}{n} \right)^n + \left( 3 + \frac{5}{n} \right)^n \right)^{\frac{1}{n}} $$</p>
+<p>解：</p>
+<p>$$<br>\begin{aligned}<br>I&amp;\ge \lim_{n\to +\infty} (3^n)^{1&#x2F;n}&#x3D;3\cr<br>\frac{I}{3}&amp;&#x3D;\lim_{n\to +\infty} \left(\left(\frac{1}{3}+\frac{1}{3n}\right)^n+\left(\frac{2}{3}+\frac{1}{n}\right)^n+\left(1+\frac{5}{3n}\right)^n\right)^{1&#x2F;n}\cr<br>&amp;&#x3D;\lim_{n\to +\infty} \left(\left(1+\frac{5}{3n}\right)^n\cdot\left(1+\left(\frac{2n+3}{3n+5}\right)^n+\left(\frac{n+1}{3n+5}\right)^n\right)\right)^{1&#x2F;n}\cr<br>&amp;&#x3D;\lim_{n\to +\infty} \left(1+\frac{5}{3n}\right)\cdot \left(1+\left(\frac{2n+3}{3n+5}\right)^n+\left(\frac{n+1}{3n+5}\right)^n\right)^{1&#x2F;n}&#x3D;1\cr<br>&amp;\implies I&#x3D;3<br>\end{aligned}<br>$$</p>
+<p>*<strong>题7</strong>. 设 $0 \leq p \leq k-1$, 求：$$ \lim_{n \to +\infty} \frac{C_{kn}^p + C_{kn}^{p+k} + \cdots + C_{kn}^{p+(n-1)k}}{2^{kn}} $$</p>
+<h3 id="习题-3-2（P59）"><a href="#习题-3-2（P59）" class="headerlink" title="习题 3.2（P59）"></a>习题 3.2（P59）</h3><p><strong>题1</strong>. 计算 $$ \lim_{n \to +\infty} \frac{n^{-1} - (n+1)^{-1}}{n^{-2}}. $$</p>
+<p>解：</p>
+<p>$$<br>\begin{aligned}<br>I&amp;&#x3D;\lim_{n\to +\infty}n^2\left(n^{-1}-(n+1)^{-1}\right)\cr<br>&amp;&#x3D;\lim_{n\to +\infty}n-\frac{n^2}{n+1}\cr<br>&amp;&#x3D;\lim_{n\to +\infty}\frac{n}{n+1}&#x3D;1<br>\end{aligned}<br>$$</p>
+<p><strong>题2</strong>. 证明：$$ \lim_{n \to +\infty} \sin n $$ 不存在。</p>
+<p>证：由整数对无理数取模后的稠密性，总可以取两个子列 $\{n_k\}$ 和 $\{m_k\}$，满足：</p>
+<p>$$<br>\begin{aligned}<br>\lim_{k\to +\infty} n_k\bmod 2\pi &#x3D; 0\cr<br>\lim_{k\to +\infty} m_k\bmod 2\pi &#x3D; \frac{\pi}{2}<br>\end{aligned}<br>$$</p>
+<p>则有：</p>
+<p>$$<br>\begin{aligned}<br>\lim_{k\to +\infty} \sin n_k &#x3D; 0\cr<br>\lim_{k\to +\infty} \sin m_k &#x3D; 1<br>\end{aligned}<br>$$</p>
+<p>该数列存在两个极限不相等的子列，因此 $\lim_{n\to +\infty} \sin n$ 不存在。$\Box$</p>
+<p><strong>题3</strong>. $\{a_n\}$ 的极限为 $L$ 当且仅当 ${a_{2n}}$ 与 ${a_{2n+1}}$ 的极限为 $L$，其中 $L$ 为有限数、$+\infty$、$-\infty$ 或 $\infty$。</p>
+<p>证：</p>
+<ul>
+<li><p>当 $L$ 为有限数时：</p>
+<p>先证充分性 $\Longleftarrow$，若 $a_{2n}\to L,a_{2n+1}\to L$，则 $\forall \varepsilon&gt;0$，$\exists N_0&gt;0$，$\forall n&gt;N_0$，$|a_{2n}-L|&lt;\varepsilon$，$\exists N_1&gt;0$，$\forall n&gt;N_1$，$|a_{2n+1}-L|&lt;\varepsilon$。取 $N&#x3D;\max(2N_0,2N_1+1)$，则有 $\forall n&gt;N$，$|a_n-L|&lt;\varepsilon$。故 $a_n\to L$。</p>
+<p>再证必要性 $\implies$，若 $a_n\to L$，则 $\forall \varepsilon&gt;0$，$\exists N&gt;0$，$\forall n&gt;N$，$|a_n-L|&lt;\varepsilon$。取 $N_0&#x3D;N_1&#x3D;\lceil\frac{N}{2}\rceil+1$ 即可。</p>
+</li>
+<li><p>当 $L&#x3D;+\infty,-\infty,\infty$ 时同理，不再赘述。</p>
+</li>
+</ul>
+<p>$\Box$</p>
+<p><strong>题4</strong>. 设 $\alpha &gt; 0$，计算 $$ \lim_{n \to +\infty} \frac{1 + 2^{\alpha} + \cdots + n^{\alpha}}{n^{\alpha+1}}. $$</p>
+<p>解：上下都单调递增趋于 $+\infty$，使用 stolz 定理：</p>
+<p>$$<br>\begin{aligned}<br>I&amp;&#x3D;\lim_{n\to +\infty}\frac{n^{\alpha}}{n^{\alpha+1}-(n-1)^{\alpha+1}}\cr<br>\frac{1}{I}&amp;&#x3D;\lim_{n\to +\infty}\frac{n^{\alpha+1}-(n-1)^{\alpha+1}}{n^{\alpha}}\cr<br>&amp;&#x3D;\lim_{n\to +\infty}\frac{(\alpha+1)n^{\alpha}+O(n^{\alpha-1})}{n^{\alpha}}&#x3D;\alpha+1\cr<br>&amp;\implies I&#x3D;\frac{1}{\alpha+1}<br>\end{aligned}<br>$$</p>
+<p><strong>题5</strong>. 若 $\alpha \in (-1, 0)$，则极限 $$ \lim_{n \to +\infty} \frac{1 + 2^{\alpha} + \cdots + n^{\alpha}}{n^{\alpha+1}} $$ 是否存在？请说明理由。若存在，请进一步计算该极限。</p>
+<p>解：存在，$I&#x3D;\frac{1}{\alpha+1}$。</p>
+<p>*<strong>题6</strong>. 若 $\alpha &lt; -1$，则极限 $$ \lim_{n \to +\infty} \frac{(n+1)^{\alpha} + (n+2)^{\alpha} + \cdots + (n+n)^{\alpha}}{n^{\alpha+1}} $$ 是否存在？请说明理由。若存在，请进一步计算该极限。</p>
+<p>*<strong>题7</strong>. 证明定理3.2.3与定理3.2.5的未证部分。</p>
+<p><strong>题8</strong>. 设 $x_1 &#x3D; a$, $x_2 &#x3D; b$, $x_{n+2} &#x3D; \frac{1}{2}(x_n + x_{n+1}) (n &#x3D; 1, 2, \cdots)$。试证明 ${x_n}$ 收敛，并求其极限。</p>
+<p>（提示：计算数列的通项公式，或利用例3.2.5。）</p>
+<p>解：设序列 $\{p_n\}$ 满足：</p>
+<p>$$<br>p_n&#x3D;\begin{cases}<br>1&amp;n&#x3D;0\cr<br>3&amp;n&#x3D;1\cr<br>2p_{n-2}+p_{n-1}&amp;n\ge 2<br>\end{cases}<br>$$</p>
+<p>计算 $p_n$ 通项为 $p_n&#x3D;\frac{2^{n+2}-(-1)^n}{3}$。归纳可证：</p>
+<p>$$<br>\begin{aligned}<br>x_n&amp;&#x3D;\frac{1}{2^{n-2}}(p_{n-4}a+p_{n-3}b)\cr<br>&amp;&#x3D;\frac{1}{3\cdot 2^{n-2}}\left((2^{n-2}-(-1)^n)a+(2^{n-1}+(-1)^n)b\right)\cr<br>&amp;&#x3D;\frac{2^{n-2}a+2^{n-1}b+(-1)^n(b-a)}{3\cdot 2^{n-2}}\cr<br>\lim_{n\to +\infty}x_n&amp;&#x3D;\lim_{n\to +\infty}\frac{2^{n-2}a+2^{n-1}b+(-1)^n(b-1)}{3\cdot 2^{n-2}}&#x3D;\frac{a+2b}{3}<br>\end{aligned}<br>$$</p>
+<p>故 $x_n$ 收敛，$x_n\to \frac{a+2b}{3}$。</p>
+<p>*<strong>题9</strong>. 设 ${x_n}$ 满足 $$ \lim_{n \to +\infty} x_n \sum_{k&#x3D;1}^n x_k^2 &#x3D; 1. $$ 证明：$$ \lim_{n \to +\infty} \sqrt[3]{3n} x_n &#x3D; 1. $$</p>
+<p><strong>题10</strong>. 设 $a$ 和 $d$ 是给定的正数。对于 $n &#x3D; 1, 2, 3, \cdots$，由等差数列 $a, a + d, \cdots, a + (n-1)d$ 形成算术平均 $A_n$ 和几何平均 $G_n$，试求 $$ \lim_{n \to +\infty} \frac{G_n}{A_n}. $$</p>
+<p>解：容易计算 $A_n&#x3D;a+\frac{(n-1)}{2}d\sim \frac{nd}{2}$。令 $I&#x3D;\lim_{n \to +\infty} \frac{G_n}{A_n}$。</p>
+<p>$$<br>\begin{aligned}<br>\ln I&amp;&#x3D;\lim_{n\to +\infty}\ln(G_n)-\ln(A_n)\cr<br>&amp;&#x3D;\lim_{n\to +\infty}\frac{1}{n}\left(\ln(a)+\ln(a+d)+\cdots+\ln(a+(n-1)d)\right)-\ln(\frac{nd}{2})\cr<br>&amp;&#x3D;\lim_{n\to +\infty}\frac{1}{n}\left(\ln(a)+\ln(a+d)+\cdots+\ln(a+(n-1)d)-n\ln(\frac{nd}{2})\right)\cr<br>&amp;&#x3D;\lim_{n\to +\infty}\ln(a+(n-1)d)-n\ln(\frac{nd}{2})+(n-1)\ln(\frac{(n-1)d}{2})\cr<br>&amp;&#x3D;\lim_{n\to +\infty}\ln(a+(n-1)d)-n(\ln(n)+\ln(d)-\ln(2))+(n-1)(\ln(n-1)+\ln(d)-\ln(2))\cr<br>&amp;&#x3D;\lim_{n\to +\infty}\ln(d)+\ln(n-1)-\ln(d)+\ln(2)-n\ln(n)+(n-1)\ln(n-1)\cr<br>&amp;&#x3D;\lim_{n\to +\infty}\ln(2)-n(\ln(n)-\ln(n-1))\cr<br>&amp;&#x3D;\lim_{e\to +\infty}\ln(2)-1\cr<br>&amp;\implies I&#x3D;e^{\ln(2)-1}&#x3D;\frac{2}{e}<br>\end{aligned}<br>$$</p>
+<p><strong>题11</strong>. 令 $a_{n,k} &#x3D; \frac{k}{n-k+1} (n \ge k \geq 1)$。证明：<br>(1) 对于固定的 $k \geq 1$, $\{a_{n,k}\}$ 是无穷小量；<br>(2) $A_n :&#x3D; \prod_{k&#x3D;1}^n a_{n,k}$ 不是无穷小量。</p>
+<p>(1) 证：对于固定的 $k\ge 1$，$\forall \varepsilon&gt;0$，$\exists N&#x3D;\lfloor{\frac{k}{\varepsilon}}\rfloor+k+1$，$\text{s.t.} \forall n&gt;N$，都有：</p>
+<p>$$<br>\frac{k}{n-k+1}&lt;\frac{k}{\lfloor\frac{k}{\varepsilon}\rfloor+2} &lt; \varepsilon<br>$$</p>
+<p>因此 $\{a_{n,k}\}$ 是无穷小量。$\Box$</p>
+<p>(2) 证：求出 $A_n$：</p>
+<p>$$<br>A_n&#x3D;\prod_{k&#x3D;1}^n\frac{k}{(n-k+1)}&#x3D;\frac{n!}{n!}&#x3D;1<br>$$</p>
+<p>显然 $A_n$ 不是无穷小量。$\Box$</p>
+<p><strong>题12</strong>. 设 $E \subseteq \mathbb{R}$ 为非空集。证明：存在 $E$ 中点列 ${x_k}$ 使得 $ \lim_{k \to +\infty} x_k &#x3D; \sup E $，这里 $\sup E$ 可以是 $+\infty$。</p>
+<p>注：对于 $f: D \to \mathbb{R}$，满足 $ \lim_{k \to +\infty} f(x_k) &#x3D; \sup_{x \in D} f(x) (\inf_{x \in D} f(x)) $ 的 $D$ 中的点列 ${x_k}$ 称为 $f$ 在 $D$ 上的极大化序列（极小化序列）。</p>
+<p>证：先讨论 $\sup E\not&#x3D;+\infty$ 的情况。若 $\sup E\in E$，则构造点列 $x_k\equiv \sup E$ 即可。否则 $\forall \varepsilon&gt;0$，$\exists x\in E$，$\text{s.t} x&gt;\sup E-\varepsilon$，否则 $\sup E-\varepsilon$ 也为 $E$ 的上界，与 $\sup E$ 的最小性矛盾。</p>
+<p>因此令 $x_1$ 为 $E$ 中任意元素，归纳构造 $x_k$：若 $x_n$ 确定，则取 $m&#x3D;\frac{\sup E+x_n}{2}$，由于 $\varepsilon&#x3D;\sup E-m&gt;0$，因此必存在 $x\in E$，$\text{s.t.} x&gt;x_n$，令 $x_{n+1}$ 为任意一个这样的 $x$ 即可。此时 $x_k&lt;\sup E$，$\forall k&#x3D;1,2,\cdots$，且 $\sup E - x_k&lt;\frac{1}{2}(E - x_{k-1})$，即 $\lim_{k\to +\infty} \sup E - x_{n_k}&#x3D;0$。构造合法。</p>
+<p>若 $\sup E &#x3D; +\infty$，则 $\forall M$，$\exists x\in E$，$\text{s.t.} x&gt;M$，使用与上面类似的方法即可构造点列 $x_k$。$\Box$</p>
+<p>*<strong>题13</strong>. （Toeplitz 定理）设有无穷三角矩阵 $(t_{nm})_{n \geq m}$：</p>
+<p>$$\begin{pmatrix}<br>t_{11} \cr<br>t_{21} &amp; t_{22} \cr<br>t_{31} &amp; t_{32} &amp; t_{33} \cr<br>\vdots &amp; \vdots &amp; \vdots \cr<br>\end{pmatrix}$$</p>
+<p>满足下列条件：<br>(i) 每一列元趋于零，即 $ \lim_{n \to +\infty} t_{nm} &#x3D; 0 $；<br>(ii) 各行元素的绝对值之和有界，即 $\forall n \in \mathbb{N}_+$，</p>
+<p>$$ |t_{n1}| + |t_{n2}| + \cdots + |t_{nn}| \leq K &lt; +\infty. $$</p>
+<p>记 $y_n &#x3D; t_{n1}x_1 + t_{n2}x_2 + \cdots + t_{nn}x_n$。证明：<br>(1) 若 $ \lim_{n \to +\infty} x_n &#x3D; 0 $，则 $ \lim_{n \to +\infty} y_n &#x3D; 0 $。<br>(2) 记 $T_n &#x3D; t_{n1} + t_{n2} + \cdots + t_{nn}$。若 $ \lim_{n \to +\infty} T_n &#x3D; 1 $，且 $ \lim_{n \to +\infty} x_n &#x3D; a $ 有限，则 $ \lim_{n \to +\infty} y_n &#x3D; a $。</p>
 
         </div>
 
