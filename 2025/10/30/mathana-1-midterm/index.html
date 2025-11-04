@@ -424,6 +424,13 @@
 <p>$$<br>\begin{aligned}<br>x_n&amp;&#x3D;\frac{1}{2^{n-2}}(p_{n-4}a+p_{n-3}b)\cr<br>&amp;&#x3D;\frac{1}{3\cdot 2^{n-2}}\left((2^{n-2}-(-1)^n)a+(2^{n-1}+(-1)^n)b\right)\cr<br>&amp;&#x3D;\frac{2^{n-2}a+2^{n-1}b+(-1)^n(b-a)}{3\cdot 2^{n-2}}\cr<br>\lim_{n\to +\infty}x_n&amp;&#x3D;\lim_{n\to +\infty}\frac{2^{n-2}a+2^{n-1}b+(-1)^n(b-1)}{3\cdot 2^{n-2}}&#x3D;\frac{a+2b}{3}<br>\end{aligned}<br>$$</p>
 <p>故 $x_n$ 收敛，$x_n\to \frac{a+2b}{3}$。</p>
 <p>*<strong>题9</strong>. 设 ${x_n}$ 满足 $$ \lim_{n \to +\infty} x_n \sum_{k&#x3D;1}^n x_k^2 &#x3D; 1. $$ 证明：$$ \lim_{n \to +\infty} \sqrt[3]{3n} x_n &#x3D; 1. $$</p>
+<p>证：记 $S_n&#x3D;\sum_{k&#x3D;1}^n x_k^2$。若 $S_n$ 有界，则 $\lim_{n\to +\infty} x_n&#x3D;0$，故 $\lim_{n\to +\infty} x_nS_n&#x3D;0$，矛盾。故 $S_n\to +\infty$，且 $x_n\to +\infty$。</p>
+<p>令 $T_n&#x3D;S_n^3$，则有 $T_n-T_{n-1}&#x3D;(S_n-S_{n-1})(S_n^2+S_nS_{n-1}+S_{n-1}^2)&#x3D;x_n^2(S_n^2+S_nS_{n-1}+S_{n-1}^2)$。</p>
+<p>由 $\lim_{n\to +\infty} x_n S_n &#x3D; 1$，可知 $S_n&#x3D;\frac{1+o(1)}{x_n}$，且 $\lim_{n\to +\infty} \frac{S_{n-1}}{S_n} &#x3D; 1$。</p>
+<p>故 $S_n^2+S_nS_{n-1}+S_{n-1}^2&#x3D;S_n^2(1+\frac{S_{n-1}}{S_n}+(\frac{S_{n-1}}{S_n})^2)\to S_n^2\cdot 3$。</p>
+<p>故 $T_n-T_{n-1}&#x3D;x_n^2\cdot (3S_n^2 + o(S_n^2))&#x3D;(\frac{1+o(1)}{S_n^2})\cdot (3S_n^2 + o(S_n^2))&#x3D;3$。</p>
+<p>又由 stolz 定理 $\lim_{n\to +\infty}\frac{T_n}{n}&#x3D;\lim_{n\to +\infty} T_n-T_{n-1}&#x3D;3$。故 $S_n^3\sim 3n$。</p>
+<p>而 $x_n\sim \frac{1}{S_n}$，故 $\frac{1}{x_n^3}\sim 3n$，可得 $\lim_{n\to +\infty} 3n\cdot x_n^3&#x3D;1$，故 $\lim_{m\to +\infty}\sqrt[3]{3n}x_n&#x3D;1$。$\Box$</p>
 <p><strong>题10</strong>. 设 $a$ 和 $d$ 是给定的正数。对于 $n &#x3D; 1, 2, 3, \cdots$，由等差数列 $a, a + d, \cdots, a + (n-1)d$ 形成算术平均 $A_n$ 和几何平均 $G_n$，试求 $$ \lim_{n \to +\infty} \frac{G_n}{A_n}. $$</p>
 <p>解：容易计算 $A_n&#x3D;a+\frac{(n-1)}{2}d\sim \frac{nd}{2}$。令 $I&#x3D;\lim_{n \to +\infty} \frac{G_n}{A_n}$。</p>
 <p>$$<br>\begin{aligned}<br>\ln I&amp;&#x3D;\lim_{n\to +\infty}\ln(G_n)-\ln(A_n)\cr<br>&amp;&#x3D;\lim_{n\to +\infty}\frac{1}{n}\left(\ln(a)+\ln(a+d)+\cdots+\ln(a+(n-1)d)\right)-\ln(\frac{nd}{2})\cr<br>&amp;&#x3D;\lim_{n\to +\infty}\frac{1}{n}\left(\ln(a)+\ln(a+d)+\cdots+\ln(a+(n-1)d)-n\ln(\frac{nd}{2})\right)\cr<br>&amp;&#x3D;\lim_{n\to +\infty}\ln(a+(n-1)d)-n\ln(\frac{nd}{2})+(n-1)\ln(\frac{(n-1)d}{2})\cr<br>&amp;&#x3D;\lim_{n\to +\infty}\ln(a+(n-1)d)-n(\ln(n)+\ln(d)-\ln(2))+(n-1)(\ln(n-1)+\ln(d)-\ln(2))\cr<br>&amp;&#x3D;\lim_{n\to +\infty}\ln(d)+\ln(n-1)-\ln(d)+\ln(2)-n\ln(n)+(n-1)\ln(n-1)\cr<br>&amp;&#x3D;\lim_{n\to +\infty}\ln(2)-n(\ln(n)-\ln(n-1))\cr<br>&amp;&#x3D;\lim_{e\to +\infty}\ln(2)-1\cr<br>&amp;\implies I&#x3D;e^{\ln(2)-1}&#x3D;\frac{2}{e}<br>\end{aligned}<br>$$</p>
@@ -444,6 +451,91 @@
 <p>满足下列条件：<br>(i) 每一列元趋于零，即 $ \lim_{n \to +\infty} t_{nm} &#x3D; 0 $；<br>(ii) 各行元素的绝对值之和有界，即 $\forall n \in \mathbb{N}_+$，</p>
 <p>$$ |t_{n1}| + |t_{n2}| + \cdots + |t_{nn}| \leq K &lt; +\infty. $$</p>
 <p>记 $y_n &#x3D; t_{n1}x_1 + t_{n2}x_2 + \cdots + t_{nn}x_n$。证明：<br>(1) 若 $ \lim_{n \to +\infty} x_n &#x3D; 0 $，则 $ \lim_{n \to +\infty} y_n &#x3D; 0 $。<br>(2) 记 $T_n &#x3D; t_{n1} + t_{n2} + \cdots + t_{nn}$。若 $ \lim_{n \to +\infty} T_n &#x3D; 1 $，且 $ \lim_{n \to +\infty} x_n &#x3D; a $ 有限，则 $ \lim_{n \to +\infty} y_n &#x3D; a $。</p>
+<h3 id="习题-3-3（P76）"><a href="#习题-3-3（P76）" class="headerlink" title="习题 3.3（P76）"></a>习题 3.3（P76）</h3><p><strong>题2</strong>. 设 $E \subset \mathbb{R}$ 为非空的有界闭集。证明：$E$ 有最大、最小值，即 $\sup E \in E$，$\inf E \in E$。</p>
+<p>证：不妨只证明 $\sup E\in E$，对于 $\inf E$ 是类似的。</p>
+<p>反证，若 $\sup E\not\in E$，根据上确界的定义，$\forall \epsilon&gt;0$，$\exists x\in E$，$\text{s.t.}\sup E-\epsilon &lt; x &lt; \sup E$。</p>
+<p>构造一个数列 $x_n$，其中 $x_n$ 为令 $\epsilon &#x3D; \frac{1}{n}$ 时，必存在 $x_n\in E$，$\text{s.t.} \sup E - \frac{1}{n}&lt;x_n&lt;\sup E$。而此时 $\lim_{n\to +\infty} x_n&#x3D;\sup E$。即 $\sup E$ 是 $E$ 的一个聚点，因此 $\sup E\in E$，矛盾。$\Box$</p>
+<p><strong>题3</strong>. 设 $E$ 为 $\mathbb{R}$ 中的无理点全体。证明 $\overline{E} &#x3D; \mathbb{R}$。</p>
+<p>证：要证 $\overline{E}&#x3D;\mathbb{R}$，即证 $\forall x\in S$，$\forall \epsilon &gt; 0$，$(x-\epsilon,x+\epsilon)\cap E\not&#x3D;\varnothing$。</p>
+<p>由无理数的稠密性易得。$\Box$</p>
+<p><strong>题4</strong>. 设 $x_0 \in (0, 2)$，$x_{n+1} &#x3D; x_n (2 - x_n)$ ($n \geq 0$)。证明：$\lim_{n \to +\infty} x_n &#x3D; 1$。</p>
+<p>由此，对于 $c &gt; 0$，任取 $y_0 &gt; 0$ 满足 $cy_0 &lt; 1$。令 $y_{n+1} &#x3D; y_n (2 - cy_n)$ ($n \geq 0$)，则 $\lim_{n \to +\infty} y_n &#x3D; \frac{1}{c}$。这一事实让我们有可能利用乘法来计算倒数的近似值。</p>
+<p>证：若极限存在，则设 $\lim_{n\to +\infty} x_n&#x3D;a$，则有 $x&#x3D;x(2-x)$，解得 $a&#x3D;0$ 或 $x&#x3D;a$。</p>
+<p>令 $a_n&#x3D;x_n-1$，则根据定义有 $a_{n+1}+1&#x3D;(a_n+1)(1-a_n)&#x3D;1-a_n^2$，故有 $a_{n+1}&#x3D;-a_n^2$。由于 $a_1\in(-1,1)$，故 $\lim_{n\to +\infty}a_n&#x3D;0$。即 $\lim_{n\to +\infty}x_n&#x3D;1$。$\Box$</p>
+<p><strong>题5</strong>. 设 $a_0, b_0 &gt; 0$，$a_{n+1} &#x3D; \frac{a_n + b_n}{2}$，$b_{n+1} &#x3D; \frac{2a_n b_n}{a_n + b_n}$。证明：$\{a_n\}$ 和 $\{b_n\}$ 均收敛且极限相同。</p>
+<p>证：</p>
+<p>考虑 $b_{n+1}-a_{n+1}&#x3D;\frac{2a_nb_n}{a_n+b_n}-\frac{a_n+b_n}{2}&#x3D;\frac{4a_nb_n-(a_n+b_n)^2}{2(a_n+b_n)}&#x3D;\frac{-(a_n-b_n)^2}{2(a_n+b_n)}\le 0$，因此必有 $b_n\le a_n$，$\forall n&#x3D;1,2,\cdots$。</p>
+<p>对于 $n\ge 1$，有 $b_n\le a_n$，则有：$b_n\le a_{n+1}\le a_n$，$b_n&#x3D;\frac{2a_nb_n}{a_n+a_n}\le b_{n+1}\le \frac{2a_nb_n}{b_n+b_n}&#x3D;a_n$，故有 $a_n\le a_{n-1}$ 且 $b_n\ge b_{n-1}$。</p>
+<p>因此从 $n&#x3D;1$ 开始，$a_n$ 单调递减，$b_n$ 单调递增，且 $a_n$ 有下界 $b_1$，$b_n$ 有上界 $a_1$，故 $\lim_{n\to +\infty} a_n&#x3D;a$ 和 $\lim_{n\to +\infty}b_n&#x3D;b$ 均存在。</p>
+<p>根据递推式，有 $a&#x3D;\frac{a+b}{2}$，故 $a&#x3D;b$。$\Box$</p>
+<p>*<strong>题6</strong>. 设 $c \geq -3$。</p>
+<p>$$x_1 &#x3D; \frac{c}{2}, \quad x_{n+1} &#x3D; \frac{c}{2} + \frac{x_n^2}{2}, \quad n &#x3D; 1, 2, 3, \cdots$$</p>
+<p>问 $\{x_n\}$ 何时收敛，并求极限。</p>
+<p>解：若 $x_n$ 极限存在，设 $\lim_{n\to +\infty}x_n&#x3D;x$，则必有 $x&#x3D;\frac{c+x^2}{2}$，即 $(x-1)^2&#x3D;1-c\ge 0$，故首先需要 $c\le 1$。</p>
+<p><strong>题7</strong>. 梳理或证明以下结果，并尝试对这些结论有一个直观的理解：<br>(1) 收敛数列的子列收敛到同一极限；<br>(2) 如果一个数列有两个子列收敛到不同极限，则该数列发散；<br>(3) 如果有界数列的收敛子列均收敛到同一个极限，则该数列收敛；<br>(4) 有界数列 $\{a_n\}$ 不收敛到 $A$ 当且仅当存在一个收敛到 $B \neq A$ 的子列；<br>(5) $\bar{x}$ 为 $E$ 的聚点当且仅当存在 $E$ 中两两不同的点列 $\{x_n\}$ 使得 $x_n \to \bar{x}$;<br>(6) $\bar{x}$ 为 $E$ 的聚点当且仅当存在 $\{x_n\} \subseteq E \setminus \{\bar{x}\}$ 使得 $x_n \to \bar{x}$。</p>
+<p>略。</p>
+<p><strong>题9</strong>. 证明：闭区间 $[a, b]$ 不能表示为两个不相交的非空闭集的并。</p>
+<p>证：反设 $[a,b]$ 可以被表示为两个不交非空闭集 $E,F$ 的并，则任取 $x\in E$，$y\in F$，不妨设 $x&lt;y$。构造闭区间列 $[x_0,y_0]&#x3D;[x,y]$。归纳构造该序列：</p>
+<p>若 $x_n,y_n$ 已确定，令 $m&#x3D;\frac{x_n+y_n}{2}$，则 $m$ 必满足以下两个条件之一：</p>
+<ul>
+<li>若 $m\in E$，则令 $x_{n+1}&#x3D;m,y_{n+1}&#x3D;y_n$。此时 $x_{n+1}\in E$，$y_{n+1}\in F$。</li>
+<li>若 $m\in F$，则令 $x_{n+1}&#x3D;x_n,y_{n+1}&#x3D;m$。此时 $x_{n+1}\in E$，$y_{n+1}\in F$。</li>
+</ul>
+<p>故 $x_n\in E,y_n\in F$，$\forall x&#x3D;0,1,\cdots$。且 $y_{n+1}-x_{n+1}&#x3D;\frac{y_n-x_n}{2}$，故 $\lim_{n\to +\infty}(y_n-x_n)&#x3D;0$。根据闭区间套定理，存在唯一的点 $c\in \cap_{n\ge 1}[x_n,y_n]$。</p>
+<p>即 $\forall \epsilon&gt;0$，$\exists n&gt;0$，$\text{s.t.}x_n&lt;c-\epsilon$，且 $x_n\in E$，因此 $(c-\epsilon,c+\epsilon)\cap E\not&#x3D;\varnothing$，因此 $c\in E$。同理也可得 $c\in F$。这与 $E\cap F&#x3D;\varnothing$ 矛盾。$\Box$</p>
+<p><strong>题10</strong>. 证明：$\mathbb{R}$ 中既开又闭的集只有空集和 $\mathbb{R}$。</p>
+<p>证：首先容易验证 $\varnothing$ 和 $\mathbb{R}$ 是既开又闭集。</p>
+<p>若既开又闭集 $E$ 有边界点 $x$，则根据 $E$ 是闭集，必有 $x\in E$。而根据 $E$ 是开集，可知 $x$ 是内点。矛盾。因此 $E$ 不能有边界点。</p>
+<p>若 $E\not&#x3D;\mathbb{R}$ 且 $E\not&#x3D;\varnothing$，则必能找到 $a\in E$ 和 $b\not\in E$。不妨设 $a&lt;b$。构造闭区间列 $[a_0,b_0]&#x3D;[a,b]$，归纳构造该列：</p>
+<p>若 $a_n,b_n$ 已知，令 $m&#x3D;\frac{a_n+b_n}{2}$，则下列两个条件之一必然满足：</p>
+<ul>
+<li>若 $m\in E$，则令 $a_{n+1}&#x3D;m,b_{n+1}&#x3D;b_n$。此时 $a_{n+1}\in E$，$b_{n+1}\not\in E$。</li>
+<li>若 $m\not\in E$，则令 $a_{n+1}&#x3D;a_n,b_{n+1}&#x3D;m$。此时 $a_{n+1}\in E$，$b_{n+1}\not\in E$。</li>
+</ul>
+<p>故 $a_n\in E,b_n\not\in E$，$\forall x&#x3D;0,1,\cdots$。且 $b_{n+1}-a_{n+1}&#x3D;\frac{b_n-a_n}{2}$，故 $\lim_{n\to +\infty}(b_n-a_n)&#x3D;0$。根据闭区间套定理，存在唯一的点 $c\in \cap_{n\ge 1}[a_n,b_n]$。</p>
+<p>因此 $\forall \epsilon &gt; 0$，必存在 $n&gt;0$，$\text{s.t.}c-\epsilon&lt;a_n&lt;c&lt;b_n&lt;c+\epsilon$。由 $a_n\in E$ 可知 $U(c,\epsilon)\cap E\not&#x3D;\varnothing$，$b_n\not\in E$ 可知 $U(c,\epsilon)\cap E\not&#x3D;U(c,\epsilon)$。因此 $c$ 是 $E$ 的边界点。矛盾。$\Box$</p>
+<p><strong>题11</strong>. 设 $\{a_{k_n}\}$ 与 $\{a_{m_n}\}$ 是 $\{a_n\}$ 的两个有相同极限的收敛子列，$\{k_n \mid n \geq 1\} \cup \{m_n \mid n \geq 1\} &#x3D; \mathbb{N}_+$。证明：$\{a_n\}$ 收敛。</p>
+<p>证：设 $a_{k_n},a_{m_n}$ 均收敛于 $a$。则根据极限定义，$\forall \epsilon&gt;0$，$\exists N_1&gt;0,N_2&gt;0$，$\text{s.t.} \forall n\ge N_1,|a_{k_n}-a|&lt;\epsilon$ 且 $\forall N\ge N_2,|a_{m_n}-a|&lt;\epsilon$。取 $N&#x3D;\max(k_{N_1},m_{N_2})$，则有 $\forall n&gt;N$，必有 $n\in \{k_n\}$ 或 $n\in \{m_n\}$，因此有 $|a_n-a|&lt;\epsilon$。故 $a_n\to a$。$\Box$</p>
+<p>*<strong>题16</strong>. 设 $x_0 \in (0,1)$, $x_{n+1} &#x3D; x_n(1-x_n)$ ($n \geq 0$). 不使用 Stolz 公式, 按以下过程证明:<br>(1) $ \lim_{n \to +\infty} x_n &#x3D; 0; $<br>(2) 对任何 $n \geq 1$, 成立 $(n+1)x_n &lt; 1;$<br>(3) 从某一项开始, $\{nx_n\}$ 单调有界;<br>(4) $ \lim_{n \to +\infty} nx_n &#x3D; 1. $</p>
+<p>(1) 证：根据递推式有 $x_{n+1}-x_n&#x3D;-x_n^2\le 0$，故 $x_n$ 递减。且归纳可证 $x_n&gt;0$，$\forall n&#x3D;1,2,\cdots$，因此 $x_n$ 极限存在。设极限为 $x$，则有 $x&#x3D;x(1-x)$，解得 $x&#x3D;0$。</p>
+<p>故 $\lim_{n\to +\infty} x_n&#x3D;0$。$\Box$</p>
+<p>(2) 证：考虑归纳，对 $n&#x3D;0$，显然有 $x_0\le 1$。$\forall n&#x3D;1,2,\cdots$，若 $nx_{n-1}\le 1$，则 $(n+1)x_n&#x3D;(n+1)(x_{n-1}(1-x_{n-1}))&#x3D;(n+1)(x_{n-1}-x_{n-1}^2)\le nx_{n-1}+x_{n-1}-(n+1)x_{n-1}^2$，欲证 $(n+1)x_n\le 1$，其充分条件是 $x_{n-1}-(n+1)x_{n-1}^2\le 0\Longleftarrow 1\le (n+1)x_{n-1}$。该条件也可归纳证明。$\Box$</p>
+<p>(3) 证：</p>
+<p>*<strong>题17</strong>. 在习题 6 中, 若 $c &lt; -3$ 会如何?</p>
+<p>*<strong>题18</strong>. 设 $[a,b]$ 上函数列 $\{f_n\}$ 一致有界, 即存在常数 $M &gt; 0$, 使得 $$ |f_n(x)| \leq M, \quad \forall n \geq 1, x \in [a,b]. $$ 证明存在于函数列 $\{f_{n_k}\}$ 使得在 $[a,b]$ 的所有有理点收敛.</p>
+<p>*<strong>题19</strong>. 设整数 $m \geq 1$, 证明: $$ \lim_{n \to +\infty} \sqrt{m + 1 + \sqrt{m + 2 + \cdots + \sqrt{m + n}}} $$ 存在, 并记该极限为 $a_m$. 进一步, 计算 $$ \lim_{m \to +\infty} (a_m - \sqrt{m}). $$</p>
+<p>*<strong>题20</strong>. 证明: $$ \lim_{n \to +\infty} \sqrt{1 + 2\sqrt{1 + 3\sqrt{1 + 4\sqrt{1 + \cdots + n\sqrt{1 + (n+1)} &#x3D; 3}}}}. $$</p>
+<p>*<strong>题21</strong>. 推广习题 20.</p>
+<p>*<strong>题22</strong>. 设 $x_0 \geq 0, x_{n+1} &#x3D; \sqrt{2 + x_n}$ ($n \geq 0$). 问: $$ \lim_{n \to +\infty} 4^n (2 - x_n) $$ 是否存在? 该极限存在时, 能否得到极限的值?</p>
+<p>*<strong>题23</strong>. 一般地, 对于所求过的极限可考虑进一步的结果, 例如, 若已经得到 $$ \lim_{n \to +\infty} x_n &#x3D; A $$, 试证能否找到一个与初值 $x_0$ 无关的无穷大量 $\{y_n\}$ 使得 $$ \lim_{n \to +\infty} y_n (x_n - A) $$ 为一个非零实数.</p>
+<p>*<strong>题24</strong>. 固定 $r \in (0,4)$. 任取 $x_0 \in (0,1)$. 令 $x_{n+1} &#x3D; rx_n (1 - x_n)$ ($n \geq 0$). 问: 当 $r$ 取什么值时, 你可以证明对于任何 $x_0 \in (0,1)$, 按上述方式定义的数列 $\{x_n\}$ 一定收敛. 试编写一计算机程序, 感受对于不同的 $r$, 当 $n$ 足够大时 $x_n$ 的收敛情况.</p>
+<p>*<strong>题25</strong>. 设 $\{x_n\}$ 是在 $[0,1]$ 中稠密的点列, 任取 $\alpha \in (0,\frac{1}{2})$, $E :&#x3D; [0,1] \setminus \bigcup_{n&#x3D;1}^{\infty} (x_n - \frac{\alpha}{2^n}, x_n + \frac{\alpha}{2^n})$. 证明 $E$ 为非空的疏朗集.</p>
+<p>*<strong>题29</strong>. 设 $U$ 为 $\mathbb{R}$ 中开集。证明：<br>(1) 若 $x_0 \in U$，则存在唯一的开区间 $(\alpha, \beta)$ ——这样的区间称为 $U$ 的构成区间，满足：<br>(i) $x_0 \in (\alpha, \beta) \subseteq U$; (ii) 若 $x_0 \in (a, b) \subseteq U$，则 $(a, b) \subseteq (\alpha, \beta)$。<br>(2) $U$ 可以表示为至多可列个两两不交的构成区间的并。</p>
+<p>*<strong>题30</strong>. 闭区间 $[a, b]$ 不能表示为至少两个但至多可列个两两不交的非空闭集的并。</p>
+<h3 id="习题-3-4（P85）"><a href="#习题-3-4（P85）" class="headerlink" title="习题 3.4（P85）"></a>习题 3.4（P85）</h3><p>*<strong>题1</strong>. 若 $x_n &gt; 0 \ (n &#x3D; 1, 2, \cdots)$，且 $$ \lim_{n \to +\infty} x_n \cdot \lim_{n \to +\infty} \frac{1}{x_n} &#x3D; 1 $$。证明序列 $\{x_n\}$ 收敛。</p>
+<p>*<strong>题2</strong>. 设 $\{x_n\}$ 满足 $0 \leq x_{m+n} \leq x_m \cdot x_n (\forall m, n \geq 1)$。证明：$\{\sqrt[n]{x_n}\}$ 收敛。</p>
+<p>*<strong>题3</strong>. 举例说明，在习题 2 中，$\{\sqrt[n]{x_n}\}$ 可以没有单调性。</p>
+<p>*<strong>题4</strong>. 设 $\{a_n\}$ 满足 $a_m + a_n - 1 \leq a_{m+n} \leq a_m + a_n + 1 (\forall m, n \geq 1)$。求证：<br>(1) $$ \lim_{n \to +\infty} \frac{a_n}{n} $$ 存在；<br>(2) 设 $$ \lim_{n \to +\infty} \frac{a_n}{n} &#x3D; q $$，则 $nq - 1 \leq a_n \leq nq + 1 \ (n \geq 1)$。</p>
+<p>*<strong>题5</strong>. 设 $r \in (0, 1), x_0 &#x3D; 0, x_{n+1} &#x3D; r(1 - x_n^2) \ (n &#x3D; 0, 1, 2, \cdots)$。试研究 $\{x_n\}$ 的敛散性。</p>
+<p>*<strong>题6</strong>. 设 $0 &lt; q &lt; 1, \{a_n\}, \{b_n\}$ 满足 $a_n &#x3D; b_n - qa_{n+1} \ (n &#x3D; 1, 2, \cdots)$，且 $\{a_n\}, \{b_n\}$ 有界。求证：$$ \lim_{n \to +\infty} b_n $$ 存在的充要条件是 $$ \lim_{n \to +\infty} a_n $$ 存在。</p>
+<p>*<strong>题7</strong>. 在习题 6 中当 $q \notin (0, 1)$ 时，结论会怎样？</p>
+<p>*<strong>题8</strong>. 设 $a_n \geq 0$ 满足 $a_{n+1} \leq a_n + \frac{1}{n^2}$。证明：$\{a_n\}$ 收敛。</p>
+<p>*<strong>题9</strong>. 利用上、下极限证明 $\mathbb{R}$ 中的 Cauchy 收敛准则。</p>
+<p>*<strong>题10</strong>. 证明：在例 3.4.1 中，若 $$ \lim_{n \to +\infty} a_n &#x3D; -2 $$，则 $a_1 &#x3D; -2$。</p>
+<p>*<strong>题11</strong>. 推广习题 2 和习题 4。</p>
+<p>*<strong>题12</strong>. 设 $\{x_n\}$ 是正数列，证明 $$ \lim_{n \to +\infty} n \left( \frac{1 + x_{n+1}}{x_n} - 1 \right) \geq 1 $$。</p>
+<p>*<strong>题13</strong>. 设 $f$ 是 $\mathbb{R}$ 上周期为 1 的实函数，满足：$\forall x, y \in \mathbb{R}, x \neq y$，有 $|f(x) - f(y)| &lt; |x - y|$。任取 $x_0 \in \mathbb{R}$，定义 $x_{n+1} &#x3D; f(x_n) \ (n \geq 0)$。证明：$\{x_n\}$ 收敛，且极限不依赖于 $x_0$ 的选择。</p>
+<h3 id="习题-4-1（P91）"><a href="#习题-4-1（P91）" class="headerlink" title="习题 4.1（P91）"></a>习题 4.1（P91）</h3><p>*<strong>题1</strong>. 设 $a &gt; 0$，利用函数极限定义证明 $$ \lim_{x \to a} \sqrt{x} &#x3D; \sqrt{a} $$。</p>
+<p>*<strong>题2</strong>. 计算极限 $$ \lim_{x \to 2} \left( \frac{7x^3 - 2x^2 - 17x - 19}{2x^3 + 3x^2 - 11x - 6} - \frac{1}{2x^2 - 3x - 2} \right) $$。</p>
+<p>*<strong>题3</strong>. 设 $\psi, \varphi$ 为定义在 $(0, +\infty)$ 上的周期函数，满足 $$ \lim_{x \to +\infty} \left( \psi(x) - \varphi(x) \right) &#x3D; 0 $$。证明：$\psi \equiv \varphi$。</p>
+<p>*<strong>题5</strong>. 设 $a_0, a_1, \ell, \alpha$ 为正数，$a_1 \neq a_0, a_{n+1} &#x3D; \frac{(\ell + n^\alpha)a_n^2}{\ell a_n + n^\alpha a_{n-1}} (n \geq 1)$。证明：<br>(1) 若 $\alpha &lt; 1$，则 $\{a_n\}$ 有正的极限；<br>(2) 若 $\alpha &#x3D; 1, \ell &gt; 1$，则 $\{a_n\}$ 有正的极限；<br>(3) 若 $\alpha &gt; 1$，则 $\{a_n\}$ 发散或极限为零；<br>(4) 若 $\alpha &#x3D; \ell &#x3D; 1$，则 $\{a_n\}$ 发散或极限为零。</p>
+<h3 id="习题-4-2（P93）"><a href="#习题-4-2（P93）" class="headerlink" title="习题 4.2（P93）"></a>习题 4.2（P93）</h3><p>*<strong>题1</strong>. 证明 $$ \lim_{n \to +\infty} n \sum_{k&#x3D;1}^{n} \left| \sqrt{1+\frac{2k}{n^3}-1}-\frac{k}{n^3} \right| &#x3D; 0 $$ 并由此计算 $$ \lim_{n \to +\infty} n \sum_{k&#x3D;1}^{n} \left( \sqrt{1+\frac{2k}{n^3}-1} \right) $$</p>
+<p>*<strong>题2</strong>. 设数列 $\{x_n\}$，$\{y_n\}$ 满足<br>$$\begin{cases}<br>x_n^2 + y_n^2 + 2y_n &#x3D; 1 + \ln \frac{n+1}{n}, \<br>x_n + \left( 1 + \frac{1}{3n} \right) y_n &#x3D; \frac{1}{\sqrt[n]{n}}.<br>\end{cases}$$<br>证明 $\{x_n\}$，$\{y_n\}$ 收敛并求极限。</p>
+<p>*<strong>题3</strong>. 设 $\alpha \in \mathbb{R}$，计算 $$ \lim_{x \to 0} \frac{(1+x)^\alpha - 1}{x} $$</p>
+<p>*<strong>题5</strong>. 证明定理 4.2.6。</p>
+<h3 id="习题-4-3（P96）"><a href="#习题-4-3（P96）" class="headerlink" title="习题 4.3（P96）"></a>习题 4.3（P96）</h3><p>*<strong>题1</strong>. 给出例 4.3.3 的证明。</p>
+<p>*<strong>题2</strong>. 详细证明 (4.3.3) 式。</p>
+<p>*<strong>题4</strong>. 证明对于 $x \neq 0$，有 $$\prod_{n&#x3D;1}^{\infty} \cos \frac{x}{2^n} &#x3D; \frac{\sin x}{x}$$。特别地，有 <strong>Viete</strong> 公式：$$\prod_{n&#x3D;2}^{\infty} \cos \frac{\pi}{2^n} &#x3D; \frac{2}{\pi}$$</p>
 
         </div>
 
@@ -458,7 +550,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://enucai.github.io/2025/10/30/mathematical-analysis-1-midterm/">https://enucai.github.io/2025/10/30/mathematical-analysis-1-midterm/</a></span>
+                        <span><a href="https://enucai.github.io/2025/10/30/mathana-1-midterm/">https://enucai.github.io/2025/10/30/mathana-1-midterm/</a></span>
                     </p>
                 
                 
