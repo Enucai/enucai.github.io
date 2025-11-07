@@ -637,7 +637,7 @@
 <p>取 $n\to +\infty$ 时的极限有：</p>
 <p>$$<br>\prod_{n&#x3D;1}^{\infty}\cos\frac{x}{2^n}&#x3D;\lim_{n\to \infty}\frac{\sin x}{2^n\sin\frac{x}{2^n}}&#x3D;\frac{\sin x}{x}<br>$$</p>
 <p>Viete 公式即为当 $x&#x3D;\pi$ 时的特例。$\Box$</p>
-<h3 id="习题-5-1（P99）3-14"><a href="#习题-5-1（P99）3-14" class="headerlink" title="习题 5.1（P99）3&#x2F;14"></a>习题 5.1（P99）3&#x2F;14</h3><p><strong>题1</strong>. 证明 Dirichlet 函数</p>
+<h3 id="习题-5-1（P99）6-14"><a href="#习题-5-1（P99）6-14" class="headerlink" title="习题 5.1（P99）6&#x2F;14"></a>习题 5.1（P99）6&#x2F;14</h3><p><strong>题1</strong>. 证明 Dirichlet 函数</p>
 <p>$$<br>D(x) :&#x3D;<br>\begin{cases}<br>1, &amp; x \in \mathbb{Q}, \cr<br>0, &amp; x \notin \mathbb{Q}<br>\end{cases}<br>$$</p>
 <p>在 $\mathbb{R}$ 上处处不连续。</p>
 <p>证：对于 $\mathbb{R}$ 上的任意一点 $x_0$，由有理数的稠密性，必可找到一个有理数列 $x_n$ 满足 $x_n\to x_0$，且 $\lim_{n\to +\infty}D(x_n)&#x3D;1$；由无理数的稠密行，又可找到一个无理数列 $y_n$ 满足 $y_n\to x_0$，且 $\lim_{n\to +\infty}D(y_n)&#x3D;0$。故 $\lim_{x\to x_0}D(x)$ 不存在，$D(x)$ 在 $\mathbb{R}$ 上处处不连续。$\Box$</p>
@@ -650,14 +650,22 @@
 <p>解：将 $C_n^k$ 展开可得：$\ln C_n^k&#x3D;\sum_{i&#x3D;n-k+1}^n\ln i-\sum_{i&#x3D;1}^k\ln i$。</p>
 <p>$$<br>\begin{aligned}<br>\sum_{k&#x3D;0}^n\ln C_n^k&amp;&#x3D;\left(\sum_{k&#x3D;0}^n\sum_{i&#x3D;n-k+1}^n\ln i\right)-\left(\sum_{k&#x3D;0}^n\sum_{i&#x3D;1}^k\ln i\right)\cr<br>&amp;&#x3D;\left(\sum_{i&#x3D;1}^n\ln i\cdot i\right)-\left(\sum_{i&#x3D;1}^n\ln i\cdot (n-i+1)\right)\cr<br>&amp;&#x3D;\sum_{i&#x3D;1}^n\ln i(2i-n+1)<br>\end{aligned}<br>$$</p>
 <p>$$<br>\begin{aligned}<br>\lim_{n\to +\infty}S_n&amp;&#x3D;\lim_{n\to +\infty}\frac{1}{n^2}\sum_{i&#x3D;1}^n\ln i\cdot (2i-n+1)\cr<br>&amp;&#x3D;\lim_{n\to +\infty}\frac{1}{n^2-(n-1)^2}\sum_{i&#x3D;1}^{n-1}\ln i\cdot(-1)+\ln n\cdot (n+1)\cr<br>&amp;\overset{\text{stolz}}&#x3D;\lim_{n\to +\infty}\frac{1}{2n-1}\left((n+1)\ln n-\sum_{i&#x3D;1}^{n-1}\ln i\right)\cr<br>&amp;\overset{\text{stolz}}&#x3D;\lim_{n\to +\infty}\frac{1}{2}\left((n+1)\ln n-n\ln(n-1)-\ln(n-1)\right)\cr<br>&amp;&#x3D;\lim_{n\to +\infty}\frac{1}{2}(n+1)\ln(1+\frac{1}{n-1})\cr<br>&amp;&#x3D;\lim_{n\to +\infty}\frac{1}{2}\frac{n+1}{n-1}&#x3D;\frac{1}{2}<br>\end{aligned}<br>$$</p>
-<p>*<strong>题4</strong>. 设 $\lim_{x \to 0} f(x) &#x3D; 0$，$\lim_{x \to 0} \frac{f(2x) - f(x)}{x} &#x3D; 0$。证明 $\lim_{x \to 0} \frac{f(x)}{x} &#x3D; 0$。</p>
-<p>*<strong>题5</strong>. 称 $\mathbb{R}$ 上函数 $f$ 满足局部 Lipschitz 条件，是指对任何 $x \in \mathbb{R}$，存在 $\delta &gt; 0$ 以及 $M &gt; 0$ 使得</p>
+<p><strong>题4</strong>. 设 $\lim_{x \to 0} f(x) &#x3D; 0$，$\lim_{x \to 0} \frac{f(2x) - f(x)}{x} &#x3D; 0$。证明 $\lim_{x \to 0} \frac{f(x)}{x} &#x3D; 0$。</p>
+<p>证：由 $\lim_{x\to 0}\frac{f(2x)-f(x)}{x}&#x3D;0$ 可知，$\forall \epsilon&gt;0$，$\exists \delta&gt;0$，$\text{s.t. }\forall x\in (-\delta,\delta)$，$|f(2x)-f(x)|&lt;|x|\epsilon$。那么有：</p>
+<p>$$<br>\begin{aligned}<br>|f(x)|&amp;\le |f(x)-f(\frac{x}{2})|+|f(\frac{x}{2})-f(\frac{x}{4})|+\cdots+|f(\frac{x}{2^{n-1}})-f(\frac{x}{2^n})|+|f(\frac{x}{2^n})|\cr&amp;\le \epsilon(\frac{x}{2}+\cdots+\frac{x}{2^n})+|f(\frac{x}{2^n})|\cr&amp;\le x\epsilon+|f(\frac{x}{2^n})|<br>\end{aligned}<br>$$</p>
+<p>取 $n\to +\infty$，由于 $\lim_{x\to 0}f(x)&#x3D;0$，因此 $|f(x)|\le x\epsilon$。故 $\lim_{x\to 0}\frac{f(x)}{x}&#x3D;0$。$\Box$</p>
+<p><strong>题5</strong>. 称 $\mathbb{R}$ 上函数 $f$ 满足局部 Lipschitz 条件，是指对任何 $x \in \mathbb{R}$，存在 $\delta &gt; 0$ 以及 $M &gt; 0$ 使得</p>
 <p>$$|f(y) - f(z)| \leq M |y - z|, \quad \forall y, z \in (x - \delta, x + \delta).$$</p>
 <p>证明：$f$ 在 $\mathbb{R}$ 上满足局部 Lipschitz 条件等价于对任何 $A &gt; 0$，存在 $M_A &gt; 0$ 使得</p>
 <p>$$|f(x) - f(y)| \leq M_A |x - y|, \quad \forall x, y \in [-A, A].$$</p>
-<p>*<strong>题6</strong>. 设 $f$ 为 $\mathbb{R}$ 上函数。对任何 $x \in \mathbb{R}$，存在 $\delta &gt; 0$ 以及 $M &gt; 0$ 使得</p>
+<p>证：先证 $\implies$。若 $\forall x\in \mathbb{R}$，$\exists \delta_x&gt;0,M_x&gt;0$，$\text{s.t. } \forall y,z\in (x-\delta_x,x+\delta_x)$，$|f(y)-f(z)|\le M_x|y-z|$。</p>
+<p>则对于闭区间 $[-A,A]$，考虑所有 $x\in [-A,A]$ 的 $(x-\delta_x,x+\delta)$ 的开区间集合，必然构成了 $[-A,A]$ 的一个覆盖。根据有限覆盖定理，必存在有限个开区间能够覆盖整个 $[-A,A]$。而有限个数必有最小值，令 $M_A$ 为所有被选择区间对应的 $M_x$ 的最小值即可。</p>
+<p>再证 $\Longleftarrow$。显然成立：对于任意的 $x\in\mathbb{R}$，取 $\delta&#x3D;\frac{|x|}{2}$，$M&#x3D;M_{2|x|}$ 即可。$\Box$</p>
+<p><strong>题6</strong>. 设 $f$ 为 $\mathbb{R}$ 上函数。对任何 $x \in \mathbb{R}$，存在 $\delta &gt; 0$ 以及 $M &gt; 0$ 使得</p>
 <p>$$|f(y) - f(x)| \leq M |y - x|, \quad \forall y \in (x - \delta, x + \delta).$$</p>
 <p>问：$f$ 是否一定满足局部 Lipschitz 条件？</p>
+<p>解：不能。反例：</p>
+<p>$$<br>f(x)&#x3D;\begin{cases}<br>x\sin\frac{1}{x} &amp; x\not&#x3D;0\cr<br>0 &amp; x &#x3D; 0<br>\end{cases}<br>$$</p>
 <p>*<strong>题7</strong>. 设 $f$ 是 $[a, b]$ 上的单调连续函数，${a_n}$ 是 $[a, b]$ 中的点列。证明：<br>(1) 若 $f$ 单增，则 $\varlimsup_{n \to +\infty} f(a_n) &#x3D; f(\varlimsup_{n \to +\infty} a_n)$，$\varliminf_{n \to +\infty} f(a_n) &#x3D; f(\varliminf_{n \to +\infty} a_n)$；<br>(2) 若 $f$ 单减，则 $\varlimsup_{n \to +\infty} f(a_n) &#x3D; f(\varliminf_{n \to +\infty} a_n)$，$\varliminf_{n \to +\infty} f(a_n) &#x3D; f(\varlimsup_{n \to +\infty} a_n)$。</p>
 <p>*<strong>题8</strong>. 将习题 7 推广到广义实数系情形。</p>
 <p>*<strong>题9</strong>. 证明区间 $I$ 上的单调函数的间断点均为跳跃间断点，且间断点全体至多可列。</p>
