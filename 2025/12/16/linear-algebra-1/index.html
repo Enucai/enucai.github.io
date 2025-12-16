@@ -15,7 +15,7 @@
 
 
 
-<title>Archives | Netspeed1</title>
+<title>高等代数（I）复习笔记 | Netspeed1</title>
 
 
 
@@ -170,85 +170,147 @@
     }
 </script>
             <div class="main">
-                <div class="post-wrap archive">
+                <div class="container">
     
     
-        
 
-        
-            <h3>2025</h3>
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2025/12/16/linear-algebra-1/">高等代数（I）复习笔记</a>
-            <span class="archive-item-date">December 16, 2025</span>
-        </article>
     
-        
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">高等代数（I）复习笔记</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">NetSpeed1</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">December 16, 2025&nbsp;&nbsp;16:35:42</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/MS-courses/">MS courses</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>记录一些经典的结论，证明略去。</p>
+<ul>
+<li><p>$r(A+B)\le r(A)+r(B)$，等号成立当且仅当 $\text{Im}(A)\cap \text{Im}(B)&#x3D;{\theta}$。</p>
+</li>
+<li><p>$r(AB)\le \min(r(A),r(B))$。</p>
+</li>
+<li><p>$r(AB)\ge r(A)+r(B)-n$。</p>
+</li>
+<li><p>$AB&#x3D;0\implies r(A)+r(B)\le n$。</p>
+</li>
+<li><p>若 $A^2&#x3D;A$，则 $r(A)&#x3D;\text{tr}(A)$。</p>
+</li>
+<li><p>$\text{tr}(AB)&#x3D;\text{tr}(BA)$，$\text{tr}(A_1\cdots A_n)&#x3D;\text{tr}(A_n\cdot A_1\cdots A_{n-1})$，只能循环位移。</p>
+</li>
+<li><p>降阶定理：$A,D$ 可逆，$\forall B\in M_{m\times n}(F),C\in M_{n\times m}(F)$，都有：<br>$$<br>|A|\cdot |D-CA^{-1}B|&#x3D;|D|\cdot |A-BD^{-1}C|<br>$$</p>
+</li>
+<li><p>设有多项式 $f(x)$，且 $\lambda_0$ 是 $A$ 的特征值，则 $f(\lambda_0)$ 是 $f(A)$ 的特征值（不保证重数相同）。</p>
+</li>
+<li><p>对任意矩阵 $A\in M_{n\times m}(F),B\in M_{m\times n}(F)$，$AB$ 和 $BA$ 具有相同的特征值和重数。</p>
+</li>
+<li><p>$|A|&#x3D;\prod \lambda_i$，$\text{tr}(A)&#x3D;\sum\lambda_i$。</p>
+</li>
+<li><p>$\mathbb{C}$ 上若 $AB&#x3D;BA$，则 $A,B$ 可同时上三角化；若还有 $A,B$ 都可对角化，则 $A,B$ 可同时对角化。</p>
+</li>
+<li><p>实对称矩阵的合同规范型 $\text{diag}(I_p,-I_q,0)$。</p>
+</li>
+<li><p>以下几个条件等价：</p>
+<ul>
+<li>$A$ 正定。</li>
+<li>$A$ 的所有主子式 $&gt;0$。</li>
+<li>$A$ 的所有顺序主子式 $&gt;0$。</li>
+<li>$A$ 的特征值都 $&gt;0$。</li>
+<li>$\forall \alpha\not&#x3D;\theta,\alpha^TA\alpha&gt;0$。</li>
+</ul>
+</li>
+<li><p>若 $A$ 正定（半正定），则存在唯一 $S$ 满足 $S^2&#x3D;A$，且 $S$ 也正定（半正定）。</p>
+</li>
+<li><p>若 $A$ 正定，$B$ 半正定，则 $A+B$ 正定。</p>
+</li>
+<li><p>若 $A$ 正定，则存在 $C$ 可逆，$A&#x3D;C^TC$。</p>
+</li>
+<li><p>若 $A$ 正定，则 $\det(A)\le \prod a_{ii}$。</p>
+</li>
+<li><p>实对称矩阵正交对角化，即 $A&#x3D;A^T\implies \exists Q$ 正交，$Q^TAQ&#x3D;\text{diag}(\lambda_i)$。</p>
+</li>
+<li><p>实矩阵奇异值分解：任意实矩阵 $A$ 均存在 $Q,T$ 正交，使得：</p>
+<p>$$<br>Q^TAT&#x3D;\begin{pmatrix}\text{diag}(\sigma_i)&amp;0\cr 0&amp;0\end{pmatrix}<br>$$</p>
+<p>注意此处 $A$ 不一定要是方阵。</p>
+</li>
+<li><p>Hermite 矩阵酉对角化，即 $H&#x3D;\overline{H}^T\implies \exists U$ 酉，$\overline{U}^TAU&#x3D;\text{diag}(\lambda_i)$。</p>
+</li>
+</ul>
+
+        </div>
 
         
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>NetSpeed1</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://enucai.github.io/2025/12/16/linear-algebra-1/">https://enucai.github.io/2025/12/16/linear-algebra-1/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
 
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2025/12/08/y-fast-trie/">Y-Fast Trie 算法 Slide</a>
-            <span class="archive-item-date">December 8, 2025</span>
-        </article>
-    
+            </section>
         
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/review/"># review</a>
+                    
+                        <a href="/tags/math/"># math</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+            
+            <a class="next" rel="next" href="/2025/12/08/y-fast-trie/">Y-Fast Trie 算法 Slide</a>
+            
+        </section>
 
-        
 
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2025/12/01/image-and-video-generation-research/">图像与视频生成调研报告</a>
-            <span class="archive-item-date">December 1, 2025</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2025/11/28/essay251128/">鲜花：坏天气</a>
-            <span class="archive-item-date">November 28, 2025</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2025/11/13/oi-memoirs/">OI 生涯回忆录</a>
-            <span class="archive-item-date">November 13, 2025</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2025/10/30/mathana-1-midterm/">数学分析（I）期中复习</a>
-            <span class="archive-item-date">October 30, 2025</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2025/10/25/haskell-monad/">Haskell 中的 Monad</a>
-            <span class="archive-item-date">October 25, 2025</span>
-        </article>
-    
-        
-
-        
-
-        <article class="archive-item">
-            <a class="archive-item-link" href="/2025/10/10/authored-problem/">我的算法竞赛题目</a>
-            <span class="archive-item-date">October 10, 2025</span>
-        </article>
-    
-    
+    </article>
 </div>
+
             </div>
             <footer id="footer" class="footer">
     <div class="copyright">
