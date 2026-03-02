@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="NetSpeed1">
+
+
+
+    <meta name="description" content="Blog">
+
+
+
+<title>高等代数（I）复习笔记 | Netspeed1</title>
+
+
+
+    <link rel="icon" href="/images/icon-round.png">
+
+
+
+
+    <!-- stylesheets list from _config.yml -->
+    
+    <link rel="stylesheet" href="/css/style.css">
+    
+
+
+
+    <!-- scripts list from _config.yml -->
+    
+    <script src="/js/script.js"></script>
+    
+    <script src="/js/tocbot.min.js"></script>
+    
+
+
+
+    
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+    
+
+
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+<body>
+    <script>
+        // this function is used to check current theme before page loaded.
+        (() => {
+            const pagebody = document.getElementsByTagName('body')[0]
+
+            function setTheme(status) {
+
+                if (status === 'dark') {
+                    window.sessionStorage.theme = 'dark'
+                    pagebody.classList.add('dark-theme');
+
+                } else if (status === 'light') {
+                    window.sessionStorage.theme = 'light'
+                    pagebody.classList.remove('dark-theme');
+                }
+            };
+
+            setTheme(window.sessionStorage.theme)
+        })();
+    </script>
+
+    <div class="wrapper">
+        <header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header header-logo"><a href="/">NetSpeed1</a></div>
+            <div class="menu navbar-right">
+                
+                <a class="menu-item" href="/archives">Posts</a>
+                
+                <a class="menu-item" href="/category">Categories</a>
+                
+                <a class="menu-item" href="/tag">Tags</a>
+                
+                <a class="menu-item" href="/about">About</a>
+                
+                
+                <input id="switch_default" type="checkbox" class="switch_default">
+                <label for="switch_default" class="toggleBtn"></label>
+            </div>
+        </div>
+    </nav>
+
+    
+    <nav class="navbar-mobile" id="nav-mobile">
+        <div class="container">
+            <div class="navbar-header">
+                <div>
+                    <a href="/">NetSpeed1</a><a id="mobile-toggle-theme">·&nbsp;Light</a>
+                </div>
+                <div class="menu-toggle" onclick="mobileBtn()">
+                    <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" d="M4.5 17.27q-.213 0-.356-.145T4 16.768t.144-.356t.356-.143h15q.213 0 .356.144q.144.144.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.144T4 11.999t.144-.356t.356-.143h15q.213 0 .356.144t.144.357t-.144.356t-.356.143zm0-4.77q-.213 0-.356-.143Q4 7.443 4 7.23t.144-.356t.356-.143h15q.213 0 .356.144T20 7.23t-.144.356t-.356.144z"/></svg>
+                    <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Symbols Light by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="m12 12.708l-5.246 5.246q-.14.14-.344.15t-.364-.15t-.16-.354t.16-.354L11.292 12L6.046 6.754q-.14-.14-.15-.344t.15-.364t.354-.16t.354.16L12 11.292l5.246-5.246q.14-.14.345-.15q.203-.01.363.15t.16.354t-.16.354L12.708 12l5.246 5.246q.14.14.15.345q.01.203-.15.363t-.354.16t-.354-.16z"/></svg>
+                </div>
+            </div>
+            <div class="menu" id="mobile-menu">
+                
+                <a class="menu-item" href="/archives">Posts</a>
+                
+                <a class="menu-item" href="/category">Categories</a>
+                
+                <a class="menu-item" href="/tag">Tags</a>
+                
+                <a class="menu-item" href="/about">About</a>
+                
+            </div>
+        </div>
+    </nav>
+
+</header>
+<script>
+    var mobileBtn = function f() {
+        var toggleMenu = document.getElementsByClassName("menu-toggle")[0];
+        var mobileMenu = document.getElementById("mobile-menu");
+        if (toggleMenu.classList.contains("active")) {
+            toggleMenu.classList.remove("active")
+            mobileMenu.classList.remove("active")
+        } else {
+            toggleMenu.classList.add("active")
+            mobileMenu.classList.add("active")
+        }
+    }
+</script>
+            <div class="main">
+                <div class="container">
+    
+    
+
+    
+    <article class="post-wrap">
+        <header class="post-header">
+            <h1 class="post-title">高等代数（I）复习笔记</h1>
+            
+                <div class="post-meta">
+                    
+                        Author: <a itemprop="author" rel="author" href="/">NetSpeed1</a>
+                    
+
+                    
+                        <span class="post-time">
+                        Date: <a href="#">December 16, 2025&nbsp;&nbsp;16:35:42</a>
+                        </span>
+                    
+                    
+                        <span class="post-category">
+                    Category:
+                            
+                                <a href="/categories/MS-courses/">MS courses</a>
+                            
+                        </span>
+                    
+                </div>
+            
+        </header>
+
+        <div class="post-content">
+            <p>记录一些经典的结论，证明略去。</p>
+<ul>
+<li><p>$r(A+B)\le r(A)+r(B)$，等号成立当且仅当 $\text{Im}(A)\cap \text{Im}(B)&#x3D;{\theta}$。</p>
+</li>
+<li><p>$r(AB)\le \min(r(A),r(B))$。</p>
+</li>
+<li><p>$r(AB)\ge r(A)+r(B)-n$。</p>
+</li>
+<li><p>$AB&#x3D;0\implies r(A)+r(B)\le n$。</p>
+</li>
+<li><p>若 $A^2&#x3D;A$，则 $r(A)&#x3D;\text{tr}(A)$。</p>
+</li>
+<li><p>$\text{tr}(AB)&#x3D;\text{tr}(BA)$，$\text{tr}(A_1\cdots A_n)&#x3D;\text{tr}(A_n\cdot A_1\cdots A_{n-1})$，只能循环位移。</p>
+</li>
+<li><p>降阶定理：$A,D$ 可逆，$\forall B\in M_{m\times n}(F),C\in M_{n\times m}(F)$，都有：<br>$$<br>|A|\cdot |D-CA^{-1}B|&#x3D;|D|\cdot |A-BD^{-1}C|<br>$$</p>
+</li>
+<li><p>设有多项式 $f(x)$，且 $\lambda_0$ 是 $A$ 的特征值，则 $f(\lambda_0)$ 是 $f(A)$ 的特征值（不保证重数相同）。</p>
+</li>
+<li><p>对任意矩阵 $A\in M_{n\times m}(F),B\in M_{m\times n}(F)$，$AB$ 和 $BA$ 具有相同的特征值和重数。</p>
+</li>
+<li><p>矩阵幂零等价于特征值全为 $0$。</p>
+</li>
+<li><p>Cayley Hamilton 定理：矩阵作用在自己的特征多项式上等于零。</p>
+</li>
+<li><p>$|A|&#x3D;\prod \lambda_i$，$\text{tr}(A)&#x3D;\sum\lambda_i$。</p>
+</li>
+<li><p>$\mathbb{C}$ 上若 $AB&#x3D;BA$，则 $A,B$ 可同时上三角化；若还有 $A,B$ 都可对角化，则 $A,B$ 可同时对角化。</p>
+</li>
+<li><p>实对称矩阵的合同规范型 $\text{diag}(I_p,-I_q,0)$。</p>
+</li>
+<li><p>以下几个条件等价：</p>
+<ul>
+<li>$A$ 正定。</li>
+<li>$A$ 的所有主子式 $&gt;0$。</li>
+<li>$A$ 的所有顺序主子式 $&gt;0$。</li>
+<li>$A$ 的特征值都 $&gt;0$。</li>
+<li>$\forall \alpha\not&#x3D;\theta,\alpha^TA\alpha&gt;0$。</li>
+</ul>
+</li>
+<li><p>若 $A$ 正定（半正定），则存在唯一 $S$ 满足 $S^2&#x3D;A$，且 $S$ 也正定（半正定）。</p>
+</li>
+<li><p>若 $A$ 正定，$B$ 半正定，则 $A+B$ 正定。</p>
+</li>
+<li><p>若 $A$ 正定，则存在 $C$ 可逆，$A&#x3D;C^TC$。</p>
+</li>
+<li><p>若 $A$ 正定，则 $\det(A)\le \prod a_{ii}$。</p>
+</li>
+<li><p>实对称矩阵正交对角化，即 $A&#x3D;A^T\implies \exists Q$ 正交，$Q^TAQ&#x3D;\text{diag}(\lambda_i)$。</p>
+</li>
+<li><p>实矩阵奇异值分解：任意实矩阵 $A$ 均存在 $Q,T$ 正交，使得：</p>
+<p>$$<br>Q^TAT&#x3D;\begin{pmatrix}\text{diag}(\sigma_i)&amp;0\cr 0&amp;0\end{pmatrix}<br>$$</p>
+<p>注意此处 $A$ 不一定要是方阵。</p>
+</li>
+<li><p>Hermite 矩阵酉对角化，即 $H&#x3D;\overline{H}^T\implies \exists U$ 酉，$\overline{U}^TAU&#x3D;\text{diag}(\lambda_i)$。</p>
+</li>
+</ul>
+
+        </div>
+
+        
+            <section class="post-copyright">
+                
+                    <p class="copyright-item">
+                        <span>Author:</span>
+                        <span>NetSpeed1</span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>Permalink:</span>
+                        <span><a href="https://enucai.github.io/2025/12/16/linear-algebra-1/">https://enucai.github.io/2025/12/16/linear-algebra-1/</a></span>
+                    </p>
+                
+                
+                    <p class="copyright-item">
+                        <span>License:</span>
+                        <span>Copyright (c) 2019 <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC-4.0</a> LICENSE</span>
+                    </p>
+                
+                
+
+            </section>
+        
+        <section class="post-tags">
+            <div>
+                <span>Tag(s):</span>
+                <span class="tag">
+                    
+                    
+                        <a href="/tags/review/"># review</a>
+                    
+                        <a href="/tags/math/"># math</a>
+                    
+                        
+                </span>
+            </div>
+            <div>
+                <a href="javascript:window.history.back();">back</a>
+                <span>· </span>
+                <a href="/">home</a>
+            </div>
+        </section>
+        <section class="post-nav">
+            
+                <a class="prev" rel="prev" href="/2026/01/10/un-tpnbh/">浅谈树上邻域与链邻域的并交问题</a>
+            
+            
+            <a class="next" rel="next" href="/2025/12/08/y-fast-trie/">Y-Fast Trie 算法 Slide</a>
+            
+        </section>
+
+
+    </article>
+</div>
+
+            </div>
+            <footer id="footer" class="footer">
+    <div class="copyright">
+        <span>© NetSpeed1 | Powered by <a href="https://hexo.io" target="_blank">Hexo</a> & <a href="https://github.com/Siricee/hexo-theme-Chic" target="_blank">Chic</a></span>
+    </div>
+</footer>
+
+    </div>
+</body>
+
+</html>
