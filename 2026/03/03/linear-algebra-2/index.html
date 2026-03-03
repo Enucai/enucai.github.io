@@ -15,7 +15,7 @@
 
 
 
-<title>Y-Fast Trie 算法 Slide | Netspeed1</title>
+<title>高等代数 II | Netspeed1</title>
 
 
 
@@ -173,11 +173,76 @@
                 <div class="container">
     
     
+        <div class="post-toc">
+    <div class="tocbot-list">
+    </div>
+    <div class="tocbot-list-menu">
+        <a class="tocbot-toc-expand" onclick="expand_toc()">Expand all</a>
+        <a onclick="go_top()">Back to top</a>
+        <a onclick="go_bottom()">Go to bottom</a>
+    </div>
+</div>
+
+<script>
+    var tocbot_timer;
+    var DEPTH_MAX = 6; // 为 6 时展开所有
+    var tocbot_default_config = {
+        tocSelector: '.tocbot-list',
+        contentSelector: '.post-content',
+        headingSelector: 'h1, h2, h3, h4, h5',
+        orderedList: false,
+        scrollSmooth: true,
+        onClick: extend_click,
+    };
+
+    function extend_click() {
+        clearTimeout(tocbot_timer);
+        tocbot_timer = setTimeout(function() {
+            tocbot.refresh(obj_merge(tocbot_default_config, {
+                hasInnerContainers: true
+            }));
+        }, 420); // 这个值是由 tocbot 源码里定义的 scrollSmoothDuration 得来的
+    }
+
+    document.ready(function() {
+        tocbot.init(obj_merge(tocbot_default_config, {
+            collapseDepth: 1
+        }));
+    });
+
+    function expand_toc() {
+        var b = document.querySelector('.tocbot-toc-expand');
+        var expanded = b.getAttribute('data-expanded');
+        expanded ? b.removeAttribute('data-expanded') : b.setAttribute('data-expanded', true);
+        tocbot.refresh(obj_merge(tocbot_default_config, {
+            collapseDepth: expanded ? 1 : DEPTH_MAX
+        }));
+        b.innerText = expanded ? 'Expand all' : 'Collapse all';
+    }
+
+    function go_top() {
+        window.scrollTo(0, 0);
+    }
+
+    function go_bottom() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
+    function obj_merge(target, source) {
+        for (var item in source) {
+            if (source.hasOwnProperty(item)) {
+                target[item] = source[item];
+            }
+        }
+        return target;
+    }
+</script>
+    
 
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">Y-Fast Trie 算法 Slide</h1>
+            <h1 class="post-title">高等代数 II</h1>
             
                 <div class="post-meta">
                     
@@ -186,14 +251,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">December 8, 2025&nbsp;&nbsp;23:38:36</a>
+                        Date: <a href="#">March 3, 2026&nbsp;&nbsp;14:12:13</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/EECS-courses/">EECS courses</a>
+                                <a href="/categories/SMS-courses/">SMS courses</a>
                             
                         </span>
                     
@@ -202,16 +267,81 @@
         </header>
 
         <div class="post-content">
-            
-
-	<div class="row">
-    <embed src="/pdf/y-fast-trie.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-
-
-<p>或在此处打开 pdf 文件查看：<a href="/pdf/y-fast-trie.pdf">Y-Fast Trie Algorithm.pdf</a>。</p>
+            <h2 id="Ch-01-多项式理论"><a href="#Ch-01-多项式理论" class="headerlink" title="Ch 01. 多项式理论"></a>Ch 01. 多项式理论</h2><h3 id="一些抽象代数的基本概念"><a href="#一些抽象代数的基本概念" class="headerlink" title="一些抽象代数的基本概念"></a>一些抽象代数的基本概念</h3><ul>
+<li><p>设 $S$ 非空，定义 $S$ 中的一个代数运算指一个映射 $\varphi:S\times S\to S$。此处 $\times$ 为笛卡尔积。通常记 $S$ 为 $+$ 或 $\cdot$。</p>
+</li>
+<li><p>定义：设 $F$ 非空，$F$ 中定义了两个代数运算，分别称为加法 $+$ 和乘法 $\cdot$。称具备运算 $+,\cdot$ 的 $F$ $(F,+,\cdot)$ 为<strong>域</strong>（field），若：</p>
+<ol>
+<li><p>关于 $+$ 结合律：$(x+y)+z&#x3D;(x+y)+z$。</p>
+</li>
+<li><p>关于 $+$ 交换律：$x+y&#x3D;y+x$。</p>
+</li>
+<li><p>关于 $+$ 零元存在：$\exists$ 元素记为 $0\in F$，使 $0+x&#x3D;x,\forall x\in F$。</p>
+</li>
+<li><p>关于 $+$ 负元存在：$\forall x\in F,\exists y\in F$，使 $x+y&#x3D;0$，此时称 $y$ 为 $x$ 的负元。</p>
+</li>
+<li><p>关于 $\cdot$ 结合律：$(xy)z&#x3D;x(yz)$。</p>
+</li>
+<li><p>关于 $\cdot$ 交换律：$xy&#x3D;yx$。</p>
+</li>
+<li><p>关于 $\cdot$ 单位元存在：$\exists$ 元素记为 $1\in F$，使得 $1\cdot x&#x3D;x,\forall x\in F$。</p>
+</li>
+<li><p>非零元逆元存在：$\forall x\in F,x\neq 0,\exists y\in F$，使 $xy&#x3D;1$，此时称 $y$ 为 $x$ 的逆元，记作 $x^{-1}$。</p>
+</li>
+<li><p>分配律：$x(y+z)&#x3D;xy+xz$。</p>
+</li>
+</ol>
+</li>
+<li><p>定义：设 $R$ 非空，$R$ 中定义了两个代数运算，分别称为加法 $+$ 和乘法 $\cdot$。称具备元算 $+,\cdot$ 的 $R$ $(R,+,\cdot)$ 为<strong>环</strong>（ring），若：</p>
+<ol>
+<li><p>关于 $+$ 结合律：$(x+y)+z&#x3D;(x+y)+z$。</p>
+</li>
+<li><p>关于 $+$ 交换律：$x+y&#x3D;y+x$。</p>
+</li>
+<li><p>关于 $+$ 零元存在：$\exists$ 元素记为 $0\in F$，使 $0+x&#x3D;x,\forall x\in F$。</p>
+</li>
+<li><p>关于 $+$ 负元存在：$\forall x\in F,\exists y\in F$，使 $x+y&#x3D;0$，此时称 $y$ 为 $x$ 的负元。</p>
+</li>
+<li><p>关于 $\cdot$ 结合律：$(xy)z&#x3D;x(yz)$。</p>
+</li>
+<li><p>满足左右分配律：$x(y+z)&#x3D;xy+xz$，$(y+z)x&#x3D;yx+zx$。</p>
+</li>
+</ol>
+<p>若 $R$ 含有 $1$，则称 $R$ 是有 $1$ 的环。</p>
+<p>若 $R$ 之乘法满足交换律 $xy&#x3D;yx$，则称 $R$ 为交换环，否则称之为非交换环。</p>
+<p>例：$(\mathbb{Z}&#x2F;_n\mathbb{Z},+,\cdot)$ 构成一个环。$(\mathbb{Z}&#x2F;_n\mathbb{Z})$ 是一个域当且仅当 $n$ 是素数 $P$。</p>
+</li>
+<li><p>$F$ 为域，称 $F$ 的特征为 $p$（记作 $\text{char}(F)&#x3D;p$），若 $\forall x\in F$，均有 $px&#x3D;0$ 且 $p$ 为所有满足条件的最小正整数（因此 $p$ 必为素数）。</p>
+<p>称 $F$ 的特征为 $0$，若 $nx&#x3D;0,\forall x\in F$，则 $n&#x3D;0$。</p>
+<p>在 $F(\text{char}(F)&#x3D;p)$ 中，$(x+y)^p&#x3D;x^p+y^p$。</p>
+</li>
+<li><p>$R$ 为环，$x$ 为记号（未定元），如下形式的形式表达式：</p>
+<p>$$<br>f(x)&#x3D;a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0,\quad a_i\in R<br>$$</p>
+<p>称为系数在 $R$ 中的<strong>多项式</strong>，$a_i$ 称为 $x^i$ 之系数，$a_0$ 称为常数项。</p>
+<p>$a_n\neq 0$ 时，$n$ 称为多项式的次数，记作 $\deg f(x)&#x3D;n$。</p>
+<p>注：称 $f(x)&#x3D;0$ 为零多项式，例外规定 $\deg 0&#x3D;-\infty$。注意区分零多项式和零次多项式。</p>
+<p>记 $R[x]$ 为系数在 $R$ 中的多项式全体。</p>
+</li>
+<li><p>称两个多项式 $f(x)&#x3D;\sum_{i&#x3D;0}^n a_ix^i$ 和 $g(x)&#x3D;\sum_{i&#x3D;0}^n b_ix^i$ 相等：</p>
+<p>$$<br>f&#x3D;g\iff a_i&#x3D;b_i,\quad \forall i&#x3D;1,\dots,n<br>$$</p>
+<p>注：$f&#x3D;\sum_{i&#x3D;0}^na_ix^i&#x3D;0$ 当且仅当 $a_i&#x3D;0,\forall i&#x3D;0,\dots,n$（即 $1,x,x^2,\dots,x^n$ 线性无关）。</p>
+</li>
+<li><p>在 $R[x]$ 中定义 $+$：$f(x)+g(x)$ 即为合并同类项。</p>
+<p>在 $R[x]$ 中定义 $\cdot$：$f(x)g(x)&#x3D;\sum_{k&#x3D;0}^{n+m}(\sum_{i+j&#x3D;k}a_ib_j)x^k$。</p>
+<p>则 $(R[x],+,\cdot)$ 是一个环：</p>
+<ul>
+<li><p>若 $R$ 有 $1$，则 $R[x]$ 也有 $1$。</p>
+</li>
+<li><p>若 $R$ 是交换的，则 $R[x]$ 也交换。</p>
+</li>
+</ul>
+</li>
+<li><p>注：$\deg f+g\le \deg f+\deg g$，$\deg fg\le \deg f+\deg g$。</p>
+<p>特别的，当 $R$ 是域时，$\deg fg&#x3D;\deg f+\deg g$。</p>
+</li>
+<li><p>通过 $R[x_1][x_2]\cdots[x_n]&#x3D;R[x_1,x_2,\cdots,x_n]$ 即可构造 $n$ 元多项式环。</p>
+</li>
+</ul>
 
         </div>
 
@@ -226,7 +356,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://enucai.github.io/2025/12/08/y-fast-trie/">https://enucai.github.io/2025/12/08/y-fast-trie/</a></span>
+                        <span><a href="https://enucai.github.io/2026/03/03/linear-algebra-2/">https://enucai.github.io/2026/03/03/linear-algebra-2/</a></span>
                     </p>
                 
                 
@@ -245,9 +375,9 @@
                 <span class="tag">
                     
                     
-                        <a href="/tags/olympiad-in-informatics/"># olympiad in informatics</a>
+                        <a href="/tags/review/"># review</a>
                     
-                        <a href="/tags/algorithm/"># algorithm</a>
+                        <a href="/tags/math/"># math</a>
                     
                         
                 </span>
@@ -260,10 +390,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2025/12/16/linear-algebra-1/">高等代数 I 复习</a>
             
-            
-            <a class="next" rel="next" href="/2025/11/13/oi-memoirs/">OI 生涯回忆录</a>
+            <a class="next" rel="next" href="/2026/03/02/musicmaths/">音乐与数学</a>
             
         </section>
 
