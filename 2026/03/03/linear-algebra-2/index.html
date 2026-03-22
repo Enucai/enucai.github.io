@@ -15,7 +15,7 @@
 
 
 
-<title>高等代数 II | Netspeed1</title>
+<title>高等代数：多项式理论 | Netspeed1</title>
 
 
 
@@ -242,7 +242,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">高等代数 II</h1>
+            <h1 class="post-title">高等代数：多项式理论</h1>
             
                 <div class="post-meta">
                     
@@ -267,7 +267,7 @@
         </header>
 
         <div class="post-content">
-            <h2 id="Ch-01-多项式理论"><a href="#Ch-01-多项式理论" class="headerlink" title="Ch 01. 多项式理论"></a>Ch 01. 多项式理论</h2><h3 id="一些抽象代数的基本概念"><a href="#一些抽象代数的基本概念" class="headerlink" title="一些抽象代数的基本概念"></a>一些抽象代数的基本概念</h3><ul>
+            <h3 id="一些抽象代数的基本概念"><a href="#一些抽象代数的基本概念" class="headerlink" title="一些抽象代数的基本概念"></a>一些抽象代数的基本概念</h3><ul>
 <li><p>设 $S$ 非空，定义 $S$ 中的一个代数运算指一个映射 $\varphi:S\times S\to S$。此处 $\times$ 为笛卡尔积。通常记 $S$ 为 $+$ 或 $\cdot$。</p>
 </li>
 <li><p>定义：设 $F$ 非空，$F$ 中定义了两个代数运算，分别称为加法 $+$ 和乘法 $\cdot$。称具备运算 $+,\cdot$ 的 $F$ $(F,+,\cdot)$ 为<strong>域</strong>（field），若：</p>
@@ -341,8 +341,357 @@
 </li>
 <li><p>通过 $R[x_1][x_2]\cdots[x_n]&#x3D;R[x_1,x_2,\cdots,x_n]$ 即可构造 $n$ 元多项式环。</p>
 </li>
+<li><p>$M_n(F[x])$ 之元称为 $\lambda-$ 矩阵。</p>
+<p>$M_n(F[x])$ 可以类似数字矩阵定义行列式、子式、伴随矩阵。但不好直接类比引入秩等概念。</p>
+</li>
+<li><p>定义：设 $G$ 非空，$G$ 中有代数运算 $<em>$。称 $(G,</em>)$ 为<strong>群</strong>（Group），若：</p>
+<ol>
+<li><p>$<em>$ 满足结合律：$(a</em>b)<em>c&#x3D;a</em>(b*c)$。</p>
+</li>
+<li><p>单位元存在记为 $e$，即：$\exists e\in G$，使得 $e<em>a&#x3D;a</em>e&#x3D;a,\forall a\in G$。</p>
+</li>
+<li><p>逆元存在：$\forall a\in G,\exists b\in G$，使得 $a*b&#x3D;e$，$b$ 称为 $a$ 之逆，记 $b&#x3D;a^{-1}$。</p>
+</li>
+</ol>
+<p>当 $*$ 满足交换律时，称 $G$ 为交换群。</p>
+<p>注：$*$ 常记作 $+$ 或 $\cdot$，$(G,+)$ 为加法群，$(G,\cdot)$ 为乘法群。</p>
+</li>
+<li><p>例：$(F,+,\cdot)$ 为域，则有：</p>
+<ol>
+<li><p>$(F,+)$ 为加法交换群。</p>
+</li>
+<li><p>$(F*,\cdot)$ 为乘法交换群，$F*&#x3D;F\setminus{{\theta}}$。</p>
+</li>
+</ol>
+</li>
+<li><p>例：设 $n&gt;1$，记 $\mu_n&#x3D;{e^{2k\pi i&#x2F;n}\mid k&#x3D;0,1,\dots,n}\subset \mathbb{C}$，则 $\mu_n$ 为乘法交换群，称为 $n$ 次单位根群。</p>
+</li>
+<li><p>例：$F$ 为域，$GL_n(F)&#x3D;{A\in M_n(F)\mid \det(A)\neq 0}$，定义 $A\cdot B$ 为矩阵乘积，则 $GL_n(F)$ 为矩阵非交换群，称为一般线性矩阵群。</p>
+<p>$O_n(\mathbb R)&#x3D;{A\in M_n(\mathbb R)\mid A^TA&#x3D;E}$ 为正交群。</p>
+<p>$U_n&#x3D;{A\in M_n(\mathbb C)\mid \overline{A}^TA&#x3D;E}$ 为酉群。</p>
+</li>
+<li><p>例：$R$ 为有 $1$ 的交换群，记 $U(R)$ 为 $R$ 之所有可逆元集。则 $(U(R),\cdot)$ 为群，称之为 单位群。</p>
+<p>例如 $U(\mathbb Z)&#x3D;{-1,1}$；若 $F$ 为域，则 $U(F)&#x3D;F^*$。</p>
+</li>
+<li><p>定义：设 $R_1\subset R$ 非空（$R$ 为环），若 $R_1$ 关于 $R$ 之 $+,\cdot$ 成为环，则称 $R_1$ 为 $R$ 的<strong>子环</strong>。类似的可以定义子群、子域。</p>
+<p>命题：$R_1$ 为 $R$ 之子环 $\iff$ $R_1$ 关于 $R$ 之减法、乘法封闭（HW）。</p>
+</li>
+<li><p>定义：设 $R,S$ 为环，称映射 $f:R\to S$ 为<strong>环同态</strong>，若：</p>
+<ul>
+<li>$f$ 保持运算：$f(a+b)&#x3D;f(a)+f(b)$，$f(a\cdot b)&#x3D;f(a)\cdot f(b),\forall a,b\in R$。</li>
 </ul>
-
+<p>类似可定义群同态、域同态。</p>
+</li>
+<li><p>定义：称同态 $f:R\to S$ 为单的 &#x2F; 满的 &#x2F; 同构的，若 $f$ 作为映射是单设 &#x2F; 满射 &#x2F; 双射。</p>
+<p>若 $f:R\to S$ 为单同态，则 $\text{Im} f&#x3D;{f(x)\mid x\in R}$ 为 $S$ 之子环，切 $f:R\to \text{Im} f$ 为同构。</p>
+<p>若 $\tau:R\to S$ 是单的，则 $R\cong \text{Im} f\subset S$，称 $S$ 为 $R$（通过单射同态 $\tau$）之扩环。</p>
+</li>
+<li><p>定理：设 $F$ 为域，$R$ 为 $F$（通过 $\tau:F\to R$）之扩环，$\forall t\in R$，映射</p>
+<p>$$<br>\begin{aligned}<br>\varphi:&amp;F[x]&amp;\to &amp;\quad R\cr<br>&amp;\sum_{i&#x3D;0}^na_ix^i&amp;\mapsto &amp;\quad \sum_{i&#x3D;0}^n\tau(a_i)t^i<br>\end{aligned}<br>$$</p>
+<p>则 $\varphi$ 为环同态。</p>
+<p>注：该定理中带入 $t$ 时必须带入到多项式的一般形式中。 </p>
+</li>
+<li><p>注：有 $1$ 的交换环要求同态 $f:R\to S$ 将 $1$ 映成 $1$，即 $f(1_R)\to 1_S$。</p>
+<p>注：$M_n(F[x])\cong M_n(F)[x]$（可构造双射，多项式矩阵中每一次项提出构成矩阵）。</p>
+</li>
+<li><p>HW：$\mu_n&#x3D;{\omega^i\mid k&#x3D;0,1,\dots,n-1},\omega&#x3D;e^{2\pi i&#x2F;n}$。证明：$\sum_{i&#x3D;0}^{n-1}\omega^i&#x3D;0$。</p>
+</li>
+<li><p>命题（Hamilton-Cayley 定理）：设 $A&#x3D;M_n(F)$ 其中 $F$ 为域，令 $f(\lambda)&#x3D;\det(\lambda E-A)$，则 $f(A)&#x3D;0$。</p>
+<p>证：记 $B(\lambda)$ 为 $\lambda E-A$ 的伴随矩阵，则 $B(\lambda)$ 之元的最高次项为 $n-1$ 次。</p>
+<p>则 $B(\lambda)(\lambda E-A)&#x3D;|\lambda E-A|E&#x3D;f(\lambda) E$。</p>
+<p>设 $B(\lambda)&#x3D;B_{n-1}\lambda^{n-1}+\cdots+B_0$，其中 $B_i\in M_n(F)$。则：</p>
+<p>$$<br>\begin{aligned}<br>&amp;B(\lambda)(\lambda E-A)\cr<br>&#x3D;&amp;B_{n-1}\lambda^n+(B_{n-2}-B_{n-1}A)\lambda^{n-1}+\dots+(B_0-B_1A)\lambda-B_0A<br>\end{aligned}<br>$$</p>
+<p>对比多项式系数可得：</p>
+<p>$$<br>\begin{cases}<br>B_{n-1}&#x3D;E\cr<br>B_{n-2}-B_{n-1}A&#x3D;a_{n-1}E\cr<br>\cdots\cr<br>B_0-B_1A&#x3D;a_1E\cr<br>-B_0A&#x3D;a_0E<br>\end{cases}<br>$$</p>
+<p>将上面所有式子分别右乘 $A^n,\cdots,A,A^{0}$ 并全部相加即可。$\Box$</p>
+<p>注：不能直接将 $A$ 带入到未化为多项式一般形式的版本，否则就直接得到了 $\det(AE-A)&#x3D;0$。</p>
+</li>
+<li><p>定义：若 $R_1,\dots,R_n$ 为环，定义笛卡尔积（直积）：</p>
+<p>$$<br>\prod R_i&#x3D;R_1\oplus R_2\oplus\cdots\oplus R_n<br>&#x3D;{(x_1,x_2,\cdots,x_n)\mid x_i\in R_i}<br>$$</p>
+<p>定义 $+$：$(x_1,\dots,x_n)+(y_1,\dots,y_n)&#x3D;(x_1+y_1,\dots,x_n+y_n)$。</p>
+<p>定义 $\cdot$：$(x_1,\dots,x_n)\cdot(y_1,\dots,y_n)&#x3D;(x_1\cdot y_1,\cdots,x_n\cdot y_n)$。</p>
+<p>此时 $\oplus_{i&#x3D;1}^n R_i$ 也为环。</p>
+</li>
+</ul>
+<h3 id="域上的多项式环"><a href="#域上的多项式环" class="headerlink" title="域上的多项式环"></a>域上的多项式环</h3><ul>
+<li><p>约定：只考虑 $F[x]$，$F$ 为域。</p>
+</li>
+<li><p>定理：设 $f,g\neq 0\in F[x]$，则存在 $g(x),r(x)\in F[x]$，使得：</p>
+<ol>
+<li><p>$f&#x3D;g\cdot q(x)+r(x)$。</p>
+</li>
+<li><p>$\deg r&lt;\deg g$ 或 $r(x)&#x3D;0$。</p>
+</li>
+</ol>
+<p>其中 $q(x)$ 称为 $g$ 除 $f$ 的商，$r(x)$ 称为余式。且上述 $q(x),r(x)$ 唯一。</p>
+</li>
+<li><p>定义：称 $g(x)$ 整除 $f(x)$，记为 $g(x)\mid f(x)$ 若存在 $q(x)\in F[x]$ 使得 $f&#x3D;g\cdot q$。此时称 $g$ 为 $f$ 之因子，$f$ 为 $g$ 之倍式。</p>
+<ul>
+<li><p>$g&#x3D;0$ 时，$0\mid 0$。</p>
+</li>
+<li><p>$g\neq 0$ 时，$g\mid f\iff f$ 除以 $g$ 余式 $r(x)&#x3D;0$。</p>
+</li>
+<li><p>零次多项式整除任何多项式。</p>
+</li>
+<li><p>整除具有传递性，即 $f\mid g,g\mid h\implies f\mid h$。</p>
+</li>
+<li><p>若 $f&#x3D;\sum_{i&#x3D;1}^s g_i$，若 $\varphi(x)$ 整除 $f,g_1,\dots,g_s$ 之 $s$ 个元，则 $\varphi$ 整除余者。</p>
+</li>
+<li><p>若 $f\mid g$ 且 $g\mid f$，则存在 $c\in F$，使得 $f&#x3D;cg$。称 $f$ 与 $g$ 相伴，记为 $f\sim g$。</p>
+<p>注：任意多项式 $f$ 均相伴于一个首 $1$ 的多项式。</p>
+</li>
+</ul>
+</li>
+<li><p>任取 $f(x)\in F[x],\deg f&#x3D;n$。以 $f$ 定义 $F[x]$ 之二元关系 $\sim$。</p>
+<p>称 $g_1\sim g_2$，若 $f\mid (g_1-g_2)\iff g_1,g_2$ 除以 $f$ 余式相同。</p>
+<p>$g(x)$ 所在等价类 $\overline{g(x)}&#x3D;{h(x)f(x)+r(x)\mid h\in F[x]}&#x3D;\overline{r(x)}$。</p>
+<p>以 $F[x]&#x2F;f(x)F[x]$ 记全部等价类集。容易定义 $+,\cdot$，从而是有 $1$ 的交换环。</p>
+</li>
+<li><p>定义：称 $d(x)\in F[x]$ 为 $f(x),g(x)\in F[x]$ 之公因子，若 $d(x)\mid f,d(x)\mid g$。</p>
+<p>称 $d(x)$ 为 $f,g$ 之最大公因子，若 $\varphi(x)$ 为 $f,g$ 之公因子，则 $\varphi\mid d$。</p>
+<p>若最大公因子存在（此处还未证明一定存在），则相伴意义下最大公因子唯一。因此可以记 $(f(x),g(x))$ 表示 $f,g$ 之首 $1$ 的最大公因子。</p>
+</li>
+<li><p>引理：若 $f&#x3D;g\cdot q+r$，则 $(f,g)&#x3D;(g,r)$。</p>
+</li>
+<li><p>定理（Bézout’s Thm.）：$\forall f,g\in F[x]$，$f,g$ 之最大公因子 $d(x)$ 存在，且 $\exists u(x),v(x)\in F[x]$ 使得 $d(x)&#x3D;uf+vg$。</p>
+</li>
+<li><p>定义：若 $(f,g)&#x3D;1$，称 $f,g$ 互素。</p>
+<p>注：$(f,g)&#x3D;1\iff \exists u,v\in F[x]$，使得 $uf+vg&#x3D;1$。</p>
+<ul>
+<li><p>若 $(f,g)&#x3D;1$，且 $f\mid gh\implies f\mid h$。</p>
+</li>
+<li><p>若 $f\mid h,g\mid h$ 切 $(f,g)&#x3D;1$，则 $fg\mid h$。</p>
+</li>
+</ul>
+</li>
+<li><p>注：最大公因子可以推广到多个多项式。</p>
+<p>定理：设 $d(x)&#x3D;(f_1,f_2,\dots,f_s)$，则存在 $u_1,u_2,\dots,u_s\in F[x]$，使得 $d&#x3D;\sum_{i&#x3D;1}^s u_if_i$。</p>
+</li>
+<li><p>$\forall f(x)\in F[x]$，$1,f(x)$ 及其相伴元 $c,c_1f(c\neq 0,c_1\neq 0\in F)$ 均为 $f$ 之因子，称为平凡因子。</p>
+<p>定义：称多项式 $p(x)$ 不可约，若 $p(x)$ 只有平凡因子。否则称为可约的。 </p>
+</li>
+<li><p>定理：以下四个条件等价：</p>
+<ol>
+<li><p>$p(x)$ 不可约。</p>
+</li>
+<li><p>$\forall f\in F[x]$，则或 $p\mid f$ 或 $(p,f)&#x3D;1$。</p>
+</li>
+<li><p>若 $p\mid fg$，则或 $p\mid f$ 或 $p\mid g$。</p>
+</li>
+<li><p>$p(x)$ 不能分解为两个更低次的非常数多项式。</p>
+</li>
+</ol>
+</li>
+<li><p>注：不可约依赖于域 $F$。</p>
+<p>例：$x^2+1\in \mathbb{Q}[x]$ 不可约，而 $x^2+1\in \mathbb{C}[x]$ 可约。</p>
+</li>
+<li><p>定理（多项式的不可约分解）：$\forall f(x)\in F[x]$，都有唯一的不可约分解，即：</p>
+<p>$f$ 可以写成若干个不可约多项式之积，$f&#x3D;p_1(x)p_2(x)\cdots p_s(x)$，$p_i(x)$ 不可约。</p>
+<p>唯一性指：若 $f&#x3D;q_1q_2\cdots q_t$，$q_i(x)$ 不可约，则必有 $s&#x3D;t$，且适当调整顺序有 $p_i\sim q_i,\forall i&#x3D;1,2,\dots,s$。</p>
+<p>证：若 $f$ 不可约，则 $f&#x3D;f$ 即为不可约分解。</p>
+<p>否则 $f$ 可约，有 $f&#x3D;f_1f_2$，其中 $\deg f_i&lt;\deg f$。</p>
+<p>若 $f_1,f_2$ 均不可约，则 $f&#x3D;f_1f_2$ 即为不可约分解。否则 $f_1$ 可约，$f_1&#x3D;f_{11}\cdot f_{12}$。以次继续进行，即可得到一个不可约分解。</p>
+<p>唯一性证明：$f&#x3D;p_1\cdots p_s&#x3D;q_1\cdots q_t$，对 $s$ 归纳：</p>
+<ul>
+<li><p>$s&#x3D;1$ 时，$p_1&#x3D;q_1\cdots q_t\implies p_1\mid q_1\cdots q_t$。故存在 $q_i$ 不妨设为 $q_1$ 满足 $p_1\mid q_1\implies p_1\sim q_1$。设 $p_1&#x3D;cq_1$，则 $cq_1&#x3D;q_1\cdots q_t$，即 $q_1(c-q_2\cdots q_t)&#x3D;0\implies q_2\cdots q_t&#x3D;c\implies t&#x3D;1$ 且 $p_1\sim q_1$。</p>
+</li>
+<li><p>$s&gt;1$ 时，$p_1p_2\cdots p_s&#x3D;q_1\cdots q_t\implies p_1\mid q_1\cdots q_t$，设 $p_1\mid q_1$ 则 $p_1\sim q_1$。设 $p_1&#x3D;cq_1$ 则 $q_1(q_2\cdots q_t-cp_2\cdots p_s)&#x3D;0\implies q_2\cdots q_t&#x3D;cp_2\cdots p_s$。</p>
+<p>由归纳可知 $s&#x3D;t$ 且 $p_i\sim q_i$。</p>
+</li>
+</ul>
+</li>
+<li><p>推论：$\forall f\in F[x]$，存在不可约的首 $1$ 的多项式 $p_1,\cdots,p_t$ 使得：</p>
+<p>$$<br>f(x)&#x3D;c\prod_{i&#x3D;1}^t p_i^{e_i}<br>$$</p>
+<p>上述分解被称为多项式的标准不可约分解。</p>
+</li>
+<li><p>HW：$F[x]&#x2F;f(x)F[x]$ 为域 $\iff f(x)$ 不可约。</p>
+</li>
+<li><p>称不可约多项式 $p(x)$ 为 $f(x)$ 之 $k$ 重因子，若 $p^k(x)\mid f(x)$ 但 $p^{k+1}(x)\nmid f(x)$。</p>
+<ul>
+<li><p>当 $k&#x3D;1$ 时，称 $p$ 为 $f$ 之单因子。</p>
+</li>
+<li><p>当 $k&#x3D;0$ 时，$(p,f)&#x3D;1$。</p>
+</li>
+</ul>
+</li>
+<li><p>在 $F[x]$ 中定义形式导数如下：$f(x)&#x3D;a_nx^n+a_{n-1}x^{n-1}+\cdots+a_0$，$a_i\in F$，则 $f’(x)&#x3D;na_nx^{n-1}+(n-1)a_{n-1}x^{n-1}+\cdots+a_1$。</p>
+<p>定义 $k$ 阶导数 $f^{(k)}(x)&#x3D;(f^{(k-1)}(x))’$。</p>
+</li>
+<li><p>定理：若不可约多项式 $p(x)$ 为 $f(x)$ 之 $k$ 重因子，则 $p(x)$ 为 $f’(x)$ 之 $k-1$ 重因子。</p>
+<ul>
+<li><p>不可约多项式 $p(x)$ 为 $f$ 之 $k$ 重因子，则 $p$ 为 $f,f’,\cdots,f^{(k-1)}(x)$ 之因子，但不是 $f^{(k)}(x)$ 之因子，即 $(p(x),f^{(k)}(x))&#x3D;1$。</p>
+</li>
+<li><p>若 $p(x)$ 为 $f$ 之 $k(k\ge 2)$ 重因子，当且仅当 $p(x)$ 为 $f,f’$ 之公因子。</p>
+</li>
+<li><p>$f$ 存在重因子，当且仅当 $f,f’$ 存在（非平凡）公因子。</p>
+</li>
+</ul>
+</li>
+<li><p>引理：$f,g$ 有非平凡公因子，当且仅当存在 $\varphi(x),\psi(x)\in F[x]$，满足 $\deg \varphi&lt;\deg g$，$\deg \psi&lt;\deg f$，且 $f\varphi&#x3D;g\psi$。</p>
+</li>
+<li><p>设 $f(x)&#x3D;a_nx^n+\cdots+a_0$，$g(x)&#x3D;b^mx^m+\cdots+b_0$，$\varphi(x)&#x3D;u_{m-1}x^{m-1}+\cdots+u_0$，$\psi(x)&#x3D;v_{n-1}x^{n-1}+\cdots+v_0$。</p>
+<p>若 $f\varphi&#x3D;g\psi$，则可列出一个 $m+n$ 个变量，$n+m$ 个方程的线性方程组。</p>
+<p>记 $A$ 为该方程组的系数矩阵，则：</p>
+<p>$$<br>A^T&#x3D;\begin{pmatrix}a_n&amp;a_{n-1}&amp;a_{n-2}&amp;\cdots&amp;a_0&amp;0&amp;\cdots&amp;0\cr<br>0&amp;a_n&amp;a_{n-1}&amp;\cdots&amp;a_1&amp;a_0&amp;\cdots&amp;0\cr<br>\vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots&amp;\cr<br>0&amp;0&amp;0&amp;\cdots&amp;\cdots&amp;\cdots&amp;\cdots&amp;a_0\cr<br>-b_m&amp;-b_{m-1}&amp;-b_{m-2}&amp;\cdots&amp;-b_0&amp;0&amp;\cdots&amp;0\cr<br>0&amp;-b_m&amp;-b_{m-1}&amp;\cdots&amp;-b_1&amp;-b_0&amp;\cdots&amp;0\cr<br>\vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots&amp;\cr<br>0&amp;0&amp;0&amp;\cdots&amp;\cdots&amp;\cdots&amp;\cdots&amp;-b_0\end{pmatrix}_{n+m}<br>$$</p>
+<p>由于只需要关注该行列式是否为 $0$，因此可以把所有 $b_i$ 前面的负号删去。记上述 $n+m$ 阶方阵之行列式为 $R(f,g)$，称之为 $f,g$ 之结式（resultant）。</p>
+</li>
+<li><p>定理：$f,g$ 有非平凡公因子 $\iff R(f,g)&#x3D;0$。</p>
+</li>
+<li><p>命题：$R(f(x),(x-a)g(x))&#x3D;(-1)^{\deg f}f(a)R(f,g)$。</p>
+</li>
+</ul>
+<h3 id="多项式作为函数"><a href="#多项式作为函数" class="headerlink" title="多项式作为函数"></a>多项式作为函数</h3><ul>
+<li><p>$\forall f(x)\in F[x]$，定义：</p>
+<p>$$<br>\begin{aligned}<br>\tilde f:F&amp;\to F\cr<br>t&amp;\mapsto f(t)<br>\end{aligned}<br>$$</p>
+<p>称函数 $\varphi:F\to F$ 为 $F$ 上的多项式函数，若存在 $f(x)\in F[x]$ 使 $\varphi&#x3D;\tilde f$。</p>
+<p>记 $R$ 为 $F$ 上的所有多项式函数集合，$+,\cdot$ 为通常的函数 $+,\cdot$。容易验证 $R$ 为有 $1$ 的交换环。</p>
+</li>
+<li><p>定义：</p>
+<p>$$<br>\begin{aligned}<br>\sigma:F[x]&amp;\to R\cr<br>f&amp;\mapsto \tilde f<br>\end{aligned}<br>$$</p>
+<p>则 $\sigma$ 为环同态，且满。欲验证 $\sigma$ 是否为同构，只需验证 $\sigma$ 是否是单的。</p>
+<p>$\sigma$ 单 $\iff$ 若 $f(x)\neq g(x)$ 则 $\tilde f\neq \tilde g$，即存在 $z_0\in F$ 使得 $\tilde f(z_0)\neq \tilde g(z_0)\iff$ $(f-g)(z_0)\neq 0$。</p>
+<p>因此 $\sigma$ 单 $\iff\forall h(x)\in F[x]$，$\exists z_0\in F$ 使得 $h(z_0)\neq0$。</p>
+</li>
+<li><p>定义：称 $R$ 为含 $F$ 的环，$f(x)\in F[x]$，称 $a\in R$ 为 $f(x)$ 在 $R$ 中的根，若 $f(a)&#x3D;0$。</p>
+<p>注：根经常对 $R$ 为含 $F$ 的域的情形。特别 $F$ 为数域时，$K\supset F$，$a\in K$ 为 $f$ 在 $K$ 中的根。</p>
+<p>特别的，取 $R$ 为 $\mathbb R,\mathbb C$ 时，$f(x)\in F[x]$ 在 $\mathbb R,\mathbb C$ 中的根称为 $f$ 的实根，复根。</p>
+</li>
+<li><p>命题：$a\in F$ 为 $f(x)\in F[x]$ 之根 $\iff f(a)&#x3D;0\iff(x-a)\mid f$。</p>
+<p>$a\in F$ 为 $f(x)$ 之 $k$ 重根 $\iff (x-a)^k\mid f$，但 $(x-a)^{k+1}\nmid f$。</p>
+<p>推论：$\forall f(x)\in F[x]$ 在 $F$ 中的根不超过 $\deg f$ 个（重根按照重数计算）。</p>
+<p>推论：若 $n$ 次错项式 $f(x),g(x)\in F[x]$ 满足存在 $n+1$ 个不同的元 $z_1,\cdots,z_{n+1}\in F$ 使得 $f(z_i)&#x3D;g(z_i),\forall i$，则 $f&#x3D;g$。</p>
+</li>
+<li><p>回到上面的问题，若 $F$ 含有无限个元，$\forall h\in F[x]$ 存在 $z_0\in F$ 使 $h(z_0)\neq 0$。</p>
+<p>定理：$F$ 含有无限个元时，$\sigma:F[x]\to R$ 为环同构。</p>
+<p>特别的，$F$ 是特征 $0$ 的域时，$F$ 是无限域。例如 $F&#x3D;\mathbb R,\mathbb C$。</p>
+<p>注：$F$ 时有限域时，定理不成立。例如：$F&#x3D;\mathbb Z&#x2F;_2\mathbb Z$，$f&#x3D;x,g&#x3D;x^2$。</p>
+</li>
+<li><p>定理：设 $F$ 含无限多个元。假设 $z_1,z_2,\dots,z_{m+1}\in F$ 两两不同。则 $\forall b_1,b_2,\dots,b_{m+1}\in F$，则一定存在唯一的 $m$ 次多项式 $f(x)$ 使 $f(z_i)&#x3D;b_i,\forall i&#x3D;1,\dots,m+1$。</p>
+<p>证：设 $f(x)&#x3D;a_0+a_1x+\dots+a_mx^m$，使得 $f(z_i)&#x3D;b_i$，即：</p>
+<p>$$<br>a_mz_i^m+\dots+a_1z_i+a_0&#x3D;b_i,\quad \forall z&#x3D;1,\dots,m+1<br>$$</p>
+<p>视 $a_0,\dots,a_m$ 为变量，由克莱默法则之需要系数矩阵行列式非零。系数矩阵行列式即为范德蒙德行列式，由 $z_i$ 两两不同易得改行列式非零。</p>
+<ul>
+<li><p>构造 $f$：设只有一个 $b_i\neq 0$，而其余 $b_j&#x3D;0,\forall j\neq i$。</p>
+<p>则 $z_j,j\neq i$ 均为 $f_i$ 之根。即：$f_i(x)&#x3D;a_i\prod_{j\neq i}(x-z_j)$。</p>
+<p>由 $f_i(z_i)&#x3D;b_i$ 可知 $a_i&#x3D;\frac{b_i}{\prod_{j\neq i}(z_i-z_j)}$。</p>
+<p>对于一般的情形，取 $f&#x3D;\sum_{i&#x3D;1}^{m+1}f_i$ 即可。</p>
+<p>$$<br>f(x)&#x3D;\sum_{i&#x3D;1}^{m+1}\frac{b_i}{\prod_{j\neq i}(z_i-z_j)}\prod_{j\neq i}(x-z_j)<br>$$</p>
+<p>上述式子被称为 Lagrange 插值公式。</p>
+</li>
+</ul>
+</li>
+<li><p>例：$F$ 含无限多个元。$A\in M_n(F)$，$\forall \alpha,\beta\in F^n$，证明：</p>
+<p>$$<br>|A+\alpha\beta^T|&#x3D;|A|+\beta^TA^*\alpha<br>$$</p>
+<p>证：$A$ 可逆时，可以直接由降阶定理得到。</p>
+<p>$A$ 不可逆时，考虑 $tE+A,t\in F$，只有有限多个 $t$ 使得 $tE+A$ 不可逆。除了这有限多个点以外所有 $t$ 均能让 $tE+A$ 可逆。</p>
+<p>$$<br>|(tE+A)+\alpha\beta^T|&#x3D;|tE+A|+\beta^T(tE+A)^*\alpha<br>$$</p>
+<p>（令 $t\to 0$，得证。其实这种方法有问题，在一般的无限域 $F$ 上未定义度量。）</p>
+<p>上式两端均为 $t\in F$ 的多项式函数。在无限多个点处相等，故作为多项式相等。故在 $t&#x3D;0$ 处也是相等的。</p>
+</li>
+<li><p>有限域上的多项式 $\mathbb Z&#x2F;p\mathbb Z[x]$： $\mathbb Z&#x2F;p\mathbb Z[x]$ 中的 $n$ 次多项式只有 $(p-1)p^n$ 个。可以逐个试除。因此有限域上的多项式判别不可约性是可做的。</p>
+</li>
+<li><p>$F&#x3D;\mathbb C$ 时，考虑 $\mathbb C[x]$。</p>
+<p>代数基本定理：任复系数非平凡多项式 $f(x)$ 都在 $\mathbb C$ 中有一个根。</p>
+<p>有如下推论：</p>
+<ul>
+<li><p>$\mathbb C[x]$ 中不可约多项式只能是一次的。</p>
+</li>
+<li><p>$\mathbb C[x]$ 中任 $n$ 次多项式在 $\mathbb C$ 中都有 $n$ 个根（重根按重数计算）。</p>
+</li>
+<li><p>$\forall f\in \mathbb C[x]$ 中，$f&#x3D;c\prod_{i&#x3D;1}^s(x-z_i)^{e_i}$，$\sum e_i&#x3D;\deg f$。</p>
+</li>
+</ul>
+<p>例：$f&#x3D;x^n-1\in \mathbb C[x]$ 的所有根为 $\omega^0,\dots,\omega^{n-1}$，其中 $\omega&#x3D;e^{2\pi i&#x2F;n}$。</p>
+</li>
+<li><p>设 $F$ 为数域，$p(x)\in F[x]$ 不可约。设 $\alpha\in \mathbb C$ 为 $p(x)$ 在 $\mathbb C$ 中的根，则：</p>
+<ul>
+<li><p>$\alpha$ 在 $F$ 上能满足的最低次多项式为 $p(x)$。</p>
+</li>
+<li><p>记 $F[\alpha]&#x3D;{f(\alpha)\mid f\in F[x]}&#x3D;{a_{n-1}\alpha^{n-1}+\dots+a_1\alpha+a_0\mid a_i\in F}$。</p>
+</li>
+<li><p>定义 $+,\cdot$：$(fg)(\alpha)&#x3D;f(\alpha)g(\alpha),(f+g)(\alpha)&#x3D;f(\alpha)+g(\alpha)$，则 $F[\alpha]$ 为域。</p>
+</li>
+</ul>
+<p>将不可约多项式 $p(x)$ 的根 $\alpha$ 加到 $F$ 上得到的域称为代数扩域 $F[\alpha]$。</p>
+<p>例如：$\mathbb Q[\sqrt{-1}]&#x3D;{a+bi\mid a,b\in \mathbb Q}\simeq \mathbb Q[x]&#x2F;(x^2+1)\mathbb Q[x]$。</p>
+</li>
+<li><p>实数域上的不可约多项式：$p(x)\in \mathbb R[x]\subset \mathbb C[x]$。设 $z$ 为 $p(x)$ 在 $\mathbb C$ 中的一根。</p>
+<ul>
+<li><p>$z\in \mathbb R$ 时，$x-z\mid p(x)$，则 $p(x)\sim x-z$。</p>
+</li>
+<li><p>$z\notin \mathbb R$ 时，$z&#x3D;x_0+iy_0$，$y_0\neq 0,x_0,y_0\in \mathbb R$。则 $z&#x3D;x_0-iy_0&#x3D;\bar z$ 也是 $p(x)$ 之复根。因此在 $\mathbb C[x]$ 中，$(x-z)(x-\bar z)\mid p(x)$，而 $x^2-2\mathrm{Re}(z)+|z\bar z|\in \mathrm R[x]$。因此 $p(x)\sim x^2-2\mathrm{Re}(z)+|z\bar z|$。即 $ax^2+bx+c\in \mathbb R[x]$ 不可约 $\iff b^2-4ac&lt;0$。</p>
+</li>
+</ul>
+</li>
+<li><p>定理：$\mathbb R[x]$ 中任意多项式均有标准不可约分解：</p>
+<p>$$<br>f(x)&#x3D;c\prod_{i&#x3D;1}^r(x+a_i)\prod_{j&#x3D;1}^s(x^2+b_jx+c_j),\quad b_j^2-4c_j^2&lt;0,\forall j<br>$$</p>
+</li>
+<li><p>$\forall f(x)&#x3D;a_nx^n+a_{n-1}x^{n-1}+\cdots+a_0\in \mathbb Q[x]$，都存在 $t\in \mathbb Q$，使得 $tf&#x3D;\sum_{i&#x3D;0}^n b_ix^i$，其中 $b_i\in \mathbb Z$，且所有 $b_i$ 之最大公约数为 $\pm 1$。</p>
+</li>
+<li><p>定义：称整系数多项式 $f(x)&#x3D;\sum_{i&#x3D;0}^n a_ix^i$ 为本原多项式。若 $\gcd(a_0,\dots,a_n)&#x3D;\pm 1$。任意 $f(x)\in \mathbb Q[x]$ 均相伴于一个本原多项式。</p>
+<ul>
+<li><p>在 $\mathbb R[x]$ 中，称 $p(x)\in \mathbb R[x]$ 不可约，若 $p(x)$ 只有因子 $1,p(x),c,cp(x)$，$\forall c\in U(\mathbb R[x])$，表示 $R[x]$ 中的可逆元。</p>
+<p>类比到 $\mathbb Z[x]$ 中，$p(x)\in \mathbb Z[x]$ 不可约若 $p(x)$ 只有 $\pm 1,\pm p(x)$ 因子（$\mathbb Z[x]$ 中的可逆元只有 $\pm 1$）。</p>
+<p>因此 $g(x)&#x3D;3x$ 在 $\mathbb Q[x]$ 中可约，在 $\mathbb Z[x]$ 中不可约。</p>
+</li>
+</ul>
+</li>
+<li><p>引理：</p>
+<ul>
+<li><p>若两个本原多项式 $f,g$ 相伴，则 $f&#x3D;\pm g$。</p>
+</li>
+<li><p>本原多项式之积仍是本原多项式。</p>
+</li>
+</ul>
+</li>
+<li><p>命题：$f(x)\in \mathbb Z[x]$，若 $f(x)$ 在 $\mathbb Q[x]$ 中可约，则 $f(x)$ 可被表示为两个非零更低次整系数多项式乘积。</p>
+<p>证：设在 $\mathbb Q[x]$ 中 $f&#x3D;gh$，则 $\exists a\in \mathbb Z,b,c\in \mathbb Q$，和本原多项式 $f_1,g_1,h_1$ 满足 $f&#x3D;af_1,g&#x3D;bg_1,h&#x3D;ch_1$。则有 $af_1&#x3D;bcg_1h_1$。</p>
+<p>而 $f_1,g_1h_1$ 均为本原多项式且相伴。因此 $a&#x3D;\pm bc\in \mathbb Z$。</p>
+<p>故 $f&#x3D;\frac{bc}{a}g_1\cdot h_1$，后面两个均为整系数多项式。</p>
+</li>
+<li><p>命题：$f(x)&#x3D;\sum_{i&#x3D;0}^n a_ix^i\in \mathbb Z[x]$，若 $\frac{s}{r}\in \mathbb Q$ 为 $f(x)$ 之有理根，则 $r\mid a_n,s\mid a_0$。</p>
+<p>证明直接展开即可。</p>
+<p>注：该命题可判别 $f$ 有无一次不可约因子。特别的可判别 $\deg f\le 3$ 的不可约性。</p>
+</li>
+<li><p>设 $f(x)&#x3D;a_nx^n+\cdots+a_1x+a_0\in \mathbb Z[x]$ 为本原多项式。设素数 $p$ 满足：</p>
+<ul>
+<li><p>$p\nmid a_n$。</p>
+</li>
+<li><p>$p\mid a_i,\forall i&#x3D;0,1,\dots,n-1$。</p>
+</li>
+</ul>
+<p>若 $f$ 在 $\mathbb Q[x]$ 中可约，则设 $f&#x3D;gh$，其中 $g&#x3D;\sum_{i&#x3D;0}^r b_ix^i,h&#x3D;\sum_{j&#x3D;0}^sc_jx^j$ 均为本原多项式，$r+s&#x3D;n$。则 $a_n&#x3D;b_rc_s,a_0&#x3D;b_0c_0$。</p>
+<p>有 $p\mid a_0&#x3D;b_0c_0\implies p\mid b_0$ 或 $p\mid c_0$。$p\nmid a_n&#x3D;b_rc_s\implies p\nmid b_r,p\nmid c_s$。</p>
+<p>不妨设 $p\mid b_0$，设第一个不能被 $p$ 整除的 $g$ 的系数是 $b_k$，其中 $k\le r$（因为 $p\nmid b_r$）。则考虑 $a_k&#x3D;b_0c_k+b_1c_{k-1}+\cdots+b_{k-1}c_1+b_kc_0$，而 $p\mid a_k$，因此 $p\mid b_kc_0$。</p>
+<p>又有 $p\nmid b_k$，因此 $p\mid c_0$。即 $p\mid b_0$ 和 $p\mid c_0$ 均成立。得出 $p^2\mid a_0$。</p>
+</li>
+<li><p>定义：称一个本原多项式 $f&#x3D;\sum_{i&#x3D;0}^n a_ix^i$ 为 Eisenstein 多项式，若存在素数 $p$ 满足：</p>
+<ul>
+<li><p>$p\nmid a_n$。</p>
+</li>
+<li><p>$p\mid a_i,\forall i&#x3D;0,1,\dots,n-1$。</p>
+</li>
+<li><p>$p^2\nmid a_0$。</p>
+</li>
+</ul>
+</li>
+<li><p>定理：Eisenstein 多项式不可约（证明见上）。</p>
+<p>例：$x^n+2\ (n\ge 2)$ 在 $\mathbb Q[x]$ 中不可约（取 $p&#x3D;2$）。</p>
+</li>
+<li><p>命题：$f(x)\in \mathbb Z[x]$，$\forall a\in \mathbb Z$，令 $g(x)&#x3D;f(x+a)$。则 $f(x)$ 在 $\mathbb Q[x]$ 中可约 $\iff$ $g(x)$ 在 $\mathbb Q[x]$ 中可约。</p>
+<p>例：$f(x)&#x3D;x^4+2x-1$，$f(x+1)&#x3D;x^4+4x^3+6x^2+6x+2$，取 $p&#x3D;2$ 可得 $f(x+1)$ 不可约，故 $f(x)$ 不可约。</p>
+</li>
+<li><p>例：$p$ 为素数，$f(x)&#x3D;x^{p-1}+x^{p-2}+\cdots+x+1$。证明 $f(x)$ 不可约。</p>
+<p>证：$(x-1)f(x)&#x3D;x^p-1$。带入 $x\to x+1$，则 $xf(x+1)&#x3D;(x+1)^p-1$。</p>
+<p>$$<br>\begin{aligned}<br>xf(x+1)&#x3D;x^p+\binom{p}{1}x^{p-1}+\cdots+\binom{p}{p-1}x\cr<br>\implies f(x+1)&#x3D;x^{p-1}+\binom{p}{1}x^{p-2}+\cdots+\binom{p}{p-1}<br>\end{aligned}<br>$$</p>
+<p>此为 Eisenstein 多项式，故 $f(x+1)$ 不可约，得到 $f(x)$ 不可约。</p>
+</li>
+<li><p>$\bmod p$ 法判别不可约（$p$ 素数）：构造映射 $\varphi:\mathbb Z[x]\to \mathbb Z&#x2F;p\mathbb Z[x]$，表示将多项式系数 $\bmod p$，容易证明 $\varphi$ 为环同态。</p>
+<p>命题：设 $f&#x3D;\sum_{i&#x3D;0}^n a_ix^i$。若存在素数 $p$ 满足 $p\nmid a_n$，$\varphi$ 如上定义。则若 $\varphi(f)$ 不可约，则 $f$ 不可约。</p>
+<p>证：否则 $f&#x3D;gh$，由 $p\nmid a_n$ 可得 $p\nmid b_r,p\nmid c_s$，因此 $\varphi(g),\varphi(h)$ 为 $r,s$ 次多项式。故 $\varphi(f)&#x3D;\varphi(g)\varphi(h)$，矛盾。</p>
+</li>
+</ul>
+<h3 id="多元多项式"><a href="#多元多项式" class="headerlink" title="多元多项式"></a>多元多项式</h3>
         </div>
 
         
@@ -378,6 +727,8 @@
                         <a href="/tags/review/"># review</a>
                     
                         <a href="/tags/math/"># math</a>
+                    
+                        <a href="/tags/advanced-algebra/"># advanced algebra</a>
                     
                         
                 </span>
