@@ -344,11 +344,11 @@
 <li><p>$M_n(F[x])$ 之元称为 $\lambda-$ 矩阵。</p>
 <p>$M_n(F[x])$ 可以类似数字矩阵定义行列式、子式、伴随矩阵。但不好直接类比引入秩等概念。</p>
 </li>
-<li><p>定义：设 $G$ 非空，$G$ 中有代数运算 $<em>$。称 $(G,</em>)$ 为<strong>群</strong>（Group），若：</p>
+<li><p>定义：设 $G$ 非空，$G$ 中有代数运算 $*$。称 $(G,*)$ 为<strong>群</strong>（Group），若：</p>
 <ol>
-<li><p>$<em>$ 满足结合律：$(a</em>b)<em>c&#x3D;a</em>(b*c)$。</p>
+<li><p>$*$ 满足结合律：$(a*b)*c&#x3D;a*(b*c)$。</p>
 </li>
-<li><p>单位元存在记为 $e$，即：$\exists e\in G$，使得 $e<em>a&#x3D;a</em>e&#x3D;a,\forall a\in G$。</p>
+<li><p>单位元存在记为 $e$，即：$\exists e\in G$，使得 $e*a&#x3D;a*e&#x3D;a,\forall a\in G$。</p>
 </li>
 <li><p>逆元存在：$\forall a\in G,\exists b\in G$，使得 $a*b&#x3D;e$，$b$ 称为 $a$ 之逆，记 $b&#x3D;a^{-1}$。</p>
 </li>
@@ -691,7 +691,236 @@
 <p>证：否则 $f&#x3D;gh$，由 $p\nmid a_n$ 可得 $p\nmid b_r,p\nmid c_s$，因此 $\varphi(g),\varphi(h)$ 为 $r,s$ 次多项式。故 $\varphi(f)&#x3D;\varphi(g)\varphi(h)$，矛盾。</p>
 </li>
 </ul>
-<h3 id="多元多项式"><a href="#多元多项式" class="headerlink" title="多元多项式"></a>多元多项式</h3>
+<h3 id="多元多项式"><a href="#多元多项式" class="headerlink" title="多元多项式"></a>多元多项式</h3><ul>
+<li><p>$F[x_1,\dots,x_n]&#x3D;(F[x_1][x_2]\cdots)[x_n]$ 中元的一般形式为：</p>
+<p>$$<br>\sum_{k_1,k_2,\dots,k_n}a_{k_1,k_2,\dots,k_n}x_1^{k_1}x_2^{k_2}\cdots x_n^{k_n}<br>$$</p>
+<p>其中求和为有限项。</p>
+</li>
+<li><p>对单项 $a_{k_1,\dots,k_n}x_1^{k_1}\cdots x_n^{k_n}$，称其次数为 $k_1+k_2+\cdots+k_n$。</p>
+<p>称一个多元多项式 $f$ 所有单项次数之最大值称为 $f$ 的次数。</p>
+</li>
+<li><p>多元多项式的写法：将各单项式按指数组的字典序排序。</p>
+<p>$f$ 按照字典序写时，第一项称为 $f$ 之首项（即字典序最大的一项）。</p>
+</li>
+<li><p>命题：$\forall f,g\in F[x_1,\dots,x_n]$，$fg$ 之首项为 $f,g$ 之首项之积。</p>
+<p>（故：$F[x_1,\dots,x_n]$ 中消去律成立。即：$\forall f,g\in F[x_1,\dots,x_n]$，若 $fg&#x3D;0$，则 $f&#x3D;0$ 或 $g&#x3D;0$，也称满足该条件的环为整环）。</p>
+</li>
+<li><p>称 $f&#x3D;\sum a_{k_1,\dots,k_n}x_1^{k_1}\cdots x_n^{k_n}$ 为齐次的，若各单项次数均相同。若各单项次数均为 $k$，则称 $f$ 为 $k$ 次齐次的。</p>
+<ul>
+<li><p>$A\in M_n(F)$，$X^TAX&#x3D;\sum a_{i,j}x_ix_j$ 为二次齐次多项式。</p>
+</li>
+<li><p>$X&#x3D;(x_{i,j})_n$，$\det(X)$ 为 $n$ 次齐次多项式。</p>
+</li>
+</ul>
+<p>$\forall f\in F[x_1,\dots,x_n]$，都有 $f&#x3D;f_0+f_1+\cdots+f_k$，其中 $f_i$ 为 $i$ 次齐次的。</p>
+</li>
+<li><p>命题：$\forall f,g\in F[x_1,\dots,x_n]$，有 $\deg fg&#x3D;\deg f+\deg g$。</p>
+</li>
+<li><p>命题（齐次判别）：设 $F$ 有无限多元，$f\in F[x_1,\dots,x_n]$ 为 $k$ 次齐次多项式 $\iff\forall t\in F$，有 $f(tx_1,\dots,tx_n)&#x3D;t^kf(x_1,\dots,x_n)$。</p>
+<ul>
+<li><p>证明：$\implies$ 显然。只需证 $\Longleftarrow$。</p>
+<p>设 $f&#x3D;f_0+f_1+\cdots+f_k$，则：</p>
+<p>$$<br>\begin{aligned}<br>f(tx_1,\dots,tx_n)&amp;&#x3D;f_0(tx_1,\dots,tx_n)+\cdots+f_k(tx_1,\dots,tx_n)\cr<br>&amp;&#x3D;t^0f_0(x_1,\dots,x_n)+\cdots+t^kf_k(x_1,\dots,x_n)\cr<br>&amp;&#x3D;t^kf_0+\cdots+t^kf_k<br>\end{aligned}<br>$$</p>
+<p>也即 $\forall i&#x3D;0,\dots,k$，都有 $t^i&#x3D;t^k,\forall t\in F$。$F$ 有无限多元时，只能 $i&#x3D;k$。</p>
+<p>故 $f&#x3D;f_k$，即 $f$ 是 $k$ 次齐次多项式。</p>
+</li>
+</ul>
+</li>
+<li><p>设环 $R\supset F$，$\forall t_i\in R,i&#x3D;1,\dots,n$，构造：</p>
+<p>$$<br>\begin{aligned}<br>\varphi&amp;:F[x_1,\dots,x_n]&amp;\to &amp;\quad R\cr<br>&amp;f(x_1,\dots,x_n)&amp;\mapsto &amp;\quad f(t_1,\dots,t_n)<br>\end{aligned}<br>$$</p>
+<p>则 $\varphi$ 为环同态。</p>
+<p>特别的，$R&#x3D;F$ 时，$\forall f\in F[x_1,\dots,x_n]$ 定义 $\tilde{f}:F^n\to F$，定义 $\tilde f(t_1,\dots,t_n)&#x3D;f(t_1,\dots,t_n)$。称 $\tilde f$ 为由 $f$ 定义的多元多项式函数。</p>
+<p>记 $R$ 为所有 $F^n$ 上的多元多项式函数集合，定义运算 $+,\cdot$，则 $R$ 为环。</p>
+</li>
+<li><p>命题：$F$ 含无限多元时，令：</p>
+<p>$$<br>\begin{aligned}<br>\varphi:&amp;F[x_1,\dots,x_n]&amp;\to R\cr<br>&amp;f&amp;\mapsto \tilde f<br>\end{aligned}<br>$$</p>
+<p>则 $\varphi$ 为环同构。</p>
+</li>
+<li><p>$n$ 元置换：$S&#x3D;{1,2,\dots,n}$，一个 $n$ 元置换指一个一一映射：</p>
+<p>$$<br>\tau:S\to S<br>$$</p>
+<p>常记做：</p>
+<p>$$<br>\tau&#x3D;\begin{pmatrix}1&amp;2&amp;\cdots&amp;n\cr i_1&amp;i_2&amp;\cdots&amp;i_n\end{pmatrix}<br>$$</p>
+<p>共有 $n!$ 个 $n$ 元置换，记 $S_n$ 为所有 $n$ 元置换。</p>
+<p>在 $S_n$ 内可定义 $\cdot$ 为复合。则 $S_n$ 为 $n!$ 个元的群，称为 $n$ 元置换群。</p>
+</li>
+<li><p>$\forall \tau\in S_n$，定义：</p>
+<p>$$<br>\begin{aligned}<br>\tilde\tau:&amp;F[x_1,\dots,x_n]&amp;\to&amp;\quad F[x_1,\dots,x_n]\cr<br>&amp;f(x_1,\dots,x_n)&amp;\mapsto&amp;\quad \tilde\tau f&#x3D;f(x_{\tau_1},\dots,x_{\tau_n})<br>\end{aligned}<br>$$</p>
+<p>则 $\tilde\tau$ 为环同态。</p>
+</li>
+<li><p>定义：称多项式 $f(x_1,\dots,x_n)$ 为对称的，若 $\forall \tau\in S_n$，$\tilde\tau f&#x3D;f$。</p>
+<p>注：若 $f,g$ 为对称多项式，则 $f+g,fg$ 均对称。</p>
+<p>特别的，$f_1,f_2,\dots,f_n$ 对称，则 $f_1^{k_1}\cdots f_n^{k_n}$ 也对称。</p>
+<p>因此，$\forall h(x_1,\dots,x_n)\in F[x_1,\dots,x_n]$，有 $h(f_1,\dots,f_n)$ 对称。</p>
+<p>特别的，$\forall h\in F[x_1,\dots,x_n]$，$h(\sigma_1,\dots,\sigma_n)$ 对称（$\sigma$ 定义见下）。</p>
+</li>
+<li><p>定义 $\sigma_k(x_1,\dots,x_n)&#x3D;\sum_{1\le i_1&lt;\dots&lt;i_k\le n}x_{i_1}\cdots x_{i_k}$，其中 $k&#x3D;1,\dots,n$。称 $\sigma_1,\dots,\sigma_n$ 为初等对称多项式。</p>
+<p>$\sigma_1&#x3D;\sum_{i&#x3D;1}^n x_i$，$\sigma_n&#x3D;\prod_{i&#x3D;1}^n x_i$。</p>
+</li>
+<li><p>定理（对称多项式结构）：记 $W$ 为 $n$ 元对称多项式集合，则 $W$ 为 $F[x_1,\dots,x_n]$ 的子环，且 $W&#x3D;F[\sigma_1,\dots,\sigma_n]$。</p>
+</li>
+<li><p>引理：若多项式 $f&#x3D;ax_1^{l_1}x_2^{l_2}\cdots x_n^{l_n}+\sum a_{i_1,\dots,l_n}x_1^{i_1}\cdots x_n^{i_n}$ 对称，则 $l_1\ge l_2\ge \cdots\ge l_n$。</p>
+</li>
+<li><p>设 $f&#x3D;ax_1^{l_1}\cdots x_n^{l_n}+\cdots$ 为对称多项式，则令：</p>
+<p>$$<br>\varphi_1&#x3D;a\sigma_1^{l_1-l_2}\sigma_2^{l_2-l_3}\cdots\sigma_{n-1}^{l_{n-1}-l_n}\sigma_n^{l_n}<br>$$</p>
+<p>则 $f$ 与 $\varphi_1$ 的首项相同。定义 $f_1&#x3D;f-\varphi_1$，那么 $f_1$ 之首项指数对 $&lt;(l_1,l_2,\cdots,l_n)$。</p>
+<p>令 $f_1&#x3D;bx_1^{u_1}\cdots x_n^{u_n}+\cdots$，则令：</p>
+<p>$$<br>\varphi_2&#x3D;b\sigma_1^{u_1-u_2}\sigma_2^{u_2-u_3}\cdots\sigma_{n-1}^{l_{n-1}-l_n}\sigma_n^{l_n}<br>$$</p>
+<p>则 $f_1$ 与 $\varphi_2$ 的首项相同。定义 $f_2&#x3D;f_1-\varphi_2$。以此类推。</p>
+<p>经过有限步之后，必能得到 $f_s&#x3D;0$。那么 $f&#x3D;\varphi_1+\varphi_2+\cdots+\varphi_s$。</p>
+<p>若令 $\varphi_i&#x3D;a_i\sigma_1^{t_{i,1}}\cdots\sigma_n^{t_{i,n}}$，那么令 $h&#x3D;\sum a_ix_1^{t_{i,1}}\cdots x_n^{t_{i,n}}$，则 $h(\sigma_1,\cdots,\sigma_n)&#x3D;f$。</p>
+</li>
+<li><p>唯一性：若 $h_1\neq h_2\in F[x_1,\cdots,x_n]$，使得 $h_1(\sigma_1,\cdots,\sigma_n)&#x3D;h_2(\sigma_1,\cdots,\sigma_n)$。那么令 $h&#x3D;h_1-h_2\neq 0$，且 $h(\sigma_1,\cdots,\sigma_n)&#x3D;0$。</p>
+<p>由于 $h\neq 0$，因此存在 $b_1,\cdots,b_n\in F$ 使得 $h(b_1,\cdots,b_n)\neq 0$。</p>
+<p>构造 $\psi(x)&#x3D;x^n-b_1x^{n-1}+\cdots+(-1)^nb_1\in F[x]$，设 $\psi(x)$ 在 $\mathbb C$ 中的所有复根为 $\alpha_1,\cdots,\alpha_n$，由韦达定理可知 $\sigma_i(\alpha_1,\cdots,\alpha_n)&#x3D;b_i,\forall i$。</p>
+<p>因此 $0&#x3D;h(\sigma_1(\alpha_1,\cdots,\alpha_n),\cdots,\sigma_n(\alpha_1,\cdots,\alpha_n))&#x3D;h(b_1,\cdots,b_n)\neq 0$，矛盾。</p>
+</li>
+<li><p>结合上面两条，可得前面所说（对称多项式结构定理）$W&#x3D;F[\sigma_1,\cdots,\sigma_n]$。</p>
+</li>
+<li><p>特殊的，若 $f(x)$ 为 $k$ 次齐次多项式，那么在上面求 $h$ 过程中，$\varphi_i$ 的首项指数对 $(k_1,\cdots,k_n)$ 必然满足：</p>
+<ul>
+<li><p>$k_1+\cdots+k_n&#x3D;k$。</p>
+</li>
+<li><p>$k_1\ge k_2\ge\cdots\ge k_n$。</p>
+</li>
+</ul>
+<p>若能求出满足上述条件的所有 $(k_1,\cdots,k_n)$，那么可以直接待定系数求解 $h$。</p>
+<p>例：设 $f(x_1,\cdots,x_n)$ 为包含 $x_1^2x_2^2$ 的项数最小的对称多项式。求 $h$ 使得 $f&#x3D;h(\sigma_1,\cdots,\sigma_n)$。</p>
+<p>解：$f$ 之首项指数对为 $(2,2,0,\cdots,0)$。因此 $(k_1,\cdots,k_n)$ 之解集为 $(2,2,0,\cdots,0),(2,1,1,0,\cdots,0),(1,1,1,1,0,\cdots,0)$。</p>
+<p>故令 $\varphi_1&#x3D;\sigma_1^{2-2}\sigma_2^{2-0}&#x3D;\sigma_2^2,\varphi_2&#x3D;\sigma_1\sigma_3,\varphi_3&#x3D;\sigma_4$。一定有 $f&#x3D;a\varphi_1+b\varphi_2+c\varphi_3$，解出 $a,b,c$ 即可。</p>
+</li>
+<li><p>判别式 $D(x_1,x_2,\cdots,x_n)&#x3D;\prod_{1\le i&lt;j\le n}(x_i-x_j)^2&#x3D;h(\sigma_1,\cdots,\sigma_n)$。</p>
+<p>问题背景：判断一多项式在 $\mathbb C$ 中是否有重根。$f$ 在 $\mathbb C$ 中有重根等价于 $D(\alpha_1,\alpha_2,\cdots,\alpha_n)&#x3D;0$。</p>
+<p>$$<br>D(x_1,\cdots,x_n)&#x3D;<br>\begin{vmatrix}<br>1&amp;1&amp;\cdots&amp;1\cr<br>x_1&amp;x_2&amp;\cdots&amp;x_n\cr<br>\vdots&amp;\vdots&amp;\ddots&amp;\vdots\cr<br>x_1^{n-1}&amp;x_2^{n-1}&amp;\cdots&amp;x_n^{n-1}<br>\end{vmatrix}\cdot<br>\begin{vmatrix}<br>1&amp;x_1&amp;\cdots&amp;x_1^{n-1}\cr<br>1&amp;x_2&amp;\cdots&amp;x_2^{n-1}\cr<br>\vdots&amp;\vdots&amp;\ddots&amp;\vdots\cr<br>1&amp;x_n&amp;\cdots&amp;x_n^{n-1}<br>\end{vmatrix}<br>$$</p>
+<p>记 $S_k(x_1,\cdots,x_n)&#x3D;\sum_{i&#x3D;1}^n x_i^k$，那么：</p>
+<p>$$<br>D(x_1,\cdots,x_n)&#x3D;\begin{vmatrix}<br>n&amp;S_1&amp;S_2&amp;\cdots&amp;S_{n-1}\cr<br>S_1&amp;S_2&amp;S_3&amp;\cdots&amp;S_n\cr<br>\vdots&amp;\vdots&amp;\vdots&amp;\ddots&amp;\vdots\cr<br>S_{n-1}&amp;S_n&amp;S_{n+1}&amp;\cdots&amp;S_{2n-2}<br>\end{vmatrix}<br>$$</p>
+<p>只需要将 $S_k$ 表示为 $\sigma_1,\cdots,\sigma_n$ 之多项式即可。</p>
+</li>
+<li><p>定理（Newton 迭代公式）：</p>
+<p>$$<br>\begin{cases}<br>S_k-\sigma_1S_{k-1}+\cdots+(-1)^{k-1}\sigma_{k-1}S_1+(-1)^kk\sigma_k&#x3D;0&amp;k\le n\cr<br>S_k-\sigma_1S_{k-1}+\cdots+(-1)^{n-1}\sigma_{n-1}S_{k-n+1}+(-1)^n\sigma_nS_{k-n}&#x3D;0&amp;k&gt;n<br>\end{cases}<br>$$</p>
+</li>
+<li><p>定义：$\forall f&#x3D;x^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0$ 首一，定义 $f$ 之判别式为：</p>
+<p>$$<br>D(f)&#x3D;D(\alpha_1,\cdots,\alpha_n)<br>$$</p>
+<p>其中 $\alpha_1,\cdots,\alpha_n$ 为$f$ 在 $\mathbb C$ 中的根。</p>
+<p>对于 $f&#x3D;a_nx^n+\cdots+a_1x+a_0$ 其中 $a_n\neq 1$，则定义：</p>
+<p>$$<br>D(f)&#x3D;a_n^{2n-2}D(a_n^{-1}f)<br>$$</p>
+</li>
+<li><p>例：$f&#x3D;x^3+ax+b$，求 $D(f)$。</p>
+<p>解：设 $\alpha_1,\alpha_2,\alpha_3$ 为 $f$ 在 $\mathbb C$ 中的复根，则 $\sigma_1(\alpha_1,\alpha_2,\alpha_3)&#x3D;0,\sigma_2&#x3D;a,\sigma_3&#x3D;-b$。</p>
+<p>$S_2&#x3D;\sigma_1^2-2\sigma_2&#x3D;-2a,S_3&#x3D;-3b,S_4&#x3D;2a^2$。</p>
+<p>$$<br>D(f)&#x3D;\begin{vmatrix}3&amp;S_1&amp;S_2\cr S_1&amp;S_2&amp;S_3\cr S_2&amp;S_3&amp;S_4\end{vmatrix}&#x3D;-(4a^3+27b^2)<br>$$</p>
+<p>故 $f$ 有重根当且仅当 $4a^3+27b^2&#x3D;0$。</p>
+</li>
+<li><p>$\forall f,g\in F[x]$，设 $f&#x3D;a_nx^n+\cdots+a_1x+a_0,g&#x3D;b_mx^m+\cdots+b_0$，设 $f$ 在 $\mathbb C$ 上的 $n$ 个根为 $\alpha_1,\cdots,\alpha_n$，$g$ 在 $\mathbb C$ 上的 $m$ 个根为 $\beta_1,\cdots,\beta_m$，则有：</p>
+<p>$$<br>R(f,g)&#x3D;a_n^m\prod_{i&#x3D;1}^ng(\alpha_i)&#x3D;(-1)^{nm}b_m^n\prod_{j&#x3D;1}^mf(\beta_j)<br>$$</p>
+</li>
+<li><p>定理（结式与判别式的关系）：$\forall f&#x3D;a_nx^n+\cdots+a_1x+a_0\in F[x]$，则 $D(f)&#x3D;a_n^{-1}\cdot (-1)^{n(n-1)&#x2F;2}\cdot R(f,f’)$。</p>
+</li>
+</ul>
+<h3 id="lambda-矩阵和矩阵的相似分类"><a href="#lambda-矩阵和矩阵的相似分类" class="headerlink" title="$\lambda-$ 矩阵和矩阵的相似分类"></a>$\lambda-$ 矩阵和矩阵的相似分类</h3><ul>
+<li><p>设 $F$ 为数域，$M_n(F[\lambda])$ 中的矩阵称为 $\lambda-$ 矩阵。</p>
+<p>注：$M_n(F[x])\cong M_n(F)[x]$。下面用 $A(\lambda)$ 来记 $\lambda-$ 矩阵，用 $A,B$ 等来记 $M_n(F)$ 中的元。</p>
+</li>
+<li><p>容易在 $M_{m\times n}(F[x])$ 中定义 $+,\cdot$。</p>
+<p>容易类比 $M_n(F)$ 的定义，来定义 $\lambda-$ 矩阵的行列式、子式、伴随矩阵。</p>
+<p>称 $A(\lambda)$ 之秩为 $r$，若 $A(\lambda)$ 有一个非零的 $r$ 阶子式，但所有的 $r+1$ 阶子式均为零。</p>
+<p>称一个 $n$ 阶 $\lambda-$ 矩阵可逆，若存在 $B(\lambda)$ 使得 $A(\lambda)B(\lambda)&#x3D;B(\lambda)A(\lambda)&#x3D;E$。</p>
+</li>
+<li><p>命题：$A(\lambda)$ 可逆 $\iff \det(A(\lambda))\in U(F[\lambda])&#x3D;F^*$。</p>
+</li>
+<li><p>$\lambda-$ 矩阵的三类初等变换：</p>
+<ul>
+<li><p>交换 $A(\lambda)$ 之 $i,j$ 行。</p>
+</li>
+<li><p>某行变成非零常数倍。</p>
+</li>
+<li><p>$i$ 行的 $\varphi(\lambda)\in F[\lambda]$ 倍加到 $j$ 行上。</p>
+</li>
+</ul>
+<p>初等行列变换等同于用初等 $\lambda-$ 阵左乘或右乘该矩阵。</p>
+</li>
+<li><p>定义：称两个 $\lambda-$ 矩阵 $A(\lambda),B(\lambda)$ 等价，若 $A(x)$ 可以经过初等行列变换化成 $B(\lambda)$。</p>
+<p>注（未证明）：$A,B\in M_n(F)$，则 $A,B$ 相似 $\iff \lambda E-A,\lambda E-B$ 等价。</p>
+</li>
+<li><p>引理：$\forall A(\lambda)&#x3D;(a_{i,j}(\lambda))\in M_{m\times n}(F[\lambda])$，设 $a_{1,1}\neq 0$，且存在 $a_{i,j}$ 满足 $a_{1,1}\nmid a_{i,j}$，则存在 $B(\lambda)&#x3D;(b_{i,j}(\lambda))$ 使得 $A,B$ 等价且 $\deg b_{1,1}(\lambda)&lt;\deg a_{1,1}(\lambda)$。进而 $A$ 等价于 $C$，其中 $c_{1,1}(\lambda)\mid a_{i,j}(\lambda),\forall i,j$。</p>
+<p>构造：如果 $a_{1,j}$ 或者 $a_{i,1}$ 中还存在不能被 $a_{1,1}$ 整除，那么直接构造即可。</p>
+<p>否则存在 $a_{i,j}$ 不能被 $a_{1,1}$ 整除，此时 $a_{1,j}&#x3D;a_{1,1}q(\lambda)$。将第一列的 $1-q(\lambda)$ 倍加到第 $j$ 列，那么 $a_{1,j}$ 变为 $a_{1,1}$，$a_{i,j}$ 仍然不能被 $a_{1,1}$ 整除。交换第 $1$ 列和第 $j$ 列即可在第一列找到不能整除的。</p>
+</li>
+<li><p>推论：任意 $A(\lambda)&#x3D;(a_{i,j}(\lambda))$ 都等价于 $C(\lambda)&#x3D;(c_{i,j}(\lambda))$ 使得 $c_{1,1}(\lambda)\mid c_{i,j}(\lambda),\forall i,j$。</p>
+</li>
+<li><p>定理：任意 $\lambda-$ 阵 $A(\lambda)$ 均等价于如下形式的<strong>等价标准型</strong>：</p>
+<p>$$<br>\begin{pmatrix}<br>\text{diag}(d_1(\lambda),d_2(\lambda),\cdots,d_r(\lambda))&amp;0\cr<br>0&amp;0<br>\end{pmatrix}_{m\times n}<br>$$</p>
+<p>其中 $r&#x3D;\text{rank}(A(\lambda))$，$d_i(\lambda)\mid d_{i+1}(\lambda),\forall i&#x3D;1,\cdots,r-1$。</p>
+<p>$d_i(\lambda),\forall i$ 被称为 $A(\lambda)$ 的不变因子组。</p>
+</li>
+<li><p>定义：设 $A(\lambda)\in M_{m\times n}(F[\lambda])$，秩为 $r$。$\forall 1\le k\le r$，$A(\lambda)$ 的所有 $k$ 阶子式的首一最大公因子，称为 $A(\lambda)$ 的 $k$ 阶行列式因子。记为 $D_k(\lambda)$。</p>
+<p>注：$D_k(\lambda)$ 不依赖于初等变换。因此 $D_k(\lambda)&#x3D;d_1(\lambda)\cdots d_k(\lambda)$。因此 $d_k(\lambda)&#x3D;\frac{D_k(\lambda)}{D_{k-1}(\lambda)}$（此处规定 $D_0(\lambda)&#x3D;1$）。从而不变因子组 $d_1(\lambda),d_2(\lambda),\dots,d_r(\lambda)$ 是等价的不变因素。</p>
+</li>
+<li><p>定理：$A(\lambda)$ 等价于 $B(\lambda)\iff$ 它们有相同的不变因子组 $\iff$ 它们有相同的行列式因子组。</p>
+</li>
+<li><p>若 $A(\lambda)$ 可逆，则 $\det(A(\lambda))&#x3D;c\neq 0$，因此 $D_n(\lambda)&#x3D;1$，从而 $D_n(\lambda)&#x3D;D_{n-1}(\lambda)&#x3D;\cdots&#x3D;D_1(\lambda)&#x3D;1$，进而 $d_n(\lambda)&#x3D;\cdots&#x3D;d_1(\lambda)&#x3D;1$，因此 $A(\lambda)$ 等价于 $E_n$。即：$A(\lambda)$ 可以被表示为一些初等 $\lambda-$ 矩阵的乘积。</p>
+</li>
+<li><p>设 $A\in M_n(F)$，称 $\lambda E-A$ 为 $A$ 的特征矩阵。称 $\lambda E-A$ 的不变因子组（行列式因子组）为 $A$ 的不变因子组（行列式因子组）。</p>
+</li>
+<li><p>定理：$A,B\in M_n(F)$ 相似 $\iff \lambda E-A$ 与 $\lambda E-B$ 等价。</p>
+<ul>
+<li><p>引理：若存在 $P,Q\in M_n(F)$ 使得 $P(\lambda E-A)Q&#x3D;\lambda E-B$，则 $A,B$ 相似。</p>
+<p>证明：看作 $F[M_n(F)]$ 中的元，则有 $PQ&#x3D;E,PAQ&#x3D;B$。</p>
+</li>
+<li><p>引理：$\forall U(\lambda)\in M_n(F)[\lambda],\forall A\in M_n(F)$。则 $U(\lambda)&#x3D;(\lambda E-A)R(\lambda)+U_0$，也有 $U(\lambda)&#x3D;Q(\lambda)(\lambda E-A)+V_0$。</p>
+</li>
+<li><p>引理：$U(\lambda)$ 可逆 $\iff U(\lambda)$ 是一些初等矩阵的乘积。</p>
+</li>
+<li><p>定理证明：$\implies$：$\exists U$ 使得 $U^{-1}AU&#x3D;V$，因此 $U^{-1}(\lambda E-A)U&#x3D;\lambda E-B$。</p>
+<p>$\Longleftarrow$：设 $\lambda E-A$ 和 $\lambda E-B$ 等价，则存在可逆的 $U(\lambda),V(\lambda)$ 使得：$U(\lambda)(\lambda E-A)V(\lambda)&#x3D;(\lambda E-B)$。即有 $U(\lambda)(\lambda E-A)&#x3D;(\lambda E-B)V(\lambda)^{-1}$。</p>
+<p>设 $U(\lambda)&#x3D;(\lambda E-B)R(\lambda)+U_0$。则 $(\lambda E-B)R(\lambda)(\lambda E-A)+U_0(\lambda E-A)&#x3D;(\lambda E-B)V(\lambda)^{-1}$。</p>
+<p>故 $U_0(\lambda E-A)&#x3D;(\lambda E-B)(V(\lambda)^{-1}-R(\lambda)(\lambda E-A))$。令 $P&#x3D;V(\lambda)^{-1}-R(\lambda)(\lambda E-A)$，易知 $P\in M_n(F)$。</p>
+<p>故只需证明 $P$ 可逆。$PV(\lambda)&#x3D;E-R(\lambda)(\lambda E-A)V(\lambda)&#x3D;E-R(\lambda)U(\lambda)^{-1}(\lambda E-B)$。</p>
+<p>设 $V(\lambda)&#x3D;S(\lambda)(\lambda E-B)+V_0$，则 $PV_0+PS(\lambda)(\lambda E-B)&#x3D;E-R(\lambda)U(\lambda)^{-1}(\lambda E-B)$。</p>
+<p>故 $PV_0-E&#x3D;-(PS(\lambda)+R(\lambda)U(\lambda)^{-1})(\lambda E-B)&#x3D;0$。从而 $PV_0&#x3D;E$，$P$ 可逆。</p>
+</li>
+</ul>
+</li>
+<li><p>定理（相似判别）：$A,B\in M_n(F)$，$A,B$ 相似 $\iff A,B$ 有相同的不变因子组 $\iff A,B$ 有相同的行列式因子组。</p>
+<p>注：$|\lambda E-A|&#x3D;f(\lambda)$，$r(\lambda E-A)&#x3D;n$。因此不变因子组必然是 $d_1(\lambda),\cdots,d_n(\lambda)$。且 $D_n(\lambda)&#x3D;f(\lambda)&#x3D;d_1(\lambda)\cdots d_n(\lambda)$。</p>
+</li>
+<li><p>设 $f(\lambda)&#x3D;\lambda^r+a_{r-1}\lambda^{r-1}+\cdots+a_0\in F[\lambda]$。</p>
+<p>定义：$f(\lambda)$ 的相伴阵：</p>
+<p>$$<br>C(f(\lambda))&#x3D;C(P) &#x3D; \begin{pmatrix}<br>0 &amp; 0 &amp; \dots &amp; 0 &amp; -a_0 \cr<br>1 &amp; 0 &amp; \dots &amp; 0 &amp; -a_1 \cr<br>0 &amp; 1 &amp; \dots &amp; 0 &amp; -a_2 \cr<br>\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \vdots \cr<br>0 &amp; 0 &amp; \dots &amp; 1 &amp; -a_{r-1}<br>\end{pmatrix}_{r\times r}<br>$$</p>
+<p>则有 $|\lambda E-C(f(\lambda))|&#x3D;f(\lambda)&#x3D;D_n(\lambda)$。同时 $D_{n-1}(\lambda)&#x3D;1$。</p>
+<p>因此 $C(f(\lambda))$ 之不变因子组为 $1,1,\cdots,1,f(\lambda)$。</p>
+</li>
+<li><p>定理：任意 $A\in M_n(F)$，设 $A$ 之非平凡不变因子组为 $d_1(\lambda),\cdots,d_r(\lambda)$。则：</p>
+<p>$$<br>C&#x3D;\text{diag}(C(d_1(\lambda)),C(d_2(\lambda)),\cdots,C(d_s(\lambda)))_{n\times n}<br>$$</p>
+<p>则 $A$ 与 $C$ 相似。$C$ 称为 $A$ 之有理（Frobenius）标准型（不变因子版本）。</p>
+</li>
+<li><p>定义：称 $A$ 的非平凡不变因子组的不可约分解中出现的不可约多项式之幂组 $p_j^{e_{i,j}}(e_{i,j}&gt;0)$ 为 $A$ 之初等因子组（依赖于 $F$ 的选取）。</p>
+</li>
+<li><p>引理：设 $\lambda E-A$ 经过初等行列变换化成对角形 $\text{diag}(\delta_1(\lambda),\cdots,\delta_n(\lambda))$。将 $\delta_i(\lambda)$ 唯一不可约分解。则出现在各个 $\delta_i(\lambda)$ 的分解中的不可约多项式的幂的全体即为 $A$ 之初等因子组。</p>
+</li>
+<li><p>设 $p_1^{e_{1,1}},p_2^{e_{1,2}},\dots,p_t^{e_{1,t}},\dots,p_1^{e_{s,1}},\dots,p_t^{e_{s,t}}$ 为 $A$ 之初等因子组，将各个 $p_i$ 按照幂次从高往低排，即可确定 $A$ 之不变因子组。</p>
+<p>因此 $A$ 之初等因子组和不变因子组相互决定。</p>
+</li>
+<li><p>对 $p^e(\lambda)$，若 $p(\lambda)$ 不可约，则若 $\deg p&#x3D;r$，则 $p^e(\lambda)&#x3D;\lambda^{re}+\cdots$。</p>
+<p>则 $C(p^e(\lambda))$ 之初等因子组为 $1,1,\dots,1,p^e(\lambda)$，初等因子组为 $p^e(\lambda)$。</p>
+<p>设 $A$ 之初等因子组为 $p_j^{e_{i,j}}(\lambda)$，考虑 $C&#x3D;\text{diag}(C(p_1^{e_{1,1}}),\cdots,C(p_t^{e_{1,t}}),\cdots,C(p_t^{e_{s,t}}))$。则 $C$ 之初等因子组与 $A$ 之初等因子组相同。</p>
+</li>
+<li><p>定理：设 $A$ 之初等因子组为 $p_j^{e_{i,j}}$。则 $A$ 相似于 $C$：</p>
+<p>$$<br>C&#x3D;\text{diag}(C(p_1^{e_{1,1}}),\cdots,C(p_t^{e_{1,t}}),\cdots,C(p_t^{e_{s,t}}))<br>$$</p>
+<p>$C$ 称为 $A$ 之有理标准型（初等因子组版本）。</p>
+</li>
+<li><p>设 $f&#x3D;P^e(\lambda)$，$\deg f&#x3D;re$，$p$ 不可约。定义：</p>
+<p>$$<br>J(p^e(\lambda))&#x3D;\begin{pmatrix}<br>C(p)&amp;0&amp;\cdots&amp;0&amp;0\cr<br>S&amp;C(p)&amp;\cdots&amp;0&amp;0\cr<br>0&amp;S&amp;\cdots&amp;0&amp;0\cr<br>\vdots&amp;\vdots&amp;\ddots&amp;\vdots&amp;\vdots\cr<br>0&amp;0&amp;\cdots&amp;S&amp;C(p)<br>\end{pmatrix}_{re}<br>$$</p>
+<p>其中：</p>
+<p>$$<br>S&#x3D;\begin{pmatrix}<br>0&amp;0&amp;\cdots&amp;0&amp;1\cr<br>0&amp;0&amp;\cdots&amp;0&amp;0\cr<br>\vdots&amp;\vdots&amp;\ddots&amp;\vdots&amp;\vdots\cr<br>0&amp;0&amp;\cdots&amp;0&amp;0<br>\end{pmatrix}_r<br>$$</p>
+<p>则 $J(p^e(\lambda))$ 之初等因子组为 $p^e(\lambda)$，因此 $J(p^e(\lambda))$ 与 $C(p^e(\lambda))$ 相似。</p>
+<p>$J(p^e(\lambda))$ 称为 $p^e(\lambda)$ 之广义 Jordan 标准形。</p>
+</li>
+<li><p>若 $p(\lambda)&#x3D;\lambda-\lambda_0$，则：</p>
+<p>$$<br>J(p^e(\lambda))&#x3D;\begin{pmatrix}<br>\lambda_0&amp;0&amp;\cdots&amp;0&amp;0\cr<br>1&amp;\lambda_0&amp;\cdots&amp;0&amp;0\cr<br>\vdots&amp;\vdots&amp;\ddots&amp;\vdots&amp;\vdots\cr<br>0&amp;0&amp;\cdots&amp;1&amp;\lambda_0<br>\end{pmatrix}_e<br>$$</p>
+<p>即为一个 Jordan 块。</p>
+</li>
+</ul>
+
         </div>
 
         
@@ -705,7 +934,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="https://enucai.github.io/2026/03/03/linear-algebra-2/">https://enucai.github.io/2026/03/03/linear-algebra-2/</a></span>
+                        <span><a href="https://enucai.github.io/2026/03/03/linear-algebra-polynomial/">https://enucai.github.io/2026/03/03/linear-algebra-polynomial/</a></span>
                     </p>
                 
                 
