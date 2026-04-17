@@ -294,13 +294,13 @@
 </li>
 <li><p>$V$ 为 $\mathbb Q$ 上之 Cauchy 列集合。定义：</p>
 <ul>
-<li>${a_n}+{b_n}&#x3D;{a_n+b_n}$；</li>
-<li>$k\cdot {a_n}&#x3D;{k\cdot a_n}$；</li>
-<li>零元 ${a_n&#x3D;0}_n$。</li>
+<li>$\{a_n\}+\{b_n\}&#x3D;\{a_n+b_n\}$；</li>
+<li>$k\cdot \{a_n\}&#x3D;\{k\cdot a_n\}$；</li>
+<li>零元 $\{a_n&#x3D;0\}_n$。</li>
 </ul>
 <p>则 $V$ 为 $\mathbb Q$ 上一空间。</p>
 </li>
-<li><p>$\mathbb R_+&#x3D;{x\in \mathbb R\mid x&gt;0}$。定义：</p>
+<li><p>$\mathbb R_+&#x3D;\{x\in \mathbb R\mid x&gt;0\}$。定义：</p>
 <ul>
 <li>$x\oplus y&#x3D;xy$；</li>
 <li>$k\odot x&#x3D;x^k,\forall k\in \mathbb R$；</li>
@@ -330,8 +330,8 @@
 <p>则 $\tilde f_X$ 为 $F$ 上的向量空间，称 $\tilde f_X$ 为由 $X$ 自由生成的向量空间。</p>
 <p>注：“自由”指 $X$ 中的元无任何关系，只是记号。</p>
 <ul>
-<li>例：$X&#x3D;{1,x,x^2,\cdots,x^n,\cdots}$，则 $\tilde f_X&#x3D;F[x]$；</li>
-<li>例：$X&#x3D;{\epsilon_1,\epsilon_2,\cdots,\epsilon_n}$，则 $\tilde f_X&#x3D;F^n$。</li>
+<li>例：$X&#x3D;\{1,x,x^2,\cdots,x^n,\cdots\}$，则 $\tilde f_X&#x3D;F[x]$；</li>
+<li>例：$X&#x3D;\{\epsilon_1,\epsilon_2,\cdots,\epsilon_n\}$，则 $\tilde f_X&#x3D;F^n$。</li>
 </ul>
 </li>
 </ul>
@@ -341,21 +341,21 @@
 <p>一个向量组由另一个向量组线性表出，若每一个向量都可以有另一个向量组线性表出。即存在矩阵 $C$ 使得 $\begin{pmatrix}\beta_1&amp;\cdots&amp;\beta_t\end{pmatrix}&#x3D;\begin{pmatrix}\alpha_1&amp;\cdots&amp;\alpha_s\end{pmatrix}C$，其中 $C&#x3D;\begin{pmatrix}X_1&amp;\cdots&amp;X_t\end{pmatrix}$。</p>
 <p>注：$t&#x3D;s$ 时，$C$ 为方阵。</p>
 </li>
-<li><p>定义：$S\subset V$ 非空，$S$ 为有限集 $S&#x3D;{\alpha_1,\cdots,\alpha_s}$ 时，称 $S$ 线性相关：若存在不全为 $0$ 的 $k_1,\cdots,k_s\in F$，使得 $\sum k_i\alpha_i&#x3D;\theta$；否则称为线性无关。</p>
+<li><p>定义：$S\subset V$ 非空，$S$ 为有限集 $S&#x3D;\{\alpha_1,\cdots,\alpha_s\}$ 时，称 $S$ 线性相关：若存在不全为 $0$ 的 $k_1,\cdots,k_s\in F$，使得 $\sum k_i\alpha_i&#x3D;\theta$；否则称为线性无关。</p>
 <p>若 $S$ 为无限集合，称 $S$ 线性相关，若 $S$ 中存在有限子集线性相关；否则称为线性无关。</p>
 </li>
 <li><p>向量组 $\alpha_1,\cdots,\alpha_s$ 的极大无关组所包含的向量数目称为向量组的秩（$s$ 有限时）。</p>
 </li>
-<li><p>定义：称 $V$ 之有限子集 $S&#x3D;{\alpha_1,\cdots,\alpha_n}$ 为 $V$ 之基，若 $\alpha_1,\cdots,\alpha_n$ 无关且可（唯一）表出 $V$ 中的每个向量。此时称 $V$ 为 $n$ 维的。</p>
-<p>称 $V$ 为有限维的，若 $V&#x3D;{\theta}$ 或 $V$ 含有（有限）基。否则称为无限维的。</p>
+<li><p>定义：称 $V$ 之有限子集 $S&#x3D;\{\alpha_1,\cdots,\alpha_n\}$ 为 $V$ 之基，若 $\alpha_1,\cdots,\alpha_n$ 无关且可（唯一）表出 $V$ 中的每个向量。此时称 $V$ 为 $n$ 维的。</p>
+<p>称 $V$ 为有限维的，若 $V&#x3D;\{\theta\}$ 或 $V$ 含有（有限）基。否则称为无限维的。</p>
 <p>注：若 $V$ 无限维，则此处未定义 $V$ 之基的概念。</p>
-<p>注：若 $V$ 有基 $\alpha_1,\cdots,\alpha_n$，则 $V&#x3D;\tilde f_X$，其中 $X&#x3D;{\alpha_1,\cdots,\alpha_n}$。</p>
+<p>注：若 $V$ 有基 $\alpha_1,\cdots,\alpha_n$，则 $V&#x3D;\tilde f_X$，其中 $X&#x3D;\{\alpha_1,\cdots,\alpha_n\}$。</p>
 </li>
 <li><p>若 $\begin{pmatrix}\beta_1&amp;\cdots&amp;\beta_s\end{pmatrix}&#x3D;\begin{pmatrix}\alpha_1&amp;\cdots&amp;\alpha_t\end{pmatrix}C$，其中 $\alpha_1,\cdots,\alpha_t$ 线性无关。则 $\beta_1,\cdots,\beta_s$ 无关当且仅当 $C$ 可逆。</p>
 <p>设 $\alpha_1,\cdots,\alpha_n$ 和 $\beta_1,\cdots,\beta_n$ 为 $V$ 之两基，$\begin{pmatrix}\beta_1&amp;\cdots&amp;\beta_n\end{pmatrix}&#x3D;\begin{pmatrix}\alpha_1&amp;\cdots&amp;\alpha_n\end{pmatrix}C$，则 $C$ 称为由 $\alpha_1,\cdots,\alpha_n$ 到 $\beta_1,\cdots,\beta_n$ 的过渡矩阵。</p>
 </li>
 <li><p>命题：设 $\alpha_1,\cdots,\alpha_n$ 和 $\beta_1,\cdots,\beta_n$ 为 $V$ 之两基，$\begin{pmatrix}\beta_1&amp;\cdots&amp;\beta_n\end{pmatrix}&#x3D;\begin{pmatrix}\alpha_1&amp;\cdots&amp;\alpha_n\end{pmatrix}C$。$\forall \alpha&#x3D;\begin{pmatrix}\alpha_1&amp;\cdots&amp;\alpha_n\end{pmatrix}X&#x3D;\begin{pmatrix}\beta_1&amp;\cdots&amp;\beta_n\end{pmatrix}Y$，则 $X&#x3D;CY$。</p>
-<p>例：$F[x]_n&#x3D;{f(x)\in F[x]\mid \deg f\le n}$。已知 $1,x,x^2,\cdots,x^n$ 是一组基。则 $\forall a\in F$，$1,x-a,(x-a)^2,\cdots,(x-a)^n$ 也是 $F[x]_n$ 之基。</p>
+<p>例：$F[x]_n&#x3D;\{f(x)\in F[x]\mid \deg f\le n\}$。已知 $1,x,x^2,\cdots,x^n$ 是一组基。则 $\forall a\in F$，$1,x-a,(x-a)^2,\cdots,(x-a)^n$ 也是 $F[x]_n$ 之基。</p>
 </li>
 <li><p>命题：设 $f_1(x),f_2(x),\cdots,f_n(x)$ 为 $[a,b]$ 上 $(n-1)$ 阶可导函数。定义：</p>
 <p>$$<br>W(x)&#x3D;\begin{vmatrix}<br>f_1(x)&amp;f_2(x)&amp;\cdots&amp;f_n(x)\cr<br>f_1’(x)&amp;f_2’(x)&amp;\cdots&amp;f_n’(x)\cr<br>\vdots&amp;\vdots&amp;\ddots&amp;\vdots\cr<br>f_1^{(n-1)}(x)&amp;f_2^{(n-1)}(x)&amp;\cdots&amp;f_n^{(n-1)}(x)<br>\end{vmatrix}<br>$$</p>
@@ -363,6 +363,206 @@
 <p>例：判断 $1,\sin x,\cos x$ 是否无关。</p>
 <p>$$<br>W(x)&#x3D;\begin{vmatrix}1&amp;\sin x&amp;\cos x\cr 0&amp;\cos x&amp;-\sin x\cr 0&amp;-\sin x&amp;-\cos x\end{vmatrix}&#x3D;-1<br>$$</p>
 <p>注：若 $W(x)\equiv 0,\forall x$，则不能推出 $f_1,\cdots,f_n$ 一定相关。例如 $f_1&#x3D;x^2,f_2&#x3D;x\cdot |x|$。</p>
+</li>
+<li><p>定义：$V&#x2F;F,U\subset V$，称 $U$ 为 $V$ 的子空间，若 $U$ 关于 $V$ 的 $+,\cdot$ 的限制也是向量空间。</p>
+<p>注：$U$ 为 $V$ 之子空间 $\iff U$ 对 $V$ 之 $+,\cdot$ 封闭。</p>
+</li>
+<li><p>$\forall \alpha_1,\cdots,\alpha_s\in V$，记 $L(\alpha_1,\cdots,\alpha_s)&#x3D;\{\sum k_i\alpha_i\mid k_i\in F\}$ 为 $V$ 之子空间，称为由 $\alpha_1,\cdots,\alpha_s$ 生成的子空间。</p>
+<p>注：若 $\alpha_1,\cdots,\alpha_s$ 为 $V$ 的一组基，则 $L(\alpha_1,\cdots,\alpha_s)&#x3D;V$。</p>
+</li>
+<li><p>设 $V_1,V_2$ 为两个子空间。定义：</p>
+<ul>
+<li>$V_1\cap V_2&#x3D;\{\alpha\mid \alpha\in V_1\land\alpha\in V_2\}$，称为子空间的交；</li>
+<li>$V_1+V_2&#x3D;\{\alpha+\beta\mid \alpha\in V_1,\beta\in V_2\}$，称为子空间的和。</li>
+</ul>
+</li>
+<li><p>更一般的，对于任意有限个子空间 $V_1,V_2,\cdots,V_s$，可以定义 $\cap_{i&#x3D;1}^s V_i&#x3D;V_1\cap V_2\cap \cdots\cap V_s$，和 $\sum_{i&#x3D;1}^s V_i&#x3D;V_1+V_2+\cdots+V_s$。</p>
+</li>
+<li><p>定理（维数公式）：$V_1,V_2$ 为 $V$ 的有限维子空间，则：</p>
+<p>$$<br>\dim V_1+V_2&#x3D;\dim V_1+\dim V_2-\dim V_1\cap V_2<br>$$</p>
+<p>证：设 $\dim V_1&#x3D;r,\dim V_2&#x3D;s,\dim V_1\cap V_2&#x3D;t$。</p>
+<p>任取 $V_1\cap V_2$ 的一组基 $\alpha_1,\cdots,\alpha_t$ 扩成 $V_1,V_2$ 的基：</p>
+<ul>
+<li>$V_1:\alpha_1,\cdots,\alpha_t,\beta_1,\cdots,\beta_{r-t}$；</li>
+<li>$V_2:\alpha_1,\cdots,\alpha_t,\gamma_1,\cdots,\gamma_{s-t}$。</li>
+</ul>
+<p>故 $V_1+V_2&#x3D;L(\alpha_1,\cdots,\alpha_t,\beta_1,\cdots,\beta_{r-t},\gamma_1,\cdots,\gamma_{s-t})$。</p>
+<p>故只需证明 $\alpha_1,\cdots,\alpha_t,\beta_1,\cdots,\beta_{r-t},\gamma_1,\cdots,\gamma_{s-t}$ 线性无关。</p>
+<p>设 $k_1\alpha_1+\cdots+k_t\alpha_t+l_1\beta_1+\cdots+l_{r-t}\beta_{r-t}+m_1\gamma_1+\cdots+m_{s-t}\gamma_{s-t}&#x3D;0$，那么：</p>
+<p>$$<br>k_1\alpha_1+\cdots+k_t\alpha_t+l_1\beta_1+\cdots+l_{r-t}\beta_{r-t}&#x3D;-m_1\gamma_1-\cdots-m_{s-t}\gamma_{s-t}\in V_2<br>$$</p>
+<p>同时左边向量也属于 $V_1$，因此 $m_1\gamma_1+\cdots+m_{s-t}\gamma_{s-t}\in V_1\cap V_2$。</p>
+<p>设 $m_1\gamma_1+\cdots+m_{s-t}\gamma_{s-t}&#x3D;n_1\alpha_1+\cdots+n_t\alpha_t$，由于所有 $\gamma_i$ 和 $\alpha_j$ 构成 $V_2$ 之基，因此 $m_i\equiv 0$。</p>
+<p>同理 $l_i\equiv 0$，从而 $k_i\equiv 0$。因此 $\alpha_1,\cdots,\alpha_t,\beta_1,\cdots,\beta_{r-t},\gamma_1,\cdots,\gamma_{s-t}$ 线性无关。</p>
+</li>
+<li><p>注：若 $V_1\cap V_2&#x3D;\{\theta\}$，则任取 $V_1,V_2$ 之基合并即为 $V_1+V_2$ 的基。</p>
+</li>
+<li><p>定义：称 $V_1+V_2$ 为直和，若 $V_1+V_2$ 之元可唯一表成 $\alpha+\beta$ 的形式，$\alpha\in V_1,\beta\in V_2$。</p>
+</li>
+<li><p>定理：$V_1,V_2$ 为 $V$ 之有限维子空间，则下五条等价：</p>
+<ul>
+<li><p>$V_1+V_2$ 为直和；</p>
+</li>
+<li><p>$V_1+V_2$ 之零元 $\theta_{V_1+V_2}$ 的表示方式唯一：$\theta_{V_1+V_2}&#x3D;\theta_{V_1}+\theta_{V_2}$；</p>
+</li>
+<li><p>$V_1\cap V_2&#x3D;\{\theta\}$；</p>
+</li>
+<li><p>$\dim V_1+\dim V_2&#x3D;\dim V_1+V_2$。</p>
+</li>
+<li><p>$V_1,V_2$ 之基合并即为 $V_1+V_2$ 的基。</p>
+</li>
+</ul>
+</li>
+<li><p>命题：$\forall U\subset V$ 为子空间，必存在 $V$ 之子空间 $W$ 使得 $V&#x3D;U\oplus W$，$W$ 称为 $U$ 在 $V$ 中的补空间。</p>
+</li>
+<li><p>定义：称 $\sum_{i&#x3D;1}^s V_i$ 为直和，若 $\sum_{i&#x3D;1}^s V_i$ 中的每个向量都可唯一表示成 $V\sum_{i&#x3D;1}^s \alpha_i,\alpha_i\in V_i$。</p>
+</li>
+<li></li>
+<li><p>定理：$V_1,\cdots,V_s$ 为 $V$ 之有限维子空间，则下五条等价：</p>
+<ul>
+<li><p>$V_1+\cdots+V_s$ 为直和；</p>
+</li>
+<li><p>$\sum V_i$ 之零元 $\theta_{\sum V_i}$ 的表示方式唯一；</p>
+</li>
+<li><p>$V_i\cap \sum_{j\neq i}V_j&#x3D;\{\theta\}$（并非等价于 $V_i\cap V_j&#x3D;\{\theta\}$）；</p>
+</li>
+<li><p>$\sum \dim V_i&#x3D;\dim \sum V_i$。</p>
+</li>
+<li><p>$V_1,\cdots,V_s$ 之基合并即为 $\sum V_i$ 的基。</p>
+</li>
+</ul>
+</li>
+<li><p>若 $\sum V_i$ 为直和，即为 $\oplus V_i&#x3D;V_1\oplus V_2\oplus\cdots\oplus V_s$。</p>
+<p>称向量空间 $V$ 为其子空间 $V_1,\cdots,V_s$ 的直和，若：</p>
+<ul>
+<li><p>$V&#x3D;\sum_{i&#x3D;1}^s V_i$；</p>
+</li>
+<li><p>$\sum V_i$ 为直和。</p>
+</li>
+</ul>
+<p>此时记 $V&#x3D;\oplus_{i&#x3D;1}^s V_i$。</p>
+</li>
+<li><p>设 $V_1,\cdots,V_s$ 为 $s$ 个向量空间（不必是某个向量空间的子空间）。设 $V_1\times \cdots\times V_s&#x3D;\{(\alpha_1,\cdots,\alpha_s)\mid \alpha_i\in V_i\}$ 为笛卡尔积。容易定义加法和纯量乘法。</p>
+<p>则 $V_1\times \cdots\times V_s$ 为 $F$ 上向量空间，称为 $V_1,\cdots,V_s$ 的（外）直和，记做 $\oplus_{i&#x3D;1}^s V_i$。</p>
+<p>注：$F^n&#x3D;\oplus_{i&#x3D;1}^n F$。</p>
+</li>
+<li><p>$V&#x2F;F$，$U\subset V$ 为子空间。用 $U$ 定义 $V$ 中的二元关系 $\sim$：称 $\alpha\sim\beta$ 若 $\alpha-\beta\in U$。则 $\sim$ 为等价关系。</p>
+<p>$\alpha$ 所在的等价类 $\bar\alpha&#x3D;\{\beta\mid \alpha-\beta\in U\}$ 记做 $\alpha+U&#x3D;\{\alpha+\gamma\mid \gamma\in U\}$。</p>
+<p>注： $\bar\alpha&#x3D;\bar{\alpha+\gamma},\forall \gamma\in U$；$\bar 0&#x3D;U$。</p>
+</li>
+<li><p>记 $V&#x2F;U$（读作 $V$ 模 $U$）为所有等价类集。</p>
+<p>在 $V&#x2F;U$ 中定义 $+,\cdot$：</p>
+<ul>
+<li>$\bar\alpha+\bar\beta&#x3D;\bar{\alpha+\beta}$；</li>
+<li>$k\bar\alpha&#x3D;\bar{k\alpha}$。</li>
+</ul>
+<p>注：该定义为良定义，即不依赖代表元选取。</p>
+<p>则 $V&#x2F;U$ 为向量空间，称为 $V$ 关于子空间 $U$ 的商空间。</p>
+</li>
+<li><p>定理：$U$ 为有限维向量空间 $V$ 的子空间，则 $\dim V&#x2F;U&#x3D;\dim V-\dim U$。</p>
+<p>证：任取 $U$ 的一组基 $\alpha_1,\cdots,\alpha_r$，将其扩为 $V$ 的一组基 $\alpha_1,\cdots,\alpha_r,\beta_1,\cdots,\beta_s$（$\dim V&#x3D;r+s$）。</p>
+<p>断言：$\bar\beta_1,\cdots,\bar\beta_s$ 为 $V&#x2F;U$ 的一组基：</p>
+<ul>
+<li><p>无关性：设 $k_1\bar\beta_1+\cdots+k_s\bar\beta_s&#x3D;0$，则 $k_1\beta_1+\cdots+k_s\beta_s&#x3D;\bar 0\in U$。</p>
+<p>因此 $k_1\beta_1+\cdots+k_s\beta_s&#x3D;l_1\alpha_1+\cdots+l_r\alpha_r$，从而 $k_i&#x3D;l_j&#x3D;0,\forall i,j$。因此 $\bar\beta_1,\cdots,\bar\beta_s$ 无关。</p>
+</li>
+<li><p>$\forall \bar\alpha\in V&#x2F;U$，则 $\alpha\in V$。设 $\alpha&#x3D;k_1\alpha_1+\cdots+k_r\alpha_r+l_1\beta_1+\cdots+l_s\beta_s$。</p>
+<p>因此 $\bar\alpha&#x3D;l_1\bar\beta_1+\cdots+l_s\bar\beta_s$。</p>
+</li>
+</ul>
+</li>
+<li><p>定义：称向量空间 $V_1,V_2$ 之间的映射 $f:V_1\to V_2$ 为同构映射，若 $f$ 是 $1-1$ 的且 $f$ 保线性，即：</p>
+<ul>
+<li>$f(\alpha+\beta)&#x3D;f(\alpha)+f(\beta),\forall \alpha,\beta\in V_1$；</li>
+<li>$f(k\alpha)&#x3D;kf(\alpha),\forall \alpha\in V_1,k\in F$。</li>
+</ul>
+<p>称 $V_1$ 和 $V_2$ 同构，若 $V_1,V_2$ 之间存在同构映射，此时记 $V_1\cong V_2$。</p>
+</li>
+<li><p>例：设 $V$ 有基 $\alpha_1,\cdots,\alpha_n$，$\forall \alpha&#x3D;(\alpha_1,\cdots,\alpha_n)X$，定义：</p>
+<p>$$<br>\begin{aligned}<br>\sigma_V:V&amp;\to F^n\cr<br>\alpha&#x3D;(\alpha_1,\cdots,\alpha_n)X&amp;\mapsto X<br>\end{aligned}<br>$$</p>
+<p>则 $\sigma_V$ 保线性，且 $\sigma_V$ 为 $1-1$ 的，因此为同构。称为坐标同构映射。</p>
+</li>
+<li><p>命题：$V_1\cong V_2\iff \dim V_1&#x3D;\dim V_2$。</p>
+<p>推论：$U$ 为 $V$ 之子空间，令 $V&#x3D;U\oplus W$，则 $W\cong V&#x2F;U$。</p>
+</li>
+<li><p>定理（第二同构定理）：$U_1,U_2$ 为 $V$ 之子空间，则：$(U_1+U_2)&#x2F;U_1\cong U_2&#x2F;(U_1\cap U_2)$。</p>
+</li>
+<li><p>定理（第三同构定理）：$(V&#x2F;U)&#x2F;(W&#x2F;U)\cong V&#x2F;W$。</p>
+</li>
+</ul>
+<h2 id="线性映射"><a href="#线性映射" class="headerlink" title="线性映射"></a>线性映射</h2><ul>
+<li><p>定义：称 $f:V_1\to V_2$ 为线性映射，若 $f$ 保线性。</p>
+<p>称线性映射 $f$ 为单 &#x2F; 满 &#x2F; 同构，若作为映射 $f$ 是单的 &#x2F; 满的 &#x2F; $1-1$ 的（双射）。</p>
+<p>若 $V_1&#x3D;V_2$ 则 $f:V\to V$ 称为线性变换。</p>
+<p>注：单性判别：$f:V_1\to V_2$ 单 $\iff$ 若 $f(\alpha)&#x3D;\theta$，则 $\alpha&#x3D;\theta$。</p>
+</li>
+<li><p>例：</p>
+<ul>
+<li><p>$f:V_1\to V_2$，$\alpha\to \theta$，称为零映射。</p>
+</li>
+<li><p>固定 $k\in F$，定义 $f:V\to V,\alpha\mapsto k\alpha$，称为 $V$ 之纯量变换。</p>
+</li>
+<li><p>$D:C^1[a,b]\to C[a,b]$，$f\mapsto f’$。</p>
+</li>
+<li><p>$V&#x3D;U\oplus W$，定义 $P_u:V\to V,\alpha&#x3D;\alpha_U+\alpha_W\mapsto \alpha_U$，称为 $V$ 之沿 $W$ 到 $U$ 的投影变换。</p>
+</li>
+<li><p>$S\subset T$，$\sigma:\tilde f(T)\to \tilde f(S),f\mapsto f|_S$，称为限制映射。</p>
+</li>
+</ul>
+</li>
+<li><p>下面用花体 $\mathscr{A,B,C,D}$ 等来表示线性映射。</p>
+<p>记 $Hom_F(V_1,V_2)$ 为 $V_1$ 到 $V_2$ 之所有线性映射。</p>
+<ul>
+<li>$(\mathscr{A}+\mathscr{B})\alpha&#x3D;\mathscr{A}\alpha+\mathscr{B}\alpha$；</li>
+<li>$(k\mathscr{A})\alpha&#x3D;k\mathscr{A}\alpha$。</li>
+</ul>
+<p>$Hom_F(V_1,V_2)$ 为 $F$ 上的向量空间。</p>
+<p>记 $Hom_F(V,V)&#x3D;End_F(V)$。则 $End_F(V)$ 是 $F$ 上的向量空间，在 $End(V)$ 中定义乘法：$\mathscr{B}\cdot \mathscr{A}(\alpha)&#x3D;\mathscr{B}(\mathscr{A}\alpha)$。</p>
+<p>则 $End(V)$ 为有 $1$ 的环。</p>
+</li>
+<li><p>任子空间均来自于某个（些）线性映射。</p>
+</li>
+<li><p>$\mathscr{A}:V_1\to V_2$，定义 $\mathscr{A}$ 之核 $\ker \mathscr{A}$，像 $\text{Im}\mathscr{A}$：</p>
+<p>$$<br>\begin{aligned}<br>\ker \mathscr{A}&#x3D;\{\alpha\in V_1\mid \mathscr{A}\alpha&#x3D;0\}\subseteq V_1\cr<br>\text{Im}\mathscr{A}&#x3D;\{\mathscr{A}\alpha\mid \alpha\in V_1\}\subseteq V_2<br>\end{aligned}<br>$$</p>
+<p>注：$\mathscr{A}$ 单 $\iff \ker\mathscr{A}&#x3D;\{0\}$，$\mathscr{A}$ 满 $\iff \text{Im}\mathscr{A}&#x3D;V_2$。</p>
+</li>
+<li><p>定理（基本定理）：$\mathscr{A}:V_1\to V_2$，$S\subseteq \ker\mathscr{A}$ 为子空间。$\pi:V_1\to V_1&#x2F;S$ 为自然映射。则存在唯一线性映射 $\sigma:V_1&#x2F;S\to V_1$ 使得 $A&#x3D;\sigma\cdot\pi$，且 $\text{Im}\sigma&#x3D;\text{Im}\mathscr{A},\ker\sigma&#x3D;\ker \mathscr{A}&#x2F;S$。</p>
+<p>证：$\sigma:V_1&#x2F;S\to V_2,\sigma(\alpha+S)\mapsto\mathscr{A}\alpha$。易验证。</p>
+</li>
+<li><p>定理（第一同构定理）：$\mathscr{A}:V_1\to V_2$，$\pi:V_1\to V_1&#x2F;\ker\mathscr{A}$ 为自然映射。则存在唯一的同构 $\sigma:V_1&#x2F;\ker \mathscr{A}\to \text{Im}\mathscr{A}\subseteq V_2$，使得 $\mathscr{A}&#x3D;\sigma\cdot \pi$。</p>
+</li>
+<li><p>推论（维数公式）：$\mathscr{A}:V_1\to V_2$，则 $\dim V_1&#x3D;\dim\ker\mathscr{A}+\dim\text{Im}\mathscr{A}$。</p>
+<p>注：若 $\mathscr{A}:V\to V$，则 $\dim V&#x3D;\dim\ker\mathscr{A}+\dim\text{Im}\mathscr{A}$，但是不说明 $V&#x3D;\ker\mathscr{A}+\text{Im}\mathscr{A}$。</p>
+</li>
+<li><p>推论：$\mathscr{A}:V\to V$，$V$ 为有限维向量空间，则 $\mathscr{A}$ 单 $\iff \mathscr{A}$ 满。</p>
+</li>
+<li><p>$\mathscr{A}:V_1\to V_2,U\subset V_1$，记 $\mathscr{A}|_u$ 为 $\mathscr{A}$ 在 $U$ 上的限制。</p>
+<p>注：$\ker \mathscr{A}|_U\subseteq \ker\mathscr{A}$。</p>
+</li>
+<li><p>例：$\mathscr{A}:V_1\to V_2,\mathscr{B}:V_2\to V_3$，则 $\dim\ker\mathscr{B}\mathscr{A}\le \dim\ker\mathscr{A}+\dim\ker\mathscr{B}$。</p>
+<p>$$<br>\begin{aligned}<br>\dim\ker\mathscr{B}\mathscr{A}&amp;&#x3D;\dim V_1-\dim \text{Im}\mathscr{B}\mathscr{A}\cr<br>&amp;&#x3D;\dim V_1-\dim \text{Im}\mathscr{B}|_{\mathscr{A}V_1}\cr<br>&amp;&#x3D;\dim V_1-(\dim \mathscr{A}V_1-\dim \ker \mathscr{B}| _{\mathscr{A}V_1})\cr<br>&amp;&#x3D;\dim\ker \mathscr{A}+\dim \ker \mathscr{B}| _{\mathscr{A}V_1}\cr<br>&amp;\le \dim \ker \mathscr{A}+\dim \ker \mathscr{B}<br>\end{aligned}<br>$$</p>
+</li>
+<li><p>定义：称 $\mathscr{A}:V\to V$ 为投影变换，若 $\mathscr{A}^2&#x3D;\mathscr{A}$（即 $\mathscr{A}$ 幂等）。</p>
+<p>例：$V&#x3D;\oplus_{i&#x3D;1}^s V_i$，$P_i:V\to V,P_i(\alpha&#x3D;\alpha_1+\cdots+\alpha_s)\mapsto \alpha_i$。</p>
+<p>有 $I&#x3D;\sum P_i$，$P_iP_j&#x3D;\delta_{i,j}P_i$（正交性）。</p>
+</li>
+<li><p>定理：设 $P_1,\dots,P_s$ 为 $V$ 之投影。若：</p>
+<ul>
+<li>$I&#x3D;\sum_{i&#x3D;1}^s P_i$；</li>
+<li>$P_iP_j&#x3D;\delta_{i,j}P_iP_j,\forall i,j$。</li>
+</ul>
+<p>则 $V&#x3D;\oplus_{i&#x3D;1}^s \text{Im} P_i$。</p>
+</li>
+</ul>
+<h2 id="线性映射在坐标系下的描述"><a href="#线性映射在坐标系下的描述" class="headerlink" title="线性映射在坐标系下的描述"></a>线性映射在坐标系下的描述</h2><ul>
+<li><p>$\mathscr{A}:V_1\to V_2$，$\alpha_1,\dots,\alpha_m$ 为 $V_1$ 之基，$\beta_1,\cdots,\beta_n$ 为 $V_2$ 之基。</p>
+<p>$$<br>\begin{aligned}<br>&amp;\mathscr{A}\alpha_1&#x3D;\begin{pmatrix}\beta_1&amp;\cdots&amp;\beta_n\end{pmatrix}X_1\cr<br>&amp;\mathscr{A}\alpha_2&#x3D;\begin{pmatrix}\beta_1&amp;\cdots&amp;\beta_n\end{pmatrix}X_2\cr<br>&amp;\cdots\cr<br>&amp;\mathscr{A}\alpha_m&#x3D;\begin{pmatrix}\beta_1&amp;\cdots&amp;\beta_n\end{pmatrix}X_m\cr<br>\end{aligned}<br>$$</p>
+<p>则有：</p>
+<p>$$<br>\begin{aligned}<br>&amp;\begin{pmatrix}\mathscr{A}\alpha_1&amp;\mathscr{A}\alpha_2&amp;\cdots&amp;\mathscr{A}\alpha_m\end{pmatrix}&#x3D;\begin{pmatrix}\beta_1&amp;\cdots&amp;\beta_n\end{pmatrix}A\cr<br>&amp;A&#x3D;\begin{pmatrix}X_1&amp;X_2&amp;\cdots&amp;X_m\end{pmatrix}\in M_{n\times m}(F)<br>\end{aligned}<br>$$</p>
+<p>$A$ 称为 $\mathscr{A}$ 在基 $\{\alpha_i\},\{\beta_j\}$ 下的矩阵。</p>
+</li>
+<li><p>设 $\mathscr{A}\begin{pmatrix}\alpha_1&amp;\cdots&amp;\alpha_m\end{pmatrix}&#x3D;\begin{pmatrix}\beta_1&amp;\cdots&amp;\beta_n\end{pmatrix}A$，则 $\forall \alpha&#x3D;\begin{pmatrix}\alpha_1&amp;\cdots&amp;\alpha_m\end{pmatrix}X$，则：</p>
+<p>$$<br>\mathscr{A}\alpha&#x3D;\sum x_i\mathscr{A}\alpha_i&#x3D;\begin{pmatrix}\beta_1&amp;\cdots&amp;\beta_n\end{pmatrix}AX<br>$$</p>
+<p>即 $\mathscr{A}$ 将坐标为 $X$ 的向量映成了 $V_2$ 之坐标为 $AX$ 的向量。</p>
 </li>
 </ul>
 
