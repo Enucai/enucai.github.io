@@ -360,18 +360,18 @@
 <ol>
 <li><p>$(F,+)$ 为加法交换群。</p>
 </li>
-<li><p>$(F*,\cdot)$ 为乘法交换群，$F*&#x3D;F\setminus{{\theta}}$。</p>
+<li><p>$(F*,\cdot)$ 为乘法交换群，$F*&#x3D;F\setminus{\{\theta\}}$。</p>
 </li>
 </ol>
 </li>
-<li><p>例：设 $n&gt;1$，记 $\mu_n&#x3D;{e^{2k\pi i&#x2F;n}\mid k&#x3D;0,1,\dots,n}\subset \mathbb{C}$，则 $\mu_n$ 为乘法交换群，称为 $n$ 次单位根群。</p>
+<li><p>例：设 $n&gt;1$，记 $\mu_n&#x3D;\{e^{2k\pi i&#x2F;n}\mid k&#x3D;0,1,\dots,n\}\subset \mathbb{C}$，则 $\mu_n$ 为乘法交换群，称为 $n$ 次单位根群。</p>
 </li>
-<li><p>例：$F$ 为域，$GL_n(F)&#x3D;{A\in M_n(F)\mid \det(A)\neq 0}$，定义 $A\cdot B$ 为矩阵乘积，则 $GL_n(F)$ 为矩阵非交换群，称为一般线性矩阵群。</p>
-<p>$O_n(\mathbb R)&#x3D;{A\in M_n(\mathbb R)\mid A^TA&#x3D;E}$ 为正交群。</p>
-<p>$U_n&#x3D;{A\in M_n(\mathbb C)\mid \overline{A}^TA&#x3D;E}$ 为酉群。</p>
+<li><p>例：$F$ 为域，$GL_n(F)&#x3D;\{A\in M_n(F)\mid \det(A)\neq 0\}$，定义 $A\cdot B$ 为矩阵乘积，则 $GL_n(F)$ 为矩阵非交换群，称为一般线性矩阵群。</p>
+<p>$O_n(\mathbb R)&#x3D;\{A\in M_n(\mathbb R)\mid A^TA&#x3D;E\}$ 为正交群。</p>
+<p>$U_n&#x3D;\{A\in M_n(\mathbb C)\mid \overline{A}^TA&#x3D;E\}$ 为酉群。</p>
 </li>
 <li><p>例：$R$ 为有 $1$ 的交换群，记 $U(R)$ 为 $R$ 之所有可逆元集。则 $(U(R),\cdot)$ 为群，称之为 单位群。</p>
-<p>例如 $U(\mathbb Z)&#x3D;{-1,1}$；若 $F$ 为域，则 $U(F)&#x3D;F^*$。</p>
+<p>例如 $U(\mathbb Z)&#x3D;\{-1,1\}$；若 $F$ 为域，则 $U(F)&#x3D;F^*$。</p>
 </li>
 <li><p>定义：设 $R_1\subset R$ 非空（$R$ 为环），若 $R_1$ 关于 $R$ 之 $+,\cdot$ 成为环，则称 $R_1$ 为 $R$ 的<strong>子环</strong>。类似的可以定义子群、子域。</p>
 <p>命题：$R_1$ 为 $R$ 之子环 $\iff$ $R_1$ 关于 $R$ 之减法、乘法封闭（HW）。</p>
@@ -383,7 +383,7 @@
 <p>类似可定义群同态、域同态。</p>
 </li>
 <li><p>定义：称同态 $f:R\to S$ 为单的 &#x2F; 满的 &#x2F; 同构的，若 $f$ 作为映射是单设 &#x2F; 满射 &#x2F; 双射。</p>
-<p>若 $f:R\to S$ 为单同态，则 $\text{Im} f&#x3D;{f(x)\mid x\in R}$ 为 $S$ 之子环，切 $f:R\to \text{Im} f$ 为同构。</p>
+<p>若 $f:R\to S$ 为单同态，则 $\text{Im} f&#x3D;\{f(x)\mid x\in R\}$ 为 $S$ 之子环，切 $f:R\to \text{Im} f$ 为同构。</p>
 <p>若 $\tau:R\to S$ 是单的，则 $R\cong \text{Im} f\subset S$，称 $S$ 为 $R$（通过单射同态 $\tau$）之扩环。</p>
 </li>
 <li><p>定理：设 $F$ 为域，$R$ 为 $F$（通过 $\tau:F\to R$）之扩环，$\forall t\in R$，映射</p>
@@ -394,7 +394,7 @@
 <li><p>注：有 $1$ 的交换环要求同态 $f:R\to S$ 将 $1$ 映成 $1$，即 $f(1_R)\to 1_S$。</p>
 <p>注：$M_n(F[x])\cong M_n(F)[x]$（可构造双射，多项式矩阵中每一次项提出构成矩阵）。</p>
 </li>
-<li><p>HW：$\mu_n&#x3D;{\omega^i\mid k&#x3D;0,1,\dots,n-1},\omega&#x3D;e^{2\pi i&#x2F;n}$。证明：$\sum_{i&#x3D;0}^{n-1}\omega^i&#x3D;0$。</p>
+<li><p>HW：$\mu_n&#x3D;\{\omega^i\mid k&#x3D;0,1,\dots,n-1\},\omega&#x3D;e^{2\pi i&#x2F;n}$。证明：$\sum_{i&#x3D;0}^{n-1}\omega^i&#x3D;0$。</p>
 </li>
 <li><p>命题（Hamilton-Cayley 定理）：设 $A&#x3D;M_n(F)$ 其中 $F$ 为域，令 $f(\lambda)&#x3D;\det(\lambda E-A)$，则 $f(A)&#x3D;0$。</p>
 <p>证：记 $B(\lambda)$ 为 $\lambda E-A$ 的伴随矩阵，则 $B(\lambda)$ 之元的最高次项为 $n-1$ 次。</p>
@@ -407,7 +407,7 @@
 <p>注：不能直接将 $A$ 带入到未化为多项式一般形式的版本，否则就直接得到了 $\det(AE-A)&#x3D;0$。</p>
 </li>
 <li><p>定义：若 $R_1,\dots,R_n$ 为环，定义笛卡尔积（直积）：</p>
-<p>$$<br>\prod R_i&#x3D;R_1\oplus R_2\oplus\cdots\oplus R_n<br>&#x3D;{(x_1,x_2,\cdots,x_n)\mid x_i\in R_i}<br>$$</p>
+<p>$$<br>\prod R_i&#x3D;R_1\oplus R_2\oplus\cdots\oplus R_n<br>&#x3D;\{(x_1,x_2,\cdots,x_n)\mid x_i\in R_i\}<br>$$</p>
 <p>定义 $+$：$(x_1,\dots,x_n)+(y_1,\dots,y_n)&#x3D;(x_1+y_1,\dots,x_n+y_n)$。</p>
 <p>定义 $\cdot$：$(x_1,\dots,x_n)\cdot(y_1,\dots,y_n)&#x3D;(x_1\cdot y_1,\cdots,x_n\cdot y_n)$。</p>
 <p>此时 $\oplus_{i&#x3D;1}^n R_i$ 也为环。</p>
@@ -444,7 +444,7 @@
 </li>
 <li><p>任取 $f(x)\in F[x],\deg f&#x3D;n$。以 $f$ 定义 $F[x]$ 之二元关系 $\sim$。</p>
 <p>称 $g_1\sim g_2$，若 $f\mid (g_1-g_2)\iff g_1,g_2$ 除以 $f$ 余式相同。</p>
-<p>$g(x)$ 所在等价类 $\overline{g(x)}&#x3D;{h(x)f(x)+r(x)\mid h\in F[x]}&#x3D;\overline{r(x)}$。</p>
+<p>$g(x)$ 所在等价类 $\overline{g(x)}&#x3D;\{h(x)f(x)+r(x)\mid h\in F[x]\}&#x3D;\overline{r(x)}$。</p>
 <p>以 $F[x]&#x2F;f(x)F[x]$ 记全部等价类集。容易定义 $+,\cdot$，从而是有 $1$ 的交换环。</p>
 </li>
 <li><p>定义：称 $d(x)\in F[x]$ 为 $f(x),g(x)\in F[x]$ 之公因子，若 $d(x)\mid f,d(x)\mid g$。</p>
@@ -607,13 +607,13 @@
 <ul>
 <li><p>$\alpha$ 在 $F$ 上能满足的最低次多项式为 $p(x)$。</p>
 </li>
-<li><p>记 $F[\alpha]&#x3D;{f(\alpha)\mid f\in F[x]}&#x3D;{a_{n-1}\alpha^{n-1}+\dots+a_1\alpha+a_0\mid a_i\in F}$。</p>
+<li><p>记 $F[\alpha]&#x3D;\{f(\alpha)\mid f\in F[x]\}&#x3D;\{a_{n-1}\alpha^{n-1}+\dots+a_1\alpha+a_0\mid a_i\in F\}$。</p>
 </li>
 <li><p>定义 $+,\cdot$：$(fg)(\alpha)&#x3D;f(\alpha)g(\alpha),(f+g)(\alpha)&#x3D;f(\alpha)+g(\alpha)$，则 $F[\alpha]$ 为域。</p>
 </li>
 </ul>
 <p>将不可约多项式 $p(x)$ 的根 $\alpha$ 加到 $F$ 上得到的域称为代数扩域 $F[\alpha]$。</p>
-<p>例如：$\mathbb Q[\sqrt{-1}]&#x3D;{a+bi\mid a,b\in \mathbb Q}\simeq \mathbb Q[x]&#x2F;(x^2+1)\mathbb Q[x]$。</p>
+<p>例如：$\mathbb Q[\sqrt{-1}]&#x3D;\{a+bi\mid a,b\in \mathbb Q\}\simeq \mathbb Q[x]&#x2F;(x^2+1)\mathbb Q[x]$。</p>
 </li>
 <li><p>实数域上的不可约多项式：$p(x)\in \mathbb R[x]\subset \mathbb C[x]$。设 $z$ 为 $p(x)$ 在 $\mathbb C$ 中的一根。</p>
 <ul>
@@ -736,7 +736,7 @@
 <p>$$<br>\begin{aligned}<br>\varphi:&amp;F[x_1,\dots,x_n]&amp;\to R\cr<br>&amp;f&amp;\mapsto \tilde f<br>\end{aligned}<br>$$</p>
 <p>则 $\varphi$ 为环同构。</p>
 </li>
-<li><p>$n$ 元置换：$S&#x3D;{1,2,\dots,n}$，一个 $n$ 元置换指一个一一映射：</p>
+<li><p>$n$ 元置换：$S&#x3D;\{1,2,\dots,n\}$，一个 $n$ 元置换指一个一一映射：</p>
 <p>$$<br>\tau:S\to S<br>$$</p>
 <p>常记做：</p>
 <p>$$<br>\tau&#x3D;\begin{pmatrix}1&amp;2&amp;\cdots&amp;n\cr i_1&amp;i_2&amp;\cdots&amp;i_n\end{pmatrix}<br>$$</p>
