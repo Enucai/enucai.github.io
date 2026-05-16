@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xcpc on Terminal</title>
+    <link>http://localhost:1313/tags/xcpc/</link>
+    <description>Recent content in Xcpc on Terminal</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 04 Apr 2026 15:36:04 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/xcpc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introduction to CP Maker</title>
+      <link>http://localhost:1313/posts/cp-maker/</link>
+      <pubDate>Sat, 04 Apr 2026 15:36:04 +0800</pubDate>
+      <guid>http://localhost:1313/posts/cp-maker/</guid>
+      <description>&lt;p&gt;项目地址：&lt;a href=&#34;https://github.com/Enucai/CP-Maker&#34;&gt;https://github.com/Enucai/CP-Maker&lt;/a&gt;。&lt;/p&gt;&#xA;&lt;p&gt;这是一个帮你为算法竞赛题目造数据的项目。本项目大部分由 GPT-5.3-Codex 生成。&lt;/p&gt;&#xA;&lt;p&gt;写这个项目的原因是要搬模拟赛，但是不想自己造数据了，一些比较简单的题造菜一点的数据也没啥关系，所以让 ai 造一下得了。&lt;/p&gt;&#xA;&lt;p&gt;你只需要提供题目描述，输入输出格式，数据范围和 std，项目可以自动生成 testlib 格式的 generator, validator 和 checker，然后批量生成输入输出文件。当然如果你能够提供题目解法，生成效果可能会更好。&lt;/p&gt;&#xA;&lt;p&gt;同时，如果你要卡一部分做法，你也可以提供额外的提示词，让 AI 帮你造一些更强的数据。&lt;/p&gt;&#xA;&lt;p&gt;项目支持直接将数据打包成 UOJ 格式，略去了人工写 &lt;code&gt;problem.conf&lt;/code&gt; 的过程。&lt;/p&gt;&#xA;&lt;p&gt;相信只要你使用的模型足够强，那么生成的数据就能足够强。&lt;/p&gt;&#xA;&lt;p&gt;目前用 &lt;code&gt;grok-4.1-fast&lt;/code&gt; 并非 coding 模型来造「联合省选 2026 recollector」的数据，能够生成与官方数据强度类似的数据（）。当然我没有免费的 api key 可以用，所以用的模型都比较菜。有钱的可以用更强的模型试试。&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/cpmaker-sample.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;接下来的一些更新方向：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;添加 subtask 的支持，从而更加适配 OI 题目的要求。（已更新 @ 2026.4.4 18:45）&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;欢迎提交 Issues 或 PR。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Introduction to Y-Fast Trie</title>
+      <link>http://localhost:1313/posts/y-fast-trie/</link>
+      <pubDate>Mon, 08 Dec 2025 23:38:36 +0800</pubDate>
+      <guid>http://localhost:1313/posts/y-fast-trie/</guid>
+      <description>&lt;p&gt;This is my presentation slides for a data structures and algorithms presentation, which introduces the Y-Fast Trie algorithm.&lt;/p&gt;&#xA;&lt;div class=&#34;pdf-embed&#34;&gt;&#xA;  &lt;iframe&#xA;    src=&#34;http://localhost:1313/downloads/y-fast-trie.pdf&#34;&#xA;    width=&#34;100%&#34;&#xA;    height=&#34;800&#34;&#xA;    style=&#34;border:0;&#34;&#xA;    loading=&#34;lazy&#34;&#xA;    title=&#34;PDF document&#34;&gt;&#xA;  &lt;/iframe&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;p&gt;Or open the PDF file here to view: &lt;a href=&#34;http://localhost:1313/downloads/y-fast-trie.pdf&#34;&gt;Y-Fast Trie Algorithm.pdf&lt;/a&gt;。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>My Self-Authored Algorithm Problems</title>
+      <link>http://localhost:1313/posts/authored-problems/</link>
+      <pubDate>Fri, 10 Oct 2025 21:52:33 +0800</pubDate>
+      <guid>http://localhost:1313/posts/authored-problems/</guid>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Codeforces Global Round 28 B. Kevin and Permutation&#xA;&lt;a href=&#34;https://codeforces.com/contest/2048/problem/B&#34;&gt;https://codeforces.com/contest/2048/problem/B&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Codeforces Global Round 28 F. Kevin and Math Class&#xA;&lt;a href=&#34;https://codeforces.com/contest/2048/problem/F&#34;&gt;https://codeforces.com/contest/2048/problem/F&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;2025 Multi-University Training Contest 10 G. Message Spreading&#xA;&lt;a href=&#34;https://acm.hdu.edu.cn/showproblem.php?pid=8093&#34;&gt;https://acm.hdu.edu.cn/showproblem.php?pid=8093&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;2025 Multi-University Training Contest 10 L. Counting Colorful Sequence&#xA;&lt;a href=&#34;https://acm.hdu.edu.cn/showproblem.php?pid=8098&#34;&gt;https://acm.hdu.edu.cn/showproblem.php?pid=8098&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Pan African Informatics Olympiad 2025 Day 1 D. XOR Multiset&#xA;&lt;a href=&#34;https://qoj.ac/contest/2525/problem/14517&#34;&gt;https://qoj.ac/contest/2525/problem/14517&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Secret Source 登山计划&#xA;&lt;a href=&#34;https://zhengruioi.com/problem/3387&#34;&gt;https://zhengruioi.com/problem/3387&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>

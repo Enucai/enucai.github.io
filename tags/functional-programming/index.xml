@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Functional Programming on Terminal</title>
+    <link>http://localhost:1313/tags/functional-programming/</link>
+    <description>Recent content in Functional Programming on Terminal</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 25 Oct 2025 12:00:20 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/functional-programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Monad in Haskell</title>
+      <link>http://localhost:1313/posts/haskell-monad/</link>
+      <pubDate>Sat, 25 Oct 2025 12:00:20 +0800</pubDate>
+      <guid>http://localhost:1313/posts/haskell-monad/</guid>
+      <description>&lt;p&gt;Haskll 的 Monad 其实是针对一个 type constructor 的定义。&lt;/p&gt;&#xA;&lt;p&gt;所谓 type constructor，就是类型构造器，他接收一个或若干个类型，产生一个新的类型。例如 &lt;code&gt;Maybe a&lt;/code&gt;，其中 &lt;code&gt;a&lt;/code&gt; 是一个 type，而 &lt;code&gt;Maybe&lt;/code&gt; 就是一个 type constructor。又如 &lt;code&gt;[a]&lt;/code&gt;，其中的 &lt;code&gt;[]&lt;/code&gt; 即为一个 type constructor，传入一个类型 &lt;code&gt;a&lt;/code&gt;，会构造一个 &lt;code&gt;a&lt;/code&gt; 的列表的 type。&lt;/p&gt;&#xA;&lt;p&gt;我们可以大致认为一个 type constructor 就是一个盒子，他就是把一个 &lt;code&gt;a&lt;/code&gt; 类型的值给装进了一个盒子里。虽然这种比喻有些时候并不完全恰当。&lt;/p&gt;&#xA;&lt;h2 id=&#34;functor&#34;&gt;Functor&lt;/h2&gt;&#xA;&lt;p&gt;Monad 体系内最先被定义的是 Functor。考虑函数 &lt;code&gt;map&lt;/code&gt;，它的类型是 &lt;code&gt;map :: (a -&amp;gt; b) -&amp;gt; [a] -&amp;gt; [b]&lt;/code&gt;，即给 &lt;code&gt;[a]&lt;/code&gt; 内的每个元素都作用上 &lt;code&gt;a -&amp;gt; b&lt;/code&gt; 的函数。但是该定义只对 list 这个 type constructor 有效。我们希望将这个函数普适到其他的 type constructor。&lt;/p&gt;&#xA;&lt;p&gt;而所有能被作用这样类似 &lt;code&gt;map&lt;/code&gt; 函数的 type constructor，我们统一定义其为 Functor class。&lt;/p&gt;&#xA;&lt;p&gt;Functor 这个 class 的定义如下：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

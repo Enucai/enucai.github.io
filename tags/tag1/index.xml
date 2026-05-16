@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tag1 on Terminal</title>
+    <link>//localhost:1313/tags/tag1/</link>
+    <description>Recent content in Tag1 on Terminal</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 16 May 2026 21:51:10 +0800</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/tag1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Me</title>
+      <link>//localhost:1313/about/</link>
+      <pubDate>Sat, 16 May 2026 21:51:10 +0800</pubDate>
+      <guid>//localhost:1313/about/</guid>
+      <description>&lt;p&gt;This is about page.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>My First Post</title>
+      <link>//localhost:1313/posts/my-first-post/</link>
+      <pubDate>Sat, 16 May 2026 21:45:12 +0800</pubDate>
+      <guid>//localhost:1313/posts/my-first-post/</guid>
+      <description>&lt;p&gt;test&lt;/p&gt;&#xA;$$&#xA;\LaTeX \lambda&#xA;$$&lt;p&gt;This is a $\text{inline }test$.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

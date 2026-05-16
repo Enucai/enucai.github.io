@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+    <title>Advanced Algebra I :: Terminal</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="This article only records some of the more classic conclusions from the Advanced Algebra I course, without including detailed notes and proofs." />
+<meta name="keywords" content=", " />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="http://localhost:1313/posts/linear-algebra-i/" />
+
+
+
+
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/buttons.min.86f6b4c106b6c6eb690ae5203d36b442c1f66f718ff4e8164fa86cf6c61ad641.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/code.min.c4581949edab7810737609fc5568852bcd908945f14561e366dcd2300a370545.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/fonts.min.5bb7ed13e1d00d8ff39ea84af26737007eb5051b157b86fc24487c94f3dc8bbe.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/footer.min.eb8dfc2c6a7eafa36cd3ba92d63e69e849e2200e0002a228d137f236b09ecd75.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/header.min.75c7eb0e2872d95ff48109c6647d0223a38db52e2561dd87966eb5fc7c6bdac6.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/main.min.36833afd348409fc6c3d09d0897c5833d9d5bf1ff31f5e60ea3ee42ce2b1268c.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/menu.min.3c17467ebeb3d38663dce68f71f519901124fa5cbb4519b2fb0667a21e9aca39.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/pagination.min.bbb986dbce00a5ce5aca0504b7925fc1c581992a4bf57f163e5d69cc1db7d836.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/post.min.e6dddd258e64c83e05cec0cd49c05216742d42fc8ecbfbe6b67083412b609bd3.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/syntax.min.a2cc694a9b481f15d41722bffc2cc54eea4c4f74fd9072b0b33253604c22606e.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/terminal.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
+
+
+
+
+
+
+
+<link rel="shortcut icon" href="http://localhost:1313/favicon.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Advanced Algebra I">
+<meta property="og:description" content="This article only records some of the more classic conclusions from the Advanced Algebra I course, without including detailed notes and proofs." />
+<meta property="og:url" content="http://localhost:1313/posts/linear-algebra-i/" />
+<meta property="og:site_name" content="Terminal" />
+
+  
+  
+  <meta property="og:image" content="http://localhost:1313/">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2025-12-16 16:35:42 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}],throwOnError:false});">
+  </script>
+
+</head>
+<body>
+
+
+<div class="container">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Terminal
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/about" >About</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="http://localhost:1313/posts/linear-algebra-i/">Advanced Algebra I</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2025-12-16</time><span class="post-author">enucai</span><span class="post-reading-time">1 min read (129 words)</span></div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="http://localhost:1313/tags/math/">math</a>&nbsp;
+      
+      #<a href="http://localhost:1313/tags/notes/">notes</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <p>记录一些经典的结论，证明略去。</p>
+<ul>
+<li>
+<p>$r(A+B)\le r(A)+r(B)$，等号成立当且仅当 $\text{Im}(A)\cap \text{Im}(B)=\{\theta\}$。</p>
+</li>
+<li>
+<p>$r(AB)\le \min(r(A),r(B))$。</p>
+</li>
+<li>
+<p>$r(AB)\ge r(A)+r(B)-n$。</p>
+</li>
+<li>
+<p>$AB=0\implies r(A)+r(B)\le n$。</p>
+</li>
+<li>
+<p>若 $A^2=A$，则 $r(A)=\text{tr}(A)$。</p>
+</li>
+<li>
+<p>$\text{tr}(AB)=\text{tr}(BA)$，$\text{tr}(A_1\cdots A_n)=\text{tr}(A_n\cdot A_1\cdots A_{n-1})$，只能循环位移。</p>
+</li>
+<li>
+<p>降阶定理：$A,D$ 可逆，$\forall B\in M_{m\times n}(F),C\in M_{n\times m}(F)$，都有：
+</p>
+$$
+  |A|\cdot |D-CA^{-1}B|=|D|\cdot |A-BD^{-1}C|
+  $$</li>
+<li>
+<p>设有多项式 $f(x)$，且 $\lambda_0$ 是 $A$ 的特征值，则 $f(\lambda_0)$ 是 $f(A)$ 的特征值（不保证重数相同）。</p>
+</li>
+<li>
+<p>对任意矩阵 $A\in M_{n\times m}(F),B\in M_{m\times n}(F)$，$AB$ 和 $BA$ 具有相同的特征值和重数。</p>
+</li>
+<li>
+<p>矩阵幂零等价于特征值全为 $0$。</p>
+</li>
+<li>
+<p>Cayley Hamilton 定理：矩阵作用在自己的特征多项式上等于零。</p>
+</li>
+<li>
+<p>$|A|=\prod \lambda_i$，$\text{tr}(A)=\sum\lambda_i$。</p>
+</li>
+<li>
+<p>$\mathbb{C}$ 上若 $AB=BA$，则 $A,B$ 可同时上三角化；若还有 $A,B$ 都可对角化，则 $A,B$ 可同时对角化。</p>
+</li>
+<li>
+<p>实对称矩阵的合同规范型 $\text{diag}(I_p,-I_q,0)$。</p>
+</li>
+<li>
+<p>以下几个条件等价：</p>
+<ul>
+<li>$A$ 正定。</li>
+<li>$A$ 的所有主子式 $>0$。</li>
+<li>$A$ 的所有顺序主子式 $>0$。</li>
+<li>$A$ 的特征值都 $>0$。</li>
+<li>$\forall \alpha\not=\theta,\alpha^TA\alpha>0$。</li>
+</ul>
+</li>
+<li>
+<p>若 $A$ 正定（半正定），则存在唯一 $S$ 满足 $S^2=A$，且 $S$ 也正定（半正定）。</p>
+</li>
+<li>
+<p>若 $A$ 正定，$B$ 半正定，则 $A+B$ 正定。</p>
+</li>
+<li>
+<p>若 $A$ 正定，则存在 $C$ 可逆，$A=C^TC$。</p>
+</li>
+<li>
+<p>若 $A$ 正定，则 $\det(A)\le \prod a_{ii}$。</p>
+</li>
+<li>
+<p>实对称矩阵正交对角化，即 $A=A^T\implies \exists Q$ 正交，$Q^TAQ=\text{diag}(\lambda_i)$。</p>
+</li>
+<li>
+<p>实矩阵奇异值分解：任意实矩阵 $A$ 均存在 $Q,T$ 正交，使得：</p>
+$$
+  Q^TAT=\begin{pmatrix}\text{diag}(\sigma_i)&0\cr 0&0\end{pmatrix}
+  $$<p>注意此处 $A$ 不一定要是方阵。</p>
+</li>
+<li>
+<p>Hermite 矩阵酉对角化，即 $H=\overline{H}^T\implies \exists U$ 酉，$\overline{U}^TAU=\text{diag}(\lambda_i)$。</p>
+</li>
+</ul>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+  <div class="pagination__title">
+    <span class="pagination__title-h">Read other posts</span>
+    <hr />
+  </div>
+  <div class="pagination__buttons">
+    
+      <a href="http://localhost:1313/posts/ui-of-tree-path-neighb/" class="button inline prev">
+        &lt; [<span class="button__text">Union and Intersection of Tree and Path Neighborhoods</span>]
+      </a>
+    
+    
+      ::
+    
+    
+      <a href="http://localhost:1313/posts/y-fast-trie/" class="button inline next">
+         [<span class="button__text">Introduction to Y-Fast Trie</span>] &gt;
+      </a>
+    
+  </div>
+</div>
+
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2026 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>
