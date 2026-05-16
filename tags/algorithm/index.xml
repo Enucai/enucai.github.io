@@ -2,25 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Algorithm on Terminal</title>
-    <link>http://localhost:1313/tags/algorithm/</link>
+    <link>https://enucai.github.io/tags/algorithm/</link>
     <description>Recent content in Algorithm on Terminal</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 10 Jan 2026 16:38:07 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://enucai.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Union and Intersection of Tree and Path Neighborhoods</title>
-      <link>http://localhost:1313/posts/ui-of-tree-path-neighb/</link>
+      <link>https://enucai.github.io/posts/ui-of-tree-path-neighb/</link>
       <pubDate>Sat, 10 Jan 2026 16:38:07 +0800</pubDate>
-      <guid>http://localhost:1313/posts/ui-of-tree-path-neighb/</guid>
+      <guid>https://enucai.github.io/posts/ui-of-tree-path-neighb/</guid>
       <description>&lt;p&gt;This article is the author&amp;rsquo;s National Training Team paper.&lt;/p&gt;&#xA;&lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;&#xA;&lt;p&gt;This paper introduces the theory of tree neighborhoods, methods for finding the union and intersection of tree neighborhoods, and the theory and algorithms for the intersection of path neighborhoods on trees. Furthermore, it presents several applications of these methods to related problems.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Tree-structured problems are crucial subjects of study in algorithmic competitions, among which tree neighborhood problems are highly common.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Introduction to Y-Fast Trie</title>
-      <link>http://localhost:1313/posts/y-fast-trie/</link>
+      <link>https://enucai.github.io/posts/y-fast-trie/</link>
       <pubDate>Mon, 08 Dec 2025 23:38:36 +0800</pubDate>
-      <guid>http://localhost:1313/posts/y-fast-trie/</guid>
-      <description>&lt;p&gt;This is my presentation slides for a data structures and algorithms presentation, which introduces the Y-Fast Trie algorithm.&lt;/p&gt;&#xA;&lt;div class=&#34;pdf-embed&#34;&gt;&#xA;  &lt;iframe&#xA;    src=&#34;http://localhost:1313/downloads/y-fast-trie.pdf&#34;&#xA;    width=&#34;100%&#34;&#xA;    height=&#34;800&#34;&#xA;    style=&#34;border:0;&#34;&#xA;    loading=&#34;lazy&#34;&#xA;    title=&#34;PDF document&#34;&gt;&#xA;  &lt;/iframe&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;p&gt;Or open the PDF file here to view: &lt;a href=&#34;http://localhost:1313/downloads/y-fast-trie.pdf&#34;&gt;Y-Fast Trie Algorithm.pdf&lt;/a&gt;。&lt;/p&gt;</description>
+      <guid>https://enucai.github.io/posts/y-fast-trie/</guid>
+      <description>&lt;p&gt;This is my presentation slides for a data structures and algorithms presentation, which introduces the Y-Fast Trie algorithm.&lt;/p&gt;&#xA;&lt;div class=&#34;pdf-embed&#34;&gt;&#xA;  &lt;iframe&#xA;    src=&#34;https://enucai.github.io/downloads/y-fast-trie.pdf&#34;&#xA;    width=&#34;100%&#34;&#xA;    height=&#34;800&#34;&#xA;    style=&#34;border:0;&#34;&#xA;    loading=&#34;lazy&#34;&#xA;    title=&#34;PDF document&#34;&gt;&#xA;  &lt;/iframe&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;p&gt;Or open the PDF file here to view: &lt;a href=&#34;https://enucai.github.io/downloads/y-fast-trie.pdf&#34;&gt;Y-Fast Trie Algorithm.pdf&lt;/a&gt;。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>My Self-Authored Algorithm Problems</title>
+      <link>https://enucai.github.io/posts/authored-problems/</link>
+      <pubDate>Fri, 10 Oct 2025 21:52:33 +0800</pubDate>
+      <guid>https://enucai.github.io/posts/authored-problems/</guid>
+      <description>&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Codeforces Global Round 28 B. Kevin and Permutation&#xA;&lt;a href=&#34;https://codeforces.com/contest/2048/problem/B&#34;&gt;https://codeforces.com/contest/2048/problem/B&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Codeforces Global Round 28 F. Kevin and Math Class&#xA;&lt;a href=&#34;https://codeforces.com/contest/2048/problem/F&#34;&gt;https://codeforces.com/contest/2048/problem/F&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;2025 Multi-University Training Contest 10 G. Message Spreading&#xA;&lt;a href=&#34;https://acm.hdu.edu.cn/showproblem.php?pid=8093&#34;&gt;https://acm.hdu.edu.cn/showproblem.php?pid=8093&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;2025 Multi-University Training Contest 10 L. Counting Colorful Sequence&#xA;&lt;a href=&#34;https://acm.hdu.edu.cn/showproblem.php?pid=8098&#34;&gt;https://acm.hdu.edu.cn/showproblem.php?pid=8098&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Pan African Informatics Olympiad 2025 Day 1 D. XOR Multiset&#xA;&lt;a href=&#34;https://qoj.ac/contest/2525/problem/14517&#34;&gt;https://qoj.ac/contest/2525/problem/14517&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Secret Source 登山计划&#xA;&lt;a href=&#34;https://zhengruioi.com/problem/3387&#34;&gt;https://zhengruioi.com/problem/3387&lt;/a&gt;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
   </channel>
 </rss>

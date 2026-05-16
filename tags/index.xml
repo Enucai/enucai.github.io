@@ -2,66 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Terminal</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://enucai.github.io/tags/</link>
     <description>Recent content in Tags on Terminal</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 04 Apr 2026 15:36:04 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://enucai.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Oi</title>
-      <link>http://localhost:1313/tags/oi/</link>
+      <link>https://enucai.github.io/tags/oi/</link>
       <pubDate>Sat, 04 Apr 2026 15:36:04 +0800</pubDate>
-      <guid>http://localhost:1313/tags/oi/</guid>
+      <guid>https://enucai.github.io/tags/oi/</guid>
       <description></description>
     </item>
     <item>
       <title>Project</title>
-      <link>http://localhost:1313/tags/project/</link>
+      <link>https://enucai.github.io/tags/project/</link>
       <pubDate>Sat, 04 Apr 2026 15:36:04 +0800</pubDate>
-      <guid>http://localhost:1313/tags/project/</guid>
+      <guid>https://enucai.github.io/tags/project/</guid>
       <description></description>
     </item>
     <item>
       <title>Xcpc</title>
-      <link>http://localhost:1313/tags/xcpc/</link>
+      <link>https://enucai.github.io/tags/xcpc/</link>
       <pubDate>Sat, 04 Apr 2026 15:36:04 +0800</pubDate>
-      <guid>http://localhost:1313/tags/xcpc/</guid>
+      <guid>https://enucai.github.io/tags/xcpc/</guid>
       <description></description>
     </item>
     <item>
       <title>Algorithm</title>
-      <link>http://localhost:1313/tags/algorithm/</link>
+      <link>https://enucai.github.io/tags/algorithm/</link>
       <pubDate>Sat, 10 Jan 2026 16:38:07 +0800</pubDate>
-      <guid>http://localhost:1313/tags/algorithm/</guid>
+      <guid>https://enucai.github.io/tags/algorithm/</guid>
       <description></description>
     </item>
     <item>
       <title>Paper</title>
-      <link>http://localhost:1313/tags/paper/</link>
+      <link>https://enucai.github.io/tags/paper/</link>
       <pubDate>Sat, 10 Jan 2026 16:38:07 +0800</pubDate>
-      <guid>http://localhost:1313/tags/paper/</guid>
+      <guid>https://enucai.github.io/tags/paper/</guid>
       <description></description>
     </item>
     <item>
       <title>Math</title>
-      <link>http://localhost:1313/tags/math/</link>
+      <link>https://enucai.github.io/tags/math/</link>
       <pubDate>Tue, 16 Dec 2025 16:35:42 +0800</pubDate>
-      <guid>http://localhost:1313/tags/math/</guid>
+      <guid>https://enucai.github.io/tags/math/</guid>
       <description></description>
     </item>
     <item>
       <title>Notes</title>
-      <link>http://localhost:1313/tags/notes/</link>
+      <link>https://enucai.github.io/tags/notes/</link>
       <pubDate>Tue, 16 Dec 2025 16:35:42 +0800</pubDate>
-      <guid>http://localhost:1313/tags/notes/</guid>
+      <guid>https://enucai.github.io/tags/notes/</guid>
       <description></description>
     </item>
     <item>
       <title>Functional Programming</title>
-      <link>http://localhost:1313/tags/functional-programming/</link>
+      <link>https://enucai.github.io/tags/functional-programming/</link>
       <pubDate>Sat, 25 Oct 2025 12:00:20 +0800</pubDate>
-      <guid>http://localhost:1313/tags/functional-programming/</guid>
+      <guid>https://enucai.github.io/tags/functional-programming/</guid>
       <description></description>
     </item>
   </channel>

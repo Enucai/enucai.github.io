@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Paper on Terminal</title>
-    <link>http://localhost:1313/tags/paper/</link>
+    <link>https://enucai.github.io/tags/paper/</link>
     <description>Recent content in Paper on Terminal</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 10 Jan 2026 16:38:07 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/paper/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://enucai.github.io/tags/paper/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Union and Intersection of Tree and Path Neighborhoods</title>
-      <link>http://localhost:1313/posts/ui-of-tree-path-neighb/</link>
+      <link>https://enucai.github.io/posts/ui-of-tree-path-neighb/</link>
       <pubDate>Sat, 10 Jan 2026 16:38:07 +0800</pubDate>
-      <guid>http://localhost:1313/posts/ui-of-tree-path-neighb/</guid>
+      <guid>https://enucai.github.io/posts/ui-of-tree-path-neighb/</guid>
       <description>&lt;p&gt;This article is the author&amp;rsquo;s National Training Team paper.&lt;/p&gt;&#xA;&lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;&#xA;&lt;p&gt;This paper introduces the theory of tree neighborhoods, methods for finding the union and intersection of tree neighborhoods, and the theory and algorithms for the intersection of path neighborhoods on trees. Furthermore, it presents several applications of these methods to related problems.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Tree-structured problems are crucial subjects of study in algorithmic competitions, among which tree neighborhood problems are highly common.&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,63 +2,63 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>https://enucai.github.io/about/</loc>
     <lastmod>2026-05-16T21:51:10+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://enucai.github.io/</loc>
     <lastmod>2026-05-16T21:51:10+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/cp-maker/</loc>
+    <loc>https://enucai.github.io/posts/cp-maker/</loc>
     <lastmod>2026-04-04T15:36:04+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/oi/</loc>
+    <loc>https://enucai.github.io/tags/oi/</loc>
     <lastmod>2026-04-04T15:36:04+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>https://enucai.github.io/posts/</loc>
     <lastmod>2026-04-04T15:36:04+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/project/</loc>
+    <loc>https://enucai.github.io/tags/project/</loc>
     <lastmod>2026-04-04T15:36:04+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://enucai.github.io/tags/</loc>
     <lastmod>2026-04-04T15:36:04+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/xcpc/</loc>
+    <loc>https://enucai.github.io/tags/xcpc/</loc>
     <lastmod>2026-04-04T15:36:04+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/algorithm/</loc>
+    <loc>https://enucai.github.io/tags/algorithm/</loc>
     <lastmod>2026-01-10T16:38:07+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/paper/</loc>
+    <loc>https://enucai.github.io/tags/paper/</loc>
     <lastmod>2026-01-10T16:38:07+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/ui-of-tree-path-neighb/</loc>
+    <loc>https://enucai.github.io/posts/ui-of-tree-path-neighb/</loc>
     <lastmod>2026-01-10T16:38:07+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/linear-algebra-i/</loc>
+    <loc>https://enucai.github.io/posts/linear-algebra-i/</loc>
     <lastmod>2025-12-16T16:35:42+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/math/</loc>
+    <loc>https://enucai.github.io/tags/math/</loc>
     <lastmod>2025-12-16T16:35:42+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/notes/</loc>
+    <loc>https://enucai.github.io/tags/notes/</loc>
     <lastmod>2025-12-16T16:35:42+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/y-fast-trie/</loc>
+    <loc>https://enucai.github.io/posts/y-fast-trie/</loc>
     <lastmod>2025-12-08T23:38:36+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/oi-memoirs/</loc>
+    <loc>https://enucai.github.io/posts/oi-memoirs/</loc>
     <lastmod>2025-11-13T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/functional-programming/</loc>
+    <loc>https://enucai.github.io/tags/functional-programming/</loc>
     <lastmod>2025-10-25T12:00:20+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/haskell-monad/</loc>
+    <loc>https://enucai.github.io/posts/haskell-monad/</loc>
     <lastmod>2025-10-25T12:00:20+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/authored-problems/</loc>
+    <loc>https://enucai.github.io/posts/authored-problems/</loc>
     <lastmod>2025-10-10T21:52:33+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://enucai.github.io/categories/</loc>
   </url>
 </urlset>
