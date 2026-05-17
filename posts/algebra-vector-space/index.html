@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Advanced Algebra: Vector Spaces and Linear Maps :: Terminal</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="These are the study notes for Advanced Algebra II, covering the learning material of Chapter 2: Vector Spaces and Linear Maps." />
+<meta name="keywords" content=", " />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://enucai.github.io/posts/algebra-vector-space/" />
+
+
+
+
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/buttons.min.86f6b4c106b6c6eb690ae5203d36b442c1f66f718ff4e8164fa86cf6c61ad641.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/code.min.c4581949edab7810737609fc5568852bcd908945f14561e366dcd2300a370545.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/fonts.min.5bb7ed13e1d00d8ff39ea84af26737007eb5051b157b86fc24487c94f3dc8bbe.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/footer.min.eb8dfc2c6a7eafa36cd3ba92d63e69e849e2200e0002a228d137f236b09ecd75.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/header.min.75c7eb0e2872d95ff48109c6647d0223a38db52e2561dd87966eb5fc7c6bdac6.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/main.min.36833afd348409fc6c3d09d0897c5833d9d5bf1ff31f5e60ea3ee42ce2b1268c.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/menu.min.3c17467ebeb3d38663dce68f71f519901124fa5cbb4519b2fb0667a21e9aca39.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/pagination.min.bbb986dbce00a5ce5aca0504b7925fc1c581992a4bf57f163e5d69cc1db7d836.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/post.min.e6dddd258e64c83e05cec0cd49c05216742d42fc8ecbfbe6b67083412b609bd3.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/syntax.min.a2cc694a9b481f15d41722bffc2cc54eea4c4f74fd9072b0b33253604c22606e.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/terminal.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
+
+
+
+
+
+
+
+<link rel="shortcut icon" href="https://enucai.github.io/favicon.png">
+<link rel="apple-touch-icon" href="https://enucai.github.io/apple-touch-icon.png">
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Advanced Algebra: Vector Spaces and Linear Maps">
+<meta property="og:description" content="These are the study notes for Advanced Algebra II, covering the learning material of Chapter 2: Vector Spaces and Linear Maps." />
+<meta property="og:url" content="https://enucai.github.io/posts/algebra-vector-space/" />
+<meta property="og:site_name" content="Terminal" />
+
+  
+  
+  <meta property="og:image" content="https://enucai.github.io/">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2026-04-07 11:55:21 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}],throwOnError:false});">
+  </script>
+
+</head>
+<body>
+
+
+<div class="container">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Terminal
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/about" >About</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="https://enucai.github.io/posts/algebra-vector-space/">Advanced Algebra: Vector Spaces and Linear Maps</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2026-04-07</time><span class="post-author">enucai</span><span class="post-reading-time">6 min read (1182 words)</span></div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="https://enucai.github.io/tags/math/">math</a>&nbsp;
+      
+      #<a href="https://enucai.github.io/tags/notes/">notes</a>&nbsp;
+      
+      #<a href="https://enucai.github.io/tags/algebra/">algebra</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <h2 id="向量空间结构">向量空间结构<a href="#向量空间结构" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<ul>
+<li>
+<p>定义：$F$ 为域，$(V,+)$ 为加法交换群。称 $V$ 为 $F$ 上的向量空间，若有 $F$ 在 $V$ 上的纯量乘法，记为 $\cdot:F\times V\to V$，使：</p>
+<ul>
+<li>
+<p>“结合律”：$(k\cdot l)\cdot \alpha=k\cdot(l\cdot \alpha),\forall k,l\in F,\alpha\in V$；</p>
+</li>
+<li>
+<p>“分配律”：$(k+l)\cdot \alpha=k\cdot \alpha+l\cdot \alpha,k\cdot (\alpha+\beta)=k\cdot \alpha+k\cdot \beta,\forall k,l\in F,\alpha,\beta\in V$；</p>
+</li>
+<li>
+<p>“酉性”：$1\cdot \alpha=\alpha,\forall \alpha\in V$。</p>
+</li>
+</ul>
+<p>注：</p>
+<ul>
+<li>
+<p>向量空间也称作线性空间，其中的元素称为向量。</p>
+</li>
+<li>
+<p>域 $F$ 在 $V$ 上的满足以上三个性质的“纯量乘法”也称作域 $F$ 在 $V$ 上的域作用。</p>
+<p>将域改为有 $1$ 的环 $R$ 时，则 $V$ 称为 $R-$ 模。</p>
+</li>
+<li>
+<p>简单事实：零元唯一，负元唯一，$0\cdot \alpha=\theta$，$-1\cdot \alpha=-\alpha$，$k\cdot \theta=\theta$。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>向量空间之例：</p>
+<ul>
+<li>
+<p>$F^n$，$F$，$M_{m\times n}(F)$，$F[x]$，$F[x_1,\dots,x_n]$，$C[a,b]/\mathbb R$。</p>
+</li>
+<li>
+<p>$V$ 为 $\mathbb Q$ 上之 Cauchy 列集合。定义：</p>
+<ul>
+<li>$\{a_n\}+\{b_n\}=\{a_n+b_n\}$；</li>
+<li>$k\cdot \{a_n\}=\{k\cdot a_n\}$；</li>
+<li>零元 $\{a_n=0\}_n$。</li>
+</ul>
+<p>则 $V$ 为 $\mathbb Q$ 上一空间。</p>
+</li>
+<li>
+<p>$\mathbb R_+=\{x\in \mathbb R\mid x>0\}$。定义：</p>
+<ul>
+<li>$x\oplus y=xy$；</li>
+<li>$k\odot x=x^k,\forall k\in \mathbb R$；</li>
+<li>零元：$\theta=1$。</li>
+</ul>
+<p>则 $(\mathbb R_+,\oplus,\odot)$ 为 $\mathbb R$ 之空间。</p>
+</li>
+<li>
+<p>$V$ 为 $\mathbb C-$ 空间。定义 $V$ 上新的空间结构：</p>
+<ul>
+<li>$+:V+V\to V$ 即为原本的加法；</li>
+<li>$*:\mathbb C*V\to V$：$a*V=\bar a\cdot V$。</li>
+</ul>
+<p>则 $(V,+,*)$ 为 $\mathbb C-$ 空间，称为 $V$ 的共轭空间。</p>
+</li>
+<li>
+<p>$S$ 非空，$F$ 为域。$S$ 上的 $F$ 值函数 $f$ 指映射 $f:S\to F$。</p>
+<p>记 $\tilde f(S)$ 为 $S$ 上所有 $F$ 值函数之集合。在 $\tilde f(S)$ 上定义 $+,\cdot$ 为通常的函数加法域纯量乘法。</p>
+<p>则 $(\tilde f(S),+,\cdot)$ 为 $F-$ 空间。</p>
+</li>
+<li>
+<p>考虑 $\tilde f(V)$，其中 $V$ 为 $F$ 上的向量空间。</p>
+<p>称 $f\in \tilde f(V)$ 为 $V$ 上的线性函数，若 $f$ 满足：</p>
+<ul>
+<li>$f(k\alpha+l\beta)=k\cdot f(\alpha)+l\cdot f(\beta),\forall k,l\in F,\alpha,\beta\in V$。</li>
+</ul>
+<p>记 $V^*$ 为 $\tilde f(V)$ 中的线性函数集合。$V^*$ 称为 $V$ 的对偶空间。</p>
+</li>
+<li>
+<p>$X$ 非空。记 $\tilde f_X$ 为所有形式的有限线性组合 $\sum_{x\in X}a_xx$（其中 $a_x\in F$ 只有有限多个 $a_x\neq 0$）所构成的集合。容易定义 $+,\cdot$。</p>
+<p>则 $\tilde f_X$ 为 $F$ 上的向量空间，称 $\tilde f_X$ 为由 $X$ 自由生成的向量空间。</p>
+<p>注：“自由”指 $X$ 中的元无任何关系，只是记号。</p>
+<ul>
+<li>例：$X=\{1,x,x^2,\cdots,x^n,\cdots\}$，则 $\tilde f_X=F[x]$；</li>
+<li>例：$X=\{\epsilon_1,\epsilon_2,\cdots,\epsilon_n\}$，则 $\tilde f_X=F^n$。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>线性表出：$\beta$ 可由 $\alpha_1,\cdots,\alpha_s$（$s$ 有限），若存在 $k_1,\cdots,k_s$ 使得 $\beta=k_1\alpha_1+\cdots+k_s\alpha_s$。常记做：</p>
+$$
+  \beta=\begin{pmatrix}\alpha_1&\cdots&\alpha_s\end{pmatrix}\begin{pmatrix}k_1\\\vdots\\k_s\end{pmatrix}
+  $$<p>一个向量组由另一个向量组线性表出，若每一个向量都可以有另一个向量组线性表出。即存在矩阵 $C$ 使得 $\begin{pmatrix}\beta_1&\cdots&\beta_t\end{pmatrix}=\begin{pmatrix}\alpha_1&\cdots&\alpha_s\end{pmatrix}C$，其中 $C=\begin{pmatrix}X_1&\cdots&X_t\end{pmatrix}$。</p>
+<p>注：$t=s$ 时，$C$ 为方阵。</p>
+</li>
+<li>
+<p>定义：$S\subset V$ 非空，$S$ 为有限集 $S=\{\alpha_1,\cdots,\alpha_s\}$ 时，称 $S$ 线性相关：若存在不全为 $0$ 的 $k_1,\cdots,k_s\in F$，使得 $\sum k_i\alpha_i=\theta$；否则称为线性无关。</p>
+<p>若 $S$ 为无限集合，称 $S$ 线性相关，若 $S$ 中存在有限子集线性相关；否则称为线性无关。</p>
+</li>
+<li>
+<p>向量组 $\alpha_1,\cdots,\alpha_s$ 的极大无关组所包含的向量数目称为向量组的秩（$s$ 有限时）。</p>
+</li>
+<li>
+<p>定义：称 $V$ 之有限子集 $S=\{\alpha_1,\cdots,\alpha_n\}$ 为 $V$ 之基，若 $\alpha_1,\cdots,\alpha_n$ 无关且可（唯一）表出 $V$ 中的每个向量。此时称 $V$ 为 $n$ 维的。</p>
+<p>称 $V$ 为有限维的，若 $V=\{\theta\}$ 或 $V$ 含有（有限）基。否则称为无限维的。</p>
+<p>注：若 $V$ 无限维，则此处未定义 $V$ 之基的概念。</p>
+<p>注：若 $V$ 有基 $\alpha_1,\cdots,\alpha_n$，则 $V=\tilde f_X$，其中 $X=\{\alpha_1,\cdots,\alpha_n\}$。</p>
+</li>
+<li>
+<p>若 $\begin{pmatrix}\beta_1&\cdots&\beta_s\end{pmatrix}=\begin{pmatrix}\alpha_1&\cdots&\alpha_t\end{pmatrix}C$，其中 $\alpha_1,\cdots,\alpha_t$ 线性无关。则 $\beta_1,\cdots,\beta_s$ 无关当且仅当 $C$ 可逆。</p>
+<p>设 $\alpha_1,\cdots,\alpha_n$ 和 $\beta_1,\cdots,\beta_n$ 为 $V$ 之两基，$\begin{pmatrix}\beta_1&\cdots&\beta_n\end{pmatrix}=\begin{pmatrix}\alpha_1&\cdots&\alpha_n\end{pmatrix}C$，则 $C$ 称为由 $\alpha_1,\cdots,\alpha_n$ 到 $\beta_1,\cdots,\beta_n$ 的过渡矩阵。</p>
+</li>
+<li>
+<p>命题：设 $\alpha_1,\cdots,\alpha_n$ 和 $\beta_1,\cdots,\beta_n$ 为 $V$ 之两基，$\begin{pmatrix}\beta_1&\cdots&\beta_n\end{pmatrix}=\begin{pmatrix}\alpha_1&\cdots&\alpha_n\end{pmatrix}C$。$\forall \alpha=\begin{pmatrix}\alpha_1&\cdots&\alpha_n\end{pmatrix}X=\begin{pmatrix}\beta_1&\cdots&\beta_n\end{pmatrix}Y$，则 $X=CY$。</p>
+<p>例：$F[x]_n=\{f(x)\in F[x]\mid \deg f\le n\}$。已知 $1,x,x^2,\cdots,x^n$ 是一组基。则 $\forall a\in F$，$1,x-a,(x-a)^2,\cdots,(x-a)^n$ 也是 $F[x]_n$ 之基。</p>
+</li>
+<li>
+<p>命题：设 $f_1(x),f_2(x),\cdots,f_n(x)$ 为 $[a,b]$ 上 $(n-1)$ 阶可导函数。定义：</p>
+$$
+  W(x)=\begin{vmatrix}
+  f_1(x)&f_2(x)&\cdots&f_n(x)\\
+  f_1'(x)&f_2'(x)&\cdots&f_n'(x)\\
+  \vdots&\vdots&\ddots&\vdots\\
+  f_1^{(n-1)}(x)&f_2^{(n-1)}(x)&\cdots&f_n^{(n-1)}(x)
+  \end{vmatrix}
+  $$<p>称为 Wronski 行列式。若存在 $x_0\in [a,b]$ 使得 $W(x)\neq 0$，则 $f_1,f_2,\cdots,f_n$ 必无关。</p>
+<p>例：判断 $1,\sin x,\cos x$ 是否无关。</p>
+$$
+  W(x)=\begin{vmatrix}1&\sin x&\cos x\\0&\cos x&-\sin x\\0&-\sin x&-\cos x\end{vmatrix}=-1
+  $$<p>注：若 $W(x)\equiv 0,\forall x$，则不能推出 $f_1,\cdots,f_n$ 一定相关。例如 $f_1=x^2,f_2=x\cdot |x|$。</p>
+</li>
+<li>
+<p>定义：$V/F,U\subset V$，称 $U$ 为 $V$ 的子空间，若 $U$ 关于 $V$ 的 $+,\cdot$ 的限制也是向量空间。</p>
+<p>注：$U$ 为 $V$ 之子空间 $\iff U$ 对 $V$ 之 $+,\cdot$ 封闭。</p>
+</li>
+<li>
+<p>$\forall \alpha_1,\cdots,\alpha_s\in V$，记 $L(\alpha_1,\cdots,\alpha_s)=\{\sum k_i\alpha_i\mid k_i\in F\}$ 为 $V$ 之子空间，称为由 $\alpha_1,\cdots,\alpha_s$ 生成的子空间。</p>
+<p>注：若 $\alpha_1,\cdots,\alpha_s$ 为 $V$ 的一组基，则 $L(\alpha_1,\cdots,\alpha_s)=V$。</p>
+</li>
+<li>
+<p>设 $V_1,V_2$ 为两个子空间。定义：</p>
+<ul>
+<li>$V_1\cap V_2=\{\alpha\mid \alpha\in V_1\land\alpha\in V_2\}$，称为子空间的交；</li>
+<li>$V_1+V_2=\{\alpha+\beta\mid \alpha\in V_1,\beta\in V_2\}$，称为子空间的和。</li>
+</ul>
+</li>
+<li>
+<p>更一般的，对于任意有限个子空间 $V_1,V_2,\cdots,V_s$，可以定义 $\cap_{i=1}^s V_i=V_1\cap V_2\cap \cdots\cap V_s$，和 $\sum_{i=1}^s V_i=V_1+V_2+\cdots+V_s$。</p>
+</li>
+<li>
+<p>定理（维数公式）：$V_1,V_2$ 为 $V$ 的有限维子空间，则：</p>
+$$
+  \dim V_1+V_2=\dim V_1+\dim V_2-\dim V_1\cap V_2
+  $$<p>证：设 $\dim V_1=r,\dim V_2=s,\dim V_1\cap V_2=t$。</p>
+<p>任取 $V_1\cap V_2$ 的一组基 $\alpha_1,\cdots,\alpha_t$ 扩成 $V_1,V_2$ 的基：</p>
+<ul>
+<li>$V_1:\alpha_1,\cdots,\alpha_t,\beta_1,\cdots,\beta_{r-t}$；</li>
+<li>$V_2:\alpha_1,\cdots,\alpha_t,\gamma_1,\cdots,\gamma_{s-t}$。</li>
+</ul>
+<p>故 $V_1+V_2=L(\alpha_1,\cdots,\alpha_t,\beta_1,\cdots,\beta_{r-t},\gamma_1,\cdots,\gamma_{s-t})$。</p>
+<p>故只需证明 $\alpha_1,\cdots,\alpha_t,\beta_1,\cdots,\beta_{r-t},\gamma_1,\cdots,\gamma_{s-t}$ 线性无关。</p>
+<p>设 $k_1\alpha_1+\cdots+k_t\alpha_t+l_1\beta_1+\cdots+l_{r-t}\beta_{r-t}+m_1\gamma_1+\cdots+m_{s-t}\gamma_{s-t}=0$，那么：</p>
+$$
+  k_1\alpha_1+\cdots+k_t\alpha_t+l_1\beta_1+\cdots+l_{r-t}\beta_{r-t}=-m_1\gamma_1-\cdots-m_{s-t}\gamma_{s-t}\in V_2
+  $$<p>同时左边向量也属于 $V_1$，因此 $m_1\gamma_1+\cdots+m_{s-t}\gamma_{s-t}\in V_1\cap V_2$。</p>
+<p>设 $m_1\gamma_1+\cdots+m_{s-t}\gamma_{s-t}=n_1\alpha_1+\cdots+n_t\alpha_t$，由于所有 $\gamma_i$ 和 $\alpha_j$ 构成 $V_2$ 之基，因此 $m_i\equiv 0$。</p>
+<p>同理 $l_i\equiv 0$，从而 $k_i\equiv 0$。因此 $\alpha_1,\cdots,\alpha_t,\beta_1,\cdots,\beta_{r-t},\gamma_1,\cdots,\gamma_{s-t}$ 线性无关。</p>
+</li>
+<li>
+<p>注：若 $V_1\cap V_2=\{\theta\}$，则任取 $V_1,V_2$ 之基合并即为 $V_1+V_2$ 的基。</p>
+</li>
+<li>
+<p>定义：称 $V_1+V_2$ 为直和，若 $V_1+V_2$ 之元可唯一表成 $\alpha+\beta$ 的形式，$\alpha\in V_1,\beta\in V_2$。</p>
+</li>
+<li>
+<p>定理：$V_1,V_2$ 为 $V$ 之有限维子空间，则下五条等价：</p>
+<ul>
+<li>
+<p>$V_1+V_2$ 为直和；</p>
+</li>
+<li>
+<p>$V_1+V_2$ 之零元 $\theta_{V_1+V_2}$ 的表示方式唯一：$\theta_{V_1+V_2}=\theta_{V_1}+\theta_{V_2}$；</p>
+</li>
+<li>
+<p>$V_1\cap V_2=\{\theta\}$；</p>
+</li>
+<li>
+<p>$\dim V_1+\dim V_2=\dim V_1+V_2$。</p>
+</li>
+<li>
+<p>$V_1,V_2$ 之基合并即为 $V_1+V_2$ 的基。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>命题：$\forall U\subset V$ 为子空间，必存在 $V$ 之子空间 $W$ 使得 $V=U\oplus W$，$W$ 称为 $U$ 在 $V$ 中的补空间。</p>
+</li>
+<li>
+<p>定义：称 $\sum_{i=1}^s V_i$ 为直和，若 $\sum_{i=1}^s V_i$ 中的每个向量都可唯一表示成 $V\sum_{i=1}^s \alpha_i,\alpha_i\in V_i$。</p>
+</li>
+<li></li>
+<li>
+<p>定理：$V_1,\cdots,V_s$ 为 $V$ 之有限维子空间，则下五条等价：</p>
+<ul>
+<li>
+<p>$V_1+\cdots+V_s$ 为直和；</p>
+</li>
+<li>
+<p>$\sum V_i$ 之零元 $\theta_{\sum V_i}$ 的表示方式唯一；</p>
+</li>
+<li>
+<p>$V_i\cap \sum_{j\neq i}V_j=\{\theta\}$（并非等价于 $V_i\cap V_j=\{\theta\}$）；</p>
+</li>
+<li>
+<p>$\sum \dim V_i=\dim \sum V_i$。</p>
+</li>
+<li>
+<p>$V_1,\cdots,V_s$ 之基合并即为 $\sum V_i$ 的基。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>若 $\sum V_i$ 为直和，即为 $\oplus V_i=V_1\oplus V_2\oplus\cdots\oplus V_s$。</p>
+<p>称向量空间 $V$ 为其子空间 $V_1,\cdots,V_s$ 的直和，若：</p>
+<ul>
+<li>
+<p>$V=\sum_{i=1}^s V_i$；</p>
+</li>
+<li>
+<p>$\sum V_i$ 为直和。</p>
+</li>
+</ul>
+<p>此时记 $V=\oplus_{i=1}^s V_i$。</p>
+</li>
+<li>
+<p>设 $V_1,\cdots,V_s$ 为 $s$ 个向量空间（不必是某个向量空间的子空间）。设 $V_1\times \cdots\times V_s=\{(\alpha_1,\cdots,\alpha_s)\mid \alpha_i\in V_i\}$ 为笛卡尔积。容易定义加法和纯量乘法。</p>
+<p>则 $V_1\times \cdots\times V_s$ 为 $F$ 上向量空间，称为 $V_1,\cdots,V_s$ 的（外）直和，记做 $\oplus_{i=1}^s V_i$。</p>
+<p>注：$F^n=\oplus_{i=1}^n F$。</p>
+</li>
+<li>
+<p>$V/F$，$U\subset V$ 为子空间。用 $U$ 定义 $V$ 中的二元关系 $\sim$：称 $\alpha\sim\beta$ 若 $\alpha-\beta\in U$。则 $\sim$ 为等价关系。</p>
+<p>$\alpha$ 所在的等价类 $\bar\alpha=\{\beta\mid \alpha-\beta\in U\}$ 记做 $\alpha+U=\{\alpha+\gamma\mid \gamma\in U\}$。</p>
+<p>注： $\bar\alpha=\bar{\alpha+\gamma},\forall \gamma\in U$；$\bar 0=U$。</p>
+</li>
+<li>
+<p>记 $V/U$（读作 $V$ 模 $U$）为所有等价类集。</p>
+<p>在 $V/U$ 中定义 $+,\cdot$：</p>
+<ul>
+<li>$\bar\alpha+\bar\beta=\bar{\alpha+\beta}$；</li>
+<li>$k\bar\alpha=\bar{k\alpha}$。</li>
+</ul>
+<p>注：该定义为良定义，即不依赖代表元选取。</p>
+<p>则 $V/U$ 为向量空间，称为 $V$ 关于子空间 $U$ 的商空间。</p>
+</li>
+<li>
+<p>定理：$U$ 为有限维向量空间 $V$ 的子空间，则 $\dim V/U=\dim V-\dim U$。</p>
+<p>证：任取 $U$ 的一组基 $\alpha_1,\cdots,\alpha_r$，将其扩为 $V$ 的一组基 $\alpha_1,\cdots,\alpha_r,\beta_1,\cdots,\beta_s$（$\dim V=r+s$）。</p>
+<p>断言：$\bar\beta_1,\cdots,\bar\beta_s$ 为 $V/U$ 的一组基：</p>
+<ul>
+<li>
+<p>无关性：设 $k_1\bar\beta_1+\cdots+k_s\bar\beta_s=0$，则 $k_1\beta_1+\cdots+k_s\beta_s=\bar 0\in U$。</p>
+<p>因此 $k_1\beta_1+\cdots+k_s\beta_s=l_1\alpha_1+\cdots+l_r\alpha_r$，从而 $k_i=l_j=0,\forall i,j$。因此 $\bar\beta_1,\cdots,\bar\beta_s$ 无关。</p>
+</li>
+<li>
+<p>$\forall \bar\alpha\in V/U$，则 $\alpha\in V$。设 $\alpha=k_1\alpha_1+\cdots+k_r\alpha_r+l_1\beta_1+\cdots+l_s\beta_s$。</p>
+<p>因此 $\bar\alpha=l_1\bar\beta_1+\cdots+l_s\bar\beta_s$。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>定义：称向量空间 $V_1,V_2$ 之间的映射 $f:V_1\to V_2$ 为同构映射，若 $f$ 是 $1-1$ 的且 $f$ 保线性，即：</p>
+<ul>
+<li>$f(\alpha+\beta)=f(\alpha)+f(\beta),\forall \alpha,\beta\in V_1$；</li>
+<li>$f(k\alpha)=kf(\alpha),\forall \alpha\in V_1,k\in F$。</li>
+</ul>
+<p>称 $V_1$ 和 $V_2$ 同构，若 $V_1,V_2$ 之间存在同构映射，此时记 $V_1\cong V_2$。</p>
+</li>
+<li>
+<p>例：设 $V$ 有基 $\alpha_1,\cdots,\alpha_n$，$\forall \alpha=(\alpha_1,\cdots,\alpha_n)X$，定义：</p>
+$$
+  \begin{aligned}
+  \sigma_V:V&\to F^n\\
+  \alpha=(\alpha_1,\cdots,\alpha_n)X&\mapsto X
+  \end{aligned}
+  $$<p>则 $\sigma_V$ 保线性，且 $\sigma_V$ 为 $1-1$ 的，因此为同构。称为坐标同构映射。</p>
+</li>
+<li>
+<p>命题：$V_1\cong V_2\iff \dim V_1=\dim V_2$。</p>
+<p>推论：$U$ 为 $V$ 之子空间，令 $V=U\oplus W$，则 $W\cong V/U$。</p>
+</li>
+<li>
+<p>定理（第二同构定理）：$U_1,U_2$ 为 $V$ 之子空间，则：$(U_1+U_2)/U_1\cong U_2/(U_1\cap U_2)$。</p>
+</li>
+<li>
+<p>定理（第三同构定理）：$(V/U)/(W/U)\cong V/W$。</p>
+</li>
+</ul>
+<h2 id="线性映射">线性映射<a href="#线性映射" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<ul>
+<li>
+<p>定义：称 $f:V_1\to V_2$ 为线性映射，若 $f$ 保线性。</p>
+<p>称线性映射 $f$ 为单 / 满 / 同构，若作为映射 $f$ 是单的 / 满的 / $1-1$ 的（双射）。</p>
+<p>若 $V_1=V_2$ 则 $f:V\to V$ 称为线性变换。</p>
+<p>注：单性判别：$f:V_1\to V_2$ 单 $\iff$ 若 $f(\alpha)=\theta$，则 $\alpha=\theta$。</p>
+</li>
+<li>
+<p>例：</p>
+<ul>
+<li>
+<p>$f:V_1\to V_2$，$\alpha\to \theta$，称为零映射。</p>
+</li>
+<li>
+<p>固定 $k\in F$，定义 $f:V\to V,\alpha\mapsto k\alpha$，称为 $V$ 之纯量变换。</p>
+</li>
+<li>
+<p>$D:C^1[a,b]\to C[a,b]$，$f\mapsto f'$。</p>
+</li>
+<li>
+<p>$V=U\oplus W$，定义 $P_u:V\to V,\alpha=\alpha_U+\alpha_W\mapsto \alpha_U$，称为 $V$ 之沿 $W$ 到 $U$ 的投影变换。</p>
+</li>
+<li>
+<p>$S\subset T$，$\sigma:\tilde f(T)\to \tilde f(S),f\mapsto f|_S$，称为限制映射。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>下面用花体 $\mathscr{A,B,C,D}$ 等来表示线性映射。</p>
+<p>记 $Hom_F(V_1,V_2)$ 为 $V_1$ 到 $V_2$ 之所有线性映射。</p>
+<ul>
+<li>$(\mathscr{A}+\mathscr{B})\alpha=\mathscr{A}\alpha+\mathscr{B}\alpha$；</li>
+<li>$(k\mathscr{A})\alpha=k\mathscr{A}\alpha$。</li>
+</ul>
+<p>$Hom_F(V_1,V_2)$ 为 $F$ 上的向量空间。</p>
+<p>记 $Hom_F(V,V)=End_F(V)$。则 $End_F(V)$ 是 $F$ 上的向量空间，在 $End(V)$ 中定义乘法：$\mathscr{B}\cdot \mathscr{A}(\alpha)=\mathscr{B}(\mathscr{A}\alpha)$。</p>
+<p>则 $End(V)$ 为有 $1$ 的环。</p>
+</li>
+<li>
+<p>任子空间均来自于某个（些）线性映射。</p>
+</li>
+<li>
+<p>$\mathscr{A}:V_1\to V_2$，定义 $\mathscr{A}$ 之核 $\ker \mathscr{A}$，像 $\text{Im}\mathscr{A}$：</p>
+$$
+  \ker \mathscr{A}=\{\alpha\in V_1\mid \mathscr{A}\alpha=0\}\subseteq V_1\\
+  \text{Im}\mathscr{A}=\{\mathscr{A}\alpha\mid \alpha\in V_1\}\subseteq V_2
+  $$<p>注：$\mathscr{A}$ 单 $\iff \ker\mathscr{A}=\{0\}$，$\mathscr{A}$ 满 $\iff \text{Im}\mathscr{A}=V_2$。</p>
+</li>
+<li>
+<p>定理（基本定理）：$\mathscr{A}:V_1\to V_2$，$S\subseteq \ker\mathscr{A}$ 为子空间。$\pi:V_1\to V_1/S$ 为自然映射。则存在唯一线性映射 $\sigma:V_1/S\to V_1$ 使得 $A=\sigma\cdot\pi$，且 $\text{Im}\sigma=\text{Im}\mathscr{A},\ker\sigma=\ker \mathscr{A}/S$。</p>
+<p>证：$\sigma:V_1/S\to V_2,\sigma(\alpha+S)\mapsto\mathscr{A}\alpha$。易验证。</p>
+</li>
+<li>
+<p>定理（第一同构定理）：$\mathscr{A}:V_1\to V_2$，$\pi:V_1\to V_1/\ker\mathscr{A}$ 为自然映射。则存在唯一的同构 $\sigma:V_1/\ker \mathscr{A}\to \text{Im}\mathscr{A}\subseteq V_2$，使得 $\mathscr{A}=\sigma\cdot \pi$。</p>
+</li>
+<li>
+<p>推论（维数公式）：$\mathscr{A}:V_1\to V_2$，则 $\dim V_1=\dim\ker\mathscr{A}+\dim\text{Im}\mathscr{A}$。</p>
+<p>注：若 $\mathscr{A}:V\to V$，则 $\dim V=\dim\ker\mathscr{A}+\dim\text{Im}\mathscr{A}$，但是不说明 $V=\ker\mathscr{A}+\text{Im}\mathscr{A}$。</p>
+</li>
+<li>
+<p>推论：$\mathscr{A}:V\to V$，$V$ 为有限维向量空间，则 $\mathscr{A}$ 单 $\iff \mathscr{A}$ 满。</p>
+</li>
+<li>
+<p>$\mathscr{A}:V_1\to V_2,U\subset V_1$，记 $\mathscr{A}|_u$ 为 $\mathscr{A}$ 在 $U$ 上的限制。</p>
+<p>注：$\ker \mathscr{A}|_U\subseteq \ker\mathscr{A}$。</p>
+</li>
+<li>
+<p>例：$\mathscr{A}:V_1\to V_2,\mathscr{B}:V_2\to V_3$，则 $\dim\ker\mathscr{B}\mathscr{A}\le \dim\ker\mathscr{A}+\dim\ker\mathscr{B}$。</p>
+$$
+  \begin{aligned}
+  \dim\ker\mathscr{B}\mathscr{A}&=\dim V_1-\dim \text{Im}\mathscr{B}\mathscr{A}\\
+  &=\dim V_1-\dim \text{Im}\mathscr{B}|_{\mathscr{A}V_1}\\
+  &=\dim V_1-(\dim \mathscr{A}V_1-\dim \ker \mathscr{B}|_{\mathscr{A}V_1})\\
+  &=\dim\ker \mathscr{A}+\dim \ker \mathscr{B}|_{\mathscr{A}V_1}\\
+  &\le \dim \ker \mathscr{A}+\dim \ker \mathscr{B}
+  \end{aligned}
+  $$</li>
+<li>
+<p>定义：称 $\mathscr{A}:V\to V$ 为投影变换，若 $\mathscr{A}^2=\mathscr{A}$（即 $\mathscr{A}$ 幂等）。</p>
+<p>例：$V=\oplus_{i=1}^s V_i$，$P_i:V\to V,P_i(\alpha=\alpha_1+\cdots+\alpha_s)\mapsto \alpha_i$。</p>
+<p>有 $I=\sum P_i$，$P_iP_j=\delta_{i,j}P_i$（正交性）。</p>
+</li>
+<li>
+<p>定理：设 $P_1,\dots,P_s$ 为 $V$ 之投影。若：</p>
+<ul>
+<li>$I=\sum_{i=1}^s P_i$；</li>
+<li>$P_iP_j=\delta_{i,j}P_iP_j,\forall i,j$。</li>
+</ul>
+<p>则 $V=\oplus_{i=1}^s \text{Im} P_i$。</p>
+</li>
+</ul>
+<h2 id="线性映射在坐标系下的描述">线性映射在坐标系下的描述<a href="#线性映射在坐标系下的描述" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<ul>
+<li>
+<p>$\mathscr{A}:V_1\to V_2$，$\alpha_1,\dots,\alpha_m$ 为 $V_1$ 之基，$\beta_1,\cdots,\beta_n$ 为 $V_2$ 之基。</p>
+$$
+  \begin{aligned}
+  &\mathscr{A}\alpha_1=\begin{pmatrix}\beta_1&\cdots&\beta_n\end{pmatrix}X_1\\
+  &\mathscr{A}\alpha_2=\begin{pmatrix}\beta_1&\cdots&\beta_n\end{pmatrix}X_2\\
+  &\cdots\\
+  &\mathscr{A}\alpha_m=\begin{pmatrix}\beta_1&\cdots&\beta_n\end{pmatrix}X_m\\
+  \end{aligned}
+  $$<p>则有：</p>
+$$
+  \begin{aligned}
+  &\begin{pmatrix}\mathscr{A}\alpha_1&\mathscr{A}\alpha_2&\cdots&\mathscr{A}\alpha_m\end{pmatrix}=\begin{pmatrix}\beta_1&\cdots&\beta_n\end{pmatrix}A\\
+  &A=\begin{pmatrix}X_1&X_2&\cdots&X_m\end{pmatrix}\in M_{n\times m}(F)
+  \end{aligned}
+  $$<p>$A$ 称为 $\mathscr{A}$ 在基 $\{\alpha_i\},\{\beta_j\}$ 下的矩阵。</p>
+</li>
+<li>
+<p>设 $\mathscr{A}\begin{pmatrix}\alpha_1&\cdots&\alpha_m\end{pmatrix}=\begin{pmatrix}\beta_1&\cdots&\beta_n\end{pmatrix}A$，则 $\forall \alpha=\begin{pmatrix}\alpha_1&\cdots&\alpha_m\end{pmatrix}X$，则：</p>
+$$
+  \mathscr{A}\alpha=\sum x_i\mathscr{A}\alpha_i=\begin{pmatrix}\beta_1&\cdots&\beta_n\end{pmatrix}AX
+  $$<p>即 $\mathscr{A}$ 将坐标为 $X$ 的向量映成了 $V_2$ 之坐标为 $AX$ 的向量。</p>
+</li>
+<li>
+<p>定理：固定 $V_1,V_2$ 的基 $\{\alpha_1,\cdots,\alpha_m\},\{\beta_1,\cdots,\beta_n\}$，则 $\sigma$ 为同构：</p>
+$$
+  \begin{aligned}
+  \sigma:Hom_F(V_1,V_2)&\to M_{n\times m}(F)\\
+  \mathscr{A}&\mapsto A
+  \end{aligned}
+  $$<p>推论：$\dim Hom_F(V_1,V_2)=\dim V_1\cdot \dim V_2$。</p>
+</li>
+<li>
+<p>推论：$\mathscr{A}:V\to V$，任固定基 $\{\alpha_i\}$，构造</p>
+$$
+  \begin{aligned}
+  \sigma:End(V)&\to M_{n}(F)\\
+  \mathscr{A}&\mapsto A
+  \end{aligned}
+  $$<p>则有 $\dim End(V)=(\dim V)^2$。</p>
+</li>
+<li>
+<p>设 $V_1\to V_2\to V_3$，$V_1,V_2,V_3$ 之基为 $\{\alpha_i\}_m,\{\beta_j\}_n,\{\gamma_k\}_p$。$\mathscr{A}:V_1\to V_2,\mathscr{B}:\to V_2\to V_3$。</p>
+<p>设 $\mathscr{A}(\alpha_1,\cdots,\alpha_m)=(\beta_1,\cdots,\beta_n)A,\mathscr{B}(\beta_1,\cdots,\beta_n)=(\gamma_1,\cdots,\gamma_p)B$，则 $\mathscr{BA}(\alpha_1,\cdots,\alpha_n)=(\gamma_1,\cdots,\gamma_p)BA$。</p>
+<p>特别的，$\mathscr{A}:V\to V,\mathscr{A}(\alpha_1,\cdots,\alpha_n)=(\alpha_1,\cdots,\alpha_n)A$，则：$\mathscr{A^2}(\alpha_1,\cdots,\alpha_n)=(\alpha_1,\cdots,\alpha_n)A^2$。</p>
+<p>进一步有 $\forall f(x)\in F[x]$，$f(\mathscr{A})(\alpha_1,\cdots,\alpha_n)=(\alpha_1,\cdots,\alpha_n)f(A)$。</p>
+</li>
+<li>
+<p>定义：称线性映射 $\mathscr{A}:V_1\to V_2$ 为可逆的，若存在映射 $\mathscr{B}:V_2\to V_1$ 使得 $\mathscr{AB}=\text{id}_{V_2},\mathscr{BA}=\text{id}_{V_1}$。此时称 $\mathscr{B}$ 为 $\mathscr{A}$ 之逆，记 $\mathscr{B}=\mathscr{A}^{-1}$。</p>
+<p>注：$\mathscr{A}$ 为线性映射，若 $\mathscr{A}$ 可逆，则其逆自然是线性的。</p>
+</li>
+<li>
+<p>若 $\mathscr{A}:V\to V$ 可逆，$\mathscr{B}=\mathscr{A}^{-1}:V\to V$，则 $\mathscr{AB}(\alpha_1,\cdots,\alpha_n)=\text{id}_{V_1}(\alpha_1,\cdots,\alpha_n)=(\alpha_1,\cdots,\alpha_n)E$。因此有 $B=A^{-1}$。</p>
+</li>
+<li>
+<p>同一个线性变换 $\mathscr{A}:V\to V$ 在不同的基下的关系：</p>
+<p>设两组基 $\{\alpha_1,\cdots,\alpha_n\},\{\beta_1,\cdots,\beta_n\}$，设 $(\beta_1,\cdots,\beta_n)=(\alpha_1,\cdots,\alpha_n)=C$。</p>
+<p>设 $\mathscr{A}(\alpha_1,\cdots,\alpha_1)=(\alpha_1,\cdots,\alpha_n)A,\mathscr{B}(\alpha_1,\cdots,\alpha_n)=(\alpha_1,\cdots,\alpha_n)B$。</p>
+<p>则：$\mathscr{A}(\beta_1,\cdots,\beta_n)=(\beta_1,\cdots,\beta_n)B=(\alpha_1,\cdots,\alpha_n)CB$，同时 $\mathscr{A}(\beta_1,\cdots,\beta_n)=\mathscr{A}((\alpha_1,\cdots,\alpha_n)C)=(\alpha_1,\cdots,\alpha_n)AC$，因此得到 $CB=AC$，即：$B=C^{-1}AC$，$A,B$ 相似。</p>
+</li>
+<li>
+<p>命题：$\mathscr{A}:V\to V$ 在 $V$ 之不同基下的矩阵相似。</p>
+</li>
+<li>
+<p>定义：称 $\mathscr{A}:V\to V$ 之特征多项式 / 迹 / 行列式分别为 $A$ 在某基下矩阵的特征多项式 / 迹 / 行列式。</p>
+</li>
+<li>
+<p>推论（Hamilton-Cayley）：设 $\mathscr{A}:V\to V$ 特征多项式为 $f(\lambda)$，则 $f(\mathscr{A})=0$。</p>
+</li>
+</ul>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+  <div class="pagination__title">
+    <span class="pagination__title-h">Read other posts</span>
+    <hr />
+  </div>
+  <div class="pagination__buttons">
+    
+      <a href="https://enucai.github.io/posts/algebra-transformation/" class="button inline prev">
+        &lt; [<span class="button__text">Advanced Algebra: Theory of Linear Transformations</span>]
+      </a>
+    
+    
+      ::
+    
+    
+      <a href="https://enucai.github.io/posts/cp-maker/" class="button inline next">
+         [<span class="button__text">Introduction to CP Maker</span>] &gt;
+      </a>
+    
+  </div>
+</div>
+
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2026 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

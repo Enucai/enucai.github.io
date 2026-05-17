@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Advanced Algebra: Theory of Linear Transformations :: Terminal</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="These are the study notes for Advanced Algebra II, covering the learning material of Chapter 3: Linear Transformation Theory." />
+<meta name="keywords" content=", " />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://enucai.github.io/posts/algebra-transformation/" />
+
+
+
+
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/buttons.min.86f6b4c106b6c6eb690ae5203d36b442c1f66f718ff4e8164fa86cf6c61ad641.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/code.min.c4581949edab7810737609fc5568852bcd908945f14561e366dcd2300a370545.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/fonts.min.5bb7ed13e1d00d8ff39ea84af26737007eb5051b157b86fc24487c94f3dc8bbe.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/footer.min.eb8dfc2c6a7eafa36cd3ba92d63e69e849e2200e0002a228d137f236b09ecd75.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/header.min.75c7eb0e2872d95ff48109c6647d0223a38db52e2561dd87966eb5fc7c6bdac6.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/main.min.36833afd348409fc6c3d09d0897c5833d9d5bf1ff31f5e60ea3ee42ce2b1268c.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/menu.min.3c17467ebeb3d38663dce68f71f519901124fa5cbb4519b2fb0667a21e9aca39.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/pagination.min.bbb986dbce00a5ce5aca0504b7925fc1c581992a4bf57f163e5d69cc1db7d836.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/post.min.e6dddd258e64c83e05cec0cd49c05216742d42fc8ecbfbe6b67083412b609bd3.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/syntax.min.a2cc694a9b481f15d41722bffc2cc54eea4c4f74fd9072b0b33253604c22606e.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/terminal.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
+
+
+
+
+
+
+
+<link rel="shortcut icon" href="https://enucai.github.io/favicon.png">
+<link rel="apple-touch-icon" href="https://enucai.github.io/apple-touch-icon.png">
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Advanced Algebra: Theory of Linear Transformations">
+<meta property="og:description" content="These are the study notes for Advanced Algebra II, covering the learning material of Chapter 3: Linear Transformation Theory." />
+<meta property="og:url" content="https://enucai.github.io/posts/algebra-transformation/" />
+<meta property="og:site_name" content="Terminal" />
+
+  
+  
+  <meta property="og:image" content="https://enucai.github.io/">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2026-05-15 15:16:00 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}],throwOnError:false});">
+  </script>
+
+</head>
+<body>
+
+
+<div class="container">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Terminal
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/about" >About</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="https://enucai.github.io/posts/algebra-transformation/">Advanced Algebra: Theory of Linear Transformations</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2026-05-15</time><span class="post-author">enucai</span><span class="post-reading-time">5 min read (1033 words)</span></div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="https://enucai.github.io/tags/math/">math</a>&nbsp;
+      
+      #<a href="https://enucai.github.io/tags/notes/">notes</a>&nbsp;
+      
+      #<a href="https://enucai.github.io/tags/algebra/">algebra</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <h2 id="线性变换的最小多项式">线性变换的最小多项式<a href="#线性变换的最小多项式" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<ul>
+<li>
+<p>定义：$\mathscr{A}:V\to V$，称 $V$ 之子空间 $U$ 为 $\mathscr{A}-$ 不变的，若 $U$ 在 $\mathscr{A}$ 下稳定，即 $\forall \alpha\in U,\mathscr{A}\alpha\in U\iff \mathscr{A}| _U:U\to U$ 为 $U$ 之线性变换。</p>
+<p>注：若 $\alpha_1,\cdots,\alpha_n$ 为 $U$ 之基，则 $U$ 为 $\mathscr{A}-$ 不变的 $\iff \mathscr{A}\alpha_i\in U,\forall i$。</p>
+</li>
+<li>
+<p>例：$\mathscr{A}:V\to V$，则 $\{0\},V$ 均为 $\mathscr{A}-$ 不变的，$\ker A,\text{Im}A$ 也均为 $\mathscr{A}-$ 不变的。</p>
+</li>
+<li>
+<p>设 $U$ 为 $\mathscr{A}(:V\to V)-$ 不变的，则 $\mathscr{A}| _U:U\to U$，则：</p>
+<ul>
+<li>$\mathscr{A}$ 诱导 $V/U$ 上的线性变换 $\overline{\mathscr{A}}:V/U\to V/U$。</li>
+</ul>
+</li>
+<li>
+<p>定义：$U$ 为 $r$ 维的 $\mathscr{A}-$ 不变子空间，则存在 $V$ 之基使得 $\mathscr{A}$ 在基下的矩阵形如：</p>
+$$
+  \begin{pmatrix}A_r&B\\0&C_{n-r}\end{pmatrix}
+  $$<p>反之若 $\mathscr{A}$ 在某组基 $(\alpha_1,\cdots,\alpha_r,\beta_1,\cdots,\beta_{n-r})$ 下的矩阵形如上面，则 $U=L(\alpha_1,\cdots,\alpha_r)$ 为 $\mathscr{A}-$ 不变的。</p>
+<p>同时有 $C$ 为 $\overline{\mathscr{A}}$ 在某组基下的矩阵。</p>
+</li>
+<li>
+<p>推论：$\mathscr{A}:V\to V$ 在某组基下的矩阵 $\text{diag}(A_1,\cdots,A_s)\iff$ $V=\oplus_{i=1}^s V_i$，其中 $V_i$ 均为 $\mathscr{A}-$ 不变的。</p>
+</li>
+<li>
+<p>命题：$\mathscr{A,B}:V\to V$，若 $\mathscr{AB}=\mathscr{BA}$，则 $\ker \mathscr{B},\text{Im}\mathscr{B}$ 均为 $\mathscr{A}-$ 不变的。</p>
+<p>特别 $\forall f(x)\in F[x]$，$\ker f(\mathscr{A}),\text{Im}f(\mathscr{A})$ 均为 $\mathscr{A}-$ 不变的。</p>
+</li>
+<li>
+<p>引理：$\mathscr{A}:V\to V$ 为非零变换。设 $f=gh\in F[x]$，使 $g,h$ 互素。则：$\ker f(\mathscr A)=\ker g(\mathscr A)\oplus \ker h(\mathscr A)$。</p>
+<p>特别的，如 $f(\mathscr A)=0$，则 $V=\ker g(\mathscr A)\oplus \ker h(\mathscr A)$。</p>
+<p>若 $f(\mathscr A)=0,f=\prod_{i=1}^s p_i^{e_i}$，则 $V=\oplus_{i=1}^s \ker p_i^{e_i}(\mathscr A)$。</p>
+</li>
+<li>
+<p>定义：$\mathscr A:V\to V$，称 $f(x)$ 为 $\mathscr A$ 之零化多项式，若 $f(\mathscr A)=0$。称 $m(x)$ 为 $\mathscr A$ 之最小多项式，若 $m(x)$ 为 $\mathscr A$ 的零化多项式中次数最低的首一者。</p>
+<p>注：$\mathscr A$ 中最小多项式唯一，且其他零化多项式 $f(x)$ 均为 $m(x)$ 之倍式。</p>
+</li>
+<li>
+<p>定义：$A\in M_n(F)$，称 $f(x)$ 为 $A$ 的零化多项式 / 最小多项式，若……（同上）。</p>
+<p>注：若 $\mathscr A$ 在某基下的矩阵是 $A$，则 $\mathscr A,A$ 有相同的最小多项式。</p>
+</li>
+<li>
+<p>定理：设 $\mathscr A:V\to V$ 之最小多项式 $m(x)=\prod_{i=1}^s p_i^{e_i}(x)$，则 $V$ 有分解 $V=\oplus_{i=1}^s \ker p_i^{e_i}(\mathscr A)$。其中 $V_i=\ker p_i^{e_i}(\mathscr A)$ 均为 $\mathscr A-$ 不变的。此分解称为 $V$ 之准素分解，或广义特征子空间分解。</p>
+</li>
+<li>
+<p>引理：准对角矩阵 $\text{diag}(A,B)$ 之最小多项式 $m(\lambda)=[m_A(\lambda),m_B(\lambda)]$。</p>
+<p>进而可得 $\text{diag}(A_1,\cdots,A_r)$ 之最小多项式 $m(\lambda)=[m_{A_1}(\lambda),\cdots,m_{A_r}(\lambda)]$。</p>
+</li>
+<li>
+<p>命题：任 $A\in M_n(F)$，其最小多项式 $m(\lambda)$ 不依赖于将 $A$ 视为那个数域上的矩阵。</p>
+</li>
+<li>
+<p>推论：$A$ 之最小多项式为 $A$ 之最后一个不变因子。</p>
+</li>
+<li>
+<p>推论：$A$ 的最小多项式和 $A$ 的特征多项式有相同的不可约因子。</p>
+</li>
+<li>
+<p>命题：$A\in M_n(F)$，$K$ 为 $F$ 的任扩域（即 $K\supseteq F$），则 $A$ 视为 $F$ 上的矩阵的最小多项式 $m_F(x)$ 与 $A$ 视为 $K$ 上的最小多项式 $m_K(x)$ 相等。</p>
+</li>
+<li>
+<p>引理：$\mathscr{A}:V\to V$，设 $V=\oplus_{i=1}^s V_i$，$V_i$ 为 $\mathscr{A}-$ 不变的。设 $\mathscr{A}| _{V_i}:V_i\to V_i$ 记为 $\mathscr{A}_i$，其最小多项式为 $m_i(x)$。则 $\mathscr{A}$ 值最小多项式 $m(x)=[m_1(x),\dots,m_s(x)]$。</p>
+</li>
+<li>
+<p>$\mathscr{A}:V\to V$，设 $m(x)=\prod_{i=1}^s p_i^{e_i}(x)$，则 $V=\oplus_{i=1}^s \ker p_i^{e_i}(\mathscr{A})=V_i$。</p>
+<p>记 $\mathscr{A}_i=\mathscr{A}| _{V_i}$，则有如下命题：</p>
+<ul>
+<li>
+<p>$\mathscr{A}_i$ 之最小多项式为 $p_i^{e_i}(x)$。</p>
+</li>
+<li>
+<p>$\mathscr{B}_i=p_i^{e_i}(\mathscr{A}):V_i\to V_i$，则 $\mathscr{B}_i$ 为幂零变换，幂零指数为 $e_i$。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>定义：$\mathscr{A}:V\to V$，称 $\lambda\in F$ 为 $\mathscr{A}$ 的特征值，若存在非零向量 $\alpha\in V$，使得 $\mathscr{A}\alpha=\lambda\alpha$，此时 $\alpha$ 称为 $A$ 的属于 $\lambda$ 的特征向量。</p>
+<p>称 $\ker(\mathscr{A}-\lambda I)$ 为 $\mathscr{A}$ 的属于 $\lambda$ 的特征子空间。</p>
+</li>
+<li>
+<p>定义：称 $\mathscr{A}:V\to V$ 可对角化，若存在 $V$ 之基使得 $\mathscr{A}$ 在该组基下的矩阵为对角形。</p>
+<p>故 $\mathscr{A}$ 可对角化 $\iff \mathscr{A}$ 有 $n$ 个线性无关的特征向量。</p>
+</li>
+<li>
+<p>定理：$\mathscr{A}$ 可对角化 $\iff V=\oplus_{i=1}^s\ker(\mathscr{A}-\lambda_i)$，其中 $\lambda_i$ 为 $\mathscr{A}$ 之所有不同特征值。</p>
+</li>
+<li>
+<p>定理：$\mathscr{A}$ 可对角化 $\iff \mathscr{A}$ 之最小多项式是不同的一次多项式之积。</p>
+</li>
+<li>
+<p>设 $\alpha_1,\dots,\alpha_n$ 为 $V$ 之一组基，$\mathscr{A}(\alpha_1,\cdots,\alpha_n)=(\alpha_1,\cdots,\alpha_n)A$。则 $\forall \alpha=(\alpha_1,\cdots,\alpha_n)X$，有 $\mathscr{A}\alpha=\mathscr{A}((\alpha_1,\cdots,\alpha_n)X)=(\alpha_1,\cdots,\alpha_n)AX$。</p>
+<p>故 $\mathscr{A}\alpha=\lambda\alpha\iff AX=\lambda X\iff \lambda$ 为 $A$ 之特征值，$\alpha$ 之坐标 $X$ 为 $A$ 的属于 $\lambda$ 的特征向量。</p>
+<p>故 $\mathscr{A}$ 可对角化 $\iff$ $A$ 可对角化。</p>
+</li>
+</ul>
+<h2 id="不变子空间">不变子空间<a href="#不变子空间" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<ul>
+<li>
+<p>$U\neq \{\theta\}$ 且 $U$ 为 $\mathscr{A}-$ 不变子空间。$\exists \alpha\in U$，则 $\alpha,\mathscr{A}\alpha,\mathscr{A}^2\alpha,\cdots,\mathscr{A}^n\alpha,\cdots$ 都 $\in U$。</p>
+<p>记 $S$ 为 $\{\alpha,\mathscr{A}\alpha,\mathscr{A}^2\alpha,\cdots,\mathscr{A}^n\alpha,\cdots\}$ 有限生成的子空间 $\subset V$。</p>
+<p>$S$ 称为由 $\alpha$ 生成的循环子空间，$\alpha$ 称为 $S$ 的生成子。</p>
+<p>注：$S$ 为所有包含 $\alpha$ 的 $\mathscr{A}-$ 不变子空间中最小者。</p>
+</li>
+<li>
+<p>$S$ 中的元都形如 $k_0\alpha+k_1\mathscr{A}\alpha+\cdots+k_m\mathscr{A}^m\alpha$，其中 $m\in \mathbb Z_+$。</p>
+<p>而 $k_0\alpha+k_1\mathscr{A}\alpha+\cdots+k_m\mathscr{A}^m\alpha=(k_0+k_1\mathscr{A}+\cdots+k_m\mathscr{A}^m)\alpha=g(\mathscr{A})\alpha$，令 $g(x)=k_mx^m+\cdots+k_1x+k_0$。</p>
+<p>记 $F[\mathscr{A}]\alpha=\{f(\mathscr{A})\alpha\mid f(x)\in F[x]\}$，则 $S=F[\mathscr{A}]\alpha$。</p>
+</li>
+<li>
+<p>存在最小的 $t$，满足 $\alpha,\mathscr{A}\alpha,\cdots,\mathscr{A}^{t-1}\alpha$ 无关，但再加上 $\mathscr{A}^t\alpha$ 相关。</p>
+<p>设 $\mathscr{A}^t\alpha=k_0\alpha+k_1\mathscr{A}\alpha+\cdots+k_{t-1}\mathscr{A}^{t-1}\alpha$，则令 $g(x)=x^t-k_{t-1}x^{t-1}-\cdots-k_1x-k_0$，则有 $g(\mathscr{A})\alpha=0$。</p>
+</li>
+<li>
+<p>定义：称 $f(x)$ 为 $\alpha\in V$ 的关于 $\mathscr{A}$ 的零化多项式，若 $f(\mathscr{A})\alpha=\theta$。</p>
+<p>称 $m_\alpha(x)\in F[x]$ 为 $\alpha$ 的关于 $\mathscr{A}$ 的最小多项式，若 $m_\alpha(x)$ 为 $\alpha$ 关于 $\mathscr{A}$ 的所有零化多项式中次数最低的首一者。</p>
+<p>注：$m_\alpha(x)$ 存在且唯一，且 $m_\alpha(x)\mid f(x),\forall f(x)$ 为 $\alpha$ 之零化多项式。特别的，$m_\alpha(x)\mid m_\mathscr{A}(x)$，这里 $m_\mathscr{A}(x)$ 表示 $\mathscr{A}$ 的最小多项式。</p>
+</li>
+</ul>
+<h2 id="循环子空间与循环分解">循环子空间与循环分解<a href="#循环子空间与循环分解" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<ul>
+<li>
+<p>命题：$F[\mathscr{A}]\alpha=L(\alpha,\mathscr{A}\alpha,\cdots,\mathscr{A}^{t-1}\alpha)$，$\dim F[\mathscr{A}]\alpha=\deg m_\alpha(x)$。</p>
+<p>设 $m_\alpha(x)=x^t+a_{t-1}x^{t-1}+\cdots+a_0$，则：</p>
+$$
+  \mathscr{A}\mid _{F[\mathscr{A}]\alpha}(\alpha,\mathscr{A}\alpha,\cdots,\mathscr{A}^{t-1}\alpha)=(\alpha,\mathscr{A}\alpha,\cdots,\mathscr{A}^{t-1}\alpha)\begin{pmatrix}
+  0 & 0 & \dots & 0 & -a_0 \\
+  1 & 0 & \dots & 0 & -a_1 \\
+  0 & 1 & \dots & 0 & -a_2 \\
+  \vdots & \vdots & \ddots & \vdots & \vdots \\
+  0 & 0 & \dots & 1 & -a_{t-1}
+  \end{pmatrix}
+  $$</li>
+<li>
+<p>注：称 $V$ 为循环空间，若 $V=F[\mathscr{A}]\alpha$。</p>
+</li>
+<li>
+<p>引理：设 $m_\alpha(x),m_\beta(x)$ 互素，则 $m_{\alpha+\beta}=m_\alpha(x)\cdot m_\beta(x)$。同时 $F[\mathscr{A}](\alpha+\beta)=F[\mathscr{A}]\alpha\oplus F[\mathscr{A}]\beta$。</p>
+<p>证：先证若 $(m_\alpha(x),m_\beta(x))=1$，则 $F[\mathscr{A}]\alpha\cap F[\mathscr{A}]\beta=\{\theta\}$。设 $\gamma\in F[\mathscr{A}]\alpha\cap F[\mathscr{A}]\beta$ 且 $\gamma\neq 0$，则 $\deg m_\gamma\ge 1$。设 $\gamma=f(\mathscr{A})\alpha=g(\mathscr{A})\beta$。</p>
+<p>$m_\alpha(\mathscr{A})\gamma=f(\mathscr{A})m_\alpha(\mathscr{A})\alpha=0\implies m_\gamma(x)\mid m_\alpha(x)$。同理 $m_\gamma(x)\mid m_\beta(x)$。从而推出 $m_\gamma(x)\mid (m_\alpha(x),m_\beta(x))=1$，矛盾。</p>
+<p>$m_\alpha(\mathscr{A})m_{\beta}(\mathscr{A})(\alpha+\beta)=m_\alpha(\mathscr{A})m_\beta(\mathscr{A})\alpha+m_\alpha(\mathscr{A})m_\beta(\mathscr{A})\beta=0$，从而得到 $m_{\alpha+\beta}(x)\mid m_\alpha(x)m_\beta(x)$。</p>
+<p>$0=m_{\alpha+\beta}(\mathscr{A})(\alpha+\beta)=m_{\alpha+\beta}(\mathscr{A})\alpha+m_{\alpha+\beta}(\mathscr{A})\beta$，因此 $m_{\alpha+\beta}(\mathscr{A})\alpha=-m_{\alpha+\beta}(\mathscr{A})\beta\in F[\mathscr{A}]\alpha\cap F[\mathscr{A}]\beta=\{\theta\}$。故 $m_{\alpha}\mid m_{\alpha+\beta}(x),m_\beta\mid m_{\alpha+\beta}$。再由互素得到 $m_\alpha(x)m_\beta(x)\mid m_{\alpha+\beta}(x)$。</p>
+<p>结合两条得到 $m_{\alpha+\beta}(x)=m_\alpha(x)m_\beta(x)$。</p>
+</li>
+<li>
+<p>引理：任给 $\alpha,\beta\in V$，都存在 $\gamma\in V$，满足 $m_\gamma(x)=[m_\alpha(x),m_\beta(x)]$。</p>
+<p>证：设 $m_\alpha(x)=\prod_{i=1}^s p_i^{e_i},m_\beta(x)=\prod_{i=1}^s p_i^{l_i}$，其中 $e_i,l_i\ge 0$。</p>
+<p>不妨设 $e_i\ge l_i,i=1,\cdots,t$，$e_i< l_i,i=t+1,\cdots,s$。</p>
+<p>构造 $\alpha_i=\prod_{j=1,j\neq i}^s p_j^{e_j}(\alpha)$，则 $m_{\alpha_i}(x)=p_i^{e_i}$，$\forall i=1,\cdots,t$。同理构造 $\beta_i,\forall i=t+1,\cdots,s$。</p>
+<p>取 $\gamma=\sum_{i=1}^t \alpha_i+\sum_{i=t+1}^s \beta_i$ 即有 $m_\gamma(x)=[m_\alpha(x),m_\beta(x)]$。</p>
+</li>
+<li>
+<p>命题：$\mathscr{A}:V\to V$，设 $\alpha_1,\cdots,\alpha_n$ 为 $V$ 之基，则：</p>
+<ul>
+<li>
+<p>$m_\mathscr{A}(x)=[m_{\alpha_1}(x),m_{\alpha_2}(x),\cdots,m_{\alpha_n}(x)]$。</p>
+</li>
+<li>
+<p>存在 $\gamma\in V$，使得 $m_\mathscr{A}(x)=m_\gamma(x)$。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>$\mathscr{A}:V\to V$，$U$ 为 $\mathscr{A}-$ 不变子空间。$\mathscr{A}| _{U}:U\to U,\overline{\mathscr{A}}:V/U\to V/U$。则有：</p>
+<ul>
+<li>$m_{\mathscr{A}| _U}(x)\mid m_{\mathscr{A}}(x)$；</li>
+<li>$m_{\overline{\mathscr{A}}}(x)\mid m_{\mathscr{A}}(x)$；</li>
+<li>$m_{\overline{\alpha}}(x)\mid m_{\alpha}(x)$。</li>
+</ul>
+</li>
+<li>
+<p>定义：$\mathscr{A}:V\to V$，$U$ 为 $\mathscr{A}-$ 不变子空间，$\alpha\in V$。定义 $\alpha$ 到 $U$ 的导子（conductor）：$C_{(\alpha,U)}(x)$ 为使 $f(\mathscr{A})\alpha\in U$ 的所有多项式 $f(x)$ 中次数最低的首一者。即 $C_{(\alpha,U)}(x)=m_{\overline\alpha}(x)$，$\overline{\mathscr{A}}:V/U\to V/U$。</p>
+<p>注：</p>
+<ul>
+<li>
+<p>若 $\gamma\in U$，则 $C_{(\alpha+\gamma,U)}=C_{(\alpha,U)}$。</p>
+</li>
+<li>
+<p>若 $U\subset W$，$W$ 也是 $\mathscr{A}-$ 不变子空间，则 $C_{(\alpha,W)}(x)\mid C_{(\alpha,U)}(x)$。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>定理（循环分解，不变因子版本）：设 $\mathscr{A}:V\to V$，则 $V$ 必有如下的循环分解。</p>
+$$
+  V=F[\mathscr{A}]\alpha_1\oplus F[\mathscr{A}]\alpha_2\oplus\cdots\oplus F[\mathscr{A}]\alpha_s
+  $$<p>其中 $\alpha_i$ 之最小多项式 $m_{\alpha_i}(x)=m_i(x)$ 满足：</p>
+<ul>
+<li>$m_1(x)=m_{\mathscr{A}}(x)$；</li>
+<li>$m_i(x)\mid m_{i-1}(x),\forall i=2,3,\cdots,s$。</li>
+</ul>
+<p>且 $m_1(x),\cdots,m_s(x)$ 唯一决定，称之为 $\mathscr{A}$ 的不变因子组。</p>
+</li>
+<li>
+<p>定义：$\mathscr{A}:V\to V$，称 $V$ 为（关于 $\mathscr{A}$）可约的，若 $V$ 可分解为两个 $\mathscr{A}-$ 不变子空间的之和，否则称为不可约的。</p>
+</li>
+<li>
+<p>定理（不可约判别）：$\mathscr{A}:V\to V$，$V$ 不可约 $\iff V$ 是循环空间且 $m_\mathscr{A}$ 为不可约多项式之幂 $p^e(x)$。</p>
+<p>证：必要性：由准素分解可知 $m_\mathscr{A}=p^e(x)$，由循环分解可知 $V$ 为循环空间。</p>
+<p>充分性：若 $V=V_1\oplus V_2$。记 $\mathscr{A}_i=\mathscr{A}| _{V_i}$，则 $m_{\mathscr{A}_i}\mid m_\mathscr{A}$，则 $m_{\mathscr{A}_i}=p^{e_i}(x),e_i\le e$。</p>
+<p>不妨设 $e_1\ge e_2$，则 $p^{e_1}(\mathscr{A})\alpha=0,\forall \alpha\in V_1\oplus V_2$。则 $p^{e_1}(\mathscr{A})V=0$，从而 $m_{\mathscr{A}}\mid p^{e_1}(x)\implies m_{\mathscr{A}}=p^{e_1}$。从而 $V_2=\{\theta\}$。</p>
+</li>
+<li>
+<p>设 $\mathscr{A}:V\to V$ 最小多项式为 $m_\mathscr{A}=p^e(x)$，其中 $p(x)$ 不可约。</p>
+<p>则 $\mathscr{A}$ 有循环分解 $V=\oplus_{i=1}^s F[\mathscr{A}]\alpha_i$，$m_{\alpha_i}\mid m_{\alpha_{i-1}},m_{\alpha_1}=p^e(x)$。故 $m_{\alpha_i}=p^{e_i}(x)$，且 $e=e_1\ge e_2\ge \cdots\ge e_s$。</p>
+<p>且由不可约判别，$F[\mathscr{A}]\alpha_i$ 均不可约。</p>
+</li>
+<li>
+<p>设 $\mathscr{A}:V\to V$ 最小多项式 $m_\mathscr{A}=p^e(x)$，其中 $p(x)$ 不可约。设 $p(x)=x^r+a_{r-1}x^{r-1}+\cdots+a_0$。</p>
+<p>令 $\alpha_{i,j}=p^{i-1}(\mathscr{A})\mathscr{A}^{j-1}\alpha,i=1,\cdots,e,j=1,\cdots,r$。</p>
+$$
+  \begin{matrix}
+  \alpha, & \mathscr{A}\alpha, & \mathscr{A}^2\alpha, & \cdots & \mathscr{A}^{r-1}\alpha \\
+  p(\mathscr{A})\alpha & p(\mathscr{A})\mathscr{A}\alpha, & p(\mathscr{A})\mathscr{A}^2\alpha, & \cdots & p(\mathscr{A})\mathscr{A}^{r-1}\alpha \\
+  p^2(\mathscr{A})\alpha & p^2(\mathscr{A})\mathscr{A}\alpha, & p^2(\mathscr{A})\mathscr{A}^2\alpha, & \cdots & p^2(\mathscr{A})\mathscr{A}^{r-1}\alpha \\
+  \cdots & & \cdots & & \cdots \\
+  p^{e-1}(\mathscr{A})\alpha & p^{e-1}(\mathscr{A})\mathscr{A}\alpha, & p^{e-1}(\mathscr{A})\mathscr{A}^2\alpha, & \cdots & p^{e-1}(\mathscr{A})\mathscr{A}^{r-1}\alpha
+  \end{matrix}
+  $$<p>这 $re$ 个向量为 $F[\mathscr{A}]\alpha$ 之基，称之为 $V=F[\mathscr{A}]\alpha$ 之广义 Jordan 基。</p>
+<p>通过计算容易得到，$\mathscr{A}$ 在基 $\alpha_{1,1},\cdots,\alpha_{1,r},\alpha_{2,1},\cdots,\alpha_{2,r},\cdots,\alpha_{e,1},\cdots,\alpha_{e,r}$ 下的矩阵为：</p>
+$$
+  J(p^e(x)) = \begin{pmatrix}
+  C(p(x)) & 0 & 0 & \cdots & 0 & 0 \\
+  S & C(p(x)) & 0 & \cdots & 0 & 0 \\
+  0 & S & C(p(x)) & \cdots & 0 & 0 \\
+  \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+  0 & 0 & 0 & \cdots & S & C(p(x))
+  \end{pmatrix}
+  $$<p>其中 $S=E_{1,r}$。</p>
+</li>
+<li>
+<p>推论：设 $V=F[\mathscr{A}]\alpha$，$\mathscr{A}:V\to V$，$m_\mathscr{A}=p^e(x)$，$\deg p=r$。则：</p>
+<ul>
+<li>
+<p>$\dim \ker p(\mathscr{A})=r$，$\dim \text{Im } p(\mathscr{A})=r(e-1)$。</p>
+</li>
+<li>
+<p>特别的，$\ker p(\mathscr{A})=F[\mathscr{A}](p^{e-1}(\mathscr{A})\alpha)$。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>定理（最小多项式是不可约多项式之幂的向量空间结构）：$\mathscr{A}:V\to V$，最小多项式 $m_\mathscr{A}=p^e(x)$，则 $V$ 有循环分解</p>
+$$
+  V=F[\mathscr{A}]\alpha_1\oplus \cdots\oplus F[\mathscr{A}]\alpha_t
+  $$<p>其中 $t=\frac{\dim \ker p(\mathscr{A})}{\deg p(x)}$。</p>
+<p>记 $m_i(x)=m_{\alpha_i}(x)$ 则有 $m_i(x)=p^{e_i}(x)$，其中 $e=e_1\ge e_2\ge \cdots\ge e_t$。</p>
+<p>$\dim F[\mathscr{A}]\alpha_i=re_i,r=\deg p(x)$。每个循环子空间的维数都是 $\deg p(x)$ 之倍数，即形如 $rk$，其中 $1\le k\le e$。</p>
+<p>$rk$ 维的循环子空间的个数 $N_k=\frac{1}{r}(\text{rank }p^{k+1}(\mathscr{A})+\text{rank }p^{k-1}(\mathscr{A})-2\text{ rank }p^k(\mathscr{A}))$。</p>
+</li>
+<li>
+<p>对于几种特殊情况：</p>
+<ul>
+<li>
+<p>当 $e=1$ 时，$m_\mathscr{A}=p(x)$，则 $t=\frac{\dim V}{\deg p}$。$V=\oplus F[\mathscr{A}]\alpha_i$，每个 $F[\mathscr{A}]\alpha$ 均为 $r=\deg p$ 维。从而 $\dim V=rt$。这也说明 $\dim V$ 必然是 $\deg p$ 之倍数。</p>
+</li>
+<li>
+<p>$p(x)=(x-\lambda)$ 时，$m_\mathscr{A}=p^e(x)$。此时 $t=\dim \ker p(\mathscr{A})=\dim\ker(\mathscr{A}-\lambda \mathscr{I})$，且 $N_k=\text{rank }p^{k+1}(\mathscr{A})+\text{rank }p^{k-1}(\mathscr{A})-2\text{ rank }p^k(\mathscr{A})$。</p>
+<p>对应矩阵版本：$\mathscr{A}:V\to V$，在某个基下的矩阵 $A$，则 $A$ 相似于 $\text{diag}(C((x\lambda)^{e_1}),\cdots,C((x-\lambda)^{e_t}))$，此为 $V$ 在循环基下的矩阵。</p>
+<p>取 $F[\mathscr{A}]\alpha_i$ 之 Jordan 基 $\alpha_i,(\mathscr{A}-\mathscr{I})\alpha_i,\cdots,(\mathscr{A}-\mathscr{I})^{e_i-1}\alpha_i$，合成 $V$ 之基得到 $V$ 之 Jordan 基。$\mathscr{A}$ 在该组基下的矩阵为 $\text{diag}(J_{e_1}(\lambda),\cdots,J_{e_t}(\lambda))$。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>引理：$\mathscr{A}:V\to V$，$m_\mathscr{A}=\prod p_i^{e_i}(x)$。</p>
+<ul>
+<li>
+<p>$\forall l_i \ge e_i$，$\ker p_i^{l_i}(\mathscr{A})=\ker p_i^{e_i}(\mathscr{A})$。</p>
+</li>
+<li>
+<p>$\forall t > 0$，$\ker p_i^t(\mathscr{A}_i)=\ker p_i^t(\mathscr{A})$。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>定理：$\mathscr{A}:V\to V$，$m_\mathscr{A}=\prod_{i=1}^s p_i^{e_i}$，则 $V$ 有准素分解 $V=V_1\oplus V_2\oplus\cdots\oplus V_s$。$V_i=\ker p_i^{e_i}(\mathscr{A})$，且 $m_{\mathscr{A}\mid _{V_i}}=p_i^{e_i}(x)$。</p>
+<p>再对每个 $V_i$ 做循环分解，$V_i=V_{i,1}\oplus \cdots\oplus V_{i,t_i}$，从而 $V=V_{1,1}\oplus\cdots\oplus V_{1,t_1}\oplus\cdots\oplus V_{s,t_s}$。其中 $V_{i,j}=F[\mathscr{A}_i]\alpha_{i,j}=F[\mathscr{A}]\alpha_{i,j}$，$m_{\alpha_{i,j}}=p_i^{e_{i,j}}$，$e_{i,1}=e_i$ 且 $e_{i,j}\le e_{i,j-1}$。并且有 $t_j=\frac{\dim\ker p_j(\mathscr{A}_j)}{\deg p_j}=\frac{\dim \ker p_j(\mathscr{A})}{\deg p_j}$，$r_ik$ 维的循环子空间个数与上面表达类似。</p>
+<p>$\{p_i^{e_{i,j}}(x)\}_{i,j}$ 称为 $\mathscr{A}$ 之初等因子组。</p>
+</li>
+</ul>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+  <div class="pagination__title">
+    <span class="pagination__title-h">Read other posts</span>
+    <hr />
+  </div>
+  <div class="pagination__buttons">
+    
+    
+    
+      <a href="https://enucai.github.io/posts/algebra-vector-space/" class="button inline next">
+         [<span class="button__text">Advanced Algebra: Vector Spaces and Linear Maps</span>] &gt;
+      </a>
+    
+  </div>
+</div>
+
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2026 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

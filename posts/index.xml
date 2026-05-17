@@ -6,14 +6,35 @@
     <description>Recent content in Posts on Terminal</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 04 Apr 2026 15:36:04 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 15 May 2026 15:16:00 +0800</lastBuildDate>
     <atom:link href="https://enucai.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Advanced Algebra: Theory of Linear Transformations</title>
+      <link>https://enucai.github.io/posts/algebra-transformation/</link>
+      <pubDate>Fri, 15 May 2026 15:16:00 +0800</pubDate>
+      <guid>https://enucai.github.io/posts/algebra-transformation/</guid>
+      <description>&lt;h2 id=&#34;线性变换的最小多项式&#34;&gt;线性变换的最小多项式&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;定义：$\mathscr{A}:V\to V$，称 $V$ 之子空间 $U$ 为 $\mathscr{A}-$ 不变的，若 $U$ 在 $\mathscr{A}$ 下稳定，即 $\forall \alpha\in U,\mathscr{A}\alpha\in U\iff \mathscr{A}| _U:U\to U$ 为 $U$ 之线性变换。&lt;/p&gt;&#xA;&lt;p&gt;注：若 $\alpha_1,\cdots,\alpha_n$ 为 $U$ 之基，则 $U$ 为 $\mathscr{A}-$ 不变的 $\iff \mathscr{A}\alpha_i\in U,\forall i$。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;例：$\mathscr{A}:V\to V$，则 $\{0\},V$ 均为 $\mathscr{A}-$ 不变的，$\ker A,\text{Im}A$ 也均为 $\mathscr{A}-$ 不变的。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;设 $U$ 为 $\mathscr{A}(:V\to V)-$ 不变的，则 $\mathscr{A}| _U:U\to U$，则：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$\mathscr{A}$ 诱导 $V/U$ 上的线性变换 $\overline{\mathscr{A}}:V/U\to V/U$。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;定义：$U$ 为 $r$ 维的 $\mathscr{A}-$ 不变子空间，则存在 $V$ 之基使得 $\mathscr{A}$ 在基下的矩阵形如：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Advanced Algebra: Vector Spaces and Linear Maps</title>
+      <link>https://enucai.github.io/posts/algebra-vector-space/</link>
+      <pubDate>Tue, 07 Apr 2026 11:55:21 +0800</pubDate>
+      <guid>https://enucai.github.io/posts/algebra-vector-space/</guid>
+      <description>&lt;h2 id=&#34;向量空间结构&#34;&gt;向量空间结构&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;定义：$F$ 为域，$(V,+)$ 为加法交换群。称 $V$ 为 $F$ 上的向量空间，若有 $F$ 在 $V$ 上的纯量乘法，记为 $\cdot:F\times V\to V$，使：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;“结合律”：$(k\cdot l)\cdot \alpha=k\cdot(l\cdot \alpha),\forall k,l\in F,\alpha\in V$；&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;“分配律”：$(k+l)\cdot \alpha=k\cdot \alpha+l\cdot \alpha,k\cdot (\alpha+\beta)=k\cdot \alpha+k\cdot \beta,\forall k,l\in F,\alpha,\beta\in V$；&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;“酉性”：$1\cdot \alpha=\alpha,\forall \alpha\in V$。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;注：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;向量空间也称作线性空间，其中的元素称为向量。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;域 $F$ 在 $V$ 上的满足以上三个性质的“纯量乘法”也称作域 $F$ 在 $V$ 上的域作用。&lt;/p&gt;&#xA;&lt;p&gt;将域改为有 $1$ 的环 $R$ 时，则 $V$ 称为 $R-$ 模。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;简单事实：零元唯一，负元唯一，$0\cdot \alpha=\theta$，$-1\cdot \alpha=-\alpha$，$k\cdot \theta=\theta$。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;向量空间之例：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;$F^n$，$F$，$M_{m\times n}(F)$，$F[x]$，$F[x_1,\dots,x_n]$，$C[a,b]/\mathbb R$。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;$V$ 为 $\mathbb Q$ 上之 Cauchy 列集合。定义：&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Introduction to CP Maker</title>
       <link>https://enucai.github.io/posts/cp-maker/</link>
       <pubDate>Sat, 04 Apr 2026 15:36:04 +0800</pubDate>
       <guid>https://enucai.github.io/posts/cp-maker/</guid>
       <description>&lt;p&gt;项目地址：&lt;a href=&#34;https://github.com/Enucai/CP-Maker&#34;&gt;https://github.com/Enucai/CP-Maker&lt;/a&gt;。&lt;/p&gt;&#xA;&lt;p&gt;这是一个帮你为算法竞赛题目造数据的项目。本项目大部分由 GPT-5.3-Codex 生成。&lt;/p&gt;&#xA;&lt;p&gt;写这个项目的原因是要搬模拟赛，但是不想自己造数据了，一些比较简单的题造菜一点的数据也没啥关系，所以让 ai 造一下得了。&lt;/p&gt;&#xA;&lt;p&gt;你只需要提供题目描述，输入输出格式，数据范围和 std，项目可以自动生成 testlib 格式的 generator, validator 和 checker，然后批量生成输入输出文件。当然如果你能够提供题目解法，生成效果可能会更好。&lt;/p&gt;&#xA;&lt;p&gt;同时，如果你要卡一部分做法，你也可以提供额外的提示词，让 AI 帮你造一些更强的数据。&lt;/p&gt;&#xA;&lt;p&gt;项目支持直接将数据打包成 UOJ 格式，略去了人工写 &lt;code&gt;problem.conf&lt;/code&gt; 的过程。&lt;/p&gt;&#xA;&lt;p&gt;相信只要你使用的模型足够强，那么生成的数据就能足够强。&lt;/p&gt;&#xA;&lt;p&gt;目前用 &lt;code&gt;grok-4.1-fast&lt;/code&gt; 并非 coding 模型来造「联合省选 2026 recollector」的数据，能够生成与官方数据强度类似的数据（）。当然我没有免费的 api key 可以用，所以用的模型都比较菜。有钱的可以用更强的模型试试。&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://enucai.github.io/images/cpmaker-sample.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;接下来的一些更新方向：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;添加 subtask 的支持，从而更加适配 OI 题目的要求。（已更新 @ 2026.4.4 18:45）&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;欢迎提交 Issues 或 PR。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Advanced Algebra: Polynomial Theory</title>
+      <link>https://enucai.github.io/posts/algebra-polynomial/</link>
+      <pubDate>Tue, 03 Mar 2026 14:12:13 +0800</pubDate>
+      <guid>https://enucai.github.io/posts/algebra-polynomial/</guid>
+      <description>&lt;h2 id=&#34;一些抽象代数的基本概念&#34;&gt;一些抽象代数的基本概念&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;设 $S$ 非空，定义 $S$ 中的一个代数运算指一个映射 $\varphi:S\times S\to S$。此处 $\times$ 为笛卡尔积。通常记 $S$ 为 $+$ 或 $\cdot$。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;定义：设 $F$ 非空，$F$ 中定义了两个代数运算，分别称为加法 $+$ 和乘法 $\cdot$。称具备运算 $+,\cdot$ 的 $F$ $(F,+,\cdot)$ 为&lt;strong&gt;域&lt;/strong&gt;（field），若：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;关于 $+$ 结合律：$(x+y)+z=(x+y)+z$。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;关于 $+$ 交换律：$x+y=y+x$。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;关于 $+$ 零元存在：$\exists$ 元素记为 $0\in F$，使 $0+x=x,\forall x\in F$。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;关于 $+$ 负元存在：$\forall x\in F,\exists y\in F$，使 $x+y=0$，此时称 $y$ 为 $x$ 的负元。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;关于 $\cdot$ 结合律：$(xy)z=x(yz)$。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;关于 $\cdot$ 交换律：$xy=yx$。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;关于 $\cdot$ 单位元存在：$\exists$ 元素记为 $1\in F$，使得 $1\cdot x=x,\forall x\in F$。&lt;/p&gt;</description>
     </item>
     <item>
       <title>Union and Intersection of Tree and Path Neighborhoods</title>
