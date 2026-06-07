@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>How to Write Music Scores Using Text Models :: Terminal</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="This is a survival guide for PKU&#39;s Music and Mathematics course, detailing how I used text models as tireless arrangement assistants to bypass the struggle of manual score writing." />
+<meta name="keywords" content=", " />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://enucai.github.io/posts/music-using-text-model/" />
+
+
+
+
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/buttons.min.86f6b4c106b6c6eb690ae5203d36b442c1f66f718ff4e8164fa86cf6c61ad641.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/code.min.c4581949edab7810737609fc5568852bcd908945f14561e366dcd2300a370545.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/fonts.min.5bb7ed13e1d00d8ff39ea84af26737007eb5051b157b86fc24487c94f3dc8bbe.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/footer.min.eb8dfc2c6a7eafa36cd3ba92d63e69e849e2200e0002a228d137f236b09ecd75.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/header.min.75c7eb0e2872d95ff48109c6647d0223a38db52e2561dd87966eb5fc7c6bdac6.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/main.min.36833afd348409fc6c3d09d0897c5833d9d5bf1ff31f5e60ea3ee42ce2b1268c.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/menu.min.3c17467ebeb3d38663dce68f71f519901124fa5cbb4519b2fb0667a21e9aca39.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/pagination.min.bbb986dbce00a5ce5aca0504b7925fc1c581992a4bf57f163e5d69cc1db7d836.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/post.min.e6dddd258e64c83e05cec0cd49c05216742d42fc8ecbfbe6b67083412b609bd3.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/syntax.min.a2cc694a9b481f15d41722bffc2cc54eea4c4f74fd9072b0b33253604c22606e.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/terminal.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
+
+
+
+
+
+
+
+<link rel="shortcut icon" href="https://enucai.github.io/favicon.png">
+<link rel="apple-touch-icon" href="https://enucai.github.io/apple-touch-icon.png">
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to Write Music Scores Using Text Models">
+<meta property="og:description" content="This is a survival guide for PKU&#39;s Music and Mathematics course, detailing how I used text models as tireless arrangement assistants to bypass the struggle of manual score writing." />
+<meta property="og:url" content="https://enucai.github.io/posts/music-using-text-model/" />
+<meta property="og:site_name" content="Terminal" />
+
+  
+  
+  <meta property="og:image" content="https://enucai.github.io/">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2026-06-07 19:20:31 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}],throwOnError:false});">
+  </script>
+
+</head>
+<body>
+
+
+<div class="container">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Terminal
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/about" >About</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="https://enucai.github.io/posts/music-using-text-model/">How to Write Music Scores Using Text Models</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2026-06-07</time><span class="post-author">enucai</span><span class="post-reading-time">12 min read (2363 words)</span></div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="https://enucai.github.io/tags/music/">music</a>&nbsp;
+      
+      #<a href="https://enucai.github.io/tags/ai/">ai</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <h2 id="the-origin">The Origin<a href="#the-origin" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>The origin of the story goes like this: PKU has a course titled &ldquo;Music and Mathematics.&rdquo; The final project requires us to develop two segments of random music into complete pieces.</p>
+<p>I had always thought this task would be easy, until we actually started working on it and realized that no one in our group knew how to write sheet music, nor did anyone own a keyboard or a guitar to record it. Consequently, we began trying out various AI tools (honestly, we were counting on using AI from the very beginning).</p>
+<p>Here came the problem: currently, almost all music AIs generate audio directly, and transcribing sheet music from audio is inherently difficult work. I tried giving Suno AI a main melody to generate a piece of music, but even a casual listen revealed at least ten voice parts. After separating the tracks and attempting to convert it into a MIDI file, the resulting sheet music was incredibly bizarre and irregular, and the melody was completely wrong.</p>
+<p>So, this is the universal problem with current music AIs: the directly generated audio sounds great, but it is very difficult to convert back into sheet music (or rather, the difficulty of this task is extremely high).</p>
+<p>Later, I discovered something called AIVI, which was rumored to generate sheet music directly. However, the quality of this tool was truly hard to praise. The music it generated based on the main melody I fed it had absolutely nothing to do with that melody, so it was a total failure.</p>
+<h2 id="the-core-technology">The Core Technology<a href="#the-core-technology" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>Accidentally, a turning point appeared: while I was painstakingly clicking note by note in MuseScore to write the music by hand, I suddenly noticed a save format called <code>musicxml</code>. After saving, I found out that this file is actually a text file in XML format. In other words, a text model can read this file directly, and likewise, it can generate it.</p>
+<p>Based on my confidence in the powerful GPT-5.5, I opened Codex and began to experiment. Below is my very first prompt:</p>
+<blockquote>
+<p>Please read this musicxml file. This is a demo of a main melody. Please use this melody as the primary theme and develop it into a complete piece of instrumental music. It needs to include multiple voice parts, accompanied by chords. You can expand or transform the main melody to some extent, but this main melody must be highlighted in the final piece. Please directly output a listenable version of the musicxml file.</p>
+</blockquote>
+<p>Then Teacher Codex actually generated a playable musicxml file, and it wasn&rsquo;t half bad.</p>
+<p>Everything after that was simple: I just needed to optimize the listening experience through continuous interaction with Codex.</p>
+<p>Codex is actually very good at writing things like bass, pads, drums, and chords, which aligns perfectly with our intuition about large language models: after all, these elements are quite mechanical.</p>
+<p>Therefore, the core technology is: there is a format called <code>musicxml</code>, so text models can write music too.</p>
+<h2 id="technical-summary">Technical Summary<a href="#technical-summary" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>Below is some content I asked Codex to summarize based on our conversation, just for fun:</p>
+<p>Recently, I conducted a rather interesting experiment: using a text model to assist in creating a piece of music.</p>
+<p>The &ldquo;text model&rdquo; mentioned here is not dedicated AI arrangement software, nor is it the kind of tool where you input a prompt and it automatically spits out an MP3. Instead, it is a model like Codex, which primarily excels at understanding text, writing code, and modifying files. However, precisely because musical notation itself can be represented as structured text—such as MusicXML, MIDI events, or script generation rules—it can actually participate in music creation.</p>
+<p>This article aims to document the process of this experiment: how I picked a theme from a randomly generated melody and, together with the text model, developed it into a relatively complete short piece of instrumental music.</p>
+<h3 id="1-music-can-also-be-a-form-of-text">1. Music Can Also Be a Form of &ldquo;Text&rdquo;<a href="#1-music-can-also-be-a-form-of-text" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>When many people first think of AI-generated music, they think of generating audio directly. But this time, I took a different path:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Melody Material -&gt; MIDI / MusicXML -&gt; Text Model Analysis and Modification -&gt; Sheet Music Generation -&gt; Playback Audition -&gt; Continued Feedback
+</span></span></code></pre></div><p>In other words, the model does not directly &ldquo;sing&rdquo; the music out; rather, it creates by generating and modifying sheet music files.</p>
+<p>MusicXML is essentially an XML file that records information such as notes, durations, voice parts, instruments, chords, and dynamics. MIDI can also be parsed into note events. To a text model, although these things are not natural language, they are still structured text. As long as they are paired with scripts, they can be read, analyzed, and generated.</p>
+<p>This gives us a very interesting way to create: humans are responsible for listening, judging, and proposing directions, while the model is responsible for quickly implementing the modifications on the score.</p>
+<h3 id="2-picking-a-seed-from-random-music">2. Picking a &ldquo;Seed&rdquo; from Random Music<a href="#2-picking-a-seed-from-random-music" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>The raw material for this experiment was a segment of randomly generated pink music.</p>
+<p>Randomly generated music often has a problem: it might have certain local parts that sound very interesting, but the whole thing does not necessarily sound like a real piece. Therefore, the first step was not to let the model expand the entire song directly, but to first pick a potential snippet from the random results.</p>
+<p>Together with the model, I analyzed the original melody and ultimately selected a snippet from measure 12 to measure 16—about 5 measures long—as the theme.</p>
+<p>This melody had a few characteristics:</p>
+<ul>
+<li>The rhythm was very jumpy, not a smooth, singing-style melody;</li>
+<li>There were quite a few sudden leaps;</li>
+<li>The length was 5 measures, which was a bit asymmetrical;</li>
+<li>Although it came from random generation, it had memorable motives locally.</li>
+</ul>
+<p>It wasn&rsquo;t as regular as traditional classical melodies, but precisely because of its irregularity, it possessed a unique sense of randomness and agility.</p>
+<p>So the question became: what style is suitable for developing such a melody?</p>
+<h3 id="3-do-not-force-it-to-be-classical">3. Do Not Force It to Be Classical<a href="#3-do-not-force-it-to-be-classical" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>At first, I also tried letting the model make demos in a few different styles, such as a piano piece, jazz/funk, electronic groove, etc.</p>
+<p>After listening, it was very obvious: this melody was not quite suitable for being written into a traditional, overly formal classical piece. Because its own charm lay in its rhythmic jumps and irregular phrasing, forcing a steady classical accompaniment onto it actually made it sound awkward.</p>
+<p>Later, the direction became clearer: it was more suitable for a modern electronic groove or video game soundtrack style.</p>
+<p>This style offers several advantages:</p>
+<ul>
+<li>A stable drum beat can anchor the jumping melody;</li>
+<li>A bass groove can provide a sense of direction;</li>
+<li>A synth lead can make the theme sound bright;</li>
+<li>The irregularity of the theme will not be viewed as a defect, but will instead become its personality.</li>
+</ul>
+<p>This is also a very important point when creating with text models: do not just ask, &ldquo;Can you help me expand this?&rdquo; Instead, constantly judge, &ldquo;What is this material itself suitable for?&rdquo;</p>
+<h3 id="4-let-the-model-generate-scores-not-just-give-advice">4. Let the Model Generate Scores, Not Just Give Advice<a href="#4-let-the-model-generate-scores-not-just-give-advice" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>Once the direction was determined, I had the model start generating MusicXML.</p>
+<p>The initial versions usually weren&rsquo;t particularly good. The model could quickly write a complete structure, such as:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Intro - A - Transition - B - Breakdown - Development - Climax - Coda
+</span></span></code></pre></div><p>It could also generate multiple voice parts such as bass, pads, drums, chords, and the main melody. But the problem was that the first generated output was often &ldquo;structurally complete, but auditorily flat.&rdquo;</p>
+<p>This is the typical state of text models creating music: they are great at building frameworks, but they might not judge on the first try where it drags, where it is monotonous, or where it lacks a climax.</p>
+<p>So the truly effective way of working is not &ldquo;generating the final piece in one go,&rdquo; but rather:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Generate a version -&gt; Listen -&gt; Point out problems -&gt; Modify -&gt; Listen again -&gt; Modify again
+</span></span></code></pre></div><p>This is a bit like collaborating with an arrangement assistant who never gets tired.</p>
+<h3 id="5-iteration-is-more-important-than-prompts">5. Iteration Is More Important Than Prompts<a href="#5-iteration-is-more-important-than-prompts" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>The parts where this creation truly improved basically all came from iteration.</p>
+<p>For example, an early version had a B section and a transition, which looked reasonable structurally but sounded very long and lacked variation. After I pointed this out, the model shortened the overall length, cut out redundant sections, and brought the development forward, making it a tighter structure.</p>
+<p>Later, I noticed that the climax was not prominent enough. The model&rsquo;s initial approach was simply to raise the theme by an octave and thicken the voice parts, but it didn&rsquo;t sound like it truly &ldquo;lifted.&rdquo; So I requested it to rework the connection from the development to the climax—instead of putting a long breakdown before the climax, change it to a pre-climax bridge that takes a brief breath and then dives straight into the climax.</p>
+<p>Still later, I found that the main melody sounded too similar every time it appeared, feeling like a copy-paste job. I then requested the model to make slight variations: keep the original theme for section A, add a G-key color to the development, and change the climax to a high-register variation rather than a simple octave repetition.</p>
+<p>None of these modifications were achieved through a magical prompt; they were achieved by repeatedly listening and repeatedly pointing out problems.</p>
+<h3 id="6-humans-cover-aesthetics-models-cover-implementation">6. Humans Cover Aesthetics, Models Cover Implementation<a href="#6-humans-cover-aesthetics-models-cover-implementation" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>My biggest takeaway from this experiment is that text models are well-suited to be &ldquo;implementers,&rdquo; but they should not be entirely relied upon as &ldquo;aesthetic judges.&rdquo;</p>
+<p>For instance, it is very good at:</p>
+<ul>
+<li>Writing MusicXML;</li>
+<li>Generating multi-part scores;</li>
+<li>Modifying chords based on requirements;</li>
+<li>Adjusting bass patterns;</li>
+<li>Modifying drum beats;</li>
+<li>Generating different versions in batches;</li>
+<li>Keeping the file structure correct.</li>
+</ul>
+<p>But it is not always good at:</p>
+<ul>
+<li>Judging whether a section is too long;</li>
+<li>Judging whether a climax truly has emotional progression;</li>
+<li>Judging whether the main melody is drowned out by the accompaniment;</li>
+<li>Judging whether a certain section sounds like a boring log;</li>
+<li>Judging whether the overall style is unified.</li>
+</ul>
+<p>These require human listening.</p>
+<p>In this creation, my role was more like a director: I didn&rsquo;t necessarily have to handwrite every single voice part, but I could judge that &ldquo;this place is too fragmented,&rdquo; &ldquo;this place is too empty,&rdquo; &ldquo;the main melody here is unclear,&rdquo; &ldquo;there aren&rsquo;t enough drums here,&rdquo; or &ldquo;the harmony here is too monotonous.&rdquo; The model was then responsible for putting these judgments into effect within the score.</p>
+<h3 id="7-why-musicxml-is-great-for-this-collaboration">7. Why MusicXML Is Great for This Collaboration<a href="#7-why-musicxml-is-great-for-this-collaboration" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>If you just let the model generate audio directly, making modifications becomes quite difficult. You might only be able to say &ldquo;make this part a bit more intense&rdquo; or &ldquo;make this part gentler,&rdquo; but what exactly happens is hard to control.</p>
+<p>The benefit of MusicXML is that it is highly editable:</p>
+<ul>
+<li>If you want to change a certain voice part, you can directly modify the corresponding <code>part</code>;</li>
+<li>If you want to adjust a specific measure, you can locate it via <code>measure</code>;</li>
+<li>If you want to alter a chord, you can change the <code>harmony</code>;</li>
+<li>If you want to adjust the main melody, you can change the <code>note</code>;</li>
+<li>If you want to add dynamics, you can write in <code>mf</code> or <code>f</code>;</li>
+<li>If you want to add expressions, you can write in <code>accent</code>, <code>tenuto</code>, or <code>staccato</code>.</li>
+</ul>
+<p>In other words, the music is disassembled into an operable structure.</p>
+<p>This is extremely friendly to text models because they are inherently good at handling structured text and code. Many times, I wasn&rsquo;t letting it &ldquo;create music out of thin air,&rdquo; but rather letting it write scripts to generate scores. This way, we could iterate quickly while maintaining controllability.</p>
+<h3 id="8-rough-structure-of-the-final-work">8. Rough Structure of the Final Work<a href="#8-rough-structure-of-the-final-work" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>The final version ended up being around 40 measures long, with the structure:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Intro pulse
+</span></span><span class="line"><span class="cl">Introductory snippet
+</span></span><span class="line"><span class="cl">A - varied theme
+</span></span><span class="line"><span class="cl">Transition / gentle lift
+</span></span><span class="line"><span class="cl">Development - G color
+</span></span><span class="line"><span class="cl">Pre-climax bridge
+</span></span><span class="line"><span class="cl">Climax - varied theme in G
+</span></span><span class="line"><span class="cl">Coda - return to C
+</span></span></code></pre></div><p>The instrumentation roughly included:</p>
+<ul>
+<li>Main melody synth lead;</li>
+<li>Support slightly thickening the main melody;</li>
+<li>Mallet ostinato;</li>
+<li>Chord hits;</li>
+<li>Warm pad;</li>
+<li>Expressive bass;</li>
+<li>Drum kit.</li>
+</ul>
+<p>The overall style can be summarized as: a short video game soundtrack piece in a modern electronic groove style.</p>
+<p>It preserved the jumpy feel of the original random melody, while organizing it into a relatively complete work through drums, bass, harmony, and structure.</p>
+<h3 id="9-who-is-this-method-suitable-for">9. Who Is This Method Suitable For?<a href="#9-who-is-this-method-suitable-for" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>I think this method is particularly suitable for a few types of people:</p>
+<ol>
+<li>People who have melodic ideas but do not know how to do a full arrangement;</li>
+<li>People who can judge the listening experience but are unfamiliar with MusicXML or orchestration;</li>
+<li>People who want to develop randomly generated material into a complete work;</li>
+<li>People who want to quickly test out many versions;</li>
+<li>People who know a bit of code and are willing to treat music as structured data.</li>
+</ol>
+<p>It won&rsquo;t necessarily generate professional-grade works directly, but it is excellent for drafts, experimentation, and rapid iteration.</p>
+<h3 id="10-summary-of-some-experiences">10. Summary of Some Experiences<a href="#10-summary-of-some-experiences" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>After this experiment, I feel that the more effective approach is:</p>
+<ul>
+<li>Do not let the model write a complete song right from the start; pick a theme first;</li>
+<li>Determine what style fits the theme first;</li>
+<li>Let the model generate demos in multiple directions;</li>
+<li>Make each piece of feedback as specific as possible, such as &ldquo;the climax is not prominent enough,&rdquo; &ldquo;the bass is too mechanical,&rdquo; or &ldquo;the main melody is drowned out&rdquo;;</li>
+<li>Do not be afraid of iterating through multiple versions;</li>
+<li>In the end, you must rely on the human ear to judge, rather than just looking at the score&rsquo;s structure.</li>
+</ul>
+<p>Text models generating musical scores is essentially not &ldquo;one-click composing,&rdquo; but rather a new way of collaboration.</p>
+<p>It lowers many technical barriers: writing scores, expanding voice parts, generating MusicXML, and adjusting structures can all be completed very quickly. However, whether the music ultimately works still depends on human auditory judgment and aesthetic choices.</p>
+<p>This is probably the most interesting part of current AI creation: it doesn&rsquo;t do everything for you, but rather allows you to try, fail, modify faster, and gradually get closer to what you want.</p>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+  <div class="pagination__title">
+    <span class="pagination__title-h">Read other posts</span>
+    <hr />
+  </div>
+  <div class="pagination__buttons">
+    
+    
+    
+      <a href="https://enucai.github.io/posts/algebra-transformation/" class="button inline next">
+         [<span class="button__text">Advanced Algebra: Theory of Linear Transformations</span>] &gt;
+      </a>
+    
+  </div>
+</div>
+
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2026 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

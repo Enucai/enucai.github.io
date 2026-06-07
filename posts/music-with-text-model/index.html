@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  
+    <title>How to Write Music Scores Using Text Models :: Terminal</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="tba." />
+<meta name="keywords" content=", " />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="http://localhost:1313/posts/music-with-text-model/" />
+
+
+
+
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/buttons.min.86f6b4c106b6c6eb690ae5203d36b442c1f66f718ff4e8164fa86cf6c61ad641.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/code.min.c4581949edab7810737609fc5568852bcd908945f14561e366dcd2300a370545.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/fonts.min.5bb7ed13e1d00d8ff39ea84af26737007eb5051b157b86fc24487c94f3dc8bbe.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/footer.min.eb8dfc2c6a7eafa36cd3ba92d63e69e849e2200e0002a228d137f236b09ecd75.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/header.min.75c7eb0e2872d95ff48109c6647d0223a38db52e2561dd87966eb5fc7c6bdac6.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/main.min.36833afd348409fc6c3d09d0897c5833d9d5bf1ff31f5e60ea3ee42ce2b1268c.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/menu.min.3c17467ebeb3d38663dce68f71f519901124fa5cbb4519b2fb0667a21e9aca39.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/pagination.min.bbb986dbce00a5ce5aca0504b7925fc1c581992a4bf57f163e5d69cc1db7d836.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/post.min.e6dddd258e64c83e05cec0cd49c05216742d42fc8ecbfbe6b67083412b609bd3.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/syntax.min.a2cc694a9b481f15d41722bffc2cc54eea4c4f74fd9072b0b33253604c22606e.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/terminal.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
+
+
+
+
+
+
+
+<link rel="shortcut icon" href="http://localhost:1313/favicon.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to Write Music Scores Using Text Models">
+<meta property="og:description" content="tba." />
+<meta property="og:url" content="http://localhost:1313/posts/music-with-text-model/" />
+<meta property="og:site_name" content="Terminal" />
+
+  
+  
+  <meta property="og:image" content="http://localhost:1313/">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2026-06-07 19:20:31 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}],throwOnError:false});">
+  </script>
+
+</head>
+<body>
+
+
+<div class="container">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Terminal
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/about" >About</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="http://localhost:1313/posts/music-with-text-model/">How to Write Music Scores Using Text Models</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2026-06-07</time><span class="post-author">enucai</span><span class="post-reading-time">2 min read (320 words)</span></div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="http://localhost:1313/tags/music/">music</a>&nbsp;
+      
+      #<a href="http://localhost:1313/tags/ai/">ai</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <h2 id="起因">起因<a href="#起因" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>事情的起因是这样的：PKU 有一门神人课程名为“音乐与数学”，大作业的内容大概是将两段随机音乐发展为完整的曲子。</p>
+<p>一直以为这个任务是容易的，直到开始做了才发现小组内没有人会写谱，也没有人有键盘或者吉他来录谱。随后就开始尝试使用各种 AI 工具（其实一开始就是指望着用 AI 的）。</p>
+<p>问题来了：现在基本所有的音乐 AI 都是直接生成音频的，然后从音频里面扒谱是本质困难的工作。我尝试给定主旋律让 Suno AI 生成了一段音乐，但是随便一听就有至少十个声部，音轨分离之后尝试转成 MIDI 文件然后出现非常诡异不规则的谱子，旋律也全都不对了。</p>
+<p>好这就是现在音乐 AI 的普适性问题：直接生成的音频听感很好，但是很难转回谱子（或者说这一项工作的难度很高）。</p>
+<p>随后发现的是一个名为 AIVI 的东西，听说他可以直接生成谱子。但是这个东西的效果实在难评，丢给他主旋律生成的音乐和主旋律毫无关系，遂倒闭。</p>
+<h2 id="核心科技">核心科技<a href="#核心科技" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>偶然间一个转折出现了：我在用 musescore 苦苦一个一个按音符，手写谱子的时候，突然发现有一种保存格式叫做 <code>musicxml</code>。保存了一下发现这个文件竟然是个 xml 格式的文本文件。也就是说，文本模型可以直接读取这个文件，同样也可以生成这个文件。</p>
+<p>基于对强大的 gpt5.5 的自信，我打开了 codex 开始尝试，下面是我的第一个 prompt：</p>
+<blockquote>
+<p>请阅读这个 musicxml 文件，这是一个主旋律的 demo，请以这一段旋律为主旋律，将其发展为一首完整的纯音乐。需要包含多个音部，配上和弦，可以对主旋律进行一定的扩写、变换，但是要在最后的乐曲中凸显出这一段主旋律。请直接写出可以聆听版本的 musicxml 文件。</p>
+</blockquote>
+<p>然后 codex 老师真的生成了一个可以听的 musicxml 文件，而且还不赖。</p>
+<p>后面的事就简单了，只需要在与 codex 的持续交互中优化听感就行。</p>
+<p>codex 在写 bass、pad、鼓、和弦这些内容上还是非常擅长的，这也符合对大模型的直觉：毕竟这些内容都是机械的。</p>
+<p>所以核心科技就是：有一种格式叫做 <code>musicxml</code>，因此文本模型也能写音乐。</p>
+<h2 id="技术总结">技术总结<a href="#技术总结" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>下面是我让 codex 根据对话内容总结的一些内容，看着玩吧：</p>
+<p>最近我做了一次挺有意思的实验：用文本模型辅助创作一首音乐。</p>
+<p>这里说的“文本模型”不是专门的 AI 编曲软件，也不是那种输入一句 prompt 就自动吐出 mp3 的工具，而是像 Codex 这样的模型：它主要擅长理解文字、写代码、修改文件。但正因为乐谱本身也可以被表示成结构化文本，例如 MusicXML、MIDI 事件、脚本生成规则，所以它其实也可以参与音乐创作。</p>
+<p>这篇文章想记录一下这次实验的过程：我是如何从一段随机生成的旋律中挑出一个主题，然后和文本模型一起，把它发展成一首比较完整的纯音乐小品的。</p>
+<h3 id="1-音乐也可以是一种文本">1. 音乐也可以是一种“文本”<a href="#1-音乐也可以是一种文本" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>很多人第一次想到 AI 生成音乐，会想到直接生成音频。但这次我采用的是另一条路径：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">旋律素材 -&gt; MIDI / MusicXML -&gt; 文本模型分析和修改 -&gt; 生成乐谱 -&gt; 播放试听 -&gt; 继续反馈
+</span></span></code></pre></div><p>也就是说，模型并不是直接“唱”出音乐，而是通过生成和修改乐谱文件来创作。</p>
+<p>MusicXML 本质上是一种 XML 文件，里面记录了音符、时值、声部、乐器、和弦、力度等信息。MIDI 也可以被解析成音符事件。对文本模型来说，这些东西虽然不是自然语言，但仍然是结构化文本，只要配合脚本，就可以进行读取、分析和生成。</p>
+<p>这就给了我们一个很有趣的创作方式：人负责听、判断、提出方向；模型负责快速实现谱面修改。</p>
+<h3 id="2-从随机音乐中挑一个种子">2. 从随机音乐中挑一个“种子”<a href="#2-从随机音乐中挑一个种子" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>这次实验的原始材料是一段随机生成的粉色音乐。</p>
+<p>随机生成的音乐往往有一个问题：它可能有一些局部听起来很有意思，但整体不一定像一首真正的曲子。因此第一步不是直接让模型扩写整首，而是先从随机结果里挑出一段有潜力的片段。</p>
+<p>我和模型一起分析了原始旋律，最后选出了其中第 12 到第 16 小节，大约 5 小节的片段作为主题。</p>
+<p>这段旋律有几个特点：</p>
+<ul>
+<li>节奏很跳，不是平滑歌唱型旋律；</li>
+<li>有不少突然的跳进；</li>
+<li>长度是 5 小节，有点不对称；</li>
+<li>虽然来自随机生成，但局部有可以记住的动机。</li>
+</ul>
+<p>它不像传统古典旋律那样规整，但正因为不规整，反而有一种独特的随机感和机敏感。</p>
+<p>于是问题变成了：这样的旋律适合发展成什么风格？</p>
+<h3 id="3-不要强行古典化">3. 不要强行古典化<a href="#3-不要强行古典化" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>一开始我也尝试让模型做几种不同风格的 demo，比如钢琴小品、爵士/funk、电子 groove 等。</p>
+<p>试听之后很明显：这个旋律不太适合写成太传统、太端庄的古典小品。因为它本身的魅力就在于节奏跳跃、句法不规则。如果强行配上平稳的古典伴奏，反而会显得别扭。</p>
+<p>后来方向逐渐明确：它更适合现代电子律动或者游戏配乐风格。</p>
+<p>这种风格有几个好处：</p>
+<ul>
+<li>稳定的鼓点可以托住跳跃旋律；</li>
+<li>bass groove 可以提供方向感；</li>
+<li>synth lead 可以让主题显得明亮；</li>
+<li>主题的不规则性不会被视为缺点，反而会变成个性。</li>
+</ul>
+<p>这也是使用文本模型创作时很重要的一点：不要只问“你能不能帮我扩写”，而要不断判断“这个材料本身适合什么”。</p>
+<h3 id="4-让模型生成乐谱而不是只给建议">4. 让模型生成乐谱，而不是只给建议<a href="#4-让模型生成乐谱而不是只给建议" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>确定方向后，我让模型开始生成 MusicXML。</p>
+<p>一开始的版本通常不会特别好。模型可以很快写出一个完整结构，比如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Intro - A - Transition - B - Breakdown - Development - Climax - Coda
+</span></span></code></pre></div><p>也能生成 bass、pad、鼓、和弦、主旋律等多个声部。但问题是，第一次生成的东西往往“结构上是完整的，听感上是平的”。</p>
+<p>这也是文本模型创作音乐的典型状态：它很擅长搭框架，但不一定第一次就能判断哪里拖沓、哪里单调、哪里没有高潮。</p>
+<p>所以真正有效的工作方式不是“一次生成最终作品”，而是：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">生成一版 -&gt; 听 -&gt; 指出问题 -&gt; 修改 -&gt; 再听 -&gt; 再修改
+</span></span></code></pre></div><p>这有点像和一个不会累的编曲助手合作。</p>
+<h3 id="5-迭代比-prompt-更重要">5. 迭代比 prompt 更重要<a href="#5-迭代比-prompt-更重要" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>这次创作真正变好的地方，基本都来自迭代。</p>
+<p>比如早期版本有一个 B 段和 transition，结构上看起来合理，但听起来很长，而且缺少变化。我指出之后，模型把整体缩短，删掉冗余段落，把 development 提前，变成更紧凑的结构。</p>
+<p>后来又发现高潮不够突出。模型最初的做法只是把主题升高八度、加厚声部，但听起来并没有真正“起来”。于是我要求它重新处理 development 到 climax 的连接，不要在高潮前放一个太长的 breakdown，而是改成 pre-climax bridge，只短暂抽气，然后直接进入高潮。</p>
+<p>再后来发现主旋律每次出现都太像，听起来像复制粘贴。我又要求模型做轻微变奏：A 段保持原主题，development 加入 G 调色彩，climax 改成高音区变奏，而不是简单高八度重复。</p>
+<p>这些修改都不是靠一个神奇 prompt 完成的，而是靠反复听、反复指出问题。</p>
+<h3 id="6-人类负责审美模型负责实现">6. 人类负责审美，模型负责实现<a href="#6-人类负责审美模型负责实现" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>这次实验给我最大的感受是：文本模型很适合做“实现者”，但不应该完全交给它做“审美裁判”。</p>
+<p>比如它很擅长：</p>
+<ul>
+<li>写 MusicXML；</li>
+<li>生成多声部乐谱；</li>
+<li>根据要求改和弦；</li>
+<li>调整 bass pattern；</li>
+<li>修改鼓点；</li>
+<li>批量生成不同版本；</li>
+<li>保持文件结构正确。</li>
+</ul>
+<p>但它不总是擅长：</p>
+<ul>
+<li>判断一段是不是太长；</li>
+<li>判断高潮是否真的有情绪推进；</li>
+<li>判断主旋律是否被伴奏盖住；</li>
+<li>判断某个段落是否听起来像流水账；</li>
+<li>判断整体风格是否统一。</li>
+</ul>
+<p>这些更多需要人来听。</p>
+<p>在这次创作里，我的角色更像是导演：我不一定能手写出每个声部，但我可以判断“这里太碎”“这里太空”“这里主旋律不清楚”“这里鼓点不够”“这里和声太单一”。模型则负责把这些判断落实到乐谱中。</p>
+<h3 id="7-为什么-musicxml-很适合这种合作">7. 为什么 MusicXML 很适合这种合作<a href="#7-为什么-musicxml-很适合这种合作" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>如果只是让模型直接生成音频，修改会比较困难。你可能只能说“这里再激烈一点”“这里温柔一点”，但具体发生了什么不容易控制。</p>
+<p>MusicXML 的好处是它非常可编辑：</p>
+<ul>
+<li>想改某个声部，可以直接改对应 part；</li>
+<li>想调整某小节，可以定位到 measure；</li>
+<li>想改变和弦，可以改 harmony；</li>
+<li>想调整主旋律，可以改 note；</li>
+<li>想加动态，可以写入 <code>mf</code>、<code>f</code>；</li>
+<li>想加表情，可以写入 accent、tenuto、staccato。</li>
+</ul>
+<p>也就是说，音乐被拆成了可操作的结构。</p>
+<p>这对文本模型非常友好，因为它本来就擅长处理结构化文本和代码。很多时候，我并不是让它“凭空创作音乐”，而是让它写脚本生成乐谱。这样既能快速迭代，又能保留可控性。</p>
+<h3 id="8-最终作品的大致结构">8. 最终作品的大致结构<a href="#8-最终作品的大致结构" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>最后形成的版本大约 40 小节，结构是：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">Intro pulse
+</span></span><span class="line"><span class="cl">引入性片段
+</span></span><span class="line"><span class="cl">A - varied theme
+</span></span><span class="line"><span class="cl">Transition / gentle lift
+</span></span><span class="line"><span class="cl">Development - G color
+</span></span><span class="line"><span class="cl">Pre-climax bridge
+</span></span><span class="line"><span class="cl">Climax - varied theme in G
+</span></span><span class="line"><span class="cl">Coda - return to C
+</span></span></code></pre></div><p>编制大致包括：</p>
+<ul>
+<li>主旋律 synth lead；</li>
+<li>轻微加厚主旋律的 support；</li>
+<li>mallet ostinato；</li>
+<li>chord hits；</li>
+<li>warm pad；</li>
+<li>expressive bass；</li>
+<li>drum kit。</li>
+</ul>
+<p>整体风格可以概括为：现代电子律动风格的游戏配乐小品。</p>
+<p>它保留了原随机旋律的跳跃感，又通过鼓点、低音、和声和结构把它组织成比较完整的作品。</p>
+<h3 id="9-这种方法适合什么人">9. 这种方法适合什么人？<a href="#9-这种方法适合什么人" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>我觉得这种方法特别适合几类人：</p>
+<ol>
+<li>有旋律想法，但不会完整编曲的人；</li>
+<li>会判断听感，但不熟悉 MusicXML 或配器的人；</li>
+<li>想把随机生成材料发展成完整作品的人；</li>
+<li>想快速试很多版本的人；</li>
+<li>会一点代码，愿意把音乐当成结构化数据处理的人。</li>
+</ol>
+<p>它不一定能直接生成专业级作品，但非常适合做草稿、实验和快速迭代。</p>
+<h3 id="10-一些经验总结">10. 一些经验总结<a href="#10-一些经验总结" class="hanchor" ariaLabel="Anchor">#</a> </h3>
+<p>这次实验之后，我觉得比较有效的做法是：</p>
+<ul>
+<li>不要一上来就让模型写完整曲子，先选一个主题；</li>
+<li>先判断主题适合什么风格；</li>
+<li>让模型生成多个方向的 demo；</li>
+<li>每次反馈尽量具体，比如“高潮不够突出”“bass 太机械”“主旋律被盖住”；</li>
+<li>不要怕多版本迭代；</li>
+<li>最后一定要靠人耳判断，而不是只看谱面结构。</li>
+</ul>
+<p>文本模型生成音乐乐谱，本质上不是“一键作曲”，而是一种新的协作方式。</p>
+<p>它把很多技术门槛降下来了：写谱、扩展声部、生成 MusicXML、调整结构，都可以很快完成。但音乐最终是否成立，仍然取决于人的听觉判断和审美取舍。</p>
+<p>这大概也是目前 AI 创作最有意思的地方：它不是替你完成所有事情，而是让你能更快地尝试、失败、修改，然后逐渐靠近你想要的东西。</p>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+  <div class="pagination__title">
+    <span class="pagination__title-h">Read other posts</span>
+    <hr />
+  </div>
+  <div class="pagination__buttons">
+    
+    
+    
+      <a href="http://localhost:1313/posts/algebra-transformation/" class="button inline next">
+         [<span class="button__text">Advanced Algebra: Theory of Linear Transformations</span>] &gt;
+      </a>
+    
+  </div>
+</div>
+
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2026 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

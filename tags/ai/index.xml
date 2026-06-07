@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ai on Terminal</title>
+    <link>https://enucai.github.io/tags/ai/</link>
+    <description>Recent content in Ai on Terminal</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 07 Jun 2026 19:20:31 +0800</lastBuildDate>
+    <atom:link href="https://enucai.github.io/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Write Music Scores Using Text Models</title>
+      <link>https://enucai.github.io/posts/music-using-text-model/</link>
+      <pubDate>Sun, 07 Jun 2026 19:20:31 +0800</pubDate>
+      <guid>https://enucai.github.io/posts/music-using-text-model/</guid>
+      <description>&lt;h2 id=&#34;the-origin&#34;&gt;The Origin&lt;/h2&gt;&#xA;&lt;p&gt;The origin of the story goes like this: PKU has a course titled &amp;ldquo;Music and Mathematics.&amp;rdquo; The final project requires us to develop two segments of random music into complete pieces.&lt;/p&gt;&#xA;&lt;p&gt;I had always thought this task would be easy, until we actually started working on it and realized that no one in our group knew how to write sheet music, nor did anyone own a keyboard or a guitar to record it. Consequently, we began trying out various AI tools (honestly, we were counting on using AI from the very beginning).&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -2,10 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://enucai.github.io/about/</loc>
-    <lastmod>2026-05-16T21:51:10+08:00</lastmod>
+    <loc>https://enucai.github.io/tags/ai/</loc>
+    <lastmod>2026-06-07T19:20:31+08:00</lastmod>
+  </url><url>
+    <loc>https://enucai.github.io/posts/music-using-text-model/</loc>
+    <lastmod>2026-06-07T19:20:31+08:00</lastmod>
+  </url><url>
+    <loc>https://enucai.github.io/tags/music/</loc>
+    <lastmod>2026-06-07T19:20:31+08:00</lastmod>
+  </url><url>
+    <loc>https://enucai.github.io/posts/</loc>
+    <lastmod>2026-06-07T19:20:31+08:00</lastmod>
+  </url><url>
+    <loc>https://enucai.github.io/tags/</loc>
+    <lastmod>2026-06-07T19:20:31+08:00</lastmod>
   </url><url>
     <loc>https://enucai.github.io/</loc>
+    <lastmod>2026-06-07T19:20:31+08:00</lastmod>
+  </url><url>
+    <loc>https://enucai.github.io/about/</loc>
     <lastmod>2026-05-16T21:51:10+08:00</lastmod>
   </url><url>
     <loc>https://enucai.github.io/posts/algebra-transformation/</loc>
@@ -18,12 +33,6 @@
     <lastmod>2026-05-15T15:16:00+08:00</lastmod>
   </url><url>
     <loc>https://enucai.github.io/tags/notes/</loc>
-    <lastmod>2026-05-15T15:16:00+08:00</lastmod>
-  </url><url>
-    <loc>https://enucai.github.io/posts/</loc>
-    <lastmod>2026-05-15T15:16:00+08:00</lastmod>
-  </url><url>
-    <loc>https://enucai.github.io/tags/</loc>
     <lastmod>2026-05-15T15:16:00+08:00</lastmod>
   </url><url>
     <loc>https://enucai.github.io/posts/algebra-vector-space/</loc>
