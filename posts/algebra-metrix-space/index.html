@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Advanced Algebra: Metric Spaces :: Terminal</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="These are the study notes for Advanced Algebra II, covering the learning material of Chapter 4: Metric Spaces." />
+<meta name="keywords" content=", " />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://enucai.github.io/posts/algebra-metrix-space/" />
+
+
+
+
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/buttons.min.86f6b4c106b6c6eb690ae5203d36b442c1f66f718ff4e8164fa86cf6c61ad641.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/code.min.c4581949edab7810737609fc5568852bcd908945f14561e366dcd2300a370545.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/fonts.min.5bb7ed13e1d00d8ff39ea84af26737007eb5051b157b86fc24487c94f3dc8bbe.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/footer.min.eb8dfc2c6a7eafa36cd3ba92d63e69e849e2200e0002a228d137f236b09ecd75.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/header.min.75c7eb0e2872d95ff48109c6647d0223a38db52e2561dd87966eb5fc7c6bdac6.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/main.min.36833afd348409fc6c3d09d0897c5833d9d5bf1ff31f5e60ea3ee42ce2b1268c.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/menu.min.3c17467ebeb3d38663dce68f71f519901124fa5cbb4519b2fb0667a21e9aca39.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/pagination.min.bbb986dbce00a5ce5aca0504b7925fc1c581992a4bf57f163e5d69cc1db7d836.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/post.min.e6dddd258e64c83e05cec0cd49c05216742d42fc8ecbfbe6b67083412b609bd3.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/syntax.min.a2cc694a9b481f15d41722bffc2cc54eea4c4f74fd9072b0b33253604c22606e.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/terminal.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
+
+
+
+
+
+
+
+<link rel="shortcut icon" href="https://enucai.github.io/favicon.png">
+<link rel="apple-touch-icon" href="https://enucai.github.io/apple-touch-icon.png">
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Advanced Algebra: Metric Spaces">
+<meta property="og:description" content="These are the study notes for Advanced Algebra II, covering the learning material of Chapter 4: Metric Spaces." />
+<meta property="og:url" content="https://enucai.github.io/posts/algebra-metrix-space/" />
+<meta property="og:site_name" content="Terminal" />
+
+  
+  
+  <meta property="og:image" content="https://enucai.github.io/">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2026-06-09 12:33:22 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}],throwOnError:false});">
+  </script>
+
+</head>
+<body>
+
+
+<div class="container">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Terminal
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/about" >About</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="https://enucai.github.io/posts/algebra-metrix-space/">Advanced Algebra: Metric Spaces</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2026-06-09</time><span class="post-author">enucai</span><span class="post-reading-time">6 min read (1573 words)</span>
+</div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="https://enucai.github.io/tags/math/">math</a>&nbsp;
+      
+      #<a href="https://enucai.github.io/tags/notes/">notes</a>&nbsp;
+      
+      #<a href="https://enucai.github.io/tags/algebra/">algebra</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <h2 id="线性函数与对偶空间">线性函数与对偶空间<a href="#线性函数与对偶空间" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<ul>
+<li>
+<p>$F$ 为数域，$V/F$ 为 $n$ 维向量空间，$V$ 上的线性函数 $f$ 指线性映射 $f:V\to F$。</p>
+<p>记 $V^*=Hom_F(V,F)$ 称为 $V$ 指对偶空间。</p>
+</li>
+<li>
+<p>任固定 $V$ 之基 $\alpha_1,\cdots,\alpha_n$，定义 $\alpha_i^*:V\to F,\alpha_i^*(\alpha_j)=\delta_{i,j}$。</p>
+<p>则 $\forall \alpha=\sum x_i\alpha_i$，有 $\alpha_i^*(\alpha)=x_i$。$\alpha_1^*,\cdots,\alpha_n^*$ 称为 $\alpha_1,\cdots,\alpha_n$ 之对偶基。</p>
+<p>$\forall f\in V^*$，均有 $f=\sum f(\alpha_i)\alpha_i^*$。</p>
+</li>
+<li>
+<p>若 $\alpha_1,\cdots,\alpha_n$ 和 $\beta_1,\cdots,\beta_n$ 为 $V$ 之两组基，设 $(\beta_1,\cdots,\beta_n)=(\alpha_1,\cdots,\alpha_n)C$。</p>
+<p>则对于他们的对偶基 $\alpha_1^*,\cdots,\alpha_n^*$ 和 $\beta_1^*,\cdots,\beta_n^*$，有 $(\beta_1^*,\cdots,\beta_n^*)=(\alpha_1^*,\cdots,\alpha_n^*)(C^{-1})^T$。</p>
+</li>
+<li>
+<p>$\forall \alpha\in V,f\in V^*$，定义：</p>
+$$
+  \begin{aligned}
+  \tilde\alpha:V^*&\to F\\
+  f&\mapsto f(\alpha)
+  \end{aligned}
+  $$<p>则 $\tilde\alpha\in V^{**}$。</p>
+<p>定义：</p>
+$$
+  \begin{aligned}
+  \tau:V&\to V^{**}\\
+  \alpha&\mapsto \tilde\alpha
+  \end{aligned}
+  $$<p>定理：$\tau$ 为同构。</p>
+<p>注：$\tau$ 同构说明 $V$ 中的向量都可视为某个空间（$V^*$）上的线性函数。故任意向量空间均可视为由一些线性函数构成的（向量空间的函数解释）。</p>
+</li>
+<li>
+<p>定义：$V$ 与 $V^*$ 之间的运算（内积）称为配对：</p>
+$$
+  \begin{aligned}
+  (\ ,\ ):V\times V^*&\to F\\
+  (\alpha,f)&\mapsto f(\alpha)=\tilde\alpha(f)
+  \end{aligned}
+  $$<p>后者也简记为 $\alpha(f)$。</p>
+<p>注：$(\ ,\ )$ 满足关于每一个分量均为线性的。即：</p>
+<ul>
+<li>
+<p>$(k_1\alpha_1+k_2\alpha_2,f)=k_1(\alpha_1,f)+k_2(\alpha_2,f)$；</p>
+</li>
+<li>
+<p>$(\alpha,l_1f_1+l_2f_2)=l_1(\alpha,f_1)+l_2(\alpha,f_2)$。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>定义：$\forall S\subset V$，$S$ 非空，定义 $S$ 的零化子（Annihilation）：$Ann(S)=\{f\in V^*\mid f(s)=0,\forall s\in S\}$，即在 $S$ 上取之为 $0$ 的线性函数。</p>
+<p>$Ann(S)\subset V^*$ 为子空间。</p>
+<p>注：$S\subset V^*$，则 $Ann(S)=\{g\in V^{**}\mid g(S)=0\}$。</p>
+</li>
+<li>
+<p>例：$V=(F^n)^*$，$S=\{f_1,\cdots,f_m\}\subset V$，则 $Ann(S)=\{\alpha\in F^n\mid f_1(\alpha)=0,\forall i\}$，即为方程组 $f_1=0,\cdots,f_m=0$ 的解空间。</p>
+</li>
+<li>
+<p>定理：$V/F$ 为 $n$ 维线性空间，则：</p>
+<ul>
+<li>
+<p>$\forall U\subset V$ 为子空间，则 $\dim Ann(U)=\dim V-\dim U$；</p>
+</li>
+<li>
+<p>若 $U_1\subseteq U_2\subseteq V$，则 $Ann(U_2)\subseteq Ann(U_1)$；</p>
+</li>
+<li>
+<p>若将 $V$ 与 $V^{**}$ 等同，则 $Ann(Ann(U))=U$；</p>
+</li>
+<li>
+<p>$Ann(U_1+U_2)=Ann(U_1)\cap Ann(U_2)$，$Ann(U_1\cap U_2)=Ann(U_1)+Ann(U_2)$。</p>
+</li>
+</ul>
+<p>即说明，$Ann$ 给出了 $V$ 之子空间与 $V^*$ 之子空间之间的反序对应。</p>
+<p>证：对于 (1)：设 $U$ 之基 $\alpha_1,\cdots,\alpha_r$，将其扩为 $V$ 之基 $\alpha_1,\cdots,\alpha_r,\beta_1,\cdots,\beta_{n-r}$。考虑其对偶基 $\alpha_1^*,\cdots,\alpha_r^*,\beta_1^*,\cdots,\beta_{n-r}^*$。断言：$Ann(U)=L(\beta_1^*,\cdots,\beta_{n-r}^*)$。容易验证该断言。</p>
+<p>对于 (2)，显然。对于 (3) 和 (4)，均可使用 (1) 之断言来证。</p>
+</li>
+<li>
+<p>设 $\mathscr{A}:V_1\to V_2$，$\forall f\in V_2^*$，都有 $f\circ \mathscr{A}\in V_1^*$。定义映射：</p>
+$$
+  \begin{aligned}
+  \mathscr{A}^*:V_2^*&\to V_1^*\\
+  f&\mapsto \mathscr{A}^*(f)=f\circ \mathscr{A}
+  \end{aligned}
+  $$<p>$\mathscr{A}^*$ 称为 $\mathscr{A}:V_1\to V_2$ 之伴随映射或对偶映射。</p>
+<p>注：$\mathscr{A}^*$ 满足 $(\mathscr{A}\alpha,\beta)_{V_2}=(\alpha,\mathscr{A}^*\beta)_{V_1},\forall \alpha\in V_1,\beta\in V_2^*$。</p>
+</li>
+<li>
+<p>定理：$\mathscr{A}:V_1\to V_2$，$\mathscr{A}^*:V_2^*\to V_1^*$，则：</p>
+<ul>
+<li>
+<p>$\ker \mathscr{A}^*=Ann(\text{Im } \mathscr{A})$；</p>
+</li>
+<li>
+<p>$V_i,V_i^{**}$ 视为等同，则 $Ann(\text{Im }\mathscr{A}^*)=\ker \mathscr{A}$。</p>
+</li>
+<li>
+<p>$\text{Im }\mathscr{A}^*=Ann(\ker \mathscr{A})$。</p>
+</li>
+</ul>
+<p>证：对于 (1)：</p>
+$$
+  \begin{aligned}
+  f\in \ker \mathscr{A}^*&\iff \mathscr{A}^*(f)=0\\
+  &\iff (f\circ \mathscr{A})\alpha=0,\forall \alpha\in V_1\\
+  &\iff f(\mathscr{A}\alpha)=0,\forall \alpha\in V_1\\
+  &\iff f(\text{Im }\mathscr{A})=0\\
+  &\iff f\in Ann(\text{Im }\mathscr{A})
+  \end{aligned}
+  $$<p>对于 (2)：</p>
+$$
+  \begin{aligned}
+  \alpha\in \ker \mathscr{A}&\iff \mathscr{A}\alpha=0\\
+  &\iff f(\mathscr{A}\alpha)=0,\forall f\in V_2^*\\
+  &\iff (\mathscr{A}^*f)\alpha=0,\forall f\in V_2^*\\
+  &\iff \alpha(\text{Im }\mathscr{A}^*)=0\\
+  &\iff \alpha\in Ann(\text{Im} \mathscr{A}^*)
+  \end{aligned}
+  $$</li>
+<li>
+<p>$\mathscr{A}:V_1\to V_2,\mathscr{A}^*:V_2\to V_1$。</p>
+<p>取 $V_1$ 之基 $\alpha_1,\cdots,\alpha_n$，$V_2$ 之基 $\beta_1,\cdots,\beta_m$。同时取对偶基。设：</p>
+<ul>
+<li>
+<p>$\mathscr{A}(\alpha_1,\cdots,\alpha_n)=(\beta_1,\cdots,\beta_m)A$；</p>
+</li>
+<li>
+<p>$\mathscr{A}^*(\beta_1^*,\cdots,\beta_m^*)=(\alpha_1^*,\cdots,\alpha_n^*)A^*$。</p>
+</li>
+</ul>
+<p>则有 $A^*=A^{T}$。</p>
+</li>
+</ul>
+<h2 id="双线性函数">双线性函数<a href="#双线性函数" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<ul>
+<li>
+<p>定义：设 $V_1,V_2$ 是 $F$ 上的两个向量空间，称映射 $\varphi:V_1\times V_2\to F$ 为 $V_1,V_2$ 上的双线性函数，若 $\varphi$ 关于每一个变量均线性，即：</p>
+<ul>
+<li>
+<p>固定 $\beta\in V_2$，$\varphi(k_1\alpha_1+k_2\alpha_2,\beta)=k_1\varphi(\alpha_1,\beta)+k_2\varphi(\alpha_2,\beta)$；</p>
+</li>
+<li>
+<p>固定 $\alpha\in V_1$，$\varphi(\alpha,l_1\beta_1+l_2\beta_2)=l_1\varphi(\alpha,\beta_1)+l_2\varphi(\alpha,\beta_2)$。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>取 $V_1$ 之基为 $\alpha_1,\cdots,\alpha_m$，$V_2$ 之基为 $\beta_1,\cdots,\beta_n$。则：</p>
+$$
+  \varphi(\alpha,\beta)=\varphi(\sum x_i\alpha_i,\sum y_j\beta_j)=\sum_{i,j}x_iy_j\varphi(\alpha_i,\beta_j)
+  $$<p>记 $A=(\varphi(\alpha_i,\beta_j))\in M_{m\times n}(F)$，则 $\varphi(\alpha,\beta)=X^TAY$。</p>
+<p>定义 $\varphi_{f,g}(\alpha,\beta)=f(\alpha)\cdot g(\beta)$，则上式可继续写作：</p>
+$$
+  \sum_{i,j}x_iy_j\varphi(\alpha_i,\beta_j)=\sum_{i,j}\varphi(\alpha_i,\beta_j)\varphi_{\alpha_i^*,\beta_j^*}(\alpha,\beta)=\left(\sum_{i,j}\varphi(\alpha_i,\beta_j)\varphi_{\alpha_i^*,\beta_j^*}\right)(\alpha,\beta)
+  $$<p>因此有：</p>
+$$
+  \varphi=\sum_{i,j}\varphi(\alpha_i,\beta_j)\varphi_{\alpha_i^*,\beta_j^*}
+  $$</li>
+<li>
+<p>当 $V_1=V_2=V$ 时，$\varphi:V\times V\to F$ 称为 $V$ 上的双线性函数。</p>
+</li>
+<li>
+<p>定理：$V_1,V_2$ 上所有双线性函数构成 $F$ 上的向量空间 $W$，则在 $V_1,V_2$ 之任基下，$W\cong M_{m\times n}(F)$：$\varphi\to A=(\varphi(\alpha_i,\beta_j))_{m\times n}$。</p>
+</li>
+<li>
+<p>设 $\alpha_1,\cdots,\alpha_m$ 和 $\alpha'_1,\cdots,\alpha'_m$ 为 $V_1$ 的两组基，$\beta_1,\cdots,\beta_n$ 和 $\beta'_1,\cdots,\beta'_n$ 为 $V_2$ 的两组基。设：</p>
+$$
+  (\alpha'_1,\cdots,\alpha'_m)=(\alpha_1,\cdots,\alpha_m)P\\
+  (\beta'_1,\cdots,\beta'_n)=(\beta_1,\cdots,\beta_n)Q\\
+  $$<p>则对于任意 $\alpha\in V_1,\beta\in V_2$，有：</p>
+$$
+  \alpha=(\alpha_1,\cdots,\alpha_m)X=(\alpha'_1,\cdots,\alpha'_m)X'\implies X=PX'\\
+  \beta=(\beta_1,\cdots,\beta_n)Y=(\beta'_1,\cdots,\beta'_n)Y'\implies Y=QY'
+  $$<p>因此：</p>
+$$
+  \varphi(\alpha,\beta)=X^TAY=X'^TP^TAQY'\implies A'=P^TAQ
+  $$<p>特别的，$\varphi:V\times V\to F$，则 $\varphi$ 在不同基下的矩阵合同。</p>
+</li>
+<li>
+<p>$\varphi:V_1\times V_2\to F$，设 $U_i\le V_i,\forall i=1,2$ 为子空间。</p>
+<p>定义 $U_1^\bot=\{\beta\in V_2\mid \varphi(\alpha,\beta)=0,\forall \alpha\in U_1\}$。称 $U_1^\bot$ 为 $U_1$（关于 $\varphi$）之正交子空间。</p>
+<p>同理定义 $U_2^\bot=\{\alpha\in V_1\mid \varphi(\alpha,\beta)=0,\forall \beta\in U_2\}$。</p>
+<p>特比的，取 $U_i=V_i$ 时，$V_1^\bot=\{\beta\in V_2\mid \varphi(\alpha,\beta)=0,\forall \alpha\in V_1\}$，$V_2^\bot=\{\alpha\in V_1\mid \varphi(\alpha,\beta)=0,\forall \beta\in V_2\}$。</p>
+</li>
+<li>
+<p>设 $V_1,V_2$ 之基为 $\alpha_1,\cdots,\alpha_m$ 和 $\beta_1,\cdots,\beta_n$，定义 $A=(\varphi(\alpha_i,\beta_j))_{m\times n}$，则 $\varphi(\alpha,\beta)=X^TAY$。</p>
+<p>$V_1^\bot=\{\beta\in V_2\mid \varphi(\alpha,\beta)=0,\forall \alpha\in V_1\}$。此时 $\varphi(\alpha,\beta)=0\iff X^TAY=0,\forall X\in F^m$。</p>
+<p>因此 $V_1^\bot=\{\beta=(\beta_1,\cdots,\beta_n)Y\mid AY=0\}$。</p>
+<p>同理有 $V_2^\bot=\{\alpha=(\alpha_1,\cdots,\alpha_m)X\mid A^TX=0\}$。</p>
+</li>
+<li>
+<p>定义：称 $\varphi:V_1\times V_2\to F$ 是左退化的，若 $V_2^\bot\neq \{0\}$；否则称为非左退化的。</p>
+<p>同理，称 $\varphi:V_1\times V_2\to F$ 是右退化的，若 $V_1^\bot\neq \{0\}$；否则称为非右退化的。</p>
+<p>称 $\varphi$ 为非退化的，若 $\varphi$ 既不是左退化的，也不是右退化的。</p>
+</li>
+<li>
+<p>命题：$\varphi$ 左退化 $\iff \varphi$ 在某基 $\{\alpha_i\},\{\beta_j\}$ 下的矩阵 $A$ 之行向量组相关，即 $r(A)<m$。</p>
+<p>同理，$\varphi$ 右退化 $\iff \varphi$ 在某基 $\{\alpha_i\},\{\beta_j\}$ 下的矩阵 $A$ 之列向量组相关，即 $r(A)<n$。</p>
+<p>$\varphi$ 非左退化 $\iff r(A)=m$，$\varphi$ 非右退化 $\iff r(A)=n$。</p>
+<p>$\varphi$ 非退化 $\iff \dim V_1=\dim V_2$ 且 $A$ 可逆。</p>
+</li>
+<li>
+<p>特别的，$\varphi:V\times V\to F$，$U$ 为 $V$ 之子空间，定义：</p>
+<ul>
+<li>
+<p>$U^{\bot_R}=\{\beta\in V\mid \varphi(\alpha,\beta)=0,\forall \alpha\in V\}$；</p>
+</li>
+<li>
+<p>$U^{\bot_L}=\{\alpha\in V\mid \varphi(\alpha,\beta)=0,\forall \beta\in V\}$。</p>
+</li>
+</ul>
+<p>取 $U=V$ 可以定义 $V^{\bot_R},V^{\bot_L}$。此时 $\varphi$ 非退化 $\iff V^{\bot_R}=\{0\},V^{\bot_L}=\{0\}$。</p>
+<p>$V^{\bot_R},V^{\bot_L}$ 分别称为 $V$ 之右根、左根。</p>
+</li>
+<li>
+<p>$\varphi:V_1\times V_2\to F$。</p>
+<p>$\forall \alpha\in V_1$ 固定，定义 $L_{\varphi}(\alpha):V_2\to F,\beta\mapsto L_\varphi(\alpha)(\beta)=\varphi(\alpha,\beta)$，则 $L_\varphi(\alpha)\in V_2^*$。</p>
+<p>由此定义 $L_\varphi:V_1\to V_2^*,\alpha\mapsto L_\varphi(\alpha)$。</p>
+<p>同理，$\forall \beta\in V_2$ 固定，定义 $R_\varphi(\beta):V_1\to F,\alpha\mapsto \varphi(\alpha,\beta)$。由此定义 $R_\varphi:V_2\to V_1^*,\beta\mapsto R_\varphi(\beta)$。</p>
+</li>
+<li>
+<p>命题：</p>
+<ul>
+<li>
+<p>$\ker L_\varphi=\{\alpha\in V_1\mid L_\varphi(\alpha)=0\}=\{\alpha\in V_1\mid \varphi(\alpha,\beta)=0,\forall \beta\}=V_2^\bot$；</p>
+</li>
+<li>
+<p>$\ker R_\varphi=V_1^\bot$；</p>
+</li>
+<li>
+<p>$\text{rank }L_\varphi=\text{rank }R_\varphi=\text{rank }A$，$A=(\varphi(\alpha_i,\beta_j))$。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>推论：$\varphi$ 非左退化 $\iff L_\varphi$ 单，$\varphi$ 非右退化 $\iff R_\varphi$ 单。</p>
+<p>$\varphi$ 非退化 $\iff L_\varphi,R_\varphi$ 均是同构。</p>
+<p>若 $\varphi$ 非退化，则 $L_\varphi:V_1\to V_2^*$ 同构，故 $\forall f\in V_2^*$，$\exists1 \alpha\in V_1$ 使得 $f=L_\varphi(\alpha)$；同理 $\forall g\in V_1^*$，$\exists1 \beta\in V_2$ 使得 $g=R_\varphi(\beta)$。故此时 $V_1,V_2$ 可看作彼此的对偶空间。</p>
+</li>
+<li>
+<p>定理（Reisz 定理）：$\varphi:V_1\times V_2\to F$ 非退化，则：</p>
+<ul>
+<li>
+<p>$V_1$ 上的任线性函数 $f$，$\exists1 \beta\in V_2$，使得 $f(\alpha)=\varphi(\alpha,\beta)$；</p>
+</li>
+<li>
+<p>$V_2$ 上的任线性函数 $g$，$\exists1 \alpha\in V_1$，使得 $g(\beta)=\varphi(\alpha,\beta)$。</p>
+</li>
+</ul>
+<p>例：取 $V_1,V_2$ 之基 $\alpha_1,\cdots,\alpha_n$ 与 $\beta_1,\cdots,\beta_n$，取 $V_1^*,V_2^*$ 之基 $\{\alpha_i^*\},\{\beta_j^*\}$，$\varphi\longleftrightarrow A_{n\times n}$。</p>
+<p>$\varphi$ 非退化时，试求 $L_\varphi(\alpha)$ 在 $\{\beta_j^*\}$ 下的坐标表示，以及 $R_\varphi(\beta)$ 在 $\{\alpha_i^*\}$ 下的坐标表示。</p>
+<p>特别的，$\varphi:V\times V\to F$ 非退化，则 $V$ 可通过 $L_\varphi$ 或 $R_\varphi$ 视为自身的对偶空间。</p>
+</li>
+<li>
+<p>$\varphi_1:V_1\times V_1\to F,\varphi_2:V_2\times V_2\to F$ 均为非退化双线性函数，$\mathscr{A}:V_1\to V_2$ 为线性映射。</p>
+<p>任给定 $\beta\in V_2$，定义 $g(\alpha)=\varphi_2(\mathscr{A}\alpha,\beta)$，则 $g(\alpha)\in V_1^*$。</p>
+<p>由于 $\varphi_1$ 非退化，由 Reisz 定理，存在唯一 $\alpha'$ 满足 $g=R_\varphi(\alpha')$。定义 $\mathscr{A}^*:V_2\to V_1,\beta\mapsto \alpha'$。</p>
+<p>此时 $\mathscr{A}^*$ 满足 $\varphi_2(\mathscr{A}\alpha,\beta)=\varphi_1(\alpha,\mathscr{A}^*\beta)$。下面证 $\mathscr{A}^*$ 线性：</p>
+$$
+  \begin{aligned}
+  \varphi_1(\alpha,\mathscr{A}^*(\beta_1+\beta_2))&=\varphi_2(\mathscr{A}\alpha,\beta_1+\beta_2)\\
+  &=\varphi_2(\mathscr{A}\alpha,\beta_1)+\varphi_2(\mathscr{A}\alpha,\beta_2)\\
+  &=\varphi_1(\alpha,\mathscr{A}^*\beta_1)+\varphi_1(\alpha,\mathscr{A}^*\beta_2)\\
+  &=\varphi_1(\alpha,\mathscr{A}^*\beta_1+\mathscr{A}^*\beta_2)
+  \end{aligned}
+  $$<p>从而 $\varphi_1(\alpha,\mathscr{A}^*(\beta_1+\beta_2)-\mathscr{A}^*\beta_1-\mathscr{A}^*\beta_2)=0$，由于 $\varphi_1$ 非退化，得证。数乘也容易验证。</p>
+</li>
+<li>
+<p>定理：设 $\varphi_1:V_1\times V_1\to F$，$\varphi_2:V_2\times V_2\to F$ 非退化。设 $\mathscr{A}:V_1\to V_2$ 为线性映射，则存在 $\mathscr{A}^{L*}:V_2\to V_1$ 与 $\mathscr{A}^{R*}:V_2\to V_1$，使得：</p>
+<ul>
+<li>
+<p>$\varphi_2(\mathscr{A}\alpha,\beta)=\varphi_1(\alpha,\mathscr{A}^*\beta)$，$\forall \alpha\in V_1,\beta\in V_2$；</p>
+</li>
+<li>
+<p>$\varphi_2(\beta,\mathscr{A}\alpha)=\varphi_1(\mathscr{A}^*\beta,\alpha),\forall \alpha\in V_1,\beta\in V_2$。</p>
+</li>
+</ul>
+<p>此时 $\mathscr{A}^{L*},\mathscr{A}^{R*}$ 分别称为 $\mathscr{A}$ 的右伴随和左伴随（没写反）。</p>
+</li>
+</ul>
+<h2 id="度量空间">度量空间<a href="#度量空间" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<ul>
+<li>
+<p>定义：$\varphi:V\times V\to F$ 为 $V$ 上的双线性函数。称具备了双线性函数 $\varphi$ 的向量空间 $(V,\varphi)$ 为度量空间，$\varphi$ 称为 $V$ 之度量。$\varphi$ 在某基下的矩阵称为 $\varphi$ 的度量阵。</p>
+<p>称度量空间 $(V,\varphi)$ 为 左 / 右 / 非 退化的，若 $\varphi$ 是 左 / 右 / 非 退化的。</p>
+<p>$(V,\varphi)$ 非退化，亦称作非奇异或正则度量空间。</p>
+</li>
+<li>
+<p>定义：设 $(V_1,\varphi_1),(V_2,\varphi_2)$ 为度量空间。称线性同构 $\sigma:V_1\to V_2$ 为等距（isometry），若 $\varphi_2(\sigma\alpha,\sigma\beta)=\varphi_1(\alpha,\beta),\forall \alpha,\beta\in V_1$。</p>
+<p>特别的，$\sigma:V\to V$ 为等距时，称 $\sigma$ 为 $(V,\varphi)$ 的等距变换。</p>
+<p>注：记 $\text{Isom}(V,\varphi)=\text{Isom}(V)$。则 $\text{Isom}(V)$ 为群，称为 $(V,\varphi)$ 的等距变换群。</p>
+</li>
+<li>
+<p>令 $\Sigma$ 为 $F$ 上的所有有限维度量空间构成的集合。则等距是一个 $\Sigma$ 上的等价关系。</p>
+</li>
+<li>
+<p>$V_1$ 之基 $\alpha_1,\cdots,\alpha_n$，$\varphi_1\leftrightarrow G_1$；</p>
+<p>$V_2$ 之基 $\beta_1,\cdots,\beta_n$，$\varphi_2\leftrightarrow G_2$。</p>
+<p>考虑 $(V_1,\varphi_1)$ 和 $(V_2,\varphi_2)$ 何时等距：</p>
+<p>$\sigma:V_1\to V_2$，$\sigma(\alpha_1,\cdots,\alpha_n)=(\beta_1,\cdots,\beta_n)A$。</p>
+<p>$\forall \alpha,\beta\in V_1$，设 $\alpha=(\alpha_1,\cdots,\alpha_n)X,\beta=(\alpha_1,\cdots,\alpha_n)Y$。</p>
+<p>则 $\varphi_2(\sigma\alpha,\sigma\beta)=\varphi_1(\alpha,\beta)\iff (AX)^TG_2(AY)=X^TG_1Y\iff A^TG_2A=G_1$。</p>
+<p>即：$G_1,G_2$ 合同。</p>
+</li>
+<li>
+<p>定义：称 $\varphi:V\times V\to F$ 为对称的，若 $\varphi(\alpha,\beta)=\varphi(\beta,\alpha),\forall \alpha,\beta\in V$。</p>
+<p>称 $\varphi:V\times V\to F$ 为反对称的，若 $\varphi(\alpha,\beta)=-\varphi(\beta,\alpha),\forall \alpha,\beta\in V$。等价定义：$\varphi(\alpha,\alpha)=0,\forall \alpha\in V$。</p>
+<p>注：</p>
+<ul>
+<li>
+<p>$\varphi$ 对称 / 反对称 $\iff\varphi$ 在 $V$ 之任基下的度量矩阵为对称 / 反对称的。</p>
+</li>
+<li>
+<p>称 $(V,\varphi)$ 为正交空间，若 $\varphi$ 对称；</p>
+<p>称 $(V,\varphi)$ 为辛空间，若 $\varphi$ 反对尘。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>定义：$(V,\varphi)$ 为度量空间。$\alpha,\beta\in V$，称 $\alpha$ 正交于 $\beta$（关于 $\varphi$），若 $\varphi(\alpha,\beta)=0$。记作 $\alpha\bot\beta$。</p>
+<p>注：$\bot$ 不一定具备对称性。</p>
+</li>
+<li>
+<p>定理：$(V,\varphi)$ 为度量空间。则 $\varphi$ 定义的度量空间正交关系具有对称性（即 $\alpha\bot\beta\iff\beta\bot\alpha$），当且仅当 $\varphi$ 是对称或反对称的。</p>
+</li>
+<li>
+<p>注：下面约定，度量空间 $(V,\varphi)$ 指辛空间或正交空间。</p>
+</li>
+<li>
+<p>定义：$(V,\varphi)$ 为度量空间。$U\subset V$，则 $(U,\varphi\vert_U)$ 称为度量子空间。</p>
+<p>$V^{\bot_L}=V^{\bot_R}=V^\bot$，记 $\text{Rad}(V)=V^\bot$ 称为 $V$ 之根。</p>
+<p>$U\subseteq V$，$\text{Rad}(U)=U\cap U^\bot$，这里 $U^\bot=\{\alpha\in V\mid \varphi(\alpha,\beta)=0,\forall \beta\in U\}$ 为 $U$ 之正交补。</p>
+</li>
+<li>
+<p>定义：称 $(V,\varphi)$ 为全迷向的，或零内积空间，若 $\varphi\equiv 0$。</p>
+</li>
+<li>
+<p>命题：$\forall U\subset (V,\varphi)$ 非退化，则：</p>
+<ul>
+<li>
+<p>$\dim V=\dim U+\dim U^\bot$；</p>
+</li>
+<li>
+<p>$(U^\bot)^\bot=U$；</p>
+</li>
+<li>
+<p>$\text{Rad}(U)=U\cap U^\bot$。</p>
+</li>
+</ul>
+<p>注：$\dim V=\dim U+\dim U^\bot\not\implies V=U\oplus U^\bot$。</p>
+<p>证：$\tau:V\to U^*,\beta\mapsto R_\varphi(\beta)\vert_U$。</p>
+<p>$\ker\tau=\{\beta\in V\mid R_\varphi(\beta)\vert_U=0\}=U^\bot$。</p>
+<p>下证明 $\text{Im }\tau=U^*$：$\forall f\in U^*$，取 $U$ 之基 $\alpha_1,\cdots,\alpha_r$ 扩为 $V$ 之基 $\alpha_1,\cdots,\alpha_r,\beta_1,\cdots,\beta_{n-r}$。</p>
+<p>将 $f$ 扩到 $V$ 上，$\tilde f:V\to F$ 定义为 $\tilde f(\alpha_i)=f(\alpha_i),\tilde f(\beta_j)=c_j$（这里给定 $c_j\in F$）。则 $\tilde f\in V^*$，有 Reisz 定理 $\exists1 \beta$ 使得 $\tilde f=R_\varphi(\beta)$，故 $\beta$ 即为 $f$ 之一的原像。</p>
+<p>故 $\dim U=\dim U^*=\dim \text{Im }\tau$。从而 $\dim V=\dim U+\dim U^\bot$（(1) 得证）。</p>
+<p>$\forall \alpha\in U,\gamma\in U^\bot$，$\varphi(\alpha,\gamma)=0\implies \alpha\in (U^\bot)^\bot$，因此 $U\subseteq (U^\bot)^\bot$。</p>
+<p>$\dim V=\dim U+\dim U^\bot$，因此 $\dim V=\dim U^\bot+\dim (U^\bot)^\bot$，从而 $\dim U=\dim (U^\bot)^\bot$。再结合上面的包含关系得 $U=(U^\bot)^\bot$（(2) 得证）。</p>
+</li>
+<li>
+<p>定义：$(V,\varphi)$ 为度量空间。$S,T\subset V$。称 $V$ 是 $S,T$ 的正交直和，若：</p>
+<ul>
+<li>
+<p>$V=S\oplus T$；</p>
+</li>
+<li>
+<p>$S\bot T$（即 $\varphi(\alpha,\beta)=0,\forall \alpha\in S,\beta\in T$）。</p>
+</li>
+</ul>
+<p>$V$ 为 $S,T$ 之正交直和时，记为 $V=S\oplus^\bot T$。</p>
+</li>
+<li>
+<p>定理：$(V,\varphi)$ 非退化，$U\subset V$。则下面条件等价：</p>
+<ul>
+<li>
+<p>$U$ 非退化；</p>
+</li>
+<li>
+<p>$\text{Rad}(U)=\{0\}$；</p>
+</li>
+<li>
+<p>$\text{Rad}(U^\bot)=\{0\}$;</p>
+</li>
+<li>
+<p>$V=U\oplus U^\bot$；</p>
+</li>
+<li>
+<p>$V=U\oplus^\bot U^\bot$。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>命题：若 $(V,\varphi)$ 度量空间不是非退化的，则 $\text{Rad}(V)\neq \{0\}$。则有正交直和分解：</p>
+$$
+  V=\text{Rad}(V)\oplus^\bot W
+  $$<p>其中 $W$ 为 $\text{Rad}(V)$ 之补空间且 $W$ 非退化。</p>
+</li>
+</ul>
+<h2 id="辛空间结构">辛空间结构<a href="#辛空间结构" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<ul>
+<li>
+<p>设 $(V,\varphi)$ 为非退化辛空间。</p>
+<p>若 $\dim V=1$ 则 $\varphi\equiv 0$，此时 $V$ 全逆。因此下面考虑 $\dim V\ge 2$。</p>
+<p>任取 $\alpha\in V$ 都可找到 $\beta\in V$ 满足 $\varphi(\alpha,\beta)\neq 0$。适当修正 $\beta$ 可使 $\alpha,\beta$ 满足：</p>
+<ul>
+<li>$\varphi(\alpha,\beta)=1,\varphi(\alpha,\alpha)=\varphi(\beta,\beta)=0$。</li>
+</ul>
+<p>称 $\alpha,\beta\in V$ 为双曲对，若 $\alpha,\beta$ 满足以上关系。记 $H_1=L(\alpha,\beta)$，称为由双曲对 $\alpha,\beta$ 生成的双曲平面。</p>
+<p>则 $\varphi\vert_{H_1}$ 之度量矩阵为 $\begin{pmatrix}0&1\\-1&0\end{pmatrix}$，故 $\varphi\vert_{H_1}$ 非退化。</p>
+</li>
+<li>
+<p>定理：若 $(V,\varphi)$ 非退化辛空间。则 $V$ 可分解为若干个双曲平面的正交直和：</p>
+$$
+  V=\oplus^{\bot s}_{i=1} H_i
+  $$<p>其中 $2s=\dim V$（故非退化辛空间必为偶数维）。</p>
+<p>其中 $H_i=L(\epsilon_i,\epsilon_{-i})$ 为由双曲对 $\epsilon_i,\epsilon_{-i}$ 生成的双曲平面。</p>
+<p>特别，$\epsilon_1,\epsilon_{-1},\cdots,\epsilon_s,\epsilon_{-s}$ 为 $V$ 之辛基。$\varphi$ 在此基下的矩阵为 $\text{diag}(T,\cdots,T)$，其中 $T=\begin{pmatrix}0&1\\-1&0\end{pmatrix}$。</p>
+<p>矩阵版本：可逆反对称矩阵均合同于上面矩阵。</p>
+</li>
+<li>
+<p>注：</p>
+<ul>
+<li>辛基之间的度量：</li>
+</ul>
+$$
+  \varphi(\epsilon_i,\epsilon_j)=\begin{cases}1&j=-i(<0)\\-1&j=-i(>0)\\0&\text{otherwise}\end{cases}
+  $$<ul>
+<li>
+<p>$\forall \alpha\in V$，$\alpha=\sum_{i=1}^s(\alpha,\epsilon_{-i})\epsilon_i+\sum_{i=1}^s(\alpha,\epsilon_i)\epsilon_{-i}$。</p>
+</li>
+<li>
+<p>常将辛基排为 $\epsilon_1,\cdots,\epsilon_s,\epsilon_1,\cdots,\epsilon_{-s}$，此时 $\varphi$ 在这组基下的坐标为 $\begin{pmatrix}&E_s\\-E_s&\end{pmatrix}$。</p>
+</li>
+<li>
+<p>$V_1=L(\epsilon_1,\cdots,\epsilon_s),V_2=L(\epsilon_{-1},\cdots,\epsilon_{-s})$。则 $V=V_1\oplus V_2$。且 $\varphi\vert_{V_i}\equiv 0$ 全迷向。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>$(V,\varphi)$ 为辛空间，退化时，$V=Rad(V)\oplus^\bot W$，存在基 $\epsilon_1,\epsilon_{-1},\cdots,\epsilon_s,\epsilon_{-s},\eta_1,\cdots,\eta_{n-2s}$。$\varphi$ 在这组基下的矩阵为 $\begin{pmatrix}J&\\&0\end{pmatrix}$。</p>
+</li>
+<li>
+<p>定义：称二维非退化度量空间 $H$ 为双曲平面，若 $H$ 为迷向空间（即包含有迷向向量）。</p>
+</li>
+<li>
+<p>命题：任双曲平面必存在基 $\alpha,\beta$ 使得 $\varphi(\alpha,\alpha)=\varphi(\beta,\beta)=0$，$\varphi(\alpha,\beta)=1$。满足上式的 $\alpha,\beta$ 称为一个双曲对。</p>
+<p>证法：取 $\alpha$ 迷向，则存在 $\gamma\in H,(\alpha,\gamma)=1$。然后在 $L(\alpha,\gamma)$ 中找 $\beta$。</p>
+<p>注：$(H,\varphi)$ 为双曲平面且正交空间，则 $H$ 存在基 $\alpha'(=\frac{\alpha+\beta}{2}),\beta'(=\frac{\alpha-\beta}{2})$，使得 $\varphi$ 在此基下的矩阵为 $\begin{pmatrix}1&\\&-1\end{pmatrix}$。</p>
+</li>
+<li>
+<p>$(V,\varphi)$ 为辛空间，则辛空间上的等距变换称为辛变换 $Sp(V,\varphi)$。</p>
+<p>$\mathscr{A}:V\to V$，$\varphi(\mathscr{A}\alpha,\mathscr{A}\beta)=\varphi(\alpha,\beta)$。</p>
+<p>设 $\mathscr{A}$ 在 $\epsilon_1,\cdots,\epsilon_s,\epsilon_{-1},\cdots,\epsilon_{-s}$ 下的矩阵为 $A$，$\varphi$ 的矩阵为 $J=\begin{pmatrix}&E_s\\-E_s&\end{pmatrix}$，则 $A^TJA=J$。</p>
+</li>
+<li>
+<p>定义：$J$ 如上，称 $2s$ 阶方阵 $A$ 为辛矩阵，若 $A^TJA=J$。$F$ 上的所有辛矩阵记为 $Sp_s(F)$，且构成群，称为辛群。</p>
+</li>
+<li>
+<p>设 $A=\begin{pmatrix}A_{11}&A_{12}\\A_{21}&A_{22}\end{pmatrix}\in M_{2s(F)},A_{ij}\in M_s(F)$。则：</p>
+$$
+  A\in Sp_s(F)\iff\begin{cases}
+  A_{11}^TA_{21}=A_{21}^TA_{11}\\
+  A_{12}^TA_{22}=A_{22}^TA_{12}\\
+  A_{11}^TA_{22}-A_{12}^TA_{21}=E
+  \end{cases}
+  $$<p>特别的，$Sp_1(F)=\left\{\begin{pmatrix}a&b\\c&d\end{pmatrix}\mid ad-bc=1\right\}$。</p>
+</li>
+</ul>
+<h2 id="正交空间结构">正交空间结构<a href="#正交空间结构" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<ul>
+<li>
+<p>回顾：二次型。</p>
+<p>$V/F$ 为向量空间，取基 $\alpha_1,\cdots,\alpha_n$。</p>
+<p>$\forall f(w_1,\cdots,w_n)\in F[w_1,\cdots,w_n]$，用 $f$ 定义 $V$ 上的函数，仍记作 $f:V\to F,f(\alpha)=f(x_1,\cdots,x_n)$，其中 $\alpha=(\alpha_1,\cdots,\alpha_n)X$。</p>
+<p>若 $f$ 为 $r$ 次齐次多项式时，其定义的 $f:V\to F$ 称为 $V$ 上的 $r$ 次型。</p>
+</li>
+<li>
+<p>二次型的抽象定义：称映射 $Q:V\to F$ 为二次型，若其满足：</p>
+<ul>
+<li>
+<p>$Q(k\alpha)=k^2\cdot Q(\alpha)$。</p>
+</li>
+<li>
+<p>定义 $q(\alpha,\beta)=\frac{1}{2}(Q(\alpha+\beta)-Q(\alpha)-Q(\beta)）:V\times V\to F$，$q$ 为双线性函数（且对称）。</p>
+</li>
+</ul>
+<p>注：$Q(\alpha)\to q(\alpha,\beta)\to Q(\alpha)=q(\alpha,\alpha)$，即 $Q,q$ 互相决定。</p>
+<p>因此正交空间 $(V,\varphi)$ 也定义成 $(V,Q)$，$Q$ 为二次型。</p>
+</li>
+<li>
+<p>定理（正交空间结构定理）：$(V,\varphi)$ 为正交空间，则存在 $V$ 之基 $\alpha_1,\cdots,\alpha_r,\beta_1,\cdots,\beta_{n-r}$，使得：</p>
+$$
+  V=\left(\oplus^{\bot r}_{i=1}L(\alpha_i)\right)\oplus^\bot\left(\oplus_{j=1}^{\bot n-r}L(\eta_j)\right)
+  $$<p>其中 $r=r(\varphi)$ 为 $\varphi$ 之秩（双线性函数 $\varphi$ 之秩为 $\varphi$ 在任意基下的矩阵的秩），$Rad(V)=\oplus_{j=1}^{\bot n-r}L(\eta_j)$。</p>
+<p>$\varphi$ 在此基下的矩阵为 $\text{diag}(b_1,\cdots,b_r,0,\cdots,0)$，$b_i=\varphi(\alpha_i,\alpha_i)$。</p>
+<p>矩阵版本：$F$ 上的对称矩阵均合同于对角阵。</p>
+<p>证：$(V,\varphi)$ 非退化时，存在 $\alpha_1\in V$ 使得 $\varphi(\alpha_1,\alpha_1)\neq 0$。$(U=L(\alpha_1),\varphi\vert_U)$ 非退化，则 $V=L(\alpha_1)\oplus^\bot L(\alpha_1)^\bot$ 且 $L(\alpha_1)^\bot$ 非退化。对 $\dim V$ 归纳即可。</p>
+<p>对于一般情形，$V=Rad(V)\oplus^\bot W$。</p>
+<p>注：$(V,\varphi)$ 为正交空间。称 $V$ 之基 $\alpha_1,\cdots,\alpha_n$ 为正交基，若 $\varphi(\alpha_i,\alpha_j)=0,\forall i\neq j$。则正交空间必存在正交基。</p>
+</li>
+<li>
+<p>实正交空间结构：$V=\left(\oplus^{\bot r}_{i=1}L(\alpha_i)\right)\oplus^\bot\left(\oplus_{j=1}^{\bot n-r}L(\eta_j)\right)$，$\varphi$ 在基下的矩阵为 $\text{diag}(b_1,\cdots,b_r,0,\cdots,0)$，$b_i=\varphi(\alpha_i,\alpha_i)\in \mathbb R$。</p>
+<p>记 $r_0=\dim V-r(\varphi),r_+=|\{i\mid b_i>0\}|,r_-=|\{i\mid b_i<0\}|$。$(r_0,r_+,r_-)$ 称为 $(V,\varphi)$ 的符号。</p>
+</li>
+<li>
+<p>定理（实正交空间等距分类）：两个实正交空间等距 $\iff$ 他们的符号 $(r_0,r_+,r_-)$ 相同。</p>
+<p>矩阵版本：$A,B$ 实对称合同，当且仅当 $r(A)=r(B)$，且正（负）惯性指数相同。</p>
+<p>证：$\Longleftarrow$ 显然。</p>
+<p>$\implies$ 首先容易证明 $r_0=r_0'$，从而 $r_++r_-=r_+'+r_-'$。反设 $r_+>r_+'$。考虑：</p>
+$$
+  \sigma:V_+\to(\tau\vert_{V_+})V'=V_+'+V_-'+V_0'\to(P_{V_+'})V_+'
+  $$<p>由于 $r_+>r_+'$，因此 $\sigma$ 不单。从而 $\exists \gamma\in V_+,\sigma(\gamma)=0$，即 $\tau(\gamma)=\tau(\gamma)_-+\tau(\gamma)_0$。</p>
+<p>但是 $\varphi(\gamma)>0,\varphi'(\tau \gamma)<0$，与等距矛盾。因此 $r_+\le r_+'$。同理 $r_+'\le r_+$。</p>
+</li>
+<li>
+<p>定义：$(V,\varphi)/F$ 为正交空间，称同构 $\sigma:V\to V$ 为 $V$ 的正交变换，若 $\sigma$ 保度量，即：</p>
+$$
+  \varphi(\sigma\alpha,\sigma\beta)=\varphi(\alpha,\beta),\quad \forall \alpha,\beta\in V
+  $$<p>设 $\alpha_1,\cdots,\alpha_n$ 为 $V$ 之基，$\varphi\longleftrightarrow G=(\varphi(\alpha_i,\alpha_j))_n$。</p>
+<p>$\sigma(\alpha_1,\cdots,\alpha_n)=(\alpha_1,\cdots,\alpha_n)A$，则 $\forall \alpha=(\alpha_1,\cdots,\alpha_n)X,\beta=(\alpha_1,\cdots,\alpha_n)Y$，有 $\sigma\alpha\longleftrightarrow AX,\sigma\beta\longleftrightarrow AY$。有 $(AX)^TG(AY)=X^TGY\implies A^TGA=G$。</p>
+</li>
+<li>
+<p>定义：$\forall$ 对称矩阵 $G$，记 $O(G)=\{A\in M_n(F)\mid A^TGA=G\}$。则 $O(G)$ 为群。称为关于 $G$ 的正交群。</p>
+<p>特别，$G=E$ 且 $F=\mathbb R$ 时，$O(E)$ 记为正交矩阵构成的群。</p>
+<p>$G=\begin{pmatrix}E_r&\\&-E_{n-r}\end{pmatrix}$ 时，尝试给出 $O(G)$ 的类似于辛阵的刻画（作业）。</p>
+</li>
+<li>
+<p>当 $(V,\varphi)$ 是正交空间时，$\text{Isom}(V,\varphi)$ 记为 $O(V,\varphi)$，则 $O(V,\varphi)\cong O(G)$。</p>
+<p>若 $\tau:V\to V$ 为正交变换，则 $\det\tau=\pm 1$。特别的：</p>
+<ul>
+<li>
+<p>若 $\det\tau=1$，则 $\tau$ 称为旋转。</p>
+</li>
+<li>
+<p>若 $\det\tau=-1$，则 $\tau$ 称为反射。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>$(V,\varphi)$ 正交，$\alpha\in V$ 非迷向。定义映射：</p>
+$$
+  \begin{aligned}
+  \sigma_\alpha:V&\to V\\
+  \beta&\mapsto \sigma_\alpha(\beta)=\beta-2\frac{\varphi(\beta,\alpha)}{\varphi(\alpha,\alpha)}\alpha
+  \end{aligned}
+  $$<p>则：</p>
+<ul>
+<li>
+<p>$\sigma_\alpha$ 为等距；</p>
+</li>
+<li>
+<p>$\sigma_\alpha(\alpha)=-\alpha$；</p>
+</li>
+<li>
+<p>$\sigma_\alpha(\beta)=\beta,\forall \beta\in L(\alpha)^\bot$。</p>
+</li>
+</ul>
+<p>注：$\sigma_\alpha$ 为关于 $L(\alpha)^\bot$ 的反射，亦称为“对称”。</p>
+</li>
+<li>
+<p>注：若 $\tau:V\to V$ 为正交变换，$U\subset V$ 为 $\tau$ 不变的，则 $U^\bot$ 也是 $\tau$ 不变的。</p>
+</li>
+<li>
+<p>引理：$(V,\varphi)$ 为正交空间，则 $V$ 中任两个等长的非迷向向量 $\alpha,\beta$（即 $\varphi(\alpha,\alpha)=\varphi(\beta,\beta)=a\neq 0$），必存在等距 $\tau:V\to V$ 使 $\tau(\alpha)=\beta$ 或 $-\beta$。</p>
+<p>证：易验证 $\alpha+\beta,\alpha-\beta$ 必正交，且不能都是迷向的。</p>
+<p>若 $\alpha-\beta$ 非迷向，则 $\sigma_{\alpha-\beta}(\alpha-\beta)=\beta-\alpha$，$\sigma_{\alpha-\beta}(\alpha+\beta)=\alpha+\beta$，从而有 $\sigma_{\alpha-\beta}(\alpha)=\beta$。</p>
+<p>若 $\alpha+\beta$ 非迷向，则 $\sigma_{\alpha+\beta}(\alpha+\beta)=-\alpha-\beta$，$\sigma_{\alpha+\beta}(\alpha-\beta)=\alpha-\beta$，从而 $\sigma_{\alpha+\beta}(\alpha)=-\beta$。</p>
+</li>
+<li>
+<p>命题：对非退化正交空间的任正交变换 $\tau:V\to V$，$\tau$ 都可表示为若干个对称之积。</p>
+<p>证：对 $\dim V=n$ 归纳。</p>
+<p>$n=1$ 时，$\tau:V\to V,\tau(\alpha)=a\alpha$。$\tau$ 正交 $\implies a^2=1$。当 $a=-1$ 时 $\tau=\sigma_{\alpha}$；当 $a=1$ 时 $\tau=\text{id}$。</p>
+<p>假设对 $\le n-1$ 成立。则当 $\dim V=n$ 时，取非迷向 $\alpha\in V$，$V=L(\alpha)\oplus^\bot L(\alpha)^\bot$。</p>
+<p>由 $\varphi(\alpha,\alpha)=\varphi(\tau\alpha,\tau\alpha)\neq 0$。对 $\tau\alpha,\alpha$ 使用上面引理知存在等距 $\sigma$ 使得 $\sigma(\tau\alpha)=\sigma\tau(\alpha)=\pm \alpha$。</p>
+<p>$L(\alpha)$ 为 $\sigma\tau$ 不变的，故 $L(\alpha)^\bot$ 也是 $\sigma\tau$ 不变的。切 $\dim L(\alpha)^\bot<n$。</p>
+<p>由归纳假设，在 $L(\alpha)^\bot$ 中存在对称 $\sigma_2,\cdots,\sigma_s$ 使得 $\sigma\tau=\sigma_2\sigma_3\cdots\sigma_s$。</p>
+<p>$\sigma_i$ 为 $L(\alpha)^\bot$ 上的对称，扩成 $V$ 上的正交变换 $\tilde \sigma_i:V\to V$，使得 $\tilde \sigma_i\vert_{L(\alpha)^\bot}=\tilde\sigma_i$。</p>
+<p>故 $\sigma\tau=\tilde\sigma_2\cdots\tilde\sigma_s$ 均为 $V$ 之正交变换。</p>
+<ul>
+<li>
+<p>若 $\sigma\tau(\alpha)=\alpha$，则在 $V$ 上 $\sigma\tau=\tilde\sigma_2\cdots\tilde\sigma_s$，$\tau=\sigma^{-1}\tilde\sigma_2\cdots\tilde\sigma_s$。</p>
+</li>
+<li>
+<p>若 $\sigma\tau(\alpha)=-\alpha=\sigma_\alpha(\alpha)$，则 $\sigma_\alpha^{-1}\sigma\tau(\alpha)=\alpha$，$\sigma_\alpha^{-1}\sigma\tau=\tilde\sigma_2\cdots\tilde\sigma_s$，从而 $\tau=\sigma^{-1}\sigma_\alpha\tilde\sigma_1\cdots\tilde\sigma_s$。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="特例欧氏空间">特例：欧氏空间<a href="#特例欧氏空间" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<ul>
+<li>
+<p>定义：$(V,\varphi)$ 为实正交空间。称 $\varphi$ 是正定的，若 $\varphi(\alpha,\alpha)\ge 0$，等号成立当且仅当 $\alpha=0$。</p>
+<p>称实正交空间 $(V,\varphi)$ 是欧氏空间或实内积空间，若 $\varphi$ 正定。</p>
+<p>注：$\varphi$ 正定 $\iff\varphi$ 在 $V$ 之任基下的矩阵是正定的。</p>
+</li>
+<li>
+<p>注：$(V,\varphi)$ 为欧氏空间，则其具有正交空间的所有性质。</p>
+<ul>
+<li>
+<p>$(V,\varphi)$ 有正交基 $\alpha_1,\cdots,\alpha_n$，$\varphi\longleftrightarrow \text{diag}(\varphi(\alpha_1,\alpha_1)>0,\cdots,\varphi(\alpha_n,\alpha_n)>0)$。</p>
+</li>
+<li>
+<p>$\forall U\subseteq V$，$U$ 非退化，则有 $V=U\oplus^\bot U^\bot$。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>定义：$(V,\varphi)$ 为欧氏空间，$\forall \alpha\in V$，定义长度 $||\alpha||=\sqrt{\varphi(\alpha,\alpha)}$。</p>
+<p>关于长度的基本性质：</p>
+<ul>
+<li>
+<p>Cauchy-Bunyakovski 不等式：$|\varphi(\alpha,\beta)|\le ||\alpha||\cdot||\beta||$；</p>
+</li>
+<li>
+<p>勾股定理：若 $\alpha\bot\beta$，则 $||\alpha+\beta||^2=||\alpha||^2+||\beta||^2$；</p>
+</li>
+<li>
+<p>三角不等式：$||\alpha+\beta||\le ||\alpha||+||\beta||$。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>定义：称欧氏空间 $(V,\varphi)$ 之正交基 $\eta_1,\cdots,\eta_n$ 为标准正交基，若 $\varphi(\eta_i,\eta_j)=\delta_{i,j}$。</p>
+<p>标准正交基的构造：Schmidt 过程。</p>
+</li>
+<li>
+<p>若 $\eta_1,\cdots,\eta_n$ 为 $(V,\varphi)$ 之标准正交基，则 $\varphi$ 在 $\eta_1,\cdots,\eta_n$ 下的矩阵为 $E$。</p>
+<p>故 $\forall \alpha=\sum x_i\eta_i,\beta=\sum y_j\eta_j$，则 $\varphi(\alpha,\beta)=X^TY$。</p>
+<p>即说明：$n$ 维欧氏空间均等距同构于标准内积 $(\mathbb R^n,(\ ,\ ))$。</p>
+</li>
+<li>
+<p>定义：$(V,\varphi)$ 欧氏空间，$\forall \alpha,\beta\in V$，定义 $\alpha,\beta$ 之间的距离 $d(\alpha,\beta)$ 为：$d(\alpha,\beta)=||\alpha-\beta||$。</p>
+<p>关于距离的基本性质：</p>
+<ul>
+<li>
+<p>$d(\alpha,\beta)\ge 0$，等号成立当且仅当 $\alpha=\beta$；</p>
+</li>
+<li>
+<p>$d(\alpha,\beta)\le d(\alpha,\gamma)+d(\gamma,\beta),\forall \gamma\in V$。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>定义：$(V,\varphi)$ 欧氏空间，$U\subset (V,\varphi)$，$V=U\oplus^\bot U^\bot$，$U^\bot$ 为 $U$ 在 $V$ 之补，称为 $U$ 在 $V$ 中的正交补。</p>
+<p>称 $V$ 沿 $U^\bot$ 的到 $U$ 的投影 $P_U:V\to V$ 为正交投影。</p>
+<p>$P_U(\alpha)$ 称为 $\alpha$ 在 $U$ 上的正交投影。</p>
+<p>注：$\alpha_1$ 为 $\alpha$ 在 $U$ 上的正交投影 $\iff \alpha-\alpha_1\in U^\bot$。</p>
+</li>
+<li>
+<p>命题：$(V,\varphi)$ 为正交空间，$U\subset V$，$\forall \alpha\in V$，$\alpha_1$ 为 $\alpha$ 到 $U$ 的任投影。则 $\alpha_1$ 为正交投影 $\iff d(\alpha,\gamma)\le d(\alpha,\alpha_1),\forall \gamma\in U$。</p>
+</li>
+<li>
+<p>定义：$(V,\varphi)$ 欧氏空间，称 $\mathscr{A}:V\to V$ 为对称变换，若 $\forall \alpha,\beta\in V,(\mathscr{A}\alpha,\beta)=(\alpha,\mathscr{A}\beta)$。即 $\mathscr{A}$ 之伴随为 $\mathscr{A}$。</p>
+</li>
+<li>
+<p>设 $\alpha_1,\cdots,\alpha_n$ 为 $V$ 之标准正交基，$\alpha=(\alpha_1,\cdots,\alpha_n)X,\beta=(\alpha_1,\cdots,\alpha_n)Y$。$\mathscr{A}(\alpha_1,\cdots,\alpha_n)=(\alpha_1,\cdots,\alpha_n)A$。</p>
+<p>则 $(\mathscr{A}\alpha,\beta)=(\alpha,\mathscr{A}\beta)\iff (AX)^TY=X^T(AY)\iff A=A^T$。</p>
+</li>
+<li>
+<p>命题：$\mathscr{A}:V\to V$ 对称，则：</p>
+<ul>
+<li>
+<p>若 $U\subset V$ 为 $\mathscr{A}$ 不变，则 $U^\bot$ 也是 $\mathscr{A}$ 不变的；</p>
+</li>
+<li>
+<p>存在 $V$ 之标准正交基，使得 $\mathscr{A}$ 在此基下的矩阵为对角形，且对角线上元为 $\mathscr{A}$ 之特征值。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>定义：$(V,\varphi)$ 欧氏空间，称 $\mathscr{A}:V\to V$ 为正交变换，若 $\forall \alpha,\beta\in V,(\mathscr{A}\alpha,\mathscr{A}\beta)=(\alpha,\beta)$，即 $\mathscr{A}$ 之伴随为 $\mathscr{A}^{-1}$。</p>
+</li>
+<li>
+<p>命题：$\mathscr{A}:V\to V$，则下面四条等价：</p>
+<ul>
+<li>
+<p>$\mathscr{A}$ 为正交变换；</p>
+</li>
+<li>
+<p>$\mathscr{A}$ 保长度，即 $||\mathscr{A}\alpha||=||\alpha||,\forall \alpha\in V$；</p>
+</li>
+<li>
+<p>$\mathscr{A}$ 把标准正交基映成标准正交基；</p>
+</li>
+<li>
+<p>$\mathscr{A}$ 在标准正交基下的矩阵是正交矩阵。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>命题：正交变换 $\mathscr{A}$ 的特征多项式在 $\mathbb C$ 中的根 $\lambda$ 满足 $|\lambda|=1$。</p>
+</li>
+<li>
+<p>命题：设正交变换 $\mathscr{A}:V\to V$ 的特征多项式有根 $\lambda=e^{i\theta}=\cos\theta+i\sin \theta(\theta\neq k\pi)$，则 $V$ 中存在单位正交向量 $\eta_1,\eta_2$ 使得：</p>
+$$
+  \mathscr{A}\vert_{L(\eta_1,\eta_2)}=(\eta_1,\eta_2)\begin{pmatrix}\cos\theta&\sin\theta\\-\sin\theta&\cos\theta\end{pmatrix}
+  $$</li>
+<li>
+<p>定理：$\mathscr{A}:V\to V$ 为正交变换，则存在 $V$ 之标准正交基 $\delta_1,\cdots,\delta_t,\eta_1,\cdots,\eta_{2s}$，使得 $\mathscr{A}$ 在该组基下的矩阵为：</p>
+$$
+  \text{diag}(\epsilon,\cdots,\epsilon,K_{\theta_1},\cdots,K_{\theta_s})
+  $$<p>其中 $\epsilon=\pm 1,K_\theta=\begin{pmatrix}\cos\theta&\sin\theta\\-\sin\theta&\cos\theta\end{pmatrix}$。</p>
+<p>矩阵版本：正交矩阵正交相似于 $\text{diag}(\epsilon,\cdots,\epsilon,K_{\theta_1},\cdots,K_{\theta_s})$。</p>
+</li>
+</ul>
+<h2 id="hermite-型与酉空间">Hermite 型与酉空间<a href="#hermite-型与酉空间" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<ul>
+<li>
+<p>设 $V$ 为复空间，$V$ 上的二元函数 $\varphi:V\times V\to \mathbb C$。称 $\varphi$ 为共轭双线性的，若 $\varphi$ 关于其中一个变量是共轭线性的，关于另一个变量是线性的。即：</p>
+<ul>
+<li>
+<p>$\varphi(k\alpha_1+l\alpha_2,\beta)=\overline k \varphi(\alpha_1,\beta)+\overline l\varphi(\alpha_2,\beta),\forall k,l\in \mathbb C,\alpha_i,\beta\in V$；</p>
+</li>
+<li>
+<p>$\varphi(\alpha,k\beta_1+l\beta_2)=k\varphi(\alpha,\beta_1)+l\varphi(\alpha,\beta_2),\forall k,l\in \mathbb C,\alpha,\beta_i\in V$。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>称 $V$ 上的共轭双线性函数 $\varphi$ 为 Hermite 双线性的，若 $\varphi(\alpha,\beta)=\overline{\varphi(\beta,\alpha)}$。</p>
+<p>$\varphi$ Hermite $\iff \overline A^T=A$。称 $A\in M_n(\mathbb C)$ 为 Hermite 阵若 $\overline A^T=A$。</p>
+</li>
+<li>
+<p>称 Hermite 双线性函数 $\varphi$ 为正定的，若 $\varphi(\alpha,\alpha)\ge 0$，且等号成立 $\iff \alpha=0$。</p>
+<p>称复空间 $V$ 为酉空间，若 $V$ 中具备了一个正定的 Hermite 双线性函数。</p>
+</li>
+<li>
+<p>定义：$||\alpha||=\sqrt{\varphi(\alpha,\alpha)}$。称 $\alpha,\beta$ 正交，若 $\varphi(\alpha,\beta)=0$ 亦等价于 $\varphi(\beta,\alpha)=0$。即：正交是对称关系。</p>
+</li>
+<li>
+<p>定理：$(V,\varphi)$ 为酉空间，则：</p>
+<ul>
+<li>
+<p>C-B 不等式：$|\varphi(\alpha,\beta)|\le ||\alpha||\cdot ||\beta||$；</p>
+</li>
+<li>
+<p>勾股定理：若 $\alpha\bot\beta$，则 $||\alpha+\beta||^2=||\alpha||^2+||\beta||^2$；</p>
+</li>
+<li>
+<p>三角不等式：$||\alpha+\beta||\le ||\alpha||+||\beta||$。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>定义：正交向量组、正交基、标准正交基（与欧氏空间定义类似）。同理也有 schmidt 正交化过程。</p>
+</li>
+<li>
+<p>定义：$(V,\varphi)$ 为酉空间。称 $\mathscr{A}:V\to V$ 为 Hermite 变换，若 $\varphi(\mathscr{A}\alpha,\beta)=\varphi(\alpha,\mathscr{A}\beta),\forall \alpha,\beta\in V$。</p>
+</li>
+<li>
+<p>命题：$\mathscr{A}$ Hermite $\iff \mathscr{A}$ 在 $V$ 之标准正交基下的矩阵是 Hermite 矩阵。</p>
+<p>Hermite 变换 $\mathscr{A}$ 的特征多项式的根均为实的，且属于不同特征值的特征向量正交。</p>
+<p>若 $U\subset V$ 是 $\mathscr{A}$ 不变子空间，则 $U^\bot$ 也是 $\mathscr{A}$ 不变的。</p>
+</li>
+<li>
+<p>定理：$\mathscr{A}$ 是酉空间 $(V,\varphi)$ 之 Hermite 变换，则存在 $V$ 之标准正交基，使得 $\mathscr{A}$ 在此基下的矩阵是对角形，且对角线元均为实数。</p>
+<p>证明：直接由上面两个命题归纳即可。</p>
+<p>矩阵版本：Hermite 阵均酉相似于对角形，且对角形的对角元均为实数。</p>
+</li>
+<li>
+<p>定义：称酉空间 $(V,\varphi)$ 之线性变换 $\mathscr{A}$ 为酉变换，若 $\varphi(\mathscr{A}\alpha,\mathscr{A}\beta)=\varphi(\alpha,\beta)$。</p>
+</li>
+<li>
+<p>命题：$\mathscr{A}:V\to V$，则下面四条等价：</p>
+<ul>
+<li>
+<p>$\mathscr{A}$ 是酉变换；</p>
+</li>
+<li>
+<p>$||\mathscr{A}\alpha||=||\alpha||,\forall \alpha\in V$；</p>
+</li>
+<li>
+<p>$\mathscr{A}$ 在标准正交基下的矩阵是酉阵；</p>
+</li>
+<li>
+<p>$\mathscr{A}$ 把标准正交基映成标准正交基。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>命题：$\mathscr{A}:V\to V$ 为酉变换，则：</p>
+<ul>
+<li>
+<p>$\mathscr{A}$ 之特征值 $\lambda$ 均满足 $|\lambda|=1$；</p>
+</li>
+<li>
+<p>若 $U\subset V$ 为 $\mathscr{A}$ 不变的，则 $U^\bot$ 也是 $\mathscr{A}$ 不变的。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>定理：$\mathscr{A}:V\to V$ 为酉变换，则存在 $V$ 之标准正交基使得 $\mathscr{A}$ 在此基下的矩阵为对角形，对角元均满足 $|\lambda|=1$。</p>
+<p>矩阵版本：任酉矩阵均酉相似于对角形，且对角元 $\lambda$ 均满足 $|\lambda|=1$。</p>
+</li>
+</ul>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+  <div class="pagination__title">
+    <span class="pagination__title-h">Read other posts</span>
+    <hr />
+  </div>
+  <div class="pagination__buttons">
+    
+    
+    
+      <a href="https://enucai.github.io/posts/music-using-text-model/" class="button inline next">
+         [<span class="button__text">How to Write Music Scores Using Text Models</span>] &gt;
+      </a>
+    
+  </div>
+</div>
+
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2026 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

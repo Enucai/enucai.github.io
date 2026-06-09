@@ -6,8 +6,15 @@
     <description>Recent content in Notes on Terminal</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 15 May 2026 15:16:00 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jun 2026 12:33:22 +0800</lastBuildDate>
     <atom:link href="https://enucai.github.io/tags/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Advanced Algebra: Metric Spaces</title>
+      <link>https://enucai.github.io/posts/algebra-metrix-space/</link>
+      <pubDate>Tue, 09 Jun 2026 12:33:22 +0800</pubDate>
+      <guid>https://enucai.github.io/posts/algebra-metrix-space/</guid>
+      <description>&lt;h2 id=&#34;线性函数与对偶空间&#34;&gt;线性函数与对偶空间&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;$F$ 为数域，$V/F$ 为 $n$ 维向量空间，$V$ 上的线性函数 $f$ 指线性映射 $f:V\to F$。&lt;/p&gt;&#xA;&lt;p&gt;记 $V^*=Hom_F(V,F)$ 称为 $V$ 指对偶空间。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;任固定 $V$ 之基 $\alpha_1,\cdots,\alpha_n$，定义 $\alpha_i^*:V\to F,\alpha_i^*(\alpha_j)=\delta_{i,j}$。&lt;/p&gt;&#xA;&lt;p&gt;则 $\forall \alpha=\sum x_i\alpha_i$，有 $\alpha_i^*(\alpha)=x_i$。$\alpha_1^*,\cdots,\alpha_n^*$ 称为 $\alpha_1,\cdots,\alpha_n$ 之对偶基。&lt;/p&gt;&#xA;&lt;p&gt;$\forall f\in V^*$，均有 $f=\sum f(\alpha_i)\alpha_i^*$。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;若 $\alpha_1,\cdots,\alpha_n$ 和 $\beta_1,\cdots,\beta_n$ 为 $V$ 之两组基，设 $(\beta_1,\cdots,\beta_n)=(\alpha_1,\cdots,\alpha_n)C$。&lt;/p&gt;&#xA;&lt;p&gt;则对于他们的对偶基 $\alpha_1^*,\cdots,\alpha_n^*$ 和 $\beta_1^*,\cdots,\beta_n^*$，有 $(\beta_1^*,\cdots,\beta_n^*)=(\alpha_1^*,\cdots,\alpha_n^*)(C^{-1})^T$。&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;$\forall \alpha\in V,f\in V^*$，定义：&lt;/p&gt;&#xA;$$&#xA;  \begin{aligned}&#xA;  \tilde\alpha:V^*&amp;\to F\\&#xA;  f&amp;\mapsto f(\alpha)&#xA;  \end{aligned}&#xA;  $$&lt;p&gt;则 $\tilde\alpha\in V^{**}$。&lt;/p&gt;&#xA;&lt;p&gt;定义：&lt;/p&gt;&#xA;$$&#xA;  \begin{aligned}&#xA;  \tau:V&amp;\to V^{**}\\&#xA;  \alpha&amp;\mapsto \tilde\alpha&#xA;  \end{aligned}&#xA;  $$&lt;p&gt;定理：$\tau$ 为同构。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Advanced Algebra: Theory of Linear Transformations</title>
       <link>https://enucai.github.io/posts/algebra-transformation/</link>
