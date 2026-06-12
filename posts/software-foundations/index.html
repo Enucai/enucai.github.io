@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Software Foundations: Rocq, Hoare Logic and IMP :: Terminal</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="These are the study notes for Software Foundations, covering the learning material of Rocq, Hoare Logic, IMP and etc." />
+<meta name="keywords" content=", " />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="https://enucai.github.io/posts/software-foundations/" />
+
+
+
+
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/buttons.min.86f6b4c106b6c6eb690ae5203d36b442c1f66f718ff4e8164fa86cf6c61ad641.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/code.min.c4581949edab7810737609fc5568852bcd908945f14561e366dcd2300a370545.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/fonts.min.5bb7ed13e1d00d8ff39ea84af26737007eb5051b157b86fc24487c94f3dc8bbe.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/footer.min.eb8dfc2c6a7eafa36cd3ba92d63e69e849e2200e0002a228d137f236b09ecd75.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/gist.min.a751e8b0abe1ba8bc53ced52a38b19d8950fe78ca29454ea8c2595cf26aad5c0.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/header.min.75c7eb0e2872d95ff48109c6647d0223a38db52e2561dd87966eb5fc7c6bdac6.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/main.min.36833afd348409fc6c3d09d0897c5833d9d5bf1ff31f5e60ea3ee42ce2b1268c.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/menu.min.3c17467ebeb3d38663dce68f71f519901124fa5cbb4519b2fb0667a21e9aca39.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/pagination.min.bbb986dbce00a5ce5aca0504b7925fc1c581992a4bf57f163e5d69cc1db7d836.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/post.min.e6dddd258e64c83e05cec0cd49c05216742d42fc8ecbfbe6b67083412b609bd3.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/syntax.min.a2cc694a9b481f15d41722bffc2cc54eea4c4f74fd9072b0b33253604c22606e.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/terminal.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+
+  
+  <link rel="stylesheet" href="https://enucai.github.io/css/terms.min.b81791663c3790e738e571cdbf802312390d30e4b1d8dc9d814a5b5454d0ac11.css">
+
+
+
+
+
+
+
+<link rel="shortcut icon" href="https://enucai.github.io/favicon.png">
+<link rel="apple-touch-icon" href="https://enucai.github.io/apple-touch-icon.png">
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Software Foundations: Rocq, Hoare Logic and IMP">
+<meta property="og:description" content="These are the study notes for Software Foundations, covering the learning material of Rocq, Hoare Logic, IMP and etc." />
+<meta property="og:url" content="https://enucai.github.io/posts/software-foundations/" />
+<meta property="og:site_name" content="Terminal" />
+
+  
+  
+  <meta property="og:image" content="https://enucai.github.io/">
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2026-06-10 22:33:10 &#43;0800 CST" />
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}],throwOnError:false});">
+  </script>
+
+</head>
+<body>
+
+
+<div class="container">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Terminal
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+        
+          <li><a href="/about" >About</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="https://enucai.github.io/posts/software-foundations/">Software Foundations: Rocq, Hoare Logic and IMP</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2026-06-10</time><span class="post-author">enucai</span><span class="post-reading-time">30 min read (8853 words)</span>
+</div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="https://enucai.github.io/tags/cs/">cs</a>&nbsp;
+      
+      #<a href="https://enucai.github.io/tags/notes/">notes</a>&nbsp;
+      
+      #<a href="https://enucai.github.io/tags/functional-programming/">functional programming</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <h2 id="basic-functional-programming-in-rocq">Basic: Functional Programming in Rocq<a href="#basic-functional-programming-in-rocq" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>简单介绍了一下 Rocq 是什么（之前是 Coq，然后好像什么名字不太优雅就改了）。</p>
+<p>枚举类型：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">day</span> <span class="o">:</span> <span class="kt">Type</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">monday</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">sunday</span><span class="o">.</span>
+</span></span></code></pre></div><p>这里的每一个东西被称为一个构造子（constructor）。</p>
+<p>然后定义对应函数：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Definition</span> <span class="n">next_weekday</span> <span class="o">(</span><span class="n">d</span><span class="o">:</span><span class="n">day</span><span class="o">)</span> <span class="o">:</span> <span class="n">day</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl"><span class="k">match</span> <span class="n">d</span> <span class="k">with</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">monday</span> <span class="o">=&gt;</span> <span class="n">tuesday</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">sunday</span> <span class="o">=&gt;</span> <span class="n">monday</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span><span class="o">.</span>
+</span></span></code></pre></div><p>Rocq 的函数调用基于空格，这和 haskell 一样。</p>
+<p>优先级：空格优先级高，即 <code>f a+b</code> 表示的是 <code>(f a) + b</code>。</p>
+<p>声明定理：<code>Theorem</code>，<code>Lemma</code>，<code>Example</code> 等。然后使用 tactic 证明，最简单的是 <code>simpl</code> 化简，<code>reflexivity</code> 在等式两边相等时结束证明（其实他也会先做一下 <code>simpl</code>）。</p>
+<p>定义函数时可以使用 <code>if then else</code>，例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Definition</span> <span class="n">andb&#39;</span> <span class="o">(</span><span class="n">b1</span><span class="o">:</span><span class="kt">bool</span><span class="o">)</span> <span class="o">(</span><span class="n">b2</span><span class="o">:</span><span class="kt">bool</span><span class="o">)</span> <span class="o">:</span> <span class="kt">bool</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="n">b1</span> <span class="k">then</span> <span class="n">b2</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span> <span class="bp">false</span><span class="o">.</span>
+</span></span></code></pre></div><p><code>Check</code> 可以用于检查类型，例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Check</span> <span class="bp">true</span> <span class="o">:</span> <span class="kt">bool</span><span class="o">.</span>
+</span></span></code></pre></div><p>定义函数时 <code>match</code> 可以用于模式匹配，例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Definition</span> <span class="n">monochrome</span> <span class="o">(</span><span class="n">c</span> <span class="o">:</span> <span class="n">color</span><span class="o">)</span> <span class="o">:</span> <span class="kt">bool</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl"><span class="k">match</span> <span class="n">c</span> <span class="k">with</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">black</span> <span class="o">=&gt;</span> <span class="bp">true</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">white</span> <span class="o">=&gt;</span> <span class="bp">true</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">primary</span> <span class="n">p</span> <span class="o">=&gt;</span> <span class="bp">false</span>
+</span></span><span class="line"><span class="cl"><span class="k">end</span><span class="o">.</span>
+</span></span></code></pre></div><p>定义自然数：使用 Piano Axioms：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="kt">nat</span> <span class="o">:</span> <span class="kt">Type</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">O</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">S</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">).</span>
+</span></span></code></pre></div><p>定义递归函数需要使用 <code>Fixpoint</code> 而非 <code>Definition</code>。</p>
+<p>然后还讲了三个证明 tatic：<code>rewrite</code>，<code>intros</code> 和 <code>destruct</code>。</p>
+<p><code>rewrite</code> 用于把一个等式左边的东西全部换成右边（或反之）。</p>
+<p><code>intros</code> 将全称量词引入假设区。</p>
+<p><code>destruct</code> 将一个变量按照归纳定义进行分解，然后分别证明。具体写法是（比如对一个 <code>nat</code> 分解）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="k">destruct</span> <span class="n">n</span> <span class="k">as</span> <span class="o">[|</span> <span class="n">n&#39;</span><span class="o">]</span> <span class="n">eqn</span><span class="o">:</span><span class="n">E</span>
+</span></span></code></pre></div><p>括号内传分解后的变量名，<code>E</code> 表示分解得到的等式。</p>
+<h2 id="induction-proof-by-induction">Induction: Proof by Induction<a href="#induction-proof-by-induction" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>结构归纳法：对于任意递归定义的类型，证明 P 对该类型的每一个构造子都成立（如果构造子接受该类型的参数，则假设 P 对参数成立）。</p>
+<p>数学归纳法即位结构归纳法在 <code>nat</code> 上的特例。</p>
+<p>在 rocq 中的 tactic 为 <code>induction</code>，写法例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="k">induction</span> <span class="n">n</span> <span class="k">as</span> <span class="o">[|</span> <span class="n">n&#39;</span> <span class="n">IHn&#39;</span><span class="o">].</span>
+</span></span></code></pre></div><p>归纳假设成立的命题就是上面的 <code>IHn'</code>。</p>
+<p>然后是一个 tactic：<code>replace</code> 用于引入等价子定理，可以把证明中的一个部分 replace 了，然后分别证明 replace 的正确性和 replace 后的命题。</p>
+<h2 id="lists-working-with-structured-data">Lists: Working with Structured Data<a href="#lists-working-with-structured-data" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>先定义了 <code>pair</code> 非常平凡，随之定义了 <code>fst</code> 和 <code>snd</code> 两个函数。</p>
+<p>然后定义 <code>list</code>（其实是 <code>natlist</code>，这里还没讲到多态）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">natlist</span> <span class="o">:</span> <span class="kt">Type</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">nil</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">cons</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">)</span> <span class="o">(</span><span class="n">l</span> <span class="o">:</span> <span class="n">natlist</span><span class="o">).</span>
+</span></span></code></pre></div><p>和一些对应的基础函数 <code>repeat</code>，<code>length</code>，<code>app</code>（拼接），<code>hd</code>， <code>tl</code>（这里的 tail 指的是去掉开头一个之后剩下的序列），<code>rev</code>。以及一些对应的平凡的定理，基本直接 induction 就能证。</p>
+<p>然后还定义了一种类型 <code>option</code>，类似于 haskell 中的 <code>Maybe</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">natoption</span> <span class="o">:</span> <span class="kt">Type</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">Some</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">None</span><span class="o">.</span> 
+</span></span></code></pre></div><h2 id="poly-polymorphism-and-higher-order-functions">Poly: Polymorphism and Higher-Order Functions<a href="#poly-polymorphism-and-higher-order-functions" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>这节讲的是 Parametric Polymorphism，就是让一个类型 / 函数对多种类型适用，即面向对象的泛型。</p>
+<p>然后把上一节的 <code>natlist</code> 拿过来重新定义成 <code>list</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="kt">list</span> <span class="o">(</span><span class="n">X</span><span class="o">:</span><span class="kt">Type</span><span class="o">)</span> <span class="o">:</span> <span class="kt">Type</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">nil</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">cons</span> <span class="o">(</span><span class="n">x</span> <span class="o">:</span> <span class="n">X</span><span class="o">)</span> <span class="o">(</span><span class="n">l</span> <span class="o">:</span> <span class="kt">list</span> <span class="n">X</span><span class="o">).</span>
+</span></span></code></pre></div><p>同理也可以定义多态函数，就是多传一个 <code>Type</code> 进去。</p>
+<p>然后还讲了隐式参数，换成 <code>{X:Type}</code> 大括号即可，感觉这一块应该不重要。</p>
+<p>同理可以把之前定义的 <code>pair</code> 和 <code>option</code> 也拿过来重新定义成多态的。</p>
+<p>高阶函数：函数也可以作为参数传递。这在 Haskell 里面已经讲了很多了，Rocq 中写法也是类似的。特别的是匿名函数的写法 <code>(fun n =&gt; n * n)</code>。</p>
+<p>用高阶函数可以定义 <code>map</code>，<code>fold</code> 等，这和 haskell 中都是一致的。</p>
+<p>还有一部分是 lambda 演算（后面还会讲），三条语法和两条语义：</p>
+<pre tabindex="0"><code>t ::=
+      x        variable
+      \x. t   abstraction
+      t t      application
+</code></pre><p>Alpha-Renaming：绑定的变量可以随意改名，<code>(\x. x) (\x. x) = (\y. y) (\z. z)</code>。</p>
+<p>Beta-Reduction：函数调用，<code>(\x. t12) t2 = [x |-&gt; t2] t12</code>。</p>
+<p>lambda 演算实现递归可以使用 Y Combinator：</p>
+<pre tabindex="0"><code>Y = \f. (\x. f (x x)) (\x. f (x x))
+</code></pre><p>展开后发现 <code>Y f = f (Y f)</code>，然后就可以递归了。例如写阶乘：</p>
+<pre tabindex="0"><code>g = \f. \n. if eq n c0
+            then c1
+            else times n (f (pred n))
+fac = Y g
+</code></pre><h2 id="tactics-more-tactics">Tactics: More Tactics<a href="#tactics-more-tactics" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>讲了一堆证明的 tactic。</p>
+<p><code>apply</code>：直接应用假设完成推导，或者应用形如 <code>P -&gt; Q</code> 的假设把结论从 <code>Q</code> 变成 <code>P</code>。</p>
+<p>注意 <code>apply</code> 会自动替换假设里面的全称量词，无法匹配的可以用 <code>apply ... with ...</code> 来指定。</p>
+<p>同时 <code>apply</code> 也可以作用到假设上，写法为 <code>apply ... in ...</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="c">(** H : P -&gt; Q
+</span></span></span><span class="line"><span class="cl"><span class="c">    H1 : P **)</span>
+</span></span><span class="line"><span class="cl"><span class="k">apply</span> <span class="n">H</span> <span class="k">in</span> <span class="n">H1</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="c">(** H : P -&gt; Q
+</span></span></span><span class="line"><span class="cl"><span class="c">    H1 : Q **)</span>
+</span></span></code></pre></div><p><code>symmetry</code>：交换目标等式的左右两边。</p>
+<p><code>transitivity</code>：传递性，<code>transitivity o</code> 可以把目标的 <code>a = b</code> 拆成 <code>a = o</code> 和 <code>o = b</code> 分别证明。</p>
+<p><code>injection</code>：利用归纳定义类型的 <code>injection</code>（同一个构造子传入不同参数时构造的值不同）和 <code>disjointness</code>（不同构造子构造的值不同）的特点，来推导参数等价性。例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="c">(** H : S n = S m **)</span>
+</span></span><span class="line"><span class="cl"><span class="k">injection</span> <span class="n">H</span> <span class="k">as</span> <span class="n">Hnm</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="c">(** Hnm : n = m **)</span>
+</span></span></code></pre></div><p>同样也可以推导出多个等价性：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="c">(** H : [n, m] = [o, o] **)</span>
+</span></span><span class="line"><span class="cl"><span class="k">injection</span> <span class="n">H</span> <span class="k">as</span> <span class="n">H1</span> <span class="n">H2</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="c">(** H1 : n = o
+</span></span></span><span class="line"><span class="cl"><span class="c">    H2 : m = o **)</span>
+</span></span></code></pre></div><p>关于如何证明 <code>injection</code>：定义一个函数返回对应构造子即可。</p>
+<p><code>discriminate</code>：如果一个等式两边由不同构造子生成，则任意结论成立（爆炸原理）。</p>
+<p><code>f_equal</code>：可以在一个假设的两边同时作用一个函数，<code>x = y -&gt; f x = f y</code>。</p>
+<p><code>specialize</code>：将假设中的全称量词替换为具体值。</p>
+<p><code>generalize dependent</code>：将假设区中的一个变量变成全称量词，重新放回结论中。在一些归纳的时候很有用。</p>
+<p><code>unfold</code>：<code>simpl</code> 并不会展开所有东西，此时可以用 <code>unfold</code> 手动展开。</p>
+<p>具体来说，<code>simpl</code> 只会在能展开 <code>match</code> 或 <code>fixpoint</code> 的时候进约简，例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Definition</span> <span class="n">foo</span> <span class="o">(</span><span class="n">x</span><span class="o">:</span> <span class="kt">nat</span><span class="o">)</span> <span class="o">:=</span> <span class="n">5</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="kn">Fact</span> <span class="n">silly_fact_1</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">m</span><span class="o">,</span> <span class="n">foo</span> <span class="n">m</span> <span class="o">+</span> <span class="n">1</span> <span class="o">=</span> <span class="n">foo</span> <span class="o">(</span><span class="n">m</span> <span class="o">+</span> <span class="n">1</span><span class="o">)</span> <span class="o">+</span> <span class="n">1</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="kn">Fact</span> <span class="n">silly_fact_1&#39;</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">m</span><span class="o">,</span> <span class="n">foo</span> <span class="n">m</span> <span class="o">=</span> <span class="n">foo</span> <span class="o">(</span><span class="n">m</span> <span class="o">+</span> <span class="n">1</span><span class="o">).</span>
+</span></span></code></pre></div><p>由于 <code>+</code> 是 <code>fixpoint</code> 定义的，因此 <code>silly_fact_1</code> 会被 <code>simpl</code> 展开为 <code>6 = 6</code>，而 <code>silly_fact_1'</code> 则不会被展开。</p>
+<h2 id="logic-logic-in-rocq">Logic: Logic in Rocq<a href="#logic-logic-in-rocq" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>形式系统包含四个部分：</p>
+<ul>
+<li>字母表 Alphabet：一个符号的集合 $\Sigma$。</li>
+<li>文法 Grammar：一组文法规则，定义 $\Sigma^*$ 的一个子集，为该形式系统中可以写的命题集合。</li>
+<li>公理模式 Axiom Schemata：一组公理模板，定义命题集合的一个子集，代表为真的命题。</li>
+<li>推导规则 Inference Rules：一组推导规则，用于推导出公理以外为真的命题。</li>
+</ul>
+<p>文法包括：</p>
+<ul>
+<li>一组非终结符，用大写字母表示，如 <code>S, A, B</code>。</li>
+<li>一组终结符，用小写字母表示，如 <code>a, b</code>。</li>
+<li>一个非终结符作为开始符号，用字母 <code>S</code> 表示。</li>
+<li>一组产生式，表示把一个字符串中的左边部分替换成右边部分。</li>
+</ul>
+<p>推导式写作：</p>
+<pre tabindex="0"><code>P1, ..., Pn =&gt; P
+</code></pre><p>或</p>
+<pre tabindex="0"><code>P1 ... Pn
+---------
+    P
+</code></pre><p>证明序列：给定一个前提集合和一组推导式集合 $I$。对于证明序列 <code>P1, ..., Pn</code>，需满足对于任意 $i$，<code>Pi</code> 是前提 或 存在推导式 <code>Pi1, ..., Pik =&gt; Pi</code> 其中 $i_1,\cdots,i_k < i$。</p>
+<p>然后还有一些离散内容，但是感觉不是考试重点。</p>
+<p>Rocq 中的命题：类型为 <code>Prop</code>，无论是否成立。</p>
+<p>Rocq 中的谓词可以被视作返回 <code>Prop</code> 的函数。例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Check</span> <span class="o">@</span><span class="n">eq</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">A</span> <span class="o">:</span> <span class="kt">Type</span><span class="o">,</span> <span class="n">A</span> <span class="o">-&gt;</span> <span class="n">A</span> <span class="o">-&gt;</span> <span class="kt">Prop</span><span class="o">.</span>
+</span></span></code></pre></div><p>逻辑与：写作 <code>/\</code>，类型为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Check</span> <span class="n">and</span> <span class="o">:</span> <span class="kt">Prop</span> <span class="o">-&gt;</span> <span class="kt">Prop</span> <span class="o">-&gt;</span> <span class="kt">Prop</span><span class="o">.</span>
+</span></span></code></pre></div><p>证明逻辑与：使用 <code>conj</code> 定理，或直接用 tactic <code>split</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Lemma</span> <span class="n">conj</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">A</span> <span class="n">B</span> <span class="o">:</span> <span class="kt">Prop</span><span class="o">,</span> <span class="n">A</span> <span class="o">-&gt;</span> <span class="n">B</span> <span class="o">-&gt;</span> <span class="n">A</span> <span class="o">/\</span> <span class="n">B</span><span class="o">.</span>
+</span></span></code></pre></div><p>假设中的逻辑与：使用 <code>destruct</code> 可以将其拆开。</p>
+<p>逻辑或：写作 <code>\/</code>，类型为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Check</span> <span class="n">or</span> <span class="o">:</span> <span class="kt">Prop</span> <span class="o">-&gt;</span> <span class="kt">Prop</span> <span class="o">-&gt;</span> <span class="kt">Prop</span><span class="o">.</span>
+</span></span></code></pre></div><p>证明逻辑或：使用 tactic <code>left</code> 或 <code>right</code>（Rocq 使用直觉主义逻辑，没有排中律）。</p>
+<p>假设中的逻辑或：依旧使用 <code>destruct</code> 展开成两种情况分别证明。</p>
+<p>逻辑非：写作 <code>~</code>，类型为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Check</span> <span class="n">not</span> <span class="o">:</span> <span class="kt">Prop</span> <span class="o">-&gt;</span> <span class="kt">Prop</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="kn">Definition</span> <span class="n">not</span> <span class="o">(</span><span class="n">P</span><span class="o">:</span><span class="kt">Prop</span><span class="o">)</span> <span class="o">:=</span> <span class="n">P</span> <span class="o">-&gt;</span> <span class="n">False</span><span class="o">.</span>
+</span></span></code></pre></div><p>爆炸原理：tactic <code>exfalso</code> 可以直接将证明目标换成 <code>False</code>，原理是：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Theorem</span> <span class="n">ex_falso_quodlibet</span> <span class="o">:</span> <span class="k">forall</span> <span class="o">(</span><span class="n">P</span><span class="o">:</span><span class="kt">Prop</span><span class="o">),</span> <span class="n">False</span> <span class="o">-&gt;</span> <span class="n">P</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="kn">Proof</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">  <span class="k">intros</span> <span class="n">P</span> <span class="n">contra</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">  <span class="k">destruct</span> <span class="n">contra</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="kn">Qed</span><span class="o">.</span>
+</span></span></code></pre></div><p>可以直接 destruct 是因为 <code>False</code> 没有任何构造子。</p>
+<p>与之相对的是 tactic <code>I</code>，可以直接证明 <code>True</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Lemma</span> <span class="n">True_is_true</span> <span class="o">:</span> <span class="n">True</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="kn">Proof</span><span class="o">.</span> <span class="k">apply</span> <span class="n">I</span><span class="o">.</span> <span class="kn">Qed</span><span class="o">.</span>
+</span></span></code></pre></div><p>蕴含关系 <code>-&gt;</code>：</p>
+<ul>
+<li>蕴含关系在目标中：<code>Γ, P =&gt; Q</code>，则 <code>Γ =&gt; P -&gt; Q</code>，对应 <code>intro</code>。</li>
+<li>蕴含关系在假设中：<code>P, P -&gt; Q =&gt; Q</code>，对应 <code>apply</code>。</li>
+</ul>
+<p>逻辑等价性 <code>&lt;-&gt;</code>：其实就是用 and 定义的：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Definition</span> <span class="n">iff</span> <span class="o">(</span><span class="n">P</span> <span class="n">Q</span> <span class="o">:</span> <span class="kt">Prop</span><span class="o">)</span> <span class="o">:=</span> <span class="o">(</span><span class="n">P</span> <span class="o">-&gt;</span> <span class="n">Q</span><span class="o">)</span> <span class="o">/\</span> <span class="o">(</span><span class="n">Q</span> <span class="o">-&gt;</span> <span class="n">P</span><span class="o">).</span>
+</span></span></code></pre></div><p>全称量词 <code>forall</code>：</p>
+<ul>
+<li>全称量词在目标中：<code>P =&gt; forall x, P</code>，对应 <code>intro</code>。</li>
+<li>全称量词在假设中：<code>forall x, P =&gt; P [x \ t]</code>，对应 <code>apply</code>。</li>
+</ul>
+<p>存在量词 <code>exists</code>：</p>
+<ul>
+<li>存在量词在目标中：<code>P [x \ t] =&gt; exists x, P</code>，对应 <code>exists</code>。</li>
+<li>存在量词在假设中：<code>P -&gt; Q =&gt; (exists x, P) -&gt; Q</code>，<code>x</code> 不是 <code>Q</code> 中的自由变量。在 <code>tactic</code> 中直接 <code>destruct</code> 就行。</li>
+</ul>
+<p>然后是递归定义的命题和给定理传参数，这些是平凡的。</p>
+<p>Rocq 中一个值只能属于一个类型，可以通过谓词来定义类型的子集，如偶数。</p>
+<p>函数等价性：函数相等当且仅当所有输入输出对相等（外延性），即 functional extensionality：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Axiom</span> <span class="n">functional_extensionality</span> <span class="o">:</span> <span class="k">forall</span> <span class="o">{</span><span class="n">X</span> <span class="n">Y</span><span class="o">:</span> <span class="kt">Type</span><span class="o">}</span> <span class="o">{</span><span class="n">f</span> <span class="n">g</span> <span class="o">:</span> <span class="n">X</span> <span class="o">-&gt;</span> <span class="n">Y</span><span class="o">},</span>
+</span></span><span class="line"><span class="cl"><span class="o">(</span><span class="k">forall</span> <span class="o">(</span><span class="n">x</span><span class="o">:</span><span class="n">X</span><span class="o">),</span> <span class="n">f</span> <span class="n">x</span> <span class="o">=</span> <span class="n">g</span> <span class="n">x</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span>
+</span></span></code></pre></div><p>逻辑式可以写作命题也可以写作布尔表达式。可以通过证明布尔表达式来帮助证明，称为 Proof by reflection。</p>
+<p>排中律：<code>P /\ ~P</code>。直觉主义逻辑相比经典逻辑缺少排中律和一些其他的等价公理。</p>
+<h2 id="proofobjects-the-curry-howard-correspondence">ProofObjects: The Curry-Howard Correspondence<a href="#proofobjects-the-curry-howard-correspondence" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>Curry-Howard Correspondence：将命题视为类型，证明视为值。</p>
+<p>带参数的归纳类型定义：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">nnlist</span> <span class="o">:</span> <span class="kt">bool</span> <span class="o">-&gt;</span> <span class="kt">Type</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">nnnil</span> <span class="o">:</span> <span class="n">nnlist</span> <span class="bp">false</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">nncons</span> <span class="o">{</span><span class="n">b</span><span class="o">:</span><span class="kt">bool</span><span class="o">}</span> <span class="o">(</span><span class="n">x</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">)</span> <span class="o">(</span><span class="n">l</span> <span class="o">:</span> <span class="n">nnlist</span> <span class="n">b</span><span class="o">)</span> <span class="o">:</span> <span class="n">nnlist</span> <span class="bp">true</span><span class="o">.</span>
+</span></span></code></pre></div><p>带参数的归纳命题定义：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">ev</span> <span class="o">:</span> <span class="kt">nat</span> <span class="o">-&gt;</span> <span class="kt">Prop</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">ev_0</span> <span class="o">:</span> <span class="n">ev</span> <span class="n">0</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">ev_SS</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">)</span> <span class="o">(</span><span class="n">H</span> <span class="o">:</span> <span class="n">ev</span> <span class="n">n</span><span class="o">)</span> <span class="o">:</span> <span class="n">ev</span> <span class="o">(</span><span class="n">S</span> <span class="o">(</span><span class="n">S</span> <span class="n">n</span><span class="o">)).</span>
+</span></span></code></pre></div><p>例如此时需要证明 <code>ev 4</code>，用 tactic 写是：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Theorem</span> <span class="n">ev_4</span> <span class="o">:</span> <span class="n">ev</span> <span class="n">4</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="kn">Proof</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">  <span class="k">apply</span> <span class="n">ev_SS</span><span class="o">.</span> <span class="kn">Show</span> <span class="kn">Proof</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">  <span class="c">(* (ev_SS 2 ?Goal) *)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">apply</span> <span class="n">ev_SS</span><span class="o">.</span> <span class="kn">Show</span> <span class="kn">Proof</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">  <span class="c">(* (ev_SS 2 (ev_SS 0 ?Goal)) *)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">apply</span> <span class="n">ev_0</span><span class="o">.</span> <span class="kn">Show</span> <span class="kn">Proof</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">  <span class="c">(* (ev_SS 2 (ev_SS 0 ev_0)) *)</span>
+</span></span><span class="line"><span class="cl"><span class="kn">Qed</span><span class="o">.</span>
+</span></span></code></pre></div><p>也可以直接写成定义：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Definition</span> <span class="n">ev_4</span> <span class="o">:=</span> <span class="n">ev_SS</span> <span class="n">2</span> <span class="o">(</span><span class="n">ev_SS</span> <span class="n">0</span> <span class="n">ev_0</span><span class="o">).</span>
+</span></span></code></pre></div><p>后者即为 Proof Object。</p>
+<p>再看 <code>intros</code> 实际做了什么：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Theorem</span> <span class="n">ev_plus4</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">n</span><span class="o">,</span> <span class="n">ev</span> <span class="n">n</span> <span class="o">-&gt;</span> <span class="n">ev</span> <span class="o">(</span><span class="n">4</span> <span class="o">+</span> <span class="n">n</span><span class="o">).</span>
+</span></span><span class="line"><span class="cl"><span class="kn">Proof</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">  <span class="k">intros</span> <span class="n">n</span> <span class="n">H</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">  <span class="c">(* (fun (n : nat) (H : ev n) =&gt; ?Goal) *)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">apply</span> <span class="n">ev_SS</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">  <span class="k">apply</span> <span class="n">ev_SS</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">  <span class="k">apply</span> <span class="n">H</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="kn">Qed</span><span class="o">.</span>
+</span></span></code></pre></div><p>中间 <code>?Goal</code> 能访问到的参数即为所有可用的假设。上面这一段证明写成 Proof Object 为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Definition</span> <span class="n">ev_plus4&#39;</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">n</span><span class="o">,</span> <span class="n">ev</span> <span class="n">n</span> <span class="o">-&gt;</span> <span class="n">ev</span> <span class="o">(</span><span class="n">4</span> <span class="o">+</span> <span class="n">n</span><span class="o">)</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl"><span class="k">fun</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="k">fun</span> <span class="o">(</span><span class="n">H</span> <span class="o">:</span> <span class="n">ev</span> <span class="n">n</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">ev_SS</span> <span class="o">(</span><span class="n">S</span> <span class="o">(</span><span class="n">S</span> <span class="n">n</span><span class="o">))</span> <span class="o">(</span><span class="n">ev_SS</span> <span class="n">n</span> <span class="n">H</span><span class="o">).</span>
+</span></span></code></pre></div><p><code>generalize dependent</code> 对 proof object 的作用：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="c">(* (fun n m : nat =&gt; ?Goal) *)</span>
+</span></span><span class="line"><span class="cl"><span class="k">generalize</span> <span class="n">dependent</span> <span class="n">n</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="c">(* (fun n m : nat =&gt; ?Goal n) *)</span>
+</span></span></code></pre></div><p>逻辑与的定义：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">and</span> <span class="o">(</span><span class="n">P</span> <span class="n">Q</span> <span class="o">:</span> <span class="kt">Prop</span><span class="o">)</span> <span class="o">:</span> <span class="kt">Prop</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">conj</span> <span class="o">:</span> <span class="n">P</span> <span class="o">-&gt;</span> <span class="n">Q</span> <span class="o">-&gt;</span> <span class="n">and</span> <span class="n">P</span> <span class="n">Q</span><span class="o">.</span>
+</span></span></code></pre></div><p><code>split</code> 是指如果目标只有一个 constructor，则在 proof object 中生成该 constructor。其实等价于 <code>apply constructor</code>，因此可以写出下面的操作：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Lemma</span> <span class="n">truth</span> <span class="o">:</span> <span class="n">True</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="kn">Proof</span><span class="o">.</span> <span class="k">split</span><span class="o">.</span> <span class="kn">Qed</span><span class="o">.</span>
+</span></span></code></pre></div><p>这是因为 <code>True</code> 只有一个 constructor <code>I</code>。</p>
+<p><code>split</code> 最常见的是作用到逻辑与上：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="c">(* (fun (A B : Porp) (HA : A) (HB : B) =&gt; ?Goal ) *)</span>
+</span></span><span class="line"><span class="cl"><span class="k">split</span><span class="o">.</span> <span class="kn">Show</span> <span class="kn">Proof</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="c">(* (fun (A B : Prop) (HA : A) (HB : B) =&gt; conj ?Goal ?Goal0) *)</span>
+</span></span></code></pre></div><p><code>destruct</code> 的作用是根据参数的归纳定义生成 match，例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="c">(* (fun (P Q : Prop) (HPQ : P /\ Q) =&gt; ?Goal) *)</span>
+</span></span><span class="line"><span class="cl"><span class="k">destruct</span> <span class="n">HPQ</span> <span class="k">as</span> <span class="o">[</span><span class="n">HP</span> <span class="n">HQ</span><span class="o">].</span> <span class="kn">Show</span> <span class="kn">Proof</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="c">(* (fun (P Q : Prop) (HPQ : P /\ Q) =&gt; match HPQ with
+</span></span></span><span class="line"><span class="cl"><span class="c">| conj HP HQ =&gt; ?Goal
+</span></span></span><span class="line"><span class="cl"><span class="c">end) *)</span>
+</span></span></code></pre></div><p><code>reflexivity</code> 等价于 <code>apply eq_refl</code>。对应的 proof object：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Definition</span> <span class="n">four&#39;</span> <span class="o">:</span> <span class="n">2</span> <span class="o">+</span> <span class="n">2</span> <span class="o">=</span> <span class="n">1</span> <span class="o">+</span> <span class="n">3</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="n">eq_refl</span> <span class="n">4</span><span class="o">.</span>
+</span></span></code></pre></div><p>然后 <code>eq</code> 的构造子只有一个：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">eq</span> <span class="o">{</span><span class="n">X</span><span class="o">:</span><span class="kt">Type</span><span class="o">}</span> <span class="o">(</span><span class="n">x</span><span class="o">:</span><span class="n">X</span><span class="o">)</span> <span class="o">:</span> <span class="n">X</span> <span class="o">-&gt;</span> <span class="kt">Prop</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">eq_refl</span> <span class="o">:</span> <span class="n">eq</span> <span class="n">x</span> <span class="n">x</span><span class="o">.</span>
+</span></span></code></pre></div><p>这也意味着我们可以用 <code>destruct</code> 来代替 <code>rewrite</code>。</p>
+<p><code>False</code> 的定义没有 constructor，这也意味着不可能构造出 <code>False</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">False</span> <span class="o">:</span> <span class="kt">Prop</span> <span class="o">:=</span> <span class="o">.</span>
+</span></span></code></pre></div><p>因此条件中如果包含 <code>False</code> 那么可以直接写如下的 proof object：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Definition</span> <span class="bp">false</span><span class="o">_</span><span class="n">implies_zero_eq_one</span> <span class="o">:</span> <span class="n">False</span> <span class="o">-&gt;</span> <span class="n">0</span> <span class="o">=</span> <span class="n">1</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fun</span> <span class="n">contra</span> <span class="o">=&gt;</span> <span class="k">match</span> <span class="n">contra</span> <span class="k">with</span> <span class="k">end</span><span class="o">.</span>
+</span></span></code></pre></div><p>逻辑或的定义：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">or</span> <span class="o">(</span><span class="n">P</span> <span class="n">Q</span> <span class="o">:</span> <span class="kt">Prop</span><span class="o">)</span> <span class="o">:</span> <span class="kt">Prop</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">or_introl</span> <span class="o">:</span> <span class="n">P</span> <span class="o">-&gt;</span> <span class="n">or</span> <span class="n">P</span> <span class="n">Q</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">or_intror</span> <span class="o">:</span> <span class="n">Q</span> <span class="o">-&gt;</span> <span class="n">or</span> <span class="n">P</span> <span class="n">Q</span><span class="o">.</span>
+</span></span></code></pre></div><p><code>left</code> 和 <code>right</code> 分别表示使用两个 constructor。</p>
+<p>存在量词的定义：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">ex</span> <span class="o">{</span><span class="n">A</span> <span class="o">:</span> <span class="kt">Type</span><span class="o">}</span> <span class="o">(</span><span class="n">P</span> <span class="o">:</span> <span class="n">A</span> <span class="o">-&gt;</span> <span class="kt">Prop</span><span class="o">)</span> <span class="o">:</span> <span class="kt">Prop</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">ex_intro</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">x</span> <span class="o">:</span> <span class="n">A</span><span class="o">,</span> <span class="n">P</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">ex</span> <span class="n">P</span><span class="o">.</span>
+</span></span></code></pre></div><p>写一个 proof object 就类似这样：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Definition</span> <span class="n">some_nat_is_even&#39;</span> <span class="o">:</span> <span class="k">exists</span> <span class="n">n</span><span class="o">,</span> <span class="n">ev</span> <span class="n">n</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="n">ex_intro</span> <span class="n">ev</span> <span class="n">0</span> <span class="n">ev_0</span><span class="o">.</span>
+</span></span></code></pre></div><p>逻辑非的定义：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Definition</span> <span class="n">not</span> <span class="o">(</span><span class="n">P</span><span class="o">:</span><span class="kt">Prop</span><span class="o">)</span> <span class="o">:=</span> <span class="n">P</span> <span class="o">-&gt;</span> <span class="n">False</span><span class="o">.</span>
+</span></span></code></pre></div><p>总结一下，除了 <code>forall</code> 和 <code>-&gt;</code>，其他的逻辑运算符都适用 inductive 或普通 definition。</p>
+<ul>
+<li>当 inductive definition 出现在前提中，用 <code>destruct</code> 分解；</li>
+<li>当 inductive definition 出现在目标中，<code>apply constructor</code>。</li>
+</ul>
+<p>直接用 <code>constructor i</code> 这个 tactic 可以直接调用第 $i$ 个构造子。</p>
+<p><code>injection</code> 的作用时生成从复杂结构到简单结构的函数，并调用 f_equal。例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Definition</span> <span class="n">S_injective&#39;&#39;</span> <span class="o">:</span> <span class="k">forall</span> <span class="o">(</span><span class="n">n</span> <span class="n">m</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">  <span class="n">S</span> <span class="n">n</span> <span class="o">=</span> <span class="n">S</span> <span class="n">m</span> <span class="o">-&gt;</span> <span class="n">n</span> <span class="o">=</span> <span class="n">m</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fun</span> <span class="o">(</span><span class="n">n</span> <span class="n">m</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">)</span> <span class="o">(</span><span class="n">H</span> <span class="o">:</span> <span class="n">S</span> <span class="n">n</span> <span class="o">=</span> <span class="n">S</span> <span class="n">m</span><span class="o">)</span> <span class="o">=&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">f_equal</span> <span class="o">(</span><span class="k">fun</span> <span class="n">e</span> <span class="o">:</span> <span class="kt">nat</span> <span class="o">=&gt;</span> <span class="k">match</span> <span class="n">e</span> <span class="k">with</span>
+</span></span><span class="line"><span class="cl">      <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl">      <span class="o">|</span> <span class="n">S</span> <span class="n">n0</span> <span class="o">=&gt;</span> <span class="n">n0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">end</span><span class="o">)</span> <span class="n">H</span><span class="o">.</span>
+</span></span></code></pre></div><h2 id="indporp-inductively-defined-propositions">IndPorp: Inductively Defined Propositions<a href="#indporp-inductively-defined-propositions" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p><code>remember</code> 在 proof object 上的做法是添加一个 <code>let ... in</code>。</p>
+<p><code>inversion</code> 策略：针对递归定义的命题，将每个 constructor 分别生成一个 goal，然后对比 constructor 产生的 index 和被分解的假设，如果矛盾则自动删除。所以 <code>inversion</code> 可以代替 <code>discriminate</code>，因为分解出 <code>eq_refl</code> 发现两边不相等直接删除。</p>
+<h2 id="indprinciples-induction-principles">IndPrinciples: Induction Principles<a href="#indprinciples-induction-principles" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>结构归纳法定理：Rocq 会对每个递归定义的类型生成对应的结构归纳法定理。</p>
+<p>例如对于 <code>nat</code> 类型：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="kt">nat</span> <span class="o">:</span> <span class="kt">Type</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">O</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">S</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">).</span>
+</span></span></code></pre></div><p>其对应的结构归纳法定理即为：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Check</span> <span class="n">nat_ind</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">  <span class="k">forall</span> <span class="n">P</span> <span class="o">:</span> <span class="kt">nat</span> <span class="o">-&gt;</span> <span class="kt">Prop</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">P</span> <span class="n">0</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">(</span><span class="k">forall</span> <span class="n">n</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">,</span> <span class="n">P</span> <span class="n">n</span> <span class="o">-&gt;</span> <span class="n">P</span> <span class="o">(</span><span class="n">S</span> <span class="n">n</span><span class="o">))</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">forall</span> <span class="n">n</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">,</span> <span class="n">P</span> <span class="n">n</span><span class="o">.</span>
+</span></span></code></pre></div><p>结构归纳法定理的证明是简单的：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Print</span> <span class="n">nat_ind</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="c">(*
+</span></span></span><span class="line"><span class="cl"><span class="c"> * nat_ind =
+</span></span></span><span class="line"><span class="cl"><span class="c"> * fun (P : nat -&gt; Prop) (f : P 0)
+</span></span></span><span class="line"><span class="cl"><span class="c"> *   (f0 : forall n : nat, P n -&gt; P (S n)) =&gt;
+</span></span></span><span class="line"><span class="cl"><span class="c"> * fix F (n : nat) : P n :=
+</span></span></span><span class="line"><span class="cl"><span class="c"> *   match n with
+</span></span></span><span class="line"><span class="cl"><span class="c"> *   | 0 =&gt; f
+</span></span></span><span class="line"><span class="cl"><span class="c"> *   | S n0 =&gt; f0 n0 (F n0)
+</span></span></span><span class="line"><span class="cl"><span class="c"> *   end
+</span></span></span><span class="line"><span class="cl"><span class="c"> *)</span>
+</span></span></code></pre></div><p>更复杂一些的类型也都有对应的结构归纳法定理，例如对于二叉树：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">tree</span> <span class="o">(</span><span class="n">X</span><span class="o">:</span><span class="kt">Type</span><span class="o">)</span> <span class="o">:</span> <span class="kt">Type</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">leaf</span> <span class="o">(</span><span class="n">x</span> <span class="o">:</span> <span class="n">X</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">node</span> <span class="o">(</span><span class="n">t1</span> <span class="n">t2</span> <span class="o">:</span> <span class="n">tree</span> <span class="n">X</span><span class="o">).</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">Check</span> <span class="n">tree_ind</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">  <span class="k">forall</span> <span class="o">(</span><span class="n">X</span> <span class="o">:</span> <span class="kt">Type</span><span class="o">)</span> <span class="o">(</span><span class="n">P</span> <span class="o">:</span> <span class="n">tree</span> <span class="n">X</span> <span class="o">-&gt;</span> <span class="kt">Prop</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">  <span class="o">(</span><span class="k">forall</span> <span class="n">x</span> <span class="o">:</span> <span class="n">X</span><span class="o">,</span> <span class="n">P</span> <span class="o">(</span><span class="n">leaf</span> <span class="n">X</span> <span class="n">x</span><span class="o">))</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">(</span><span class="k">forall</span> <span class="n">t1</span> <span class="o">:</span> <span class="n">tree</span> <span class="n">X</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">P</span> <span class="n">t1</span> <span class="o">-&gt;</span> <span class="k">forall</span> <span class="n">t2</span> <span class="o">:</span> <span class="n">tree</span> <span class="n">X</span><span class="o">,</span> <span class="n">P</span> <span class="n">t2</span> <span class="o">-&gt;</span> <span class="n">P</span> <span class="o">(</span><span class="n">node</span> <span class="n">X</span> <span class="n">t1</span> <span class="n">t2</span><span class="o">))</span> <span class="o">-&gt;</span> <span class="k">forall</span> <span class="n">t</span> <span class="o">:</span> <span class="n">tree</span> <span class="n">X</span><span class="o">,</span> <span class="n">P</span> <span class="n">t</span><span class="o">.</span>
+</span></span></code></pre></div><p>tactic 中的 <code>induction</code> 实际就是应用了结构归纳法定理，例如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Theorem</span> <span class="n">plus_n_O</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">n</span><span class="o">:</span><span class="kt">nat</span><span class="o">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="n">0</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl"><span class="kn">Proof</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">  <span class="k">intros</span> <span class="n">n</span><span class="o">.</span> <span class="k">induction</span> <span class="n">n</span> <span class="k">as</span> <span class="o">[|</span> <span class="n">n&#39;</span> <span class="n">IHn&#39;</span><span class="o">].</span> <span class="kn">Show</span> <span class="kn">Proof</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">  <span class="c">(* (fun n : nat =&gt;
+</span></span></span><span class="line"><span class="cl"><span class="c">  nat_ind (fun n0 : nat =&gt; n0 = n0 + 0) ?Goal
+</span></span></span><span class="line"><span class="cl"><span class="c">    (fun (n&#39; : nat) (IHn&#39; : n&#39; = n&#39; + 0) =&gt; ?Goal0) n) *)</span>
+</span></span></code></pre></div><p>命题对应的结构归纳法定理：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">ev</span> <span class="o">:</span> <span class="kt">nat</span> <span class="o">-&gt;</span> <span class="kt">Prop</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">ev_0</span> <span class="o">:</span> <span class="n">ev</span> <span class="n">0</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">ev_SS</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">)</span> <span class="o">(</span><span class="n">H</span> <span class="o">:</span> <span class="n">ev</span> <span class="n">n</span><span class="o">)</span> <span class="o">:</span> <span class="n">ev</span> <span class="o">(</span><span class="n">S</span> <span class="o">(</span><span class="n">S</span> <span class="n">n</span><span class="o">)).</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">Check</span> <span class="n">ev_ind</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">  <span class="k">forall</span> <span class="n">P</span> <span class="o">:</span> <span class="kt">nat</span> <span class="o">-&gt;</span> <span class="kt">Prop</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">P</span> <span class="n">0</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">(</span><span class="k">forall</span> <span class="n">n</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">,</span> <span class="n">ev</span> <span class="n">n</span> <span class="o">-&gt;</span> <span class="n">P</span> <span class="n">n</span> <span class="o">-&gt;</span> <span class="n">P</span> <span class="o">(</span><span class="n">S</span> <span class="o">(</span><span class="n">S</span> <span class="n">n</span><span class="o">)))</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">forall</span> <span class="n">n</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">,</span> <span class="n">ev</span> <span class="n">n</span> <span class="o">-&gt;</span> <span class="n">P</span> <span class="n">n</span><span class="o">.</span>
+</span></span></code></pre></div><p>关系对应的结构归纳法定理：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">le</span> <span class="o">:</span> <span class="kt">nat</span> <span class="o">-&gt;</span> <span class="kt">nat</span> <span class="o">-&gt;</span> <span class="kt">Prop</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">le_n</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">)</span>                <span class="o">:</span> <span class="n">le</span> <span class="n">n</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">le_S</span> <span class="o">(</span><span class="n">n</span> <span class="n">m</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">)</span> <span class="o">(</span><span class="n">H</span> <span class="o">:</span> <span class="n">le</span> <span class="n">n</span> <span class="n">m</span><span class="o">)</span> <span class="o">:</span> <span class="n">le</span> <span class="n">n</span> <span class="o">(</span><span class="n">S</span> <span class="n">m</span><span class="o">).</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">Check</span> <span class="n">le_ind</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">P</span> <span class="o">:</span> <span class="kt">nat</span> <span class="o">-&gt;</span> <span class="kt">nat</span> <span class="o">-&gt;</span> <span class="kt">Prop</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">  <span class="o">(</span><span class="k">forall</span> <span class="n">n</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">,</span> <span class="n">P</span> <span class="n">n</span> <span class="n">n</span><span class="o">)</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">(</span><span class="k">forall</span> <span class="n">n</span> <span class="n">m</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">,</span> <span class="n">le</span> <span class="n">n</span> <span class="n">m</span> <span class="o">-&gt;</span> <span class="n">P</span> <span class="n">n</span> <span class="n">m</span> <span class="o">-&gt;</span> <span class="n">P</span> <span class="n">n</span> <span class="o">(</span><span class="n">S</span> <span class="n">m</span><span class="o">))</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">forall</span> <span class="n">n</span> <span class="n">n0</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">,</span> <span class="n">le</span> <span class="n">n</span> <span class="n">n0</span> <span class="o">-&gt;</span> <span class="n">P</span> <span class="n">n</span> <span class="n">n0</span><span class="o">.</span>
+</span></span></code></pre></div><p>如果把 <code>le</code> 的定义改一下，<code>n</code> 一开始就传进去，那么会变成：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">le</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">)</span> <span class="o">:</span> <span class="kt">nat</span> <span class="o">-&gt;</span> <span class="kt">Prop</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">le_n</span> <span class="o">:</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">le_S</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">m</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">,</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">m</span> <span class="o">-&gt;</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">S</span> <span class="n">m</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">Check</span> <span class="n">le_ind</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">  <span class="k">forall</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">)</span> <span class="o">(</span><span class="n">P</span> <span class="o">:</span> <span class="kt">nat</span> <span class="o">-&gt;</span> <span class="kt">Prop</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">P</span> <span class="n">n</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">(</span><span class="k">forall</span> <span class="n">m</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">,</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">m</span> <span class="o">-&gt;</span> <span class="n">P</span> <span class="n">m</span> <span class="o">-&gt;</span> <span class="n">P</span> <span class="o">(</span><span class="n">S</span> <span class="n">m</span><span class="o">))</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">forall</span> <span class="n">n0</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">,</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">n0</span> <span class="o">-&gt;</span> <span class="n">P</span> <span class="n">n0</span><span class="o">.</span>
+</span></span></code></pre></div><p>对于 <code>eq</code>，他对应的结构归纳法定理是：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Check</span> <span class="n">eq_ind</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">  <span class="k">forall</span> <span class="o">(</span><span class="n">A</span><span class="o">:</span> <span class="kt">Type</span><span class="o">)</span> <span class="o">(</span><span class="n">x</span><span class="o">:</span><span class="n">A</span><span class="o">)</span> <span class="o">(</span><span class="n">P</span> <span class="o">:</span> <span class="n">A</span> <span class="o">-&gt;</span> <span class="kt">Prop</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">P</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="k">forall</span> <span class="n">y</span> <span class="o">:</span> <span class="n">A</span><span class="o">,</span> <span class="n">x</span><span class="o">=</span><span class="n">y</span> <span class="o">-&gt;</span> <span class="n">P</span> <span class="n">y</span><span class="o">.</span>
+</span></span></code></pre></div><p>因此可以用这种方法来实现 <code>discriminate</code>，形如：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Definition</span> <span class="n">zero_not_one&#39;</span> <span class="o">:</span> <span class="n">0</span> <span class="o">&lt;&gt;</span> <span class="n">1</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fun</span> <span class="n">contra</span> <span class="o">:</span> <span class="n">0</span> <span class="o">=</span> <span class="n">1</span> <span class="o">=&gt;</span> <span class="n">eq_ind</span> <span class="n">0</span>
+</span></span><span class="line"><span class="cl">    <span class="o">(</span><span class="k">fun</span> <span class="n">e</span><span class="o">:</span><span class="kt">nat</span> <span class="o">=&gt;</span> <span class="k">match</span> <span class="n">e</span> <span class="k">with</span>
+</span></span><span class="line"><span class="cl">                  <span class="o">|</span> <span class="n">0</span> <span class="o">=&gt;</span> <span class="n">True</span>
+</span></span><span class="line"><span class="cl">                  <span class="o">|</span> <span class="n">S</span> <span class="o">_</span> <span class="o">=&gt;</span> <span class="n">False</span>
+</span></span><span class="line"><span class="cl">                  <span class="k">end</span><span class="o">)</span> <span class="n">I</span> <span class="n">1</span> <span class="n">contra</span><span class="o">.</span>
+</span></span></code></pre></div><p>同样也可以用 <code>eq_ind</code> 来实现 <code>rewrite</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Definition</span> <span class="n">plus_id_example&#39;</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">n</span> <span class="n">m</span><span class="o">:</span><span class="kt">nat</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">n</span><span class="o">=</span><span class="n">m</span> <span class="o">-&gt;</span> <span class="n">n</span><span class="o">+</span><span class="n">n</span><span class="o">=</span><span class="n">m</span><span class="o">+</span><span class="n">m</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="o">(</span><span class="n">n</span> <span class="n">m</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">)</span> <span class="o">(</span><span class="n">H</span> <span class="o">:</span> <span class="n">n</span><span class="o">=</span><span class="n">m</span><span class="o">)</span> <span class="o">=&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">eq_ind</span> <span class="n">n</span> <span class="o">(</span><span class="k">fun</span> <span class="o">(</span><span class="n">m</span><span class="o">:</span><span class="kt">nat</span><span class="o">)</span> <span class="o">=&gt;</span> <span class="n">n</span><span class="o">+</span><span class="n">n</span><span class="o">=</span><span class="n">m</span><span class="o">+</span><span class="n">m</span><span class="o">)</span> <span class="n">eq_refl</span> <span class="n">m</span> <span class="n">H</span><span class="o">.</span>
+</span></span></code></pre></div><h2 id="maps-total-and-partial-maps">Maps: Total and Partial Maps<a href="#maps-total-and-partial-maps" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>重新定义了一下 <code>map</code>。还是用函数的形式定义 <code>string -&gt; A</code>。</p>
+<p><code>total_map</code>：需要指定初始值（所有 undefined 的元全部定义为这个值）。</p>
+<p><code>partial_map</code>：加上了 <code>Option</code>，没有的返回 <code>None</code>。</p>
+<h2 id="imp-simple-imperative-programs">Imp: Simple Imperative Programs<a href="#imp-simple-imperative-programs" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>本节开始将定义一个命令式程序设计语言 IMP。</p>
+<p>先定义两种类型 <code>aexp</code> 和 <code>bexp</code> 的表达式：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">aexp</span> <span class="o">:</span> <span class="kt">Type</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">ANum</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">AId</span> <span class="o">(</span><span class="n">x</span> <span class="o">:</span> <span class="kt">string</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">APlus</span> <span class="o">(</span><span class="n">a1</span> <span class="n">a2</span> <span class="o">:</span> <span class="n">aexp</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">AMinus</span> <span class="o">(</span><span class="n">a1</span> <span class="n">a2</span> <span class="o">:</span> <span class="n">aexp</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">AMult</span> <span class="o">(</span><span class="n">a1</span> <span class="n">a2</span> <span class="o">:</span> <span class="n">aexp</span><span class="o">).</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">bexp</span> <span class="o">:</span> <span class="kt">Type</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">BTrue</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">BFalse</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">BEq</span> <span class="o">(</span><span class="n">a1</span> <span class="n">a2</span> <span class="o">:</span> <span class="n">aexp</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">BNeq</span> <span class="o">(</span><span class="n">a1</span> <span class="n">a2</span> <span class="o">:</span> <span class="n">aexp</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">BLe</span> <span class="o">(</span><span class="n">a1</span> <span class="n">a2</span> <span class="o">:</span> <span class="n">aexp</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">BGt</span> <span class="o">(</span><span class="n">a1</span> <span class="n">a2</span> <span class="o">:</span> <span class="n">aexp</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">BNot</span> <span class="o">(</span><span class="n">b</span> <span class="o">:</span> <span class="n">bexp</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">|</span> <span class="n">BAnd</span> <span class="o">(</span><span class="n">b1</span> <span class="n">b2</span> <span class="o">:</span> <span class="n">bexp</span><span class="o">).</span>
+</span></span></code></pre></div><p>然后容易按照规则把语义建模成函数 <code>aeval</code> 和 <code>beval</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Fixpoint</span> <span class="n">aeval</span> <span class="o">(</span><span class="n">st</span> <span class="o">:</span> <span class="n">state</span><span class="o">)</span> <span class="o">(</span><span class="n">a</span> <span class="o">:</span> <span class="n">aexp</span><span class="o">)</span> <span class="o">:</span> <span class="kt">nat</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="k">match</span> <span class="n">a</span> <span class="k">with</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">ANum</span> <span class="n">n</span> <span class="o">=&gt;</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">AId</span> <span class="n">x</span> <span class="o">=&gt;</span> <span class="n">st</span> <span class="n">x</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">APlus</span> <span class="n">a1</span> <span class="n">a2</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">aeval</span> <span class="n">st</span> <span class="n">a1</span><span class="o">)</span> <span class="o">+</span> <span class="o">(</span><span class="n">aeval</span> <span class="n">st</span> <span class="n">a2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">AMinus</span> <span class="n">a1</span> <span class="n">a2</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">aeval</span> <span class="n">st</span> <span class="n">a1</span><span class="o">)</span> <span class="o">-</span> <span class="o">(</span><span class="n">aeval</span> <span class="n">st</span> <span class="n">a2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">AMult</span> <span class="n">a1</span> <span class="n">a2</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">aeval</span> <span class="n">st</span> <span class="n">a1</span><span class="o">)</span> <span class="o">*</span> <span class="o">(</span><span class="n">aeval</span> <span class="n">st</span> <span class="n">a2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">Fixpoint</span> <span class="n">beval</span> <span class="o">(</span><span class="n">st</span> <span class="o">:</span> <span class="n">state</span><span class="o">)</span> <span class="o">(</span><span class="n">b</span> <span class="o">:</span> <span class="n">bexp</span><span class="o">)</span> <span class="o">:</span> <span class="kt">bool</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="k">match</span> <span class="n">b</span> <span class="k">with</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">BTrue</span> <span class="o">=&gt;</span> <span class="bp">true</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">BFalse</span> <span class="o">=&gt;</span> <span class="bp">false</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">BEq</span> <span class="n">a1</span> <span class="n">a2</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">aeval</span> <span class="n">st</span> <span class="n">a1</span><span class="o">)</span> <span class="o">=?</span> <span class="o">(</span><span class="n">aeval</span> <span class="n">st</span> <span class="n">a2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">BNeq</span> <span class="n">a1</span> <span class="n">a2</span> <span class="o">=&gt;</span> <span class="n">negb</span> <span class="o">((</span><span class="n">aeval</span> <span class="n">st</span> <span class="n">a1</span><span class="o">)</span> <span class="o">=?</span> <span class="o">(</span><span class="n">aeval</span> <span class="n">st</span> <span class="n">a2</span><span class="o">))</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">BLe</span> <span class="n">a1</span> <span class="n">a2</span> <span class="o">=&gt;</span> <span class="o">(</span><span class="n">aeval</span> <span class="n">st</span> <span class="n">a1</span><span class="o">)</span> <span class="o">&lt;=?</span> <span class="o">(</span><span class="n">aeval</span> <span class="n">st</span> <span class="n">a2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">BGt</span> <span class="n">a1</span> <span class="n">a2</span> <span class="o">=&gt;</span> <span class="n">negb</span> <span class="o">((</span><span class="n">aeval</span> <span class="n">st</span> <span class="n">a1</span><span class="o">)</span> <span class="o">&lt;=?</span> <span class="o">(</span><span class="n">aeval</span> <span class="n">st</span> <span class="n">a2</span><span class="o">))</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">BNot</span> <span class="n">b1</span> <span class="o">=&gt;</span> <span class="n">negb</span> <span class="o">(</span><span class="n">beval</span> <span class="n">st</span> <span class="n">b1</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">BAnd</span> <span class="n">b1</span> <span class="n">b2</span> <span class="o">=&gt;</span> <span class="n">andb</span> <span class="o">(</span><span class="n">beval</span> <span class="n">st</span> <span class="n">b1</span><span class="o">)</span> <span class="o">(</span><span class="n">beval</span> <span class="n">st</span> <span class="n">b2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">end</span><span class="o">.</span>
+</span></span></code></pre></div><p>语义也可以被建模成关系 <code>aexp -&gt; nat -&gt; Prop</code>（为了写得简单一些，把 <code>AId</code> 给暂时略去了）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">aevalR</span> <span class="o">:</span> <span class="n">aexp</span> <span class="o">-&gt;</span> <span class="kt">nat</span> <span class="o">-&gt;</span> <span class="kt">Prop</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">E_ANum</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">)</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">aevalR</span> <span class="o">(</span><span class="n">ANum</span> <span class="n">n</span><span class="o">)</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">E_APlus</span> <span class="o">(</span><span class="n">e1</span> <span class="n">e2</span> <span class="o">:</span> <span class="n">aexp</span><span class="o">)</span> <span class="o">(</span><span class="n">n1</span> <span class="n">n2</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">)</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">aevalR</span> <span class="n">e1</span> <span class="n">n1</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">aevalR</span> <span class="n">e2</span> <span class="n">n2</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">aevalR</span> <span class="o">(</span><span class="n">APlus</span> <span class="n">e1</span> <span class="n">e2</span><span class="o">)</span> <span class="o">(</span><span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">E_AMinus</span> <span class="o">(</span><span class="n">e1</span> <span class="n">e2</span> <span class="o">:</span> <span class="n">aexp</span><span class="o">)</span> <span class="o">(</span><span class="n">n1</span> <span class="n">n2</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">)</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">aevalR</span> <span class="n">e1</span> <span class="n">n1</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">aevalR</span> <span class="n">e2</span> <span class="n">n2</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">aevalR</span> <span class="o">(</span><span class="n">AMinus</span> <span class="n">e1</span> <span class="n">e2</span><span class="o">)</span> <span class="o">(</span><span class="n">n1</span> <span class="o">-</span> <span class="n">n2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">E_AMult</span> <span class="o">(</span><span class="n">e1</span> <span class="n">e2</span> <span class="o">:</span> <span class="n">aexp</span><span class="o">)</span> <span class="o">(</span><span class="n">n1</span> <span class="n">n2</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">)</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">aevalR</span> <span class="n">e1</span> <span class="n">n1</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">aevalR</span> <span class="n">e2</span> <span class="n">n2</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">aevalR</span> <span class="o">(</span><span class="n">AMult</span> <span class="n">e1</span> <span class="n">e2</span><span class="o">)</span> <span class="o">(</span><span class="n">n1</span> <span class="o">*</span> <span class="n">n2</span><span class="o">).</span>
+</span></span></code></pre></div><p>然后一直写 <code>aevalR</code> 太麻烦了，用 Notation 写成 <code>==&gt;</code> 的样子：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">aevalR</span> <span class="o">:</span> <span class="n">aexp</span> <span class="o">-&gt;</span> <span class="kt">nat</span> <span class="o">-&gt;</span> <span class="kt">Prop</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">E_ANum</span> <span class="o">(</span><span class="n">n</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">)</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">(</span><span class="n">ANum</span> <span class="n">n</span><span class="o">)</span> <span class="o">==&gt;</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">E_APlus</span> <span class="o">(</span><span class="n">e1</span> <span class="n">e2</span> <span class="o">:</span> <span class="n">aexp</span><span class="o">)</span> <span class="o">(</span><span class="n">n1</span> <span class="n">n2</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">)</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">(</span><span class="n">e1</span> <span class="o">==&gt;</span> <span class="n">n1</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">e2</span> <span class="o">==&gt;</span> <span class="n">n2</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">APlus</span> <span class="n">e1</span> <span class="n">e2</span><span class="o">)</span> <span class="o">==&gt;</span> <span class="o">(</span><span class="n">n1</span> <span class="o">+</span> <span class="n">n2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">E_AMinus</span> <span class="o">(</span><span class="n">e1</span> <span class="n">e2</span> <span class="o">:</span> <span class="n">aexp</span><span class="o">)</span> <span class="o">(</span><span class="n">n1</span> <span class="n">n2</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">)</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">(</span><span class="n">e1</span> <span class="o">==&gt;</span> <span class="n">n1</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">e2</span> <span class="o">==&gt;</span> <span class="n">n2</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">AMinus</span> <span class="n">e1</span> <span class="n">e2</span><span class="o">)</span> <span class="o">==&gt;</span> <span class="o">(</span><span class="n">n1</span> <span class="o">-</span> <span class="n">n2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">E_AMult</span> <span class="o">(</span><span class="n">e1</span> <span class="n">e2</span> <span class="o">:</span> <span class="n">aexp</span><span class="o">)</span> <span class="o">(</span><span class="n">n1</span> <span class="n">n2</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">)</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">(</span><span class="n">e1</span> <span class="o">==&gt;</span> <span class="n">n1</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">e2</span> <span class="o">==&gt;</span> <span class="n">n2</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">AMult</span> <span class="n">e1</span> <span class="n">e2</span><span class="o">)</span> <span class="o">==&gt;</span> <span class="o">(</span><span class="n">n1</span> <span class="o">*</span> <span class="n">n2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">E_ADiv</span> <span class="o">(</span><span class="n">a1</span> <span class="n">a2</span> <span class="o">:</span> <span class="n">aexp</span><span class="o">)</span> <span class="o">(</span><span class="n">n1</span> <span class="n">n2</span> <span class="n">n3</span> <span class="o">:</span> <span class="kt">nat</span><span class="o">)</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="o">(</span><span class="n">a1</span> <span class="o">==&gt;</span> <span class="n">n1</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">a2</span> <span class="o">==&gt;</span> <span class="n">n2</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">n2</span> <span class="o">&gt;</span> <span class="n">0</span><span class="o">)</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">(</span><span class="n">mult</span> <span class="n">n2</span> <span class="n">n3</span> <span class="o">=</span> <span class="n">n1</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">ADiv</span> <span class="n">a1</span> <span class="n">a2</span><span class="o">)</span> <span class="o">==&gt;</span> <span class="n">n3</span>
+</span></span></code></pre></div><p>函数和关系两种建模方式是等价的。</p>
+<p>再定义 IMP 的顶层语法：</p>
+<pre tabindex="0"><code>c := skip
+  | x := a
+  | c ; c
+  | if b then c else c end
+  | while b do c end
+</code></pre><p>在 Rocq 里面定义为 <code>com</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">com</span> <span class="o">:</span> <span class="kt">Type</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">CSkip</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">CAss</span> <span class="o">(</span><span class="n">x</span> <span class="o">:</span> <span class="kt">string</span><span class="o">)</span> <span class="o">(</span><span class="n">a</span> <span class="o">:</span> <span class="n">aexp</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">CSeq</span> <span class="o">(</span><span class="n">c1</span> <span class="n">c2</span> <span class="o">:</span> <span class="n">com</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">CIf</span> <span class="o">(</span><span class="n">b</span> <span class="o">:</span> <span class="n">bexp</span><span class="o">)</span> <span class="o">(</span><span class="n">c1</span> <span class="n">c2</span> <span class="o">:</span> <span class="n">com</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">CWhile</span> <span class="o">(</span><span class="n">b</span> <span class="o">:</span> <span class="n">bexp</span><span class="o">)</span> <span class="o">(</span><span class="n">c</span> <span class="o">:</span> <span class="n">com</span><span class="o">).</span>
+</span></span></code></pre></div><p>然后定义了 IMP 命令的七条语义规则：</p>
+<pre tabindex="0"><code>
+------------------- (E_Skip)
+ st =[ skip ]=&gt; st
+
+         aeval st a = n
+-------------------------------- (E_Asgn)
+ st =[ x := a ]=&gt; (x !-&gt; n; st)
+
+    st =[ c1 ]=&gt; st&#39;
+   st&#39; =[ c2 ]=&gt; st&#39;&#39;
+------------------------ (E_Seq)
+ st =[ c1 ; c2 ]=&gt; st&#39;&#39;
+
+         beval st b = true
+         st =[ c1 ]=&gt; st&#39;
+------------------------------------ (E_IfTrue)
+ st =[ if b then c1 else c2 ]=&gt; st&#39;
+
+         beval st b = false
+          st =[ c2 ]=&gt; st&#39;
+------------------------------------ (E_IfTrue)
+ st =[ if b then c1 else c2 ]=&gt; st&#39;
+
+      beval st b = false
+------------------------------- (E_WhileFalse)
+ st =[ while b do c end ]=&gt; st
+
+      beval st b = true
+        st =[ c ]=&gt; st&#39;
+ st&#39; =[ while b do c end ]=&gt; st&#39;&#39;
+---------------------------------- (E_WhileTrue)
+ st  =[ while b do c end ]=&gt; st&#39;&#39;
+</code></pre><p>把这些规则建模成关系，很容易能写到 Rocq 中去。</p>
+<h2 id="auto-more-automation">Auto: More Automation<a href="#auto-more-automation" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>显然就是一个自动化证明策略。<code>auto</code> 可以自动搜索一系列由 <code>intro</code> 和 <code>apply</code> 组成的证明。</p>
+<p>然后有些 <code>apply</code> 的时候一个变量不能自动推导，可以用 <code>eapply</code>，对应到 <code>auto</code> 上可以用 <code>eauto</code>。</p>
+<p>似乎没有别的知识点了。</p>
+<h2 id="equiv-program-equivalence">Equiv: Program Equivalence<a href="#equiv-program-equivalence" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>可以按照如下规则定义行为等价性：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Definition</span> <span class="n">aequiv</span> <span class="o">(</span><span class="n">a1</span> <span class="n">a2</span> <span class="o">:</span> <span class="n">aexp</span><span class="o">)</span> <span class="o">:</span> <span class="kt">Prop</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="k">forall</span> <span class="o">(</span><span class="n">st</span> <span class="o">:</span> <span class="n">state</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">aeval</span> <span class="n">st</span> <span class="n">a1</span> <span class="o">=</span> <span class="n">aeval</span> <span class="n">st</span> <span class="n">a2</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">Definition</span> <span class="n">bequiv</span> <span class="o">(</span><span class="n">b1</span> <span class="n">b2</span> <span class="o">:</span> <span class="n">bexp</span><span class="o">)</span> <span class="o">:</span> <span class="kt">Prop</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="k">forall</span> <span class="o">(</span><span class="n">st</span> <span class="o">:</span> <span class="n">state</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="n">beval</span> <span class="n">st</span> <span class="n">b1</span> <span class="o">=</span> <span class="n">beval</span> <span class="n">st</span> <span class="n">b2</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">Definition</span> <span class="n">cequiv</span> <span class="o">(</span><span class="n">c1</span> <span class="n">c2</span> <span class="o">:</span> <span class="n">com</span><span class="o">)</span> <span class="o">:</span> <span class="kt">Prop</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="k">forall</span> <span class="o">(</span><span class="n">st</span> <span class="n">st&#39;</span> <span class="o">:</span> <span class="n">state</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="o">(</span><span class="n">st</span> <span class="o">=[</span> <span class="n">c1</span> <span class="o">]=&gt;</span> <span class="n">st&#39;</span><span class="o">)</span> <span class="o">&lt;-&gt;</span> <span class="o">(</span><span class="n">st</span> <span class="o">=[</span> <span class="n">c2</span> <span class="o">]=&gt;</span> <span class="n">st</span><span class="err">’</span><span class="o">).</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">Definition</span> <span class="n">refines</span> <span class="o">(</span><span class="n">c1</span> <span class="n">c2</span> <span class="o">:</span> <span class="n">com</span><span class="o">)</span> <span class="o">:</span> <span class="kt">Prop</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="k">forall</span> <span class="o">(</span><span class="n">st</span> <span class="n">st&#39;</span> <span class="o">:</span> <span class="n">state</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">    <span class="o">(</span><span class="n">st</span> <span class="o">=[</span> <span class="n">c1</span> <span class="o">]=&gt;</span> <span class="n">st&#39;</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="o">(</span><span class="n">st</span> <span class="o">=[</span> <span class="n">c2</span> <span class="o">]=&gt;</span> <span class="n">st&#39;</span><span class="o">).</span>
+</span></span></code></pre></div><p>容易证明行为等价是等价关系，也是一个同余关系（子部件等价，则两者等价）。这些证明是平凡的。</p>
+<p>然后讲了常量传播以及证明其正确性。但是注意下面的命题并不一定成立：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Definition</span> <span class="n">subst_equiv_property</span> <span class="o">:=</span> <span class="k">forall</span> <span class="n">x1</span> <span class="n">x2</span> <span class="n">a1</span> <span class="n">a2</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">cequiv</span> <span class="o">&lt;{</span> <span class="n">x1</span> <span class="o">:=</span> <span class="n">a1</span><span class="o">;</span> <span class="n">x2</span> <span class="o">:=</span> <span class="n">a2</span> <span class="o">}&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">&lt;{</span> <span class="n">x1</span> <span class="o">:=</span> <span class="n">a1</span><span class="o">;</span> <span class="n">x2</span> <span class="o">:=</span> <span class="n">subst_aexp</span> <span class="n">x1</span> <span class="n">a1</span> <span class="n">a2</span> <span class="o">}&gt;.</span>
+</span></span></code></pre></div><p>反例：</p>
+<pre tabindex="0"><code>X = X + 1; Y = X
+X = X + 1; Y = X + 1
+</code></pre><h2 id="hoare-hoare-logic">Hoare: Hoare Logic<a href="#hoare-hoare-logic" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>霍尔逻辑用霍尔三元组来描述程序的性质，以及给出一套推导霍尔三元组的规则。</p>
+<p>霍尔三元组：形如 <code>{前条件} 语句 {后条件}</code>，表示满足前条件的状态经过中间的语句后，得到的状态一定满足后条件。</p>
+<p>霍尔逻辑的六条规则：</p>
+<pre tabindex="0"><code>
+------------------ (Skip)
+ { P } skip { P }
+
+
+---------------------------- (Assign)
+ { P [a / x] } x := a { P }
+
+    { P } c1 { R }
+    { R } c2 { Q }
+--------------------- (Seq)
+ { P } c1 ; c2 { Q }
+
+       { P /\ b } c1 { Q }
+      { P /\ ~ b } c2 { Q }
+---------------------------------- (If)
+ { P } if b then c1 else c2 { Q }
+
+   |= (P =&gt; P&#39;)
+ { P&#39; } c { Q&#39; }
+   |= (Q&#39; =&gt; Q)
+----------------- (Consequence)
+  { P } c { Q }
+
+         { P /\ b } c { P }
+------------------------------------- (While)
+ { P } while b do c end { P /\ ~ b }
+</code></pre><p>霍尔逻辑具有正确性（按照霍尔逻辑推导出来的三元组在 IMP 语义下都是正确的）和完整性（所有在 IMP 语义下正确的 Hoare 三元组都可以按照上面规则推导出来）。</p>
+<p>在 Rocq 中，将 state 定义为 <code>total_map nat</code>，将断言定义为关于状态的谓词 <code>Assertion := state -&gt; Prop</code>。</p>
+<p>将合法的 hoare 三元组按照如下规则定义：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Definition</span> <span class="n">valid_hoare_triple</span>
+</span></span><span class="line"><span class="cl">  <span class="o">(</span><span class="n">P</span> <span class="o">:</span> <span class="n">Assertion</span><span class="o">)</span> <span class="o">(</span><span class="n">c</span> <span class="o">:</span> <span class="n">com</span><span class="o">)</span> <span class="o">(</span><span class="n">Q</span> <span class="o">:</span> <span class="n">Assertion</span><span class="o">)</span> <span class="o">:</span> <span class="kt">Prop</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="k">forall</span> <span class="n">st</span> <span class="n">st&#39;</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">st</span> <span class="o">=[</span> <span class="n">c</span> <span class="o">]=&gt;</span> <span class="n">st&#39;</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">P</span> <span class="n">st</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Q</span> <span class="n">st&#39;</span><span class="o">.</span>
+</span></span></code></pre></div><p>然后可以用 Notation 写成 <code>{{P}} c {{Q}}</code> 的形式。容易把上面的所有推导规则写成 Rocq 中的定理并证明。</p>
+<p>上面定义的 Hoare 逻辑其实是部分正确性的，即不保证程序是终止的，若程序不终止则允许有任何后条件。</p>
+<p>扩展为完全正确性的方法：给 <code>While</code> 加一个势能。</p>
+<p>装饰程序：直接把条件用 <code>{{ ... }}</code> 然后写进程序，比较容易看。</p>
+<p>循环不变式：足够弱（能被前条件推出），足够强（能推出后条件），能保持（每一次循环过程都保持）。找循环不变式没有形式化方法，只能凭感觉。</p>
+<p>最弱前条件：称 <code>{P}</code> 为 <code>c {Q}</code> 的最弱前条件，若：</p>
+<ul>
+<li><code>{P} c {Q}</code>；</li>
+<li><code>forall P'. {P'} c {Q} =&gt; P' -&gt; P</code>。</li>
+</ul>
+<p>最强后条件：称 <code>{Q}</code> 为 <code>{P} c</code> 的最强后条件，若：</p>
+<ul>
+<li><code>{P} c {Q}</code>；</li>
+<li><code>forall Q'. {P} c {Q'} =&gt; Q -&gt; Q'</code>。</li>
+</ul>
+<p>关于计算最弱前条件（wp）：</p>
+<pre tabindex="0"><code>wp(skip, Q) = Q
+wp(x := a, Q) = Q [a / x]
+wp(c1; c2, Q) = wp(c1, wp(c2, Q))
+wp(if b then c1 else c2, Q) = (b -&gt; wp(c1, Q)) /\ (~b -&gt; wp(c2, Q))
+</code></pre><p>关于循环的最弱前条件，需要引入存在量词：</p>
+<pre tabindex="0"><code>wp(while b do c, Q) = exists i \in Nat, L_i (Q)
+  where
+    L_0 (Q) = false
+    L_(i+1) (Q) = (~b =&gt; Q) /\ (b =&gt; wp(c, L_i (Q)))
+</code></pre><p>计算最强后条件也是类似的，有区别的在于 <code>Assign</code>：</p>
+<pre tabindex="0"><code>sp(P, x := a) = exists n. x = [a / x] /\ P [n / x]
+</code></pre><p>sp 比 wp 的约束条件更复杂，因此实际使用更少。</p>
+<h2 id="hoareaslogic-hoare-logic-as-a-logic">HoareAsLogic: Hoare Logic as a Logic<a href="#hoareaslogic-hoare-logic-as-a-logic" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>可以吧 Hoare 逻辑建模成可推导三元组：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">derivable</span> <span class="o">:</span> <span class="n">Assertion</span> <span class="o">-&gt;</span> <span class="n">com</span> <span class="o">-&gt;</span> <span class="n">Assertion</span> <span class="o">-&gt;</span> <span class="kt">Type</span>
+</span></span></code></pre></div><p>然后证明了 Hoare Logic 的正确性和完备性。</p>
+<p>注意 Hoare Logic 是不可判定的，因为停机问题等价于判定 <code>{True} c {False}</code> 是否成立。</p>
+<h2 id="smallstep-small-step-operational-semantics">SmallStep: Small-Step Operational Semantics<a href="#smallstep-small-step-operational-semantics" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>前面写的语义都是大步法，直接给出运算后的结果。如果需要定义程序单步执行的过程，则需要使用小步法语义。</p>
+<p>先看一个小型语言：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">tm</span> <span class="o">:</span> <span class="kt">Type</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">C</span> <span class="o">:</span> <span class="kt">nat</span> <span class="o">-&gt;</span> <span class="n">tm</span>       <span class="c">(* Constant *)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">P</span> <span class="o">:</span> <span class="n">tm</span> <span class="o">-&gt;</span> <span class="n">tm</span> <span class="o">-&gt;</span> <span class="n">tm</span><span class="o">.</span> <span class="c">(* Plus *)</span>
+</span></span></code></pre></div><p>可以定义正常结束状态，不能继续往下执行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">value</span> <span class="o">:</span> <span class="n">tm</span> <span class="o">-&gt;</span> <span class="kt">Prop</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">v_C</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">n</span><span class="o">,</span> <span class="n">value</span> <span class="o">(</span><span class="n">C</span> <span class="n">n</span><span class="o">).</span>
+</span></span></code></pre></div><p>定义小步法语义为：</p>
+<pre tabindex="0"><code>
+-------------------------------- (ST_PlusConstConst)
+ P (C n1) (C n2) -&gt; C (n1 + n2)
+
+      t1 -&gt; t1&#39;
+--------------------- (ST_Plus1)
+ P t1 t2 -&gt; P t1&#39; t2
+
+      value v1
+      t2 -&gt; t2&#39;
+--------------------- (ST_Plus2)
+ P v1 t2 -&gt; P v1 t2&#39;
+</code></pre><p>然后可以证明确定性，即一个状态进行一次小步计算得到的状态是确定的。</p>
+<p>随后定义了多步约简关系：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">multi</span> <span class="o">{</span><span class="n">X</span> <span class="o">:</span> <span class="kt">Type</span><span class="o">}</span> <span class="o">(</span><span class="n">R</span> <span class="o">:</span> <span class="n">relation</span> <span class="n">X</span><span class="o">)</span> <span class="o">:</span> <span class="n">relation</span> <span class="n">X</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">multi_refl</span> <span class="o">:</span> <span class="k">forall</span> <span class="o">(</span><span class="n">x</span> <span class="o">:</span> <span class="n">X</span><span class="o">),</span> <span class="n">multi</span> <span class="n">R</span> <span class="n">x</span> <span class="n">x</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">multi_step</span> <span class="o">:</span> <span class="k">forall</span> <span class="o">(</span><span class="n">x</span> <span class="n">y</span> <span class="n">z</span> <span class="o">:</span> <span class="n">X</span><span class="o">),</span>
+</span></span><span class="line"><span class="cl">                  <span class="n">R</span> <span class="n">x</span> <span class="n">y</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">                  <span class="n">multi</span> <span class="n">R</span> <span class="n">y</span> <span class="n">z</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">                  <span class="n">multi</span> <span class="n">R</span> <span class="n">x</span> <span class="n">z</span><span class="o">.</span>
+</span></span></code></pre></div><p>可以证明大步法和小步法是等价的，即：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Theorem</span> <span class="n">eval__multistep</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">t</span> <span class="n">n</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">t</span> <span class="o">==&gt;</span> <span class="n">n</span> <span class="o">-&gt;</span> <span class="n">t</span> <span class="o">--&gt;*</span> <span class="n">C</span> <span class="n">n</span><span class="o">.</span>
+</span></span></code></pre></div><p>比较有意思的是如果再定义一个并行运算，这样就不能用大步法来定义了，只能使用小步法。但注意加上并行运算后不再具有确定性。</p>
+<h2 id="types-type-systems">Types: Type Systems<a href="#types-type-systems" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>类型系统是一种用来自动和高效证明程序没有某类错误的语法手段。</p>
+<p>定义值：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">bvalue</span> <span class="o">:</span> <span class="n">tm</span> <span class="o">-&gt;</span> <span class="kt">Prop</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">bv_true</span> <span class="o">:</span> <span class="n">bvalue</span> <span class="o">&lt;{</span> <span class="bp">true</span> <span class="o">}&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">bv_false</span> <span class="o">:</span> <span class="n">bvalue</span> <span class="o">&lt;{</span> <span class="bp">false</span> <span class="o">}&gt;.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">nvalue</span> <span class="o">:</span> <span class="n">tm</span> <span class="o">-&gt;</span> <span class="kt">Prop</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">nv_0</span> <span class="o">:</span> <span class="n">nvalue</span> <span class="o">&lt;{</span> <span class="n">0</span> <span class="o">}&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">nv_succ</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">t</span><span class="o">,</span> <span class="n">nvalue</span> <span class="n">t</span> <span class="o">-&gt;</span> <span class="n">nvalue</span> <span class="o">&lt;{</span> <span class="n">succ</span> <span class="n">t</span> <span class="o">}&gt;.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">Definition</span> <span class="n">value</span> <span class="o">(</span><span class="n">t</span> <span class="o">:</span> <span class="n">tm</span><span class="o">)</span> <span class="o">:=</span> <span class="n">bvalue</span> <span class="n">t</span> <span class="o">\/</span> <span class="n">nvalue</span> <span class="n">t</span><span class="o">.</span>
+</span></span></code></pre></div><p>定义小步法语义：</p>
+<pre tabindex="0"><code>
+------------------------------- (ST_IfTrue)
+ if true then t1 else t2 -&gt; t1
+
+
+-------------------------------- (ST_IfFalse)
+ if false then t1 else t2 -&gt; t2
+
+                    t1 -&gt; t1&#39;
+------------------------------------------------- (ST_If)
+ if t1 then t2 else t3 -&gt; if t1&#39; then t2 else t3
+
+      t1 -&gt; t1&#39;
+--------------------- (ST_Succ)
+ succ t1 -&gt; succ t1&#39;
+
+
+------------ (ST_Pred0)
+ pred 0 = 0
+
+
+     nvalue v
+------------------- (ST_PredSucc)
+ pred (succ v) = v
+
+      t1 -&gt; t1&#39;
+--------------------- (ST_Pred)
+ pred t1 -&gt; pred t1&#39;
+
+
+------------------ (ST_IsZero0)
+ iszero 0 -&gt; true
+
+         nvalue v
+-------------------------- (ST_IsZeroSucc)
+ iszero (succ v) -&gt; false
+
+        t1 -&gt; t1&#39;
+------------------------- (ST_IsZero)
+ iszero t1 -&gt; iszero t1&#39;
+</code></pre><p>定义了上面这个语义之后有些项不一定能够被约简到值，比如 <code>succ true</code>。因此我们定义了类型系统：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">ty</span> <span class="o">:</span> <span class="kt">Type</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">Bool</span> <span class="o">:</span> <span class="n">ty</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">Nat</span> <span class="o">:</span> <span class="n">ty</span><span class="o">.</span>
+</span></span></code></pre></div><p>类型关系如下：</p>
+<pre tabindex="0"><code>
+------------------ (T_True)
+ |- true \in Bool
+
+
+------------------- (T_False)
+ |- false \in Bool
+
+
+-------------- (T_0)
+ |- 0 \in Nat
+
+   |- t1 \in Nat
+-------------------- (T_Pred)
+ |- pred t1 \in Nat
+
+   |- t1 \in Nat
+-------------------- (T_Succ)
+ |- succ t1 \in Nat
+
+     |- t1 \in Nat
+----------------------- (T_IsZero)
+ |- iszero t1 \in Bool
+
+ |- t1 \in Bool  |- t2 \in T  |- t3 \in T
+------------------------------------------ (T_If)
+      |- if t1 then t2 else t3 \in T
+</code></pre><p>然后比较重要的内容是进展性和保持性：</p>
+<ul>
+<li>进展性 Progress：类型正确的项如果不是值，那么一定能约简；</li>
+<li>保持性 Preservation：项往下约简之后能保持相同类型。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Theorem</span> <span class="n">progress</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">t</span> <span class="n">T</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;{</span> <span class="o">|--</span> <span class="n">t</span> <span class="err">\</span><span class="k">in</span> <span class="n">T</span> <span class="o">}&gt;</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">value</span> <span class="n">t</span> <span class="o">\/</span> <span class="k">exists</span> <span class="n">t&#39;</span><span class="o">,</span> <span class="n">t</span> <span class="o">--&gt;</span> <span class="n">t&#39;</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">Theorem</span> <span class="n">preservation</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">t</span> <span class="n">t&#39;</span> <span class="n">T</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;{</span> <span class="o">|--</span> <span class="n">t</span> <span class="err">\</span><span class="k">in</span> <span class="n">T</span> <span class="o">}&gt;</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">t</span> <span class="o">--&gt;</span> <span class="n">t&#39;</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">&lt;{</span> <span class="o">|--</span> <span class="n">t&#39;</span> <span class="err">\</span><span class="k">in</span> <span class="n">T</span> <span class="o">}&gt;.</span>
+</span></span></code></pre></div><p>这两个属性保证了项不会卡住，一定能约简到一个值。</p>
+<p>但是没有卡住的项不一定具有正确的类型，比如 <code>if false then 0 else true</code>。</p>
+<h2 id="stlc-the-simply-typed-lambda-calculus">STLC: The Simply Typed Lambda-Calculus<a href="#stlc-the-simply-typed-lambda-calculus" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>考虑描述 lambda 演算。先来定义 lambda 演算的语法和类型：</p>
+<pre tabindex="0"><code>t ::= x                     (variable)
+    | \x:T,t                (abstraction)
+    | t1 t2                 (application)
+    | true                  (constant true)
+    | false                 (constant false)
+    | if t1 then t2 else t3 (conditional)
+
+T ::= Bool
+    | T -&gt; T
+</code></pre><p>在 STLC 中，将 <code>true</code>，<code>false</code> 和所有的 lambda 抽象定义为值：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">value</span> <span class="o">:</span> <span class="n">tm</span> <span class="o">-&gt;</span> <span class="kt">Prop</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">v_abs</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">x</span> <span class="n">T2</span> <span class="n">t1</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">      <span class="n">value</span> <span class="o">&lt;{</span><span class="err">\</span><span class="n">x</span><span class="o">:</span><span class="n">T2</span><span class="o">,</span> <span class="n">t1</span><span class="o">}&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">v_true</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="n">value</span> <span class="o">&lt;{</span><span class="bp">true</span><span class="o">}&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">v_false</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="n">value</span> <span class="o">&lt;{</span><span class="bp">false</span><span class="o">}&gt;.</span>
+</span></span></code></pre></div><p>然后可以定义 STLC 的小步法操作语义：</p>
+<pre tabindex="0"><code>            value v2
+--------------------------------- (ST_AppAbs)
+ (\x:T2, t1) v2 -&gt; [x |-&gt; v2] t1
+
+    t1 -&gt; t1&#39;
+----------------- (ST_App1)
+ t1 t2 -&gt; t1&#39; t2
+
+    value v1
+    t2 -&gt; t2&#39;
+----------------- (ST_App2)
+ v1 t2 -&gt; v1 t2&#39;
+
+
+------------------------------- (ST_IfTrue)
+ if true then t1 else t2 -&gt; t1
+
+
+-------------------------------- (ST_IfFalse)
+ if false then t1 else t2 -&gt; t2
+
+                    t1 -&gt; t1&#39;
+------------------------------------------------- (ST_If)
+ if t1 then t2 else t3 -&gt; if t1&#39; then t2 else t3
+</code></pre><p>注意不能添加下面这个小步规则：</p>
+<pre tabindex="0"><code>       t1 -&gt; t1&#39;
+-----------------------
+ \x:T, t1 -&gt; \x:T, t1&#39;
+</code></pre><p>否则会出现下面这个约简：</p>
+<pre tabindex="0"><code>   \y:Bool, ((\x:Bool, (\y:Bool x)) y)
+-&gt; \y:Bool, (\y:Bool y)
+</code></pre><p>但正确的应该是约简为 <code>\y:Bool, (\z:Bool y)</code>。</p>
+<p>然后尝试在 STLC 中引入类型系统。STLC 中包含变量，因此需要引入变量的类型，因此加入上下文 <code>Gamma</code>，表示从变量名到类型的映射。<code>Gamma |-- t \in T</code> 表示在上下文 <code>Gamma</code> 下，<code>t</code> 变量具有 <code>T</code> 类型。</p>
+<p>从而可以定义类型的推导规则：</p>
+<pre tabindex="0"><code>    Gamma x = T1
+-------------------- (T_Var)
+ Gamma |-- x \in T1
+
+  x |-&gt; T2; Gamma |-- t1 \in T1
+---------------------------------- (T_Abs)
+ Gamma |-- \x:T2, t1 \in T2 -&gt; T1
+
+ Gamma |-- t1 \in T2 -&gt; T1
+    Gamma |-- t2 \in T2
+--------------------------- (T_App)
+  Gamma |-- t1 t2 \in T1
+
+
+------------------------- (T_True)
+ Gamma |-- true \in Bool
+
+
+-------------------------- (T_False)
+ Gamma |-- false \in Bool
+
+         Gamma |-- t1 \in Bool
+ Gamma |-- t2 \in T  Gamma |-- t3 \in T
+---------------------------------------- (T_If)
+  Gamma |-- if t1 then t2 else t3 \in T
+</code></pre><h2 id="stlcprop-properties-of-stlc">STLCProp: Properties of STLC<a href="#stlcprop-properties-of-stlc" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>证明了 STLC 上类型系统的 Progress 和 Preservation。</p>
+<p>同时还证明了类型系统正确性：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Definition</span> <span class="n">stuck</span> <span class="o">(</span><span class="n">t</span><span class="o">:</span><span class="n">tm</span><span class="o">)</span> <span class="o">:</span> <span class="kt">Prop</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="o">(</span><span class="n">normal_form</span> <span class="n">step</span><span class="o">)</span> <span class="n">t</span> <span class="o">/\</span> <span class="o">~</span> <span class="n">value</span> <span class="n">t</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">Corollary</span> <span class="n">soundness</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">t</span> <span class="n">t&#39;</span> <span class="n">T</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">empty</span> <span class="o">|--</span> <span class="n">t</span> <span class="err">\</span><span class="k">in</span> <span class="n">T</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">t</span> <span class="o">--&gt;*</span> <span class="n">t&#39;</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">~(</span><span class="n">stuck</span> <span class="n">t&#39;</span><span class="o">).</span>
+</span></span></code></pre></div><p>以及类型的唯一性：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Theorem</span> <span class="n">unique_types</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">Gamma</span> <span class="n">e</span> <span class="n">T</span> <span class="n">T&#39;</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Gamma</span> <span class="o">|--</span> <span class="n">e</span> <span class="err">\</span><span class="k">in</span> <span class="n">T</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">Gamma</span> <span class="o">|--</span> <span class="n">e</span> <span class="err">\</span><span class="k">in</span> <span class="n">T&#39;</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">T</span> <span class="o">=</span> <span class="n">T&#39;</span><span class="o">.</span>
+</span></span></code></pre></div><h2 id="morestlc-more-on-the-simply-typed-lambda-calculus">MoreSTLC: More on the Simply Typed Lambda-Calculus<a href="#morestlc-more-on-the-simply-typed-lambda-calculus" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>尝试在 STLC 中加入更多的语言成分。</p>
+<p>Nat：和 Type 一节的定义相同。</p>
+<p>Let：在 terms 中加入 <code>let x = t in t</code>。</p>
+<p>小步法约简规则：</p>
+<pre tabindex="0"><code>               t1 -&gt; t1&#39;
+--------------------------------------- (ST_Let1)
+ let x = t1 in t2 -&gt; let x = t1&#39; in t2
+
+            value v1
+---------------------------------- (ST_LetValue)
+ let x = v1 in t2 -&gt; [x := v1] t2
+</code></pre><p>类型规则：</p>
+<pre tabindex="0"><code>        Gamma |-- t1 \in T1
+   x |-&gt; T1; Gamma |-- t2 \in T2
+----------------------------------- (T_Let)
+ Gamma |-- let x = t1 in t2 \in T2
+</code></pre><p>Unit：直接写作 <code>unit</code>，是值，就是滚木，比如没有返回值的命令可以返回 <code>unit</code>。命令序列 <code>t1; t2</code> 等价于 <code>(\x:Unit, t2) t1</code>。</p>
+<p>类型规则：</p>
+<pre tabindex="0"><code>
+------------------------- (T_Unit)
+ Gamme |-- unit \in Unit
+</code></pre><p>Pair：term 包含 <code>(t1, t2)</code>，<code>t0.fst</code> 和 <code>t0.snd</code>。其中 <code>(v1, v2)</code> 是值。</p>
+<p>小步法约简规则：</p>
+<pre tabindex="0"><code>       t1 -&gt; t1&#39;
+----------------------- (ST_Pair1)
+ (t1, t2) -&gt; (t1&#39;, t2)
+
+       value v1
+       t2 -&gt; t2&#39;
+----------------------- (ST_Pair2)
+ (v1, t2) -&gt; (v1, t2&#39;)
+
+    t0 -&gt; t0&#39;
+------------------- (ST_Fst1)
+ t0.fst -&gt; t0&#39;.fst
+
+
+-------------------- (ST_FstPair)
+ (v1, v2).fst -&gt; v1
+
+    t0 -&gt; t0&#39;
+------------------- (ST_Snd1)
+ t0.snd -&gt; t0&#39;.snd
+
+
+-------------------- (ST_SndPair)
+ (v1, v2).snd -&gt; v2
+</code></pre><p>类型规则：</p>
+<pre tabindex="0"><code>      Gamma |-- t1 \in T1
+      Gamma |-- t2 \in T2
+-------------------------------- (T_Pair)
+ Gamma |-- (t1, t2) \in T1 * T2
+
+ Gamma |-- t0 \in T1 * T2
+-------------------------- (T_Fst)
+ Gamma |-- t0.fst \in T1
+
+ Gamma |-- t0 \in T1 * T2
+-------------------------- (T_Snd)
+ Gamma |-- t0.snd \in T2
+</code></pre><p>Records：term 包含 <code>{i1 = t1, ..., in = tn}</code> 和 <code>t.i</code>。其中 <code>{i1 = v1, ..., in = vn}</code> 是值。</p>
+<p>小步法约简规则：</p>
+<pre tabindex="0"><code>                  ti -&gt; ti&#39;
+-------------------------------------------- (ST_Rcd)
+   {i1 -&gt; v1, ..., im = vm, tn = ti, ...}
+ -&gt; {i1 -&gt; v1, ..., im = vm, tn = ti&#39;, ...}
+
+   t0 -&gt; t0&#39;
+--------------- (ST_Proj1)
+ t0.i -&gt; t0&#39;.i
+
+
+---------------------------- (ST_ProjRcd)
+ {..., i = vi, ...}.i -&gt; vi
+</code></pre><p>类型规则：</p>
+<pre tabindex="0"><code>       Gamma |-- t1 \in T1  ...  Gamma |-- tn \in Tn
+----------------------------------------------------------- (T_Rcd)
+ Gamma |-- {i1 = t1, ..., in = tn} \in {i1:T1, ..., In:Tn}
+
+ Gamma |-- t0 \in {..., i:Ti, ...}
+----------------------------------- (T_Proj)
+       Gamma |-- t0.i \in Ti
+</code></pre><p>Sum：term 包含 <code>inl T2 t1</code>，<code>inr T1 t2</code> 和 <code>case t0 of inl x1 =&gt; t1 | inr x2 =&gt; t2</code>。其中值有 <code>inl T2 v1</code> 和 <code>inr T1 v2</code>。这里需要传另一个的类型，是因为这样能直接推出 Sum 的类型。</p>
+<p>小步法约简规则：</p>
+<pre tabindex="0"><code>        t1 -&gt; t1&#39;
+------------------------ (ST_Inl)
+ inl T2 t1 -&gt; inl T2 t1&#39;
+
+        t2 -&gt; t2&#39;
+------------------------ (ST_Inr)
+ inr T1 t2 -&gt; inr T1 t2&#39;
+
+                  t0 -&gt; t0&#39;
+-------------------------------------------- (ST_Case)
+   case t0 of inl x1 =&gt; t1 | inr x2 =&gt; t2
+ -&gt; case t0&#39; of inl x1 =&gt; t1 | inr x2 =&gt; t2
+
+
+------------------------------------------------- (ST_CaseInl)
+ case (inl T2 v1) of inl x1 =&gt; t1 | inr x2 =&gt; t2
+             -&gt; [x1 := v1] t1
+
+
+------------------------------------------------- (ST_CaseInr)
+ case (inr T1 v2) of inl x1 =&gt; t1 | inr x2 =&gt; t2
+             -&gt; [x2 := v2] t2
+</code></pre><p>类型规则：</p>
+<pre tabindex="0"><code>      Gamma |-- t1 \in T1
+--------------------------------- (T_Inl)
+ Gamma |-- inl T2 t1 \in T1 + T2
+
+      Gamma |-- t2 \in T2
+--------------------------------- (T_Inr)
+ Gamma |-- inr T1 t2 \in T1 + T2
+
+                Gamma |-- t0 \in T1 + T2
+             x1 |-&gt; T1; Gamma |-- t1 \in T3
+             x2 |-&gt; T2; Gamma |-- t2 \in T3
+--------------------------------------------------------- (T_Case)
+ Gamme |-- case t0 of inl x1 =&gt; t1 | inr x2 =&gt; t2 \in T3
+</code></pre><p>List：term 包含 <code>nil T</code>，<code>t1 :: t2</code> 和 <code>case t1 of nil =&gt; t2 | xh :: xt =&gt; t3</code>。其中值包含 <code>nil T</code> 和 <code>v1 :: v2</code>。</p>
+<p>小步法约简规则：</p>
+<pre tabindex="0"><code>       t1 -&gt; t1&#39;
+----------------------- (ST_Cons1)
+ t1 :: t2 -&gt; t1&#39; :: t2
+
+       t2 -&gt; t2&#39;
+----------------------- (ST_Cons2)
+ v1 :: t2 -&gt; v1 :: t2&#39;
+
+                 t1 -&gt; t1&#39;
+------------------------------------------- (ST_Lcase1)
+   case t1 of nil =&gt; t2 | xh :: xt =&gt; t3
+ -&gt; case t1&#39; of nil =&gt; t2 | xh :: xt =&gt; t3
+
+
+------------------------------------------------- (ST_LcaseNil)
+ case nil T1 of nil =&gt; t2 | xh :: xt =&gt; t3 -&gt; t2
+
+
+----------------------------------------------- (ST_LcaseCons)
+ case (vh :: vt) of nil =&gt; t2 | xh :: xt =&gt; t3
+          -&gt; [xh := vh] [xt := vt] t3
+</code></pre><p>类型规则：</p>
+<pre tabindex="0"><code>
+------------------------------ (T_Nil)
+ Gamma |-- nil T1 \in List T1
+
+      Gamma |-- t1 \in T1
+    Gamma |-- t2 \in List T1
+-------------------------------- (T_Cons)
+ Gamma |-- t1 :: t2 \in List T1
+
+               Gamma |-- t1 \in List T1
+                 Gamma |-- t2 \in T2
+    (xh |-&gt; t1; xt |-&gt; List t1; Gamma) |-- t3 \in T2
+-------------------------------------------------------- (T_Lcase)
+ Gamma |-- case t1 of nil =&gt; t2 | xh :: xt =&gt; t3 \in T2
+</code></pre><p>fix：用于递归。term 是 <code>fix t1</code>。</p>
+<p>小步法约简规则：</p>
+<pre tabindex="0"><code>     t1 -&gt; t1&#39;
+------------------- (ST_Fix1)
+ fix t1 -&gt; fix t1&#39;
+
+
+------------------------------------------------- (ST_FixAbs)
+ fix (\xf:T1. t1) -&gt; [xf := fix (\xf:T1. t1)] t1
+</code></pre><p>类型规则：</p>
+<pre tabindex="0"><code> Gamma |-- t1 \in T1 -&gt; T1
+--------------------------- (T_Fix)
+  Gamma |-- fix t1 \in T1
+</code></pre><p>然后可以证明 progress 和 preservation 在扩展后仍然成立。</p>
+<h2 id="typechecking-a-typechecker-for-stlc">TypeChecking: A Typechecker for STLC<a href="#typechecking-a-typechecker-for-stlc" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>写了一个类型检查函数，并证明其正确性。</p>
+<p>然后由于每次都要分 Some 和 None 讨论太麻烦了，就定义了一点好看的语法。没有实质内容。</p>
+<h2 id="references-typing-mutable-references">References: Typing Mutable References<a href="#references-typing-mutable-references" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>给 STLC 添加了引用和赋值。</p>
+<p>分配一块内存：</p>
+<pre tabindex="0"><code>let a = ref 5 in
+</code></pre><p>读取一块内存：</p>
+<pre tabindex="0"><code>!a
+</code></pre><p>改写一块内存：</p>
+<pre tabindex="0"><code>a := 6
+</code></pre><p>可以用引用来实现模拟封装：</p>
+<pre tabindex="0"><code>let newcounter = \_:Unit.
+  let c = ref 0 in
+  let incc = \_:Unit, (c := succ (!c); !c) in
+  let decc = \_:Unit, (c := pred (!c); !c) in
+  {i=incc, d=decc} 
+</code></pre><p>也可以用引用来保存函数，例如：</p>
+<pre tabindex="0"><code>newarray = \_:Unit. ref (\n:Nat.0)
+lookup = \a:NatArray, \n:Nat. (!a) n
+update = \a:NatArray, \m:Nat, \v:Nat,
+  let oldf = !a in
+  a := (\n:Nat. if equal m n then v else oldf n);
+</code></pre><p>定义类型和项：</p>
+<pre tabindex="0"><code>T ::= Nat
+    | Unit
+    | T -&gt; T
+    | Ref T
+
+t ::= ...
+    | ref t   (allocation)
+    | !t      (dereference)
+    | t := t  (assignment)
+    | l       (location)
+</code></pre><p>现在值的定义是：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">value</span> <span class="o">:</span> <span class="n">tm</span> <span class="o">-&gt;</span> <span class="kt">Prop</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">v_abs</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">x</span> <span class="n">T2</span> <span class="n">t1</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">value</span> <span class="o">&lt;{</span><span class="err">\</span><span class="n">x</span><span class="o">:</span><span class="n">T2</span><span class="o">,</span> <span class="n">t1</span><span class="o">}&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">v_nat</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">n</span> <span class="o">:</span> <span class="kt">nat</span> <span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">value</span> <span class="o">&lt;{</span> <span class="n">n</span> <span class="o">}&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">v_unit</span> <span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">value</span> <span class="o">&lt;{</span> <span class="kt">unit</span> <span class="o">}&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">v_loc</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">l</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">value</span> <span class="o">&lt;{</span> <span class="n">loc</span> <span class="n">l</span> <span class="o">}&gt;.</span>
+</span></span></code></pre></div><p>然后为了定义这个包含引用的语言的操作语义，首先需要定义内存空间：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Definition</span> <span class="n">store</span> <span class="o">:=</span> <span class="kt">list</span> <span class="n">tm</span><span class="o">.</span>
+</span></span></code></pre></div><p>接下来就可以定义小步法操作语义了（这里的 <code>st</code> 表示内存空间）：</p>
+<pre tabindex="0"><code>     t1 / st -&gt; t1&#39; / st&#39;
+------------------------------ (ST_Ref)
+ ref t1 / st -&gt; ref t1&#39; / st&#39;
+
+-------------------------------- (ST_RefValue)
+ ref v / st -&gt; loc |st| / st, v
+
+  t1 / st -&gt; t1&#39; / st&#39;
+------------------------ (ST_Deref)
+ !t1 / st -&gt; !t1&#39; / st&#39;
+
+             l &lt; |st|
+----------------------------------- (ST_DerefLoc)
+ !(loc l) / st -&gt; lookup l st / st
+
+       t1 / st -&gt; t1&#39; / st&#39;
+---------------------------------- (ST_Assign1)
+ t1 := t2 / st -&gt; t1&#39; := t2 / st&#39;
+
+       t2 / st -&gt; t2&#39; / st&#39;
+---------------------------------- (ST_Assign2)
+ v1 := t2 / st -&gt; v1 := t2&#39; / st&#39;
+
+               l &lt; |st|
+--------------------------------------- (ST_Assign)
+ loc l := v / st -&gt; unit / [l := v] st
+
+                 value v2
+------------------------------------------ (ST_AppAbs)
+ (\x:T2, t1) v2 / st -&gt; [x := v2] t1 / st
+
+    t1 / st -&gt; t1&#39; / st&#39;
+---------------------------- (ST_App1)
+ t1 t2 / st -&gt; t1&#39; t2 / st&#39;
+
+         value v1
+    t2 / st -&gt; t2&#39; / st&#39;
+---------------------------- (ST_App2)
+ v1 t2 / st -&gt; v1 t2&#39; / st&#39;
+</code></pre><p>然后为了类型推导，还需要再记录一个用于存储每个位置类型的 <code>ST</code>。类型规则：</p>
+<pre tabindex="0"><code>                l &lt; |ST|
+----------------------------------------- (T_Loc)
+ Gamma; ST |-- loc l : Ref (lookup l ST)
+
+     Gamma; ST |-- t1 : T1
+------------------------------- (T_Ref)
+ Gamma; ST |-- ref t1 : Ref T1
+
+ Gamma; ST |-- t1 : Ref T1
+--------------------------- (T_Deref)
+  Gamma; ST |-- !t1 : T1
+
+  Gamma; ST |-- t1 : Ref T2
+    Gamma; ST |-- t2 : T2
+------------------------------- (T_Assign)
+ Gamma; ST |-- t1 := t2 : Unit
+</code></pre><p>然后有在包含引用的语言上特殊定义的 progress 和 preservation：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-coq" data-lang="coq"><span class="line"><span class="cl"><span class="kn">Definition</span> <span class="n">store_well_typed</span> <span class="o">(</span><span class="n">ST</span><span class="o">:</span><span class="n">store_ty</span><span class="o">)</span> <span class="o">(</span><span class="n">st</span><span class="o">:</span><span class="n">store</span><span class="o">)</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="n">length</span> <span class="n">ST</span> <span class="o">=</span> <span class="n">length</span> <span class="n">st</span> <span class="o">/\</span>
+</span></span><span class="line"><span class="cl">  <span class="o">(</span><span class="k">forall</span> <span class="n">l</span><span class="o">,</span> <span class="n">l</span> <span class="o">&lt;</span> <span class="n">length</span> <span class="n">st</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">empty</span><span class="o">;</span> <span class="n">ST</span> <span class="o">|--</span> <span class="o">{</span> <span class="n">store_lookup</span> <span class="n">l</span> <span class="n">st</span> <span class="o">}</span> <span class="err">\</span><span class="k">in</span> <span class="o">{</span><span class="n">store_Tlookup</span> <span class="n">l</span> <span class="n">ST</span> <span class="o">}).</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">Inductive</span> <span class="n">extends</span> <span class="o">:</span> <span class="n">store_ty</span> <span class="o">-&gt;</span> <span class="n">store_ty</span> <span class="o">-&gt;</span> <span class="kt">Prop</span> <span class="o">:=</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">extends_nil</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">ST&#39;</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">extends</span> <span class="n">ST&#39;</span> <span class="n">nil</span>
+</span></span><span class="line"><span class="cl">  <span class="o">|</span> <span class="n">extends_cons</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">x</span> <span class="n">ST&#39;</span> <span class="n">ST</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">extends</span> <span class="n">ST&#39;</span> <span class="n">ST</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">extends</span> <span class="o">(</span><span class="n">x</span><span class="o">::</span><span class="n">ST&#39;</span><span class="o">)</span> <span class="o">(</span><span class="n">x</span><span class="o">::</span><span class="n">ST</span><span class="o">).</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">Theorem</span> <span class="n">preservation</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">ST</span> <span class="n">t</span> <span class="n">t&#39;</span> <span class="n">T</span> <span class="n">st</span> <span class="n">st&#39;</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">empty</span> <span class="o">;</span> <span class="n">ST</span> <span class="o">|--</span> <span class="n">t</span> <span class="err">\</span><span class="k">in</span> <span class="n">T</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">store_well_typed</span> <span class="n">ST</span> <span class="n">st</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">t</span> <span class="o">/</span> <span class="n">st</span> <span class="o">--&gt;</span> <span class="n">t&#39;</span> <span class="o">/</span> <span class="n">st&#39;</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">exists</span> <span class="n">ST&#39;</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">extends</span> <span class="n">ST&#39;</span> <span class="n">ST</span> <span class="o">/\</span>
+</span></span><span class="line"><span class="cl">    <span class="n">empty</span> <span class="o">;</span> <span class="n">ST&#39;</span> <span class="o">|--</span> <span class="n">t&#39;</span> <span class="err">\</span><span class="k">in</span> <span class="n">T</span> <span class="o">/\</span>
+</span></span><span class="line"><span class="cl">    <span class="n">store_well_typed</span> <span class="n">ST&#39;</span> <span class="n">st&#39;</span><span class="o">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">Theorem</span> <span class="n">progress</span> <span class="o">:</span> <span class="k">forall</span> <span class="n">ST</span> <span class="n">t</span> <span class="n">T</span> <span class="n">st</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">  <span class="n">empty</span> <span class="o">;</span> <span class="n">ST</span> <span class="o">|--</span> <span class="n">t</span> <span class="err">\</span><span class="k">in</span> <span class="n">T</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">store_well_typed</span> <span class="n">ST</span> <span class="n">st</span> <span class="o">-&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="o">(</span><span class="n">value</span> <span class="n">t</span> <span class="o">\/</span> <span class="k">exists</span> <span class="n">t&#39;</span> <span class="n">st&#39;</span><span class="o">,</span> <span class="n">t</span> <span class="o">/</span> <span class="n">st</span> <span class="o">--&gt;</span> <span class="n">t&#39;</span> <span class="o">/</span> <span class="n">st&#39;</span><span class="o">).</span>
+</span></span></code></pre></div><p>引用还可以用于定义递归，例如下面的函数 <code>r</code> 会递归调用自己：</p>
+<pre tabindex="0"><code>(\r:Ref (Unit -&gt; Unit).
+  r := (\x:Unit.(!r) unit); (!r))
+(ref (\x:Unit.unit)) unit
+</code></pre><p>模仿上面的形式可以写出阶乘函数：</p>
+<pre tabindex="0"><code>(\r:Ref (Nat -&gt; Nat).
+  r := (\n:Nat. if iszero n then 1 else n * ((!r) (n - 1))); (!r))
+  (ref (\n:Nat. 0))
+</code></pre><h2 id="sub-subtyping">Sub: Subtyping<a href="#sub-subtyping" class="hanchor" ariaLabel="Anchor">#</a> </h2>
+<p>定义子类关系 <code>S &lt;: T</code> 表示 <code>S</code> 是 <code>T</code> 的子类。</p>
+<p>Liskov 替换原则：如果在使用 <code>T</code> 类型的值的场合，都可以替换成 <code>S</code> 类型的值，那么 <code>S</code> 就是 <code>T</code> 的子类。</p>
+<p>使用子类关系定义 term 的类型，认为一个 term 具有他类型的所有父类的类型：</p>
+<pre tabindex="0"><code> Gamma |-- t1 \in T1  T1 &lt;: T2
+------------------------------- (T_Sub)
+      Gamma |-- t1 \in T2
+</code></pre><p>定义子类关系：</p>
+<pre tabindex="0"><code> S &lt;: U  U &lt;: T
+---------------- (S_Trans)
+     S &lt;: T
+
+-------- (S_Refl)
+ T &lt;: T
+
+ S1 &lt;: T1  S2 &lt;: T2
+-------------------- (S_Prod)
+ S1 * S2 &lt;: T1 * T2
+
+        forall jk in j1 ... jn,
+      exists ip in i1 ... im, s.t.
+          jk = ip and Sp &lt;: Tk
+---------------------------------------- (S_Rcd)
+ {i1:S1 ... im:Sm} &lt;: {j1:T1 ... jn:Tn}
+</code></pre><p>函数的子类关系：整体子类关系与输入类型的子类关系是相反的（称作逆变式 contravariance），输出是相同的（称作协变式 covariance）：</p>
+<pre tabindex="0"><code>  T1 &lt;: S1  S2 &lt;: T2
+---------------------- (S_Arrow)
+ S1 -&gt; S2 &lt;: T1 -&gt; T2
+</code></pre><p>引用的子类关系：引用既可以作为输入类型也可以作为输出类型，因此引用既是逆变式也是协变式，即不变：</p>
+<pre tabindex="0"><code> S1 &lt;: T1  T1 &lt;: S1
+-------------------- (S_Ref)
+  Ref S1 &lt;: Ref T1
+</code></pre><p>再定义一个 <code>Top</code> 类型，让他作为最大的类型，即所有类型的父类：</p>
+<pre tabindex="0"><code>
+---------- (S_Top)
+ S &lt;: Top
+</code></pre><p>在加上 Subtyping 之后，就不能像原来的方式一样进行类型推导了。解决方法是只对每个项求最小类型，函数调用的时候检查形参和实参是否有子类关系。</p>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+  <div class="pagination__title">
+    <span class="pagination__title-h">Read other posts</span>
+    <hr />
+  </div>
+  <div class="pagination__buttons">
+    
+    
+    
+      <a href="https://enucai.github.io/posts/algebra-metrix-space/" class="button inline next">
+         [<span class="button__text">Advanced Algebra: Metric Spaces</span>] &gt;
+      </a>
+    
+  </div>
+</div>
+
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2026 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>
